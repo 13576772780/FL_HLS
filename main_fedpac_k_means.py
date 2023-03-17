@@ -15,14 +15,75 @@ import random
 import numpy as np
 import pandas as pd
 import torch
+from sklearn.cluster import KMeans
 from torch import nn
 
 from utils.options import args_parser
-from utils.train_utils import get_data, get_model, read_data
-from models.Update import LocalUpdate
+from utils.train_utils import get_data, get_model, read_data, init_class_center
+from models.Update import LocalUpdate, LocalUpdatePAC, LocalUpdatePACKMEANS
 from models.test import test_img_local_all
 
 import time
+
+
+# num_classes 全局类有多少个，决定了聚合后类的簇的数量
+# class_nums 每个客户端上传的类中心对应的样本的数量，做为计算全局类中心的权重
+def get_class_center_k_means(class_center_locals, args, class_nums, class_center_glob, class_center_glob_num):
+
+    class_center_locals.append(class_center_glob)
+    class_nums.append(class_center_glob_num)
+    # 展平数组，去除为0的点，为0表示客户端没有该类数据
+    class_centers_without_zero = []
+    class_centers_nums = []
+    for idx, cln in enumerate(class_nums):
+        for child_idx ,num in enumerate(cln):
+            if num != 0:
+                class_centers_without_zero.append(class_center_locals[idx][child_idx])
+                class_centers_nums.append(num)
+
+    class_centers_nums = np.array(class_centers_nums)
+    class_centers_without_zero = np.array(class_centers_without_zero)
+
+    model = KMeans(n_clusters=args.num_classes)
+    model.fit(class_centers_without_zero)
+    class_labels = model.predict(class_centers_without_zero)
+
+    # 计算全局类中心点
+    class_center_grob = np.zeros([args.num_classes, class_centers_without_zero[0].shape[0]])
+    # 每个类样本的个数
+    class_sample_num_grob = np.zeros([args.num_classes])
+    for idx, clc in enumerate(class_centers_without_zero):
+        class_center_grob[class_labels[idx]] += clc * class_centers_nums[idx]
+        class_sample_num_grob[class_labels[idx]] += class_centers_nums[idx]
+
+    for idx, clc in enumerate(class_center_grob):
+        class_center_grob[idx] = clc / class_sample_num_grob[idx]
+
+    # # 让返回给客户端的全局类中心和客户端的类中心对齐
+    # cur_idx = 0
+    # for idx, cln in enumerate(class_nums):
+    #     for child_idx ,num in enumerate(cln):
+    #         if num != 0:
+    #             class_center_locals[idx][child_idx] = class_center_grob[class_labels[cur_idx]]
+    #             cur_idx += 1
+
+
+    return class_center_grob, class_sample_num_grob
+
+# class ClassCenterGrob:
+
+def get_fit_grob_center(class_center_glob, class_center_local):
+
+    new_class_center_local = np.zeros(class_center_local.shape)
+    for idx, ccl in enumerate(class_center_local):
+        min_idx = np.argmin(np.square(class_center_glob - ccl))
+        new_class_center_local[idx] = class_center_glob[min_idx]
+
+    return new_class_center_local
+
+
+
+
 
 if __name__ == '__main__':
     # parse args
@@ -126,7 +187,11 @@ if __name__ == '__main__':
     accs10_glob = 0
     start = time.time()
 
+    #初始化每个类的质心和每个质心计算时都数据量，用于增量聚合
+    class_center_glob = init_class_center(args)
+    class_center_glob_num = np.zeros(class_center_glob.shape[0])
 
+    #TODO：这里需要考虑，是否设置为随机初始几类不同的概念偏移矩阵，而不是每个客户端都不一样
     #为每一个客户端计算一个概念偏移矩阵
     concept_matrix = []
     for id in range(args.num_users):
@@ -135,9 +200,14 @@ if __name__ == '__main__':
             random.shuffle(concept_matrix_local)
         concept_matrix.append(concept_matrix_local)
 
+
     for iter in range(args.epochs+1):
         w_glob = {}
         loss_locals = []
+        class_center_locals = []
+        class_nums=[]
+        #用户的历史类中心
+        user_history_class_center={}
         #每轮选取的客户端数
         m = max(int(args.frac * args.num_users), 1)
         #最后一轮选取所有客户端
@@ -152,14 +222,15 @@ if __name__ == '__main__':
             start_in = time.time()
             if 'femnist' in args.dataset or 'sent140' in args.dataset:
                 if args.epochs == iter:
-                    local = LocalUpdate(args=args, dataset=dataset_train[list(dataset_train.keys())[idx][:args.m_ft]], idxs=dict_users_train, indd=indd)
+                    local = LocalUpdatePACKMEANS(args=args, dataset=dataset_train[list(dataset_train.keys())[idx][:args.m_ft]], idxs=dict_users_train, indd=indd)
                 else:
-                    local = LocalUpdate(args=args, dataset=dataset_train[list(dataset_train.keys())[idx][:args.m_tr]], idxs=dict_users_train, indd=indd)
+                    local = LocalUpdatePACKMEANS(args=args, dataset=dataset_train[list(dataset_train.keys())[idx][:args.m_tr]], idxs=dict_users_train, indd=indd)
             else:
                 if args.epochs == iter:
-                    local = LocalUpdate(args=args, dataset=dataset_train, idxs=dict_users_train[idx][:args.m_ft])
+                    local = LocalUpdatePACKMEANS(args=args, dataset=dataset_train, idxs=dict_users_train[idx][:args.m_ft])
                 else:
-                    local = LocalUpdate(args=args, dataset=dataset_train, idxs=dict_users_train[idx][:args.m_tr])
+                    local = LocalUpdatePACKMEANS(args=args, dataset=dataset_train, idxs=dict_users_train[idx][:args.m_tr])
+
 
             net_local = copy.deepcopy(net_glob)
             w_local = net_local.state_dict()
@@ -169,12 +240,26 @@ if __name__ == '__main__':
                         w_local[k] = w_locals[idx][k]
             net_local.load_state_dict(w_local)
             last = iter == args.epochs
-            if 'femnist' in args.dataset or 'sent140' in args.dataset:
-                w_local, loss, indd = local.train(net=net_local.to(args.device),ind=idx, idx=clients[idx], w_glob_keys=w_glob_keys, lr=args.lr,last=last, concept_matrix_local=concept_matrix[idx])
+
+            #在每次训练前，根据客户端的历史类中心选择全局类中心,如果没有历史数据，随机初始化
+            if idx in user_history_class_center.keys():
+                class_center_grob_local = get_fit_grob_center(class_center_glob, user_history_class_center[idx])
             else:
-                w_local, loss, indd = local.train(net=net_local.to(args.device), idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, last=last, concept_matrix_local=concept_matrix[idx])
+                class_center_grob_local = np.array([[random.random() for i in range(class_center_glob.shape[1]) ] for j in range(class_center_glob.shape[0])])
+                # class_center_grob_local = class_center_glob
+
+            if 'femnist' in args.dataset or 'sent140' in args.dataset:
+                w_local, loss, indd, class_center_local, class_num = local.train(net=net_local.to(args.device), class_center_glob=class_center_grob_local, ind=idx, idx=clients[idx], w_glob_keys=w_glob_keys, lr=args.lr,last=last, concept_matrix_local=concept_matrix[idx])
+            else:
+                w_local, loss, indd, class_center_local, class_num = local.train(net=net_local.to(args.device), class_center_glob=class_center_grob_local, idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, last=last, concept_matrix_local=concept_matrix[idx])
             loss_locals.append(copy.deepcopy(loss))
             total_len += lens[idx]
+
+            user_history_class_center[idx] = class_center_local
+            #收集所有客户端的类中心和每个类中心对应的样本数量，用于后面聚类
+            class_center_locals.append(class_center_local)
+            class_nums.append(class_num)
+
             #保存本地层和全局层
             if len(w_glob) == 0:
                 w_glob = copy.deepcopy(w_local)
@@ -196,6 +281,16 @@ if __name__ == '__main__':
         # get weighted average for global weights
         for k in net_glob.state_dict().keys():
             w_glob[k] = torch.div(w_glob[k], total_len)
+
+        #计算全局中心点
+        # for cli, clv in enumerate(class_nums):
+        #     if clv > 0:
+        #         class_center_glob[cli] = class_center_locals[cli] / clv
+
+        #聚类，并获得每个客户端聚类后属于的类中心点
+        class_center_glob, class_center_glob_num = get_class_center_k_means(class_center_locals=class_center_locals, args=args, class_nums=class_nums,
+                                                                            class_center_glob=class_center_glob, class_center_glob_num=class_center_glob_num)
+
 
         w_local = net_glob.state_dict()
         for k in w_glob.keys():
@@ -251,3 +346,7 @@ if __name__ == '__main__':
     accs = np.array(accs)
     accs = pd.DataFrame(accs, columns=['accs'])
     accs.to_csv(base_dir, index=False)
+
+
+
+

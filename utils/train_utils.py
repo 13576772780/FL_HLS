@@ -1,11 +1,13 @@
 # Modified from: https://github.com/pliang279/LG-FedAvg/blob/master/utils/train_utils.py
 # credit goes to: Paul Pu Liang
+import random
 
 from torchvision import datasets, transforms
-from models.Nets import CNNCifar, CNNCifar100, RNNSent, MLP
+from models.Nets import CNNCifar, CNNCifar100, RNNSent, MLP, CNN_FEMNIST
 from utils.sampling import noniid
 import os
 import json
+import numpy as np
 
 trans_mnist = transforms.Compose([transforms.ToTensor(),
                                   transforms.Normalize((0.1307,), (0.3081,))])
@@ -109,3 +111,26 @@ def get_model(args):
     print(net_glob)
 
     return net_glob
+
+
+def init_class_center(args):
+    if args.model == 'cnn' and 'cifar100' in args.dataset:
+        net_glob = CNNCifar100(args=args).to(args.device)
+    elif args.model == 'cnn' and 'cifar10' in args.dataset:
+        net_glob = CNNCifar(args=args).to(args.device)
+    elif args.model == 'mlp' and 'mnist' in args.dataset:
+        net_glob = MLP(dim_in=784, dim_hidden=256, dim_out=args.num_classes).to(args.device)
+        #net_glob.layer_hidden2.out_features
+        class_center = np.array([[random.random() for j in range(net_glob.layer_hidden2.out_features)] for i in range(10)])
+        # class_center = np.array([[[random.random() for j in range(net_glob.layer_hidden2.out_features)] for i in range(10)] for k in range(args.num_users)])
+    elif args.model == 'cnn' and 'femnist' in args.dataset:
+        net_glob = CNN_FEMNIST(args=args).to(args.device)
+    elif args.model == 'mlp' and 'cifar' in args.dataset:
+        net_glob = MLP(dim_in=3072, dim_hidden=512, dim_out=args.num_classes).to(args.device)
+    elif 'sent140' in args.dataset:
+        net_glob = model = RNNSent(args,'LSTM', 2, 25, 128, 1, 0.5, tie_weights=False).to(args.device)
+    else:
+        exit('Error: unrecognized model')
+    print(net_glob)
+
+    return class_center

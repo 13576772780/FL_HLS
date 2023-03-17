@@ -33,7 +33,9 @@ def args_parser():
     parser.add_argument('--max_pool', type=str, default='True',
                         help="Whether use max pooling rather than strided convolutions")
     parser.add_argument('--num_layers_keep', type=int, default=1, help='number layers to keep')
+
     parser.add_argument('--alg', type=str, default='fedavg', help='FL algorithm to use')
+
     
     # algorithm-specific hyperparameters
     parser.add_argument('--local_rep_ep', type=int, default=1, help="the number of local epochs for the representation for FedRep")
@@ -58,6 +60,10 @@ def args_parser():
     parser.add_argument('--load_fed', type=str, default='n', help='define pretrained federated model path')
     parser.add_argument('--results_save', type=str, default='runA', help='define fed results save folder')
     parser.add_argument('--save_every', type=int, default=50, help='how often to save models')
+
+    #后面加的---FedPAC独有参数 和概念偏移参数
+    parser.add_argument('--pac_param', type=float, default=0.1, help=' balance supervised loss and regularization loss')
+    parser.add_argument('--is_concept_shift', type=int, default=1, help='control whether the local client is concept-shift')
 
     args = parser.parse_args()
     return args

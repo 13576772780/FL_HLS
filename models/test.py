@@ -39,7 +39,7 @@ class DatasetSplit_leaf(Dataset):
         image, label = self.dataset[item]
         return image, label
 
-def test_img_local(net_g, dataset, args,idx=None,indd=None, user_idx=-1, idxs=None):
+def test_img_local(net_g, dataset, args,idx=None,indd=None, user_idx=-1, idxs=None, concept_matrix_local= None):
     net_g.eval()
     test_loss = 0
     correct = 0
@@ -67,6 +67,11 @@ def test_img_local(net_g, dataset, args,idx=None,indd=None, user_idx=-1, idxs=No
         hidden_train = net_g.init_hidden(args.local_bs)
     count = 0
     for idx, (data, target) in enumerate(data_loader):
+
+        if args.is_concept_shift == 1:
+            # 通过概念偏移矩阵进行标签概念偏移
+            target = torch.tensor(concept_matrix_local[target.numpy()])
+
         if 'sent140' in args.dataset:
             input_data, target_data = process_x(data, indd), process_y(target, indd)
             if args.local_bs != 1 and input_data.shape[0] != args.local_bs:
@@ -99,13 +104,14 @@ def test_img_local(net_g, dataset, args,idx=None,indd=None, user_idx=-1, idxs=No
     accuracy = 100.00 * float(correct) / count
     return  accuracy, test_loss
 
-def test_img_local_all(net, args, dataset_test, dict_users_test,w_locals=None,w_glob_keys=None, indd=None,dataset_train=None,dict_users_train=None, return_all=False):
+def test_img_local_all(net, args, dataset_test, dict_users_test,w_locals=None,w_glob_keys=None, indd=None,dataset_train=None,dict_users_train=None, return_all=False, concept_matrix=None):
     tot = 0
     num_idxxs = args.num_users
     acc_test_local = np.zeros(num_idxxs)
     loss_test_local = np.zeros(num_idxxs)
+
     for idx in range(num_idxxs):
-	net_local = copy.deepcopy(net)
+        net_local = copy.deepcopy(net)
         if w_locals is not None:
             w_local = net_local.state_dict()
             for k in w_locals[idx].keys():
@@ -116,10 +122,10 @@ def test_img_local_all(net, args, dataset_test, dict_users_test,w_locals=None,w_
             net_local.load_state_dict(w_local)
         net_local.eval()
         if 'femnist' in args.dataset or 'sent140' in args.dataset:
-            a, b =  test_img_local(net_local, dataset_test, args,idx=dict_users_test[idx],indd=indd, user_idx=idx)
+            a, b =  test_img_local(net_local, dataset_test, args,idx=dict_users_test[idx],indd=indd, user_idx=idx, concept_matrix_local=concept_matrix[idx])
             tot += len(dataset_test[dict_users_test[idx]]['x'])
         else:
-            a, b = test_img_local(net_local, dataset_test, args, user_idx=idx, idxs=dict_users_test[idx]) 
+            a, b = test_img_local(net_local, dataset_test, args, user_idx=idx, idxs=dict_users_test[idx], concept_matrix_local=concept_matrix[idx])
             tot += len(dict_users_test[idx])
         if 'femnist' in args.dataset or 'sent140' in args.dataset:
             acc_test_local[idx] = a*len(dataset_test[dict_users_test[idx]]['x'])

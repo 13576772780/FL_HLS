@@ -18,8 +18,8 @@ import torch
 from torch import nn
 
 from utils.options import args_parser
-from utils.train_utils import get_data, get_model, read_data
-from models.Update import LocalUpdate
+from utils.train_utils import get_data, get_model, read_data, init_class_center
+from models.Update import LocalUpdate, LocalUpdatePAC
 from models.test import test_img_local_all
 
 import time
@@ -126,6 +126,8 @@ if __name__ == '__main__':
     accs10_glob = 0
     start = time.time()
 
+    #初始化每个类的质心
+    class_center_glob = init_class_center(args)
 
     #为每一个客户端计算一个概念偏移矩阵
     concept_matrix = []
@@ -135,9 +137,12 @@ if __name__ == '__main__':
             random.shuffle(concept_matrix_local)
         concept_matrix.append(concept_matrix_local)
 
+
     for iter in range(args.epochs+1):
         w_glob = {}
         loss_locals = []
+        class_center_locals = np.zeros(class_center_glob.shape)
+        class_nums=np.zeros(class_center_glob.shape[0])
         #每轮选取的客户端数
         m = max(int(args.frac * args.num_users), 1)
         #最后一轮选取所有客户端
@@ -152,14 +157,15 @@ if __name__ == '__main__':
             start_in = time.time()
             if 'femnist' in args.dataset or 'sent140' in args.dataset:
                 if args.epochs == iter:
-                    local = LocalUpdate(args=args, dataset=dataset_train[list(dataset_train.keys())[idx][:args.m_ft]], idxs=dict_users_train, indd=indd)
+                    local = LocalUpdatePAC(args=args, dataset=dataset_train[list(dataset_train.keys())[idx][:args.m_ft]], idxs=dict_users_train, indd=indd)
                 else:
-                    local = LocalUpdate(args=args, dataset=dataset_train[list(dataset_train.keys())[idx][:args.m_tr]], idxs=dict_users_train, indd=indd)
+                    local = LocalUpdatePAC(args=args, dataset=dataset_train[list(dataset_train.keys())[idx][:args.m_tr]], idxs=dict_users_train, indd=indd)
             else:
                 if args.epochs == iter:
-                    local = LocalUpdate(args=args, dataset=dataset_train, idxs=dict_users_train[idx][:args.m_ft])
+                    local = LocalUpdatePAC(args=args, dataset=dataset_train, idxs=dict_users_train[idx][:args.m_ft])
                 else:
-                    local = LocalUpdate(args=args, dataset=dataset_train, idxs=dict_users_train[idx][:args.m_tr])
+                    local = LocalUpdatePAC(args=args, dataset=dataset_train, idxs=dict_users_train[idx][:args.m_tr])
+
 
             net_local = copy.deepcopy(net_glob)
             w_local = net_local.state_dict()
@@ -170,11 +176,13 @@ if __name__ == '__main__':
             net_local.load_state_dict(w_local)
             last = iter == args.epochs
             if 'femnist' in args.dataset or 'sent140' in args.dataset:
-                w_local, loss, indd = local.train(net=net_local.to(args.device),ind=idx, idx=clients[idx], w_glob_keys=w_glob_keys, lr=args.lr,last=last, concept_matrix_local=concept_matrix[idx])
+                w_local, loss, indd, class_center_local, class_num = local.train(net=net_local.to(args.device), ind=idx, idx=clients[idx], w_glob_keys=w_glob_keys, lr=args.lr,last=last, concept_matrix_local=concept_matrix[idx])
             else:
-                w_local, loss, indd = local.train(net=net_local.to(args.device), idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, last=last, concept_matrix_local=concept_matrix[idx])
+                w_local, loss, indd, class_center_local, class_num = local.train(net=net_local.to(args.device), class_center_glob=class_center_glob, idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, last=last, concept_matrix_local=concept_matrix[idx])
             loss_locals.append(copy.deepcopy(loss))
             total_len += lens[idx]
+            class_center_locals += class_center_local
+            class_nums += class_num
             #保存本地层和全局层
             if len(w_glob) == 0:
                 w_glob = copy.deepcopy(w_local)
@@ -196,6 +204,11 @@ if __name__ == '__main__':
         # get weighted average for global weights
         for k in net_glob.state_dict().keys():
             w_glob[k] = torch.div(w_glob[k], total_len)
+
+        #计算全局中心点
+        for cli, clv in enumerate(class_nums):
+            if clv > 0:
+                class_center_glob[cli] = class_center_locals[cli] / clv
 
         w_local = net_glob.state_dict()
         for k in w_glob.keys():
