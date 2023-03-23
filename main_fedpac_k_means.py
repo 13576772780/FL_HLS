@@ -348,7 +348,7 @@ if __name__ == '__main__':
             model_save_path = './save/accs_'+ args.alg + '_' + args.dataset + '_' + str(args.num_users) +'_'+ str(args.shard_per_user) +'_iter' + str(iter)+ '.pt'
             torch.save(net_glob.state_dict(), model_save_path)
     with open('output.txt', 'a') as f:
-        f.write('Average accuracy final 10 rounds: {}'.format(accs10))
+        print('Average accuracy final 10 rounds: {}'.format(accs10))
     if args.alg == 'fedavg' or args.alg == 'prox':
         with open('output.txt', 'a') as f:
             f.write('Average global accuracy final 10 rounds: {}'.format(accs10_glob))

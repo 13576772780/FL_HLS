@@ -30,9 +30,9 @@ if __name__ == '__main__':
     args.device = torch.device('cuda:{}'.format(args.gpu) if torch.cuda.is_available() and args.gpu != -1 else 'cpu')
 
     with open('output.txt', 'a') as f:
-        f.write('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n')
-        f.write('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n')
-        f.write('# alg: {} , epochs: {}, shard_per_user: {}, limit_local_output: {}, local_rep_ep: {} , local_only: {}, is_concept_shift: {}, dataset: {}  \n'.format(
+        print('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n')
+        print('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n')
+        print('# alg: {} , epochs: {}, shard_per_user: {}, limit_local_output: {}, local_rep_ep: {} , local_only: {}, is_concept_shift: {}, dataset: {}  \n'.format(
                 args.alg, args.epochs, args.shard_per_user, args.limit_local_output, args.local_rep_ep, args.local_only,
                 args.is_concept_shift, args.dataset))
 
@@ -112,10 +112,10 @@ if __name__ == '__main__':
                 num_param_glob += net_glob.state_dict()[key].numel()
         percentage_param = 100 * float(num_param_glob) / num_param_local
         with open('output.txt', 'a') as f:
-            f.write('# Params: {} (local), {} (global); Percentage {:.2f} ({}/{})'.format(
+            print('# Params: {} (local), {} (global); Percentage {:.2f} ({}/{})'.format(
             num_param_local, num_param_glob, percentage_param, num_param_glob, num_param_local))
     with open('output.txt', 'a') as f:
-        f.write("learning rate, batch size: {}, {}".format(args.lr, args.local_bs))
+        print("learning rate, batch size: {}, {}".format(args.lr, args.local_bs))
 
     # generate list of local models for each user
     net_local_list = []
@@ -237,12 +237,12 @@ if __name__ == '__main__':
             # for algs which learn a single global model, these are the local accuracies (computed using the locally updated versions of the global model at the end of each round)
             if iter != args.epochs:
                 with open('output.txt', 'a') as f:
-                    f.write('Round {:3d}, Train loss: {:.3f}, Test loss: {:.3f}, Test accuracy: {:.2f}'.format(
+                    print('Round {:3d}, Train loss: {:.3f}, Test loss: {:.3f}, Test accuracy: {:.2f}'.format(
                         iter, loss_avg, loss_test, acc_test))
             else:
                 # in the final round, we sample all users, and for the algs which learn a single global model, we fine-tune the head for 10 local epochs for fair comparison with FedRep
                 with open('output.txt', 'a') as f:
-                    f.write('Final Round, Train loss: {:.3f}, Test loss: {:.3f}, Test accuracy: {:.2f}'.format(
+                    print('Final Round, Train loss: {:.3f}, Test loss: {:.3f}, Test accuracy: {:.2f}'.format(
                         loss_avg, loss_test, acc_test))
             if iter >= args.epochs-10 and iter != args.epochs:
                 accs10 += acc_test/10
@@ -253,11 +253,11 @@ if __name__ == '__main__':
                                                         w_locals=None,indd=indd,dataset_train=dataset_train, dict_users_train=dict_users_train, return_all=False, concept_matrix=concept_matrix)
                 if iter != args.epochs:
                     with open('output.txt', 'a') as f:
-                        f.write('Round {:3d}, Global train loss: {:.3f}, Global test loss: {:.3f}, Global test accuracy: {:.2f}'.format(
+                        print('Round {:3d}, Global train loss: {:.3f}, Global test loss: {:.3f}, Global test accuracy: {:.2f}'.format(
                         iter, loss_avg, loss_test, acc_test))
                 else:
                     with open('output.txt', 'a') as f:
-                        f.write('Final Round, Global train loss: {:.3f}, Global test loss: {:.3f}, Global test accuracy: {:.2f}'.format(
+                        print('Final Round, Global train loss: {:.3f}, Global test loss: {:.3f}, Global test accuracy: {:.2f}'.format(
                         loss_avg, loss_test, acc_test))
             if iter >= args.epochs-10 and iter != args.epochs:
                 accs10_glob += acc_test/10
@@ -266,10 +266,10 @@ if __name__ == '__main__':
             model_save_path = './save/accs_'+ args.alg + '_' + args.dataset + '_' + str(args.num_users) +'_'+ str(args.shard_per_user) +'_iter' + str(iter)+ '.pt'
             torch.save(net_glob.state_dict(), model_save_path)
     with open('output.txt', 'a') as f:
-        f.write('Average accuracy final 10 rounds: {}'.format(accs10))
+        print('Average accuracy final 10 rounds: {}'.format(accs10))
     if args.alg == 'fedavg' or args.alg == 'prox':
         with open('output.txt', 'a') as f:
-            f.write('Average global accuracy final 10 rounds: {}'.format(accs10_glob))
+            print('Average global accuracy final 10 rounds: {}'.format(accs10_glob))
     end = time.time()
     print(end-start)
     print(times)
