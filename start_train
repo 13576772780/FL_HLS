@@ -1,0 +1,32 @@
+#!/bin/bash
+
+for c in {2..5}:
+do
+	#fedvag local only
+	for i in {1..5};
+	do 
+		python main_fedrep.py --alg fedavg --epochs 20 --shard_per_user $c --limit_local_output 1 --local_rep_ep 4 --local_only 1 --is_concept_shift 0 --dataset cifar10 --model cnn
+	done
+
+	for i in {1..5};
+	do 
+		python main_fedrep.py --alg fedavg --epochs 20 --shard_per_user $c --limit_local_output 1 --local_rep_ep 4 --local_only 0 --is_concept_shift 0 --dataset cifar10 --model cnn
+	done
+
+	for i in {1..5};
+	do 
+		python main_fedrep.py --alg fedrep --epochs 20 --shard_per_user $c --limit_local_output 1 --local_rep_ep 4 --local_only 0 --is_concept_shift 0 --dataset cifar10 --model cnn
+	done
+
+	for i in {1..5};
+	do 
+		python main_fedpac.py --alg fedrep --epochs 20 --shard_per_user $c --limit_local_output 1 --local_rep_ep 4 --local_only 0 --is_concept_shift 0 --dataset cifar10 --model cnn
+	done
+
+	for i in {1..5};
+	do 
+		python main_fedpac_k_means.py --alg fedrep --epochs 20 --shard_per_user $c --limit_local_output 1 --local_rep_ep 4 --local_only 0 --is_concept_shift 0 --dataset cifar10 --model cnn
+	done
+done
+
+
