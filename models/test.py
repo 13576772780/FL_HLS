@@ -68,7 +68,7 @@ def test_img_local(net_g, dataset, args,idx=None,indd=None, user_idx=-1, idxs=No
     count = 0
     for idx, (data, target) in enumerate(data_loader):
 
-        if args.is_concept_shift == 1:
+        if args.is_concept_shift == 1 or args.limit_local_output == 1:
             # 通过概念偏移矩阵进行标签概念偏移
             target = torch.tensor(concept_matrix_local[target.numpy()])
 

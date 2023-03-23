@@ -67,8 +67,13 @@ class CNNCifar(nn.Module):
         self.conv2 = nn.Conv2d(64, 64, 5)
         self.fc1 = nn.Linear(64 * 5 * 5, 120)
         self.fc2 = nn.Linear(120, 64)
-        self.fc3 = nn.Linear(64, args.num_classes)
-        self.cls = args.num_classes
+        if args.limit_local_output == 0:
+            self.fc3 = nn.Linear(64, args.num_classes)
+            self.cls = args.num_classes
+        else:
+            self.fc3 = nn.Linear(64, args.shard_per_user)
+            self.cls = args.shard_per_user
+
 
         self.weight_keys = [['fc1.weight', 'fc1.bias'],
                             ['fc2.weight', 'fc2.bias'],

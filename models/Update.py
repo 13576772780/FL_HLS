@@ -585,7 +585,7 @@ class LocalUpdate(object):
                 elif 'mnist' in self.args.dataset:
                     w_glob_keys = [net.weight_keys[i] for i in [0,1,2]]
             elif 'maml' in self.args.alg:
-                local_eps = 5
+                local_eps = 10
                 w_glob_keys = []
             else:
                 local_eps =  max(10,local_eps-self.args.local_rep_ep)
@@ -622,7 +622,7 @@ class LocalUpdate(object):
             batch_loss = []
             for batch_idx, (images, labels) in enumerate(self.ldr_train):
 
-                if self.args.is_concept_shift == 1:
+                if self.args.is_concept_shift == 1 or self.args.limit_local_output == 1:
                     #通过概念偏移矩阵进行标签概念偏移
                     labels = torch.tensor(concept_matrix_local[labels.numpy()])
 
@@ -756,7 +756,7 @@ class LocalUpdatePAC(object):
             batch_loss = []
             for batch_idx, (images, labels) in enumerate(self.ldr_train):
 
-                if self.args.is_concept_shift == 1:
+                if self.args.is_concept_shift == 1 or self.args.limit_local_output == 1:
                     #通过概念偏移矩阵进行标签概念偏移
                     labels = torch.tensor(concept_matrix_local[labels.numpy()])
 
@@ -784,6 +784,8 @@ class LocalUpdatePAC(object):
                         #获取特征值
                         if self.args.model == "mlp":
                             net.layer_hidden2.register_forward_hook(self.hook)
+                        elif self.args.model == "cnn":
+                            net.fc2.register_forward_hook(self.hook)
                         log_probs = net(images)
 
                         #计算正则项
@@ -812,7 +814,7 @@ class LocalUpdatePAC(object):
         class_center_local = np.zeros(class_center_glob.shape)
         class_num = np.zeros(class_center_glob.shape[0])
         for batch_idx, (images, labels) in enumerate(self.ldr_train):
-            if self.args.is_concept_shift == 1:
+            if self.args.is_concept_shift == 1 or self.args.limit_local_output == 1:
                 # 通过概念偏移矩阵进行标签概念偏移
                 labels = torch.tensor(concept_matrix_local[labels.numpy()])
             if 'sent140' in self.args.dataset:
@@ -823,6 +825,8 @@ class LocalUpdatePAC(object):
                 # 获取特征值
                 if self.args.model == "mlp":
                     net.layer_hidden2.register_forward_hook(self.hook)
+                elif self.args.model == "cnn":
+                    net.fc2.register_forward_hook(self.hook)
                 net(images)
                 featrue = self.features.detach().numpy()
                 labels = labels.detach().numpy()
@@ -839,6 +843,9 @@ class LocalUpdatePAC(object):
 
     def hook(self, module, input, output):
         self.features = output
+        return None
+    def hook_cnn(self, module, input, output):
+        self.features = input
         return None
 
 
@@ -940,7 +947,7 @@ class LocalUpdatePACKMEANS(object):
             batch_loss = []
             for batch_idx, (images, labels) in enumerate(self.ldr_train):
 
-                if self.args.is_concept_shift == 1:
+                if self.args.is_concept_shift == 1 or self.args.limit_local_output == 1:
                     # 通过概念偏移矩阵进行标签概念偏移
                     labels = torch.tensor(concept_matrix_local[labels.numpy()])
 
@@ -967,6 +974,8 @@ class LocalUpdatePACKMEANS(object):
                         # 获取特征值
                         if self.args.model == "mlp":
                             net.layer_hidden2.register_forward_hook(self.hook)
+                        elif self.args.model == "cnn":
+                            net.fc2.register_forward_hook(self.hook)
                         log_probs = net(images)
 
                         # 计算正则项
@@ -995,7 +1004,7 @@ class LocalUpdatePACKMEANS(object):
         class_center_local = np.zeros(class_center_glob.shape)
         class_num = np.zeros(class_center_glob.shape[0])
         for batch_idx, (images, labels) in enumerate(self.ldr_train):
-            if self.args.is_concept_shift == 1:
+            if self.args.is_concept_shift == 1 or self.args.limit_local_output == 1:
                 # 通过概念偏移矩阵进行标签概念偏移
                 labels = torch.tensor(concept_matrix_local[labels.numpy()])
             if 'sent140' in self.args.dataset:
@@ -1006,6 +1015,8 @@ class LocalUpdatePACKMEANS(object):
                 # 获取特征值
                 if self.args.model == "mlp":
                     net.layer_hidden2.register_forward_hook(self.hook)
+                elif self.args.model == "cnn":
+                    net.fc2.register_forward_hook(self.hook)
                 net(images)
                 featrue = self.features.detach().numpy()
                 labels = labels.detach().numpy()
