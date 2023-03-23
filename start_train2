@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for c in {2..5}:
+for((c = 2; c < 6; c ++))
 do
 	#fedvag local only
 	for i in {1..5};
