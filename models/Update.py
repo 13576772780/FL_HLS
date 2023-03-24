@@ -986,7 +986,6 @@ class LocalUpdatePACKMEANS(object):
                     else:
                         log_probs = net(images)
                         loss = self.loss_func(log_probs, labels)
-
                     loss.backward()
                     optimizer.step()
                 num_updates += 1
@@ -1032,6 +1031,9 @@ class LocalUpdatePACKMEANS(object):
 
     def hook(self, module, input, output):
         self.features = output
+        return None
+    def hook_v2(self, module, input, output):
+        self.features = input
         return None
 
 class LocalUpdateMTL(object):

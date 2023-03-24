@@ -23,7 +23,7 @@ var/
 wheels/
 share/python-wheels/
 *.egg-info/
-#data/*
+data/*
 models/*
 .installed.cfg
 *.egg
