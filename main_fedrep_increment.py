@@ -211,11 +211,19 @@ if __name__ == '__main__':
                         w_glob[key] += w_local[key]*lens[idx]
                     w_locals[idx][key] = w_local[key]
 
+            # TODO 关键,每训练完一个客户端就更新net_glob,让其他客户端基于这个权重训练
+            w_net_glob = net_glob.state_dict()
+            for k, key in enumerate(net_glob.state_dict().keys()):
+                w_net_glob[key] = w_local[key]
+            net_glob.load_state_dict(w_net_glob)
+
             times_in.append( time.time() - start_in )
+
         loss_avg = sum(loss_locals) / len(loss_locals)
         loss_train.append(loss_avg)
 
         # get weighted average for global weights
+        # TODO 训练完后fedavg，并更新net_glob进行下一轮训练
         for k in net_glob.state_dict().keys():
             w_glob[k] = torch.div(w_glob[k], total_len)
 

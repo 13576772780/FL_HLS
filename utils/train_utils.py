@@ -4,7 +4,7 @@ import random
 
 from torchvision import datasets, transforms
 from models.Nets import CNNCifar, CNNCifar100, RNNSent, MLP, CNN_FEMNIST
-from utils.sampling import noniid
+from utils.sampling import noniid, noniid_v2
 import os
 import json
 import numpy as np
@@ -43,13 +43,13 @@ def get_data(args):
         dict_users_test, rand_set_all = noniid(dataset_test, args.num_users, args.shard_per_user, args.num_classes, rand_set_all=rand_set_all)
 
         #为了让没个客户端模型只有限定类数量的输出，比如只有3类输出，将每个客户端的类映射到0，1，2.。。。
-        concept_matrix = np.array([[ -1 for i in range(10)] for j in range(args.num_users)])
-        for idx, cls in enumerate(rand_set_all):
-            start = 0
-            for val in cls:
-                if concept_matrix[idx][val] == -1:
-                    concept_matrix[idx][val] = start
-                    start += 1
+        # concept_matrix = np.array([[ -1 for i in range(10)] for j in range(args.num_users)])
+        # for idx, cls in enumerate(rand_set_all):
+        #     start = 0
+        #     for val in cls:
+        #         if concept_matrix[idx][val] == -1:
+        #             concept_matrix[idx][val] = start
+        #             start += 1
 
     elif args.dataset == 'cifar100':
         dataset_train = datasets.CIFAR100('data/cifar100', train=True, download=True, transform=trans_cifar100_train)
@@ -73,9 +73,9 @@ def get_data_v2(args):
     elif args.dataset == 'cifar10':
         dataset_train = datasets.CIFAR10('data/cifar10', train=True, download=True, transform=trans_cifar10_train)
         dataset_test = datasets.CIFAR10('data/cifar10', train=False, download=True, transform=trans_cifar10_val)
-        dict_users_train, rand_set_all = noniid(dataset_train, args.num_users, args.shard_per_user, args.num_classes)
-        dict_users_test, rand_set_all = noniid(dataset_test, args.num_users, args.shard_per_user, args.num_classes,
-                                               rand_set_all=rand_set_all)
+        dict_users_train, rand_set_all = noniid_v2(dataset_train, args.num_users, args.shard_per_user, args.num_classes, nums_per_class=args.nums_per_class)
+        dict_users_test, rand_set_all = noniid_v2(dataset_test, args.num_users, args.shard_per_user, args.num_classes,
+                                               rand_set_all=rand_set_all, nums_per_class=args.nums_per_class)
 
         # 为了让没个客户端模型只有限定类数量的输出，比如只有3类输出，将每个客户端的类映射到0，1，2.。。。
         concept_matrix = np.array([[-1 for i in range(10)] for j in range(args.num_users)], dtype=np.int64)
@@ -96,6 +96,9 @@ def get_data_v2(args):
         exit('Error: unrecognized dataset')
 
     return dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix
+
+
+
 
 def read_data(train_data_dir, test_data_dir):
     '''parses data in given train and test data directories

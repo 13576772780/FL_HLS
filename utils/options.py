@@ -8,7 +8,7 @@ def args_parser():
     parser = argparse.ArgumentParser()
     # federated arguments
     parser.add_argument('--epochs', type=int, default=10, help="rounds of training")
-    parser.add_argument('--num_users', type=int, default=100, help="number of users: n")
+    parser.add_argument('--num_users', type=int, default=10, help="number of users: n")
     parser.add_argument('--shard_per_user', type=int, default=2, help="classes per user")
     parser.add_argument('--frac', type=float, default=0.1, help="the fraction of clients: C")
     parser.add_argument('--local_ep', type=int, default=5, help="the number of local epochs: E")
@@ -66,6 +66,9 @@ def args_parser():
     parser.add_argument('--is_concept_shift', type=int, default=0, help='control whether the local client is concept-shift')
     parser.add_argument('--local_only', type=int, default=0, help='Only train locally')
     parser.add_argument('--limit_local_output', type=int, default=0, help='limit local output numbers')
+    parser.add_argument('--nums_per_class', type=int, default=100, help='smaples number of class')
+    # parser.add_argument('--output_of_classify_header', type=int, default=10, help='output of classify header')
+    # parser.add_argument('--is_class_overlapping', type=int, default=1, help='is client class  overlapping')
 
     args = parser.parse_args()
     return args
