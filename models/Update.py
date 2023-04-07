@@ -1109,8 +1109,9 @@ class LocalUpdatePAC(object):
                 net(images)
                 if self.args.model == "resnet18":
                     self.features = self.features[0]
-                featrue = self.features.detach().numpy()
-                labels = labels.detach().numpy()
+                # self.features = self.features.to(self.args.device)
+                featrue = self.features.detach().cpu().numpy()
+                labels = labels.detach().cpu().numpy()
                 for idx, cls in enumerate(labels):
                     class_center_local[cls] += featrue[idx]
                     class_num[cls] += 1
@@ -1124,9 +1125,11 @@ class LocalUpdatePAC(object):
 
     def hook(self, module, input, output):
         self.features = output
+
         return None
     def hook_input(self, module, input, output):
         self.features = input
+
         return None
 
 
