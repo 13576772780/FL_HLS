@@ -3,7 +3,7 @@
 import random
 
 from torchvision import datasets, transforms
-from models.Nets import CNNCifar, CNNCifar100, RNNSent, MLP, CNN_FEMNIST
+from models.Nets import CNNCifar, CNNCifar100, RNNSent, MLP, CNN_FEMNIST, Resnet_18, ResNet, ResNet18
 from utils.sampling import noniid, noniid_v2
 import os
 import json
@@ -147,6 +147,9 @@ def get_model(args):
         net_glob = CNNCifar100(args=args).to(args.device)
     elif args.model == 'cnn' and 'cifar10' in args.dataset:
         net_glob = CNNCifar(args=args).to(args.device)
+    elif args.model == 'resnet18' and 'cifar10' in args.dataset:
+        # net_glob = Resnet_18(args=args).to(args.device)
+        net_glob = ResNet18(args=args)
     elif args.model == 'mlp' and 'mnist' in args.dataset:
         net_glob = MLP(dim_in=784, dim_hidden=256, dim_out=args.num_classes).to(args.device)
     elif args.model == 'cnn' and 'femnist' in args.dataset:
@@ -168,6 +171,9 @@ def init_class_center(args):
     elif args.model == 'cnn' and 'cifar10' in args.dataset:
         net_glob = CNNCifar(args=args).to(args.device)
         class_center = np.array([[random.random() for j in range(net_glob.fc3.in_features)] for i in range(10)])
+    elif args.model == 'resnet18' and 'cifar10' in args.dataset:
+        net_glob = ResNet18(args=args)
+        class_center = np.array([[random.random() for j in range(net_glob.linear.in_features)] for i in range(10)])
     elif args.model == 'mlp' and 'mnist' in args.dataset:
         net_glob = MLP(dim_in=784, dim_hidden=256, dim_out=args.num_classes).to(args.device)
         #net_glob.layer_hidden2.out_features

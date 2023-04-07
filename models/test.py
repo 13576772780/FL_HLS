@@ -114,11 +114,16 @@ def test_img_local_all(net, args, dataset_test, dict_users_test,w_locals=None,w_
         net_local = copy.deepcopy(net)
         if w_locals is not None:
             w_local = net_local.state_dict()
-            for k in w_locals[idx].keys():
-                if w_glob_keys is not None and k not in w_glob_keys:
+            if args.local_only == 1:
+                for k in w_locals[idx].keys():
                     w_local[k] = w_locals[idx][k]
-                elif w_glob_keys is None:
-                    w_local[k] = w_locals[idx][k]
+            else:
+                for k in w_locals[idx].keys():
+                    if w_glob_keys is not None and k not in w_glob_keys:
+                        w_local[k] = w_locals[idx][k]
+                    elif w_glob_keys is None:
+                        w_local[k] = w_locals[idx][k]
+
             net_local.load_state_dict(w_local)
         net_local.eval()
         if 'femnist' in args.dataset or 'sent140' in args.dataset:
@@ -138,3 +143,42 @@ def test_img_local_all(net, args, dataset_test, dict_users_test,w_locals=None,w_
     if return_all:
         return acc_test_local, loss_test_local
     return  sum(acc_test_local)/tot, sum(loss_test_local)/tot
+
+
+def test_img_local_all_increment(net, args, dataset_test, dict_users_test, w_locals=None, w_glob_keys=None, indd=None,
+                       dataset_train=None, dict_users_train=None, return_all=False, concept_matrix=None, num_idxxs=1):
+    tot = 0
+    # num_idxxs = args.num_users
+    acc_test_local = np.zeros(num_idxxs)
+    loss_test_local = np.zeros(num_idxxs)
+
+    for idx in range(num_idxxs):
+        net_local = copy.deepcopy(net)
+        if w_locals is not None:
+            w_local = net_local.state_dict()
+            for k in w_locals[idx].keys():
+                if w_glob_keys is not None and k not in w_glob_keys:
+                    w_local[k] = w_locals[idx][k]
+                elif w_glob_keys is None:
+                    w_local[k] = w_locals[idx][k]
+            net_local.load_state_dict(w_local)
+        net_local.eval()
+        if 'femnist' in args.dataset or 'sent140' in args.dataset:
+            a, b = test_img_local(net_local, dataset_test, args, idx=dict_users_test[idx], indd=indd, user_idx=idx,
+                                  concept_matrix_local=concept_matrix[idx])
+            tot += len(dataset_test[dict_users_test[idx]]['x'])
+        else:
+            a, b = test_img_local(net_local, dataset_test, args, user_idx=idx, idxs=dict_users_test[idx],
+                                  concept_matrix_local=concept_matrix[idx])
+            tot += len(dict_users_test[idx])
+        if 'femnist' in args.dataset or 'sent140' in args.dataset:
+            acc_test_local[idx] = a * len(dataset_test[dict_users_test[idx]]['x'])
+            loss_test_local[idx] = b * len(dataset_test[dict_users_test[idx]]['x'])
+        else:
+            acc_test_local[idx] = a * len(dict_users_test[idx])
+            loss_test_local[idx] = b * len(dict_users_test[idx])
+        del net_local
+
+    if return_all:
+        return acc_test_local, loss_test_local
+    return sum(acc_test_local) / tot, sum(loss_test_local) / tot

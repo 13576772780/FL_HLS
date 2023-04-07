@@ -51,10 +51,12 @@ class test_model(nn.Module):
 
 
 # 创建一个Tensor
-x = torch.tensor([[1, 2], [3, 4]])
-
-# 将Tensor转换为NumPy数组
-x_np = x.numpy()
-x_np[0][0] = 6
-print(x_np)
-print(x)
+# x = torch.tensor([[1, 2], [3, 4]])
+#
+# # 将Tensor转换为NumPy数组
+# x_np = x.numpy()
+# x_np[0][0] = 6
+# print(x_np)
+# print(x)
+weight_keys = [['linear.weight', 'linear.bias']]
+print('linear.weight' in weight_keys)

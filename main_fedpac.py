@@ -102,7 +102,11 @@ if __name__ == '__main__':
     #选择公共层
     if args.alg == 'fedrep' or args.alg == 'fedper':
         if 'cifar' in  args.dataset:
-            w_glob_keys = [net_glob.weight_keys[i] for i in [0,1,3,4]]
+            if args.model != 'resnet18':
+                w_glob_keys = [net_glob.weight_keys[i] for i in [0, 1, 3, 4]]
+            else:
+                keys = [key for key in net_glob.state_dict().keys()]
+                w_glob_keys = [keys[0:-2]]
         elif 'mnist' in args.dataset:
             w_glob_keys = [net_glob.weight_keys[i] for i in [0,1,2]]
         elif 'sent140' in args.dataset:
