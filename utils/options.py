@@ -68,6 +68,7 @@ def args_parser():
     parser.add_argument('--limit_local_output', type=int, default=0, help='limit local output numbers')
     parser.add_argument('--nums_per_class', type=int, default=100, help='smaples number of class')
     parser.add_argument('--is_reset_dataset', type=int, default=1, help='reset train/test dataset or read from file')
+    parser.add_argument('--is_reset_model', type=int, default=1, help='reset train init model')
     # parser.add_argument('--output_of_classify_header', type=int, default=10, help='output of classify header')
     # parser.add_argument('--is_class_overlapping', type=int, default=1, help='is client class  overlapping')
 

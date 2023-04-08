@@ -90,6 +90,16 @@ if __name__ == '__main__':
     # build model
     net_glob = get_model(args)
     net_glob.train()
+    # 让所有模型初始化相同
+    model_init_save_path = './save/init/' + args.model + '.pt'
+    if args.is_reset_model == 1:
+        torch.save(net_glob.state_dict(), model_init_save_path)
+    else:
+        net_glob.load_state_dict(torch.load(model_init_save_path))
+
+    if args.load_fed != 'n':
+        fed_model_path = './save/' + args.load_fed + '.pt'
+        net_glob.load_state_dict(torch.load(fed_model_path))
     if args.load_fed != 'n':
         fed_model_path = './save/' + args.load_fed + '.pt'
         net_glob.load_state_dict(torch.load(fed_model_path))
