@@ -1,0 +1,733 @@
+nohup: 忽略输入
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedRep%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 30, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 1, is_concept_shift: 0, dataset: cifar10  
+
+Files already downloaded and verified
+Files already downloaded and verified
+fedavg
+ResNet(
+  (conv1): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (layer1): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential()
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential()
+    )
+  )
+  (layer2): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential(
+        (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential()
+    )
+  )
+  (layer3): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential(
+        (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential()
+    )
+  )
+  (layer4): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential(
+        (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential()
+    )
+  )
+  (linear): Linear(in_features=512, out_features=10, bias=True)
+)
+odict_keys(['conv1.weight', 'bn1.weight', 'bn1.bias', 'bn1.running_mean', 'bn1.running_var', 'bn1.num_batches_tracked', 'layer1.0.conv1.weight', 'layer1.0.bn1.weight', 'layer1.0.bn1.bias', 'layer1.0.bn1.running_mean', 'layer1.0.bn1.running_var', 'layer1.0.bn1.num_batches_tracked', 'layer1.0.conv2.weight', 'layer1.0.bn2.weight', 'layer1.0.bn2.bias', 'layer1.0.bn2.running_mean', 'layer1.0.bn2.running_var', 'layer1.0.bn2.num_batches_tracked', 'layer1.1.conv1.weight', 'layer1.1.bn1.weight', 'layer1.1.bn1.bias', 'layer1.1.bn1.running_mean', 'layer1.1.bn1.running_var', 'layer1.1.bn1.num_batches_tracked', 'layer1.1.conv2.weight', 'layer1.1.bn2.weight', 'layer1.1.bn2.bias', 'layer1.1.bn2.running_mean', 'layer1.1.bn2.running_var', 'layer1.1.bn2.num_batches_tracked', 'layer2.0.conv1.weight', 'layer2.0.bn1.weight', 'layer2.0.bn1.bias', 'layer2.0.bn1.running_mean', 'layer2.0.bn1.running_var', 'layer2.0.bn1.num_batches_tracked', 'layer2.0.conv2.weight', 'layer2.0.bn2.weight', 'layer2.0.bn2.bias', 'layer2.0.bn2.running_mean', 'layer2.0.bn2.running_var', 'layer2.0.bn2.num_batches_tracked', 'layer2.0.shortcut.0.weight', 'layer2.0.shortcut.1.weight', 'layer2.0.shortcut.1.bias', 'layer2.0.shortcut.1.running_mean', 'layer2.0.shortcut.1.running_var', 'layer2.0.shortcut.1.num_batches_tracked', 'layer2.1.conv1.weight', 'layer2.1.bn1.weight', 'layer2.1.bn1.bias', 'layer2.1.bn1.running_mean', 'layer2.1.bn1.running_var', 'layer2.1.bn1.num_batches_tracked', 'layer2.1.conv2.weight', 'layer2.1.bn2.weight', 'layer2.1.bn2.bias', 'layer2.1.bn2.running_mean', 'layer2.1.bn2.running_var', 'layer2.1.bn2.num_batches_tracked', 'layer3.0.conv1.weight', 'layer3.0.bn1.weight', 'layer3.0.bn1.bias', 'layer3.0.bn1.running_mean', 'layer3.0.bn1.running_var', 'layer3.0.bn1.num_batches_tracked', 'layer3.0.conv2.weight', 'layer3.0.bn2.weight', 'layer3.0.bn2.bias', 'layer3.0.bn2.running_mean', 'layer3.0.bn2.running_var', 'layer3.0.bn2.num_batches_tracked', 'layer3.0.shortcut.0.weight', 'layer3.0.shortcut.1.weight', 'layer3.0.shortcut.1.bias', 'layer3.0.shortcut.1.running_mean', 'layer3.0.shortcut.1.running_var', 'layer3.0.shortcut.1.num_batches_tracked', 'layer3.1.conv1.weight', 'layer3.1.bn1.weight', 'layer3.1.bn1.bias', 'layer3.1.bn1.running_mean', 'layer3.1.bn1.running_var', 'layer3.1.bn1.num_batches_tracked', 'layer3.1.conv2.weight', 'layer3.1.bn2.weight', 'layer3.1.bn2.bias', 'layer3.1.bn2.running_mean', 'layer3.1.bn2.running_var', 'layer3.1.bn2.num_batches_tracked', 'layer4.0.conv1.weight', 'layer4.0.bn1.weight', 'layer4.0.bn1.bias', 'layer4.0.bn1.running_mean', 'layer4.0.bn1.running_var', 'layer4.0.bn1.num_batches_tracked', 'layer4.0.conv2.weight', 'layer4.0.bn2.weight', 'layer4.0.bn2.bias', 'layer4.0.bn2.running_mean', 'layer4.0.bn2.running_var', 'layer4.0.bn2.num_batches_tracked', 'layer4.0.shortcut.0.weight', 'layer4.0.shortcut.1.weight', 'layer4.0.shortcut.1.bias', 'layer4.0.shortcut.1.running_mean', 'layer4.0.shortcut.1.running_var', 'layer4.0.shortcut.1.num_batches_tracked', 'layer4.1.conv1.weight', 'layer4.1.bn1.weight', 'layer4.1.bn1.bias', 'layer4.1.bn1.running_mean', 'layer4.1.bn1.running_var', 'layer4.1.bn1.num_batches_tracked', 'layer4.1.conv2.weight', 'layer4.1.bn2.weight', 'layer4.1.bn2.bias', 'layer4.1.bn2.running_mean', 'layer4.1.bn2.running_var', 'layer4.1.bn2.num_batches_tracked', 'linear.weight', 'linear.bias'])
+122
+[]
+['conv1.weight', 'bn1.weight', 'bn1.bias', 'bn1.running_mean', 'bn1.running_var', 'bn1.num_batches_tracked', 'layer1.0.conv1.weight', 'layer1.0.bn1.weight', 'layer1.0.bn1.bias', 'layer1.0.bn1.running_mean', 'layer1.0.bn1.running_var', 'layer1.0.bn1.num_batches_tracked', 'layer1.0.conv2.weight', 'layer1.0.bn2.weight', 'layer1.0.bn2.bias', 'layer1.0.bn2.running_mean', 'layer1.0.bn2.running_var', 'layer1.0.bn2.num_batches_tracked', 'layer1.1.conv1.weight', 'layer1.1.bn1.weight', 'layer1.1.bn1.bias', 'layer1.1.bn1.running_mean', 'layer1.1.bn1.running_var', 'layer1.1.bn1.num_batches_tracked', 'layer1.1.conv2.weight', 'layer1.1.bn2.weight', 'layer1.1.bn2.bias', 'layer1.1.bn2.running_mean', 'layer1.1.bn2.running_var', 'layer1.1.bn2.num_batches_tracked', 'layer2.0.conv1.weight', 'layer2.0.bn1.weight', 'layer2.0.bn1.bias', 'layer2.0.bn1.running_mean', 'layer2.0.bn1.running_var', 'layer2.0.bn1.num_batches_tracked', 'layer2.0.conv2.weight', 'layer2.0.bn2.weight', 'layer2.0.bn2.bias', 'layer2.0.bn2.running_mean', 'layer2.0.bn2.running_var', 'layer2.0.bn2.num_batches_tracked', 'layer2.0.shortcut.0.weight', 'layer2.0.shortcut.1.weight', 'layer2.0.shortcut.1.bias', 'layer2.0.shortcut.1.running_mean', 'layer2.0.shortcut.1.running_var', 'layer2.0.shortcut.1.num_batches_tracked', 'layer2.1.conv1.weight', 'layer2.1.bn1.weight', 'layer2.1.bn1.bias', 'layer2.1.bn1.running_mean', 'layer2.1.bn1.running_var', 'layer2.1.bn1.num_batches_tracked', 'layer2.1.conv2.weight', 'layer2.1.bn2.weight', 'layer2.1.bn2.bias', 'layer2.1.bn2.running_mean', 'layer2.1.bn2.running_var', 'layer2.1.bn2.num_batches_tracked', 'layer3.0.conv1.weight', 'layer3.0.bn1.weight', 'layer3.0.bn1.bias', 'layer3.0.bn1.running_mean', 'layer3.0.bn1.running_var', 'layer3.0.bn1.num_batches_tracked', 'layer3.0.conv2.weight', 'layer3.0.bn2.weight', 'layer3.0.bn2.bias', 'layer3.0.bn2.running_mean', 'layer3.0.bn2.running_var', 'layer3.0.bn2.num_batches_tracked', 'layer3.0.shortcut.0.weight', 'layer3.0.shortcut.1.weight', 'layer3.0.shortcut.1.bias', 'layer3.0.shortcut.1.running_mean', 'layer3.0.shortcut.1.running_var', 'layer3.0.shortcut.1.num_batches_tracked', 'layer3.1.conv1.weight', 'layer3.1.bn1.weight', 'layer3.1.bn1.bias', 'layer3.1.bn1.running_mean', 'layer3.1.bn1.running_var', 'layer3.1.bn1.num_batches_tracked', 'layer3.1.conv2.weight', 'layer3.1.bn2.weight', 'layer3.1.bn2.bias', 'layer3.1.bn2.running_mean', 'layer3.1.bn2.running_var', 'layer3.1.bn2.num_batches_tracked', 'layer4.0.conv1.weight', 'layer4.0.bn1.weight', 'layer4.0.bn1.bias', 'layer4.0.bn1.running_mean', 'layer4.0.bn1.running_var', 'layer4.0.bn1.num_batches_tracked', 'layer4.0.conv2.weight', 'layer4.0.bn2.weight', 'layer4.0.bn2.bias', 'layer4.0.bn2.running_mean', 'layer4.0.bn2.running_var', 'layer4.0.bn2.num_batches_tracked', 'layer4.0.shortcut.0.weight', 'layer4.0.shortcut.1.weight', 'layer4.0.shortcut.1.bias', 'layer4.0.shortcut.1.running_mean', 'layer4.0.shortcut.1.running_var', 'layer4.0.shortcut.1.num_batches_tracked', 'layer4.1.conv1.weight', 'layer4.1.bn1.weight', 'layer4.1.bn1.bias', 'layer4.1.bn1.running_mean', 'layer4.1.bn1.running_var', 'layer4.1.bn1.num_batches_tracked', 'layer4.1.conv2.weight', 'layer4.1.bn2.weight', 'layer4.1.bn2.bias', 'layer4.1.bn2.running_mean', 'layer4.1.bn2.running_var', 'layer4.1.bn2.num_batches_tracked', 'linear.weight', 'linear.bias']
+learning rate, batch size: 0.01, 10 
+
+Round   0, Train loss: 1.467, Test loss: 1.495, Test accuracy: 46.96 
+
+Round   0, Global train loss: 1.467, Global test loss: 2.317, Global test accuracy: 18.72 
+
+Round   1, Train loss: 1.153, Test loss: 1.217, Test accuracy: 53.80 
+
+Round   1, Global train loss: 1.153, Global test loss: 2.301, Global test accuracy: 25.24 
+
+Round   2, Train loss: 0.985, Test loss: 1.274, Test accuracy: 55.60 
+
+Round   2, Global train loss: 0.985, Global test loss: 2.292, Global test accuracy: 20.52 
+
+Round   3, Train loss: 0.847, Test loss: 1.245, Test accuracy: 59.28 
+
+Round   3, Global train loss: 0.847, Global test loss: 2.225, Global test accuracy: 30.08 
+
+Round   4, Train loss: 0.725, Test loss: 1.309, Test accuracy: 59.12 
+
+Round   4, Global train loss: 0.725, Global test loss: 2.232, Global test accuracy: 21.72 
+
+Round   5, Train loss: 0.648, Test loss: 1.333, Test accuracy: 59.92 
+
+Round   5, Global train loss: 0.648, Global test loss: 2.208, Global test accuracy: 26.16 
+
+Round   6, Train loss: 0.546, Test loss: 1.460, Test accuracy: 60.40 
+
+Round   6, Global train loss: 0.546, Global test loss: 2.175, Global test accuracy: 27.92 
+
+Round   7, Train loss: 0.468, Test loss: 1.302, Test accuracy: 63.40 
+
+Round   7, Global train loss: 0.468, Global test loss: 2.180, Global test accuracy: 20.44 
+
+Round   8, Train loss: 0.397, Test loss: 1.425, Test accuracy: 61.60 
+
+Round   8, Global train loss: 0.397, Global test loss: 2.201, Global test accuracy: 21.56 
+
+Round   9, Train loss: 0.325, Test loss: 1.631, Test accuracy: 60.80 
+
+Round   9, Global train loss: 0.325, Global test loss: 2.235, Global test accuracy: 16.00 
+
+Round  10, Train loss: 0.265, Test loss: 1.551, Test accuracy: 62.68 
+
+Round  10, Global train loss: 0.265, Global test loss: 2.207, Global test accuracy: 14.00 
+
+Round  11, Train loss: 0.241, Test loss: 1.798, Test accuracy: 60.92 
+
+Round  11, Global train loss: 0.241, Global test loss: 2.172, Global test accuracy: 20.56 
+
+Round  12, Train loss: 0.225, Test loss: 1.796, Test accuracy: 60.88 
+
+Round  12, Global train loss: 0.225, Global test loss: 2.170, Global test accuracy: 23.56 
+
+Round  13, Train loss: 0.168, Test loss: 1.753, Test accuracy: 64.00 
+
+Round  13, Global train loss: 0.168, Global test loss: 2.195, Global test accuracy: 13.68 
+
+Round  14, Train loss: 0.166, Test loss: 1.730, Test accuracy: 64.84 
+
+Round  14, Global train loss: 0.166, Global test loss: 2.224, Global test accuracy: 13.60 
+
+Round  15, Train loss: 0.138, Test loss: 1.962, Test accuracy: 63.80 
+
+Round  15, Global train loss: 0.138, Global test loss: 2.179, Global test accuracy: 15.16 
+
+Round  16, Train loss: 0.114, Test loss: 2.000, Test accuracy: 61.68 
+
+Round  16, Global train loss: 0.114, Global test loss: 2.180, Global test accuracy: 19.76 
+
+Round  17, Train loss: 0.117, Test loss: 2.053, Test accuracy: 61.56 
+
+Round  17, Global train loss: 0.117, Global test loss: 2.192, Global test accuracy: 15.76 
+
+Round  18, Train loss: 0.113, Test loss: 1.849, Test accuracy: 64.64 
+
+Round  18, Global train loss: 0.113, Global test loss: 2.185, Global test accuracy: 17.88 
+
+Round  19, Train loss: 0.086, Test loss: 1.843, Test accuracy: 65.08 
+
+Round  19, Global train loss: 0.086, Global test loss: 2.186, Global test accuracy: 17.04 
+
+Round  20, Train loss: 0.057, Test loss: 1.930, Test accuracy: 65.28 
+
+Round  20, Global train loss: 0.057, Global test loss: 2.195, Global test accuracy: 16.44 
+
+Round  21, Train loss: 0.056, Test loss: 1.833, Test accuracy: 64.96 
+
+Round  21, Global train loss: 0.056, Global test loss: 2.160, Global test accuracy: 17.24 
+
+Round  22, Train loss: 0.061, Test loss: 1.889, Test accuracy: 64.80 
+
+Round  22, Global train loss: 0.061, Global test loss: 2.170, Global test accuracy: 16.40 
+
+Round  23, Train loss: 0.057, Test loss: 1.942, Test accuracy: 65.28 
+
+Round  23, Global train loss: 0.057, Global test loss: 2.192, Global test accuracy: 16.32 
+
+Round  24, Train loss: 0.057, Test loss: 1.958, Test accuracy: 64.60 
+
+Round  24, Global train loss: 0.057, Global test loss: 2.205, Global test accuracy: 13.24 
+
+Round  25, Train loss: 0.045, Test loss: 1.984, Test accuracy: 64.60 
+
+Round  25, Global train loss: 0.045, Global test loss: 2.182, Global test accuracy: 16.60 
+
+Round  26, Train loss: 0.058, Test loss: 1.909, Test accuracy: 65.32 
+
+Round  26, Global train loss: 0.058, Global test loss: 2.176, Global test accuracy: 17.92 
+
+Round  27, Train loss: 0.044, Test loss: 1.907, Test accuracy: 65.88 
+
+Round  27, Global train loss: 0.044, Global test loss: 2.183, Global test accuracy: 21.56 
+
+Round  28, Train loss: 0.051, Test loss: 1.947, Test accuracy: 65.60 
+
+Round  28, Global train loss: 0.051, Global test loss: 2.186, Global test accuracy: 18.80 
+
+Round  29, Train loss: 0.032, Test loss: 1.938, Test accuracy: 66.36 
+
+Round  29, Global train loss: 0.032, Global test loss: 2.164, Global test accuracy: 22.80 
+
+Final Round, Train loss: 0.038, Test loss: 1.991, Test accuracy: 65.80 
+
+Final Round, Global train loss: 0.038, Global test loss: 2.164, Global test accuracy: 22.80 
+
+Average accuracy final 10 rounds: 65.268 
+
+Average global accuracy final 10 rounds: 17.732 
+
+996.5033235549927
+[7.932791709899902, 13.62092638015747, 19.342532873153687, 24.811094045639038, 30.358758449554443, 36.05150389671326, 41.585535764694214, 47.26378679275513, 52.78328895568848, 58.32875633239746, 64.02629566192627, 69.54169583320618, 75.13738918304443, 80.7468318939209, 86.43116092681885, 92.13373565673828, 98.37209630012512, 104.10183691978455, 110.11259341239929, 115.71447992324829, 121.3696641921997, 126.97624802589417, 132.70094466209412, 138.50532126426697, 144.07279062271118, 149.746515750885, 155.64785289764404, 161.20675039291382, 166.9699730873108, 173.3139626979828, 184.65748286247253]
+[46.96, 53.8, 55.6, 59.28, 59.12, 59.92, 60.4, 63.4, 61.6, 60.8, 62.68, 60.92, 60.88, 64.0, 64.84, 63.8, 61.68, 61.56, 64.64, 65.08, 65.28, 64.96, 64.8, 65.28, 64.6, 64.6, 65.32, 65.88, 65.6, 66.36, 65.8]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedRep%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 30, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar10  
+
+Files already downloaded and verified
+Files already downloaded and verified
+fedavg
+ResNet(
+  (conv1): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (layer1): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential()
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential()
+    )
+  )
+  (layer2): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential(
+        (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential()
+    )
+  )
+  (layer3): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential(
+        (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential()
+    )
+  )
+  (layer4): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential(
+        (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential()
+    )
+  )
+  (linear): Linear(in_features=512, out_features=10, bias=True)
+)
+odict_keys(['conv1.weight', 'bn1.weight', 'bn1.bias', 'bn1.running_mean', 'bn1.running_var', 'bn1.num_batches_tracked', 'layer1.0.conv1.weight', 'layer1.0.bn1.weight', 'layer1.0.bn1.bias', 'layer1.0.bn1.running_mean', 'layer1.0.bn1.running_var', 'layer1.0.bn1.num_batches_tracked', 'layer1.0.conv2.weight', 'layer1.0.bn2.weight', 'layer1.0.bn2.bias', 'layer1.0.bn2.running_mean', 'layer1.0.bn2.running_var', 'layer1.0.bn2.num_batches_tracked', 'layer1.1.conv1.weight', 'layer1.1.bn1.weight', 'layer1.1.bn1.bias', 'layer1.1.bn1.running_mean', 'layer1.1.bn1.running_var', 'layer1.1.bn1.num_batches_tracked', 'layer1.1.conv2.weight', 'layer1.1.bn2.weight', 'layer1.1.bn2.bias', 'layer1.1.bn2.running_mean', 'layer1.1.bn2.running_var', 'layer1.1.bn2.num_batches_tracked', 'layer2.0.conv1.weight', 'layer2.0.bn1.weight', 'layer2.0.bn1.bias', 'layer2.0.bn1.running_mean', 'layer2.0.bn1.running_var', 'layer2.0.bn1.num_batches_tracked', 'layer2.0.conv2.weight', 'layer2.0.bn2.weight', 'layer2.0.bn2.bias', 'layer2.0.bn2.running_mean', 'layer2.0.bn2.running_var', 'layer2.0.bn2.num_batches_tracked', 'layer2.0.shortcut.0.weight', 'layer2.0.shortcut.1.weight', 'layer2.0.shortcut.1.bias', 'layer2.0.shortcut.1.running_mean', 'layer2.0.shortcut.1.running_var', 'layer2.0.shortcut.1.num_batches_tracked', 'layer2.1.conv1.weight', 'layer2.1.bn1.weight', 'layer2.1.bn1.bias', 'layer2.1.bn1.running_mean', 'layer2.1.bn1.running_var', 'layer2.1.bn1.num_batches_tracked', 'layer2.1.conv2.weight', 'layer2.1.bn2.weight', 'layer2.1.bn2.bias', 'layer2.1.bn2.running_mean', 'layer2.1.bn2.running_var', 'layer2.1.bn2.num_batches_tracked', 'layer3.0.conv1.weight', 'layer3.0.bn1.weight', 'layer3.0.bn1.bias', 'layer3.0.bn1.running_mean', 'layer3.0.bn1.running_var', 'layer3.0.bn1.num_batches_tracked', 'layer3.0.conv2.weight', 'layer3.0.bn2.weight', 'layer3.0.bn2.bias', 'layer3.0.bn2.running_mean', 'layer3.0.bn2.running_var', 'layer3.0.bn2.num_batches_tracked', 'layer3.0.shortcut.0.weight', 'layer3.0.shortcut.1.weight', 'layer3.0.shortcut.1.bias', 'layer3.0.shortcut.1.running_mean', 'layer3.0.shortcut.1.running_var', 'layer3.0.shortcut.1.num_batches_tracked', 'layer3.1.conv1.weight', 'layer3.1.bn1.weight', 'layer3.1.bn1.bias', 'layer3.1.bn1.running_mean', 'layer3.1.bn1.running_var', 'layer3.1.bn1.num_batches_tracked', 'layer3.1.conv2.weight', 'layer3.1.bn2.weight', 'layer3.1.bn2.bias', 'layer3.1.bn2.running_mean', 'layer3.1.bn2.running_var', 'layer3.1.bn2.num_batches_tracked', 'layer4.0.conv1.weight', 'layer4.0.bn1.weight', 'layer4.0.bn1.bias', 'layer4.0.bn1.running_mean', 'layer4.0.bn1.running_var', 'layer4.0.bn1.num_batches_tracked', 'layer4.0.conv2.weight', 'layer4.0.bn2.weight', 'layer4.0.bn2.bias', 'layer4.0.bn2.running_mean', 'layer4.0.bn2.running_var', 'layer4.0.bn2.num_batches_tracked', 'layer4.0.shortcut.0.weight', 'layer4.0.shortcut.1.weight', 'layer4.0.shortcut.1.bias', 'layer4.0.shortcut.1.running_mean', 'layer4.0.shortcut.1.running_var', 'layer4.0.shortcut.1.num_batches_tracked', 'layer4.1.conv1.weight', 'layer4.1.bn1.weight', 'layer4.1.bn1.bias', 'layer4.1.bn1.running_mean', 'layer4.1.bn1.running_var', 'layer4.1.bn1.num_batches_tracked', 'layer4.1.conv2.weight', 'layer4.1.bn2.weight', 'layer4.1.bn2.bias', 'layer4.1.bn2.running_mean', 'layer4.1.bn2.running_var', 'layer4.1.bn2.num_batches_tracked', 'linear.weight', 'linear.bias'])
+122
+[]
+['conv1.weight', 'bn1.weight', 'bn1.bias', 'bn1.running_mean', 'bn1.running_var', 'bn1.num_batches_tracked', 'layer1.0.conv1.weight', 'layer1.0.bn1.weight', 'layer1.0.bn1.bias', 'layer1.0.bn1.running_mean', 'layer1.0.bn1.running_var', 'layer1.0.bn1.num_batches_tracked', 'layer1.0.conv2.weight', 'layer1.0.bn2.weight', 'layer1.0.bn2.bias', 'layer1.0.bn2.running_mean', 'layer1.0.bn2.running_var', 'layer1.0.bn2.num_batches_tracked', 'layer1.1.conv1.weight', 'layer1.1.bn1.weight', 'layer1.1.bn1.bias', 'layer1.1.bn1.running_mean', 'layer1.1.bn1.running_var', 'layer1.1.bn1.num_batches_tracked', 'layer1.1.conv2.weight', 'layer1.1.bn2.weight', 'layer1.1.bn2.bias', 'layer1.1.bn2.running_mean', 'layer1.1.bn2.running_var', 'layer1.1.bn2.num_batches_tracked', 'layer2.0.conv1.weight', 'layer2.0.bn1.weight', 'layer2.0.bn1.bias', 'layer2.0.bn1.running_mean', 'layer2.0.bn1.running_var', 'layer2.0.bn1.num_batches_tracked', 'layer2.0.conv2.weight', 'layer2.0.bn2.weight', 'layer2.0.bn2.bias', 'layer2.0.bn2.running_mean', 'layer2.0.bn2.running_var', 'layer2.0.bn2.num_batches_tracked', 'layer2.0.shortcut.0.weight', 'layer2.0.shortcut.1.weight', 'layer2.0.shortcut.1.bias', 'layer2.0.shortcut.1.running_mean', 'layer2.0.shortcut.1.running_var', 'layer2.0.shortcut.1.num_batches_tracked', 'layer2.1.conv1.weight', 'layer2.1.bn1.weight', 'layer2.1.bn1.bias', 'layer2.1.bn1.running_mean', 'layer2.1.bn1.running_var', 'layer2.1.bn1.num_batches_tracked', 'layer2.1.conv2.weight', 'layer2.1.bn2.weight', 'layer2.1.bn2.bias', 'layer2.1.bn2.running_mean', 'layer2.1.bn2.running_var', 'layer2.1.bn2.num_batches_tracked', 'layer3.0.conv1.weight', 'layer3.0.bn1.weight', 'layer3.0.bn1.bias', 'layer3.0.bn1.running_mean', 'layer3.0.bn1.running_var', 'layer3.0.bn1.num_batches_tracked', 'layer3.0.conv2.weight', 'layer3.0.bn2.weight', 'layer3.0.bn2.bias', 'layer3.0.bn2.running_mean', 'layer3.0.bn2.running_var', 'layer3.0.bn2.num_batches_tracked', 'layer3.0.shortcut.0.weight', 'layer3.0.shortcut.1.weight', 'layer3.0.shortcut.1.bias', 'layer3.0.shortcut.1.running_mean', 'layer3.0.shortcut.1.running_var', 'layer3.0.shortcut.1.num_batches_tracked', 'layer3.1.conv1.weight', 'layer3.1.bn1.weight', 'layer3.1.bn1.bias', 'layer3.1.bn1.running_mean', 'layer3.1.bn1.running_var', 'layer3.1.bn1.num_batches_tracked', 'layer3.1.conv2.weight', 'layer3.1.bn2.weight', 'layer3.1.bn2.bias', 'layer3.1.bn2.running_mean', 'layer3.1.bn2.running_var', 'layer3.1.bn2.num_batches_tracked', 'layer4.0.conv1.weight', 'layer4.0.bn1.weight', 'layer4.0.bn1.bias', 'layer4.0.bn1.running_mean', 'layer4.0.bn1.running_var', 'layer4.0.bn1.num_batches_tracked', 'layer4.0.conv2.weight', 'layer4.0.bn2.weight', 'layer4.0.bn2.bias', 'layer4.0.bn2.running_mean', 'layer4.0.bn2.running_var', 'layer4.0.bn2.num_batches_tracked', 'layer4.0.shortcut.0.weight', 'layer4.0.shortcut.1.weight', 'layer4.0.shortcut.1.bias', 'layer4.0.shortcut.1.running_mean', 'layer4.0.shortcut.1.running_var', 'layer4.0.shortcut.1.num_batches_tracked', 'layer4.1.conv1.weight', 'layer4.1.bn1.weight', 'layer4.1.bn1.bias', 'layer4.1.bn1.running_mean', 'layer4.1.bn1.running_var', 'layer4.1.bn1.num_batches_tracked', 'layer4.1.conv2.weight', 'layer4.1.bn2.weight', 'layer4.1.bn2.bias', 'layer4.1.bn2.running_mean', 'layer4.1.bn2.running_var', 'layer4.1.bn2.num_batches_tracked', 'linear.weight', 'linear.bias']
+learning rate, batch size: 0.01, 10 
+
+Round   0, Train loss: 1.470, Test loss: 1.268, Test accuracy: 49.64 
+
+Round   0, Global train loss: 1.470, Global test loss: 2.444, Global test accuracy: 16.20 
+
+Round   1, Train loss: 1.349, Test loss: 1.343, Test accuracy: 48.88 
+
+Round   1, Global train loss: 1.349, Global test loss: 2.090, Global test accuracy: 33.28 
+
+Round   2, Train loss: 1.211, Test loss: 1.343, Test accuracy: 52.56 
+
+Round   2, Global train loss: 1.211, Global test loss: 1.804, Global test accuracy: 35.92 
+
+Round   3, Train loss: 1.113, Test loss: 1.373, Test accuracy: 53.00 
+
+Round   3, Global train loss: 1.113, Global test loss: 1.779, Global test accuracy: 37.48 
+
+Round   4, Train loss: 1.021, Test loss: 1.218, Test accuracy: 57.80 
+
+Round   4, Global train loss: 1.021, Global test loss: 1.631, Global test accuracy: 40.60 
+
+Round   5, Train loss: 0.943, Test loss: 1.127, Test accuracy: 61.60 
+
+Round   5, Global train loss: 0.943, Global test loss: 1.539, Global test accuracy: 46.32 
+
+Round   6, Train loss: 0.875, Test loss: 1.108, Test accuracy: 60.80 
+
+Round   6, Global train loss: 0.875, Global test loss: 1.632, Global test accuracy: 45.72 
+
+Round   7, Train loss: 0.820, Test loss: 1.287, Test accuracy: 58.96 
+
+Round   7, Global train loss: 0.820, Global test loss: 1.494, Global test accuracy: 48.44 
+
+Round   8, Train loss: 0.765, Test loss: 1.198, Test accuracy: 62.32 
+
+Round   8, Global train loss: 0.765, Global test loss: 1.400, Global test accuracy: 52.76 
+
+Round   9, Train loss: 0.721, Test loss: 1.004, Test accuracy: 66.72 
+
+Round   9, Global train loss: 0.721, Global test loss: 1.510, Global test accuracy: 50.96 
+
+Round  10, Train loss: 0.662, Test loss: 1.222, Test accuracy: 65.36 
+
+Round  10, Global train loss: 0.662, Global test loss: 1.369, Global test accuracy: 53.92 
+
+Round  11, Train loss: 0.620, Test loss: 1.014, Test accuracy: 67.52 
+
+Round  11, Global train loss: 0.620, Global test loss: 1.363, Global test accuracy: 54.72 
+
+Round  12, Train loss: 0.579, Test loss: 1.016, Test accuracy: 69.20 
+
+Round  12, Global train loss: 0.579, Global test loss: 1.355, Global test accuracy: 55.28 
+
+Round  13, Train loss: 0.536, Test loss: 1.136, Test accuracy: 66.72 
+
+Round  13, Global train loss: 0.536, Global test loss: 1.357, Global test accuracy: 57.24 
+
+Round  14, Train loss: 0.506, Test loss: 1.056, Test accuracy: 69.72 
+
+Round  14, Global train loss: 0.506, Global test loss: 1.381, Global test accuracy: 54.52 
+
+Round  15, Train loss: 0.489, Test loss: 1.029, Test accuracy: 69.12 
+
+Round  15, Global train loss: 0.489, Global test loss: 1.344, Global test accuracy: 56.44 
+
+Round  16, Train loss: 0.438, Test loss: 1.380, Test accuracy: 65.60 
+
+Round  16, Global train loss: 0.438, Global test loss: 1.418, Global test accuracy: 57.16 
+
+Round  17, Train loss: 0.415, Test loss: 1.210, Test accuracy: 68.44 
+
+Round  17, Global train loss: 0.415, Global test loss: 1.358, Global test accuracy: 57.68 
+
+Round  18, Train loss: 0.390, Test loss: 1.217, Test accuracy: 69.20 
+
+Round  18, Global train loss: 0.390, Global test loss: 1.288, Global test accuracy: 59.68 
+
+Round  19, Train loss: 0.371, Test loss: 1.328, Test accuracy: 68.48 
+
+Round  19, Global train loss: 0.371, Global test loss: 1.337, Global test accuracy: 58.96 
+
+Round  20, Train loss: 0.345, Test loss: 1.378, Test accuracy: 67.12 
+
+Round  20, Global train loss: 0.345, Global test loss: 1.247, Global test accuracy: 61.28 
+
+Round  21, Train loss: 0.313, Test loss: 1.475, Test accuracy: 66.28 
+
+Round  21, Global train loss: 0.313, Global test loss: 1.271, Global test accuracy: 61.12 
+
+Round  22, Train loss: 0.305, Test loss: 1.114, Test accuracy: 69.96 
+
+Round  22, Global train loss: 0.305, Global test loss: 1.280, Global test accuracy: 61.04 
+
+Round  23, Train loss: 0.279, Test loss: 1.080, Test accuracy: 72.68 
+
+Round  23, Global train loss: 0.279, Global test loss: 1.256, Global test accuracy: 62.12 
+
+Round  24, Train loss: 0.282, Test loss: 1.149, Test accuracy: 71.08 
+
+Round  24, Global train loss: 0.282, Global test loss: 1.257, Global test accuracy: 62.60 
+
+Round  25, Train loss: 0.249, Test loss: 1.235, Test accuracy: 70.84 
+
+Round  25, Global train loss: 0.249, Global test loss: 1.292, Global test accuracy: 62.16 
+
+Round  26, Train loss: 0.237, Test loss: 1.145, Test accuracy: 71.92 
+
+Round  26, Global train loss: 0.237, Global test loss: 1.289, Global test accuracy: 62.80 
+
+Round  27, Train loss: 0.225, Test loss: 1.213, Test accuracy: 71.40 
+
+Round  27, Global train loss: 0.225, Global test loss: 1.278, Global test accuracy: 63.12 
+
+Round  28, Train loss: 0.224, Test loss: 1.117, Test accuracy: 72.80 
+
+Round  28, Global train loss: 0.224, Global test loss: 1.212, Global test accuracy: 64.32 
+
+Round  29, Train loss: 0.184, Test loss: 1.164, Test accuracy: 72.20 
+
+Round  29, Global train loss: 0.184, Global test loss: 1.314, Global test accuracy: 62.60 
+
+Final Round, Train loss: 0.167, Test loss: 1.113, Test accuracy: 72.88 
+
+Final Round, Global train loss: 0.167, Global test loss: 1.314, Global test accuracy: 62.60 
+
+Average accuracy final 10 rounds: 70.628 
+
+Average global accuracy final 10 rounds: 62.316 
+
+996.9966068267822
+[7.5629425048828125, 13.442994356155396, 19.011125802993774, 24.528111219406128, 30.473779678344727, 36.28615856170654, 41.99531149864197, 47.51262831687927, 53.035747051239014, 58.68251657485962, 64.50134944915771, 69.97728037834167, 75.48142671585083, 81.05624055862427, 86.51776766777039, 92.26654577255249, 97.78233027458191, 103.2267861366272, 108.78613519668579, 114.401127576828, 120.57378387451172, 126.33079123497009, 132.29596161842346, 137.96685552597046, 143.58421349525452, 149.51407504081726, 155.07199430465698, 160.66090846061707, 166.37944197654724, 171.99571824073792, 183.53619289398193]
+[49.64, 48.88, 52.56, 53.0, 57.8, 61.6, 60.8, 58.96, 62.32, 66.72, 65.36, 67.52, 69.2, 66.72, 69.72, 69.12, 65.6, 68.44, 69.2, 68.48, 67.12, 66.28, 69.96, 72.68, 71.08, 70.84, 71.92, 71.4, 72.8, 72.2, 72.88]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedRep%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 30, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar10  
+
+Files already downloaded and verified
+Files already downloaded and verified
+fedrep
+ResNet(
+  (conv1): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (layer1): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential()
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential()
+    )
+  )
+  (layer2): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential(
+        (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential()
+    )
+  )
+  (layer3): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential(
+        (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential()
+    )
+  )
+  (layer4): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential(
+        (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential()
+    )
+  )
+  (linear): Linear(in_features=512, out_features=10, bias=True)
+)
+odict_keys(['conv1.weight', 'bn1.weight', 'bn1.bias', 'bn1.running_mean', 'bn1.running_var', 'bn1.num_batches_tracked', 'layer1.0.conv1.weight', 'layer1.0.bn1.weight', 'layer1.0.bn1.bias', 'layer1.0.bn1.running_mean', 'layer1.0.bn1.running_var', 'layer1.0.bn1.num_batches_tracked', 'layer1.0.conv2.weight', 'layer1.0.bn2.weight', 'layer1.0.bn2.bias', 'layer1.0.bn2.running_mean', 'layer1.0.bn2.running_var', 'layer1.0.bn2.num_batches_tracked', 'layer1.1.conv1.weight', 'layer1.1.bn1.weight', 'layer1.1.bn1.bias', 'layer1.1.bn1.running_mean', 'layer1.1.bn1.running_var', 'layer1.1.bn1.num_batches_tracked', 'layer1.1.conv2.weight', 'layer1.1.bn2.weight', 'layer1.1.bn2.bias', 'layer1.1.bn2.running_mean', 'layer1.1.bn2.running_var', 'layer1.1.bn2.num_batches_tracked', 'layer2.0.conv1.weight', 'layer2.0.bn1.weight', 'layer2.0.bn1.bias', 'layer2.0.bn1.running_mean', 'layer2.0.bn1.running_var', 'layer2.0.bn1.num_batches_tracked', 'layer2.0.conv2.weight', 'layer2.0.bn2.weight', 'layer2.0.bn2.bias', 'layer2.0.bn2.running_mean', 'layer2.0.bn2.running_var', 'layer2.0.bn2.num_batches_tracked', 'layer2.0.shortcut.0.weight', 'layer2.0.shortcut.1.weight', 'layer2.0.shortcut.1.bias', 'layer2.0.shortcut.1.running_mean', 'layer2.0.shortcut.1.running_var', 'layer2.0.shortcut.1.num_batches_tracked', 'layer2.1.conv1.weight', 'layer2.1.bn1.weight', 'layer2.1.bn1.bias', 'layer2.1.bn1.running_mean', 'layer2.1.bn1.running_var', 'layer2.1.bn1.num_batches_tracked', 'layer2.1.conv2.weight', 'layer2.1.bn2.weight', 'layer2.1.bn2.bias', 'layer2.1.bn2.running_mean', 'layer2.1.bn2.running_var', 'layer2.1.bn2.num_batches_tracked', 'layer3.0.conv1.weight', 'layer3.0.bn1.weight', 'layer3.0.bn1.bias', 'layer3.0.bn1.running_mean', 'layer3.0.bn1.running_var', 'layer3.0.bn1.num_batches_tracked', 'layer3.0.conv2.weight', 'layer3.0.bn2.weight', 'layer3.0.bn2.bias', 'layer3.0.bn2.running_mean', 'layer3.0.bn2.running_var', 'layer3.0.bn2.num_batches_tracked', 'layer3.0.shortcut.0.weight', 'layer3.0.shortcut.1.weight', 'layer3.0.shortcut.1.bias', 'layer3.0.shortcut.1.running_mean', 'layer3.0.shortcut.1.running_var', 'layer3.0.shortcut.1.num_batches_tracked', 'layer3.1.conv1.weight', 'layer3.1.bn1.weight', 'layer3.1.bn1.bias', 'layer3.1.bn1.running_mean', 'layer3.1.bn1.running_var', 'layer3.1.bn1.num_batches_tracked', 'layer3.1.conv2.weight', 'layer3.1.bn2.weight', 'layer3.1.bn2.bias', 'layer3.1.bn2.running_mean', 'layer3.1.bn2.running_var', 'layer3.1.bn2.num_batches_tracked', 'layer4.0.conv1.weight', 'layer4.0.bn1.weight', 'layer4.0.bn1.bias', 'layer4.0.bn1.running_mean', 'layer4.0.bn1.running_var', 'layer4.0.bn1.num_batches_tracked', 'layer4.0.conv2.weight', 'layer4.0.bn2.weight', 'layer4.0.bn2.bias', 'layer4.0.bn2.running_mean', 'layer4.0.bn2.running_var', 'layer4.0.bn2.num_batches_tracked', 'layer4.0.shortcut.0.weight', 'layer4.0.shortcut.1.weight', 'layer4.0.shortcut.1.bias', 'layer4.0.shortcut.1.running_mean', 'layer4.0.shortcut.1.running_var', 'layer4.0.shortcut.1.num_batches_tracked', 'layer4.1.conv1.weight', 'layer4.1.bn1.weight', 'layer4.1.bn1.bias', 'layer4.1.bn1.running_mean', 'layer4.1.bn1.running_var', 'layer4.1.bn1.num_batches_tracked', 'layer4.1.conv2.weight', 'layer4.1.bn2.weight', 'layer4.1.bn2.bias', 'layer4.1.bn2.running_mean', 'layer4.1.bn2.running_var', 'layer4.1.bn2.num_batches_tracked', 'linear.weight', 'linear.bias'])
+122
+['conv1.weight', 'bn1.weight', 'bn1.bias', 'bn1.running_mean', 'bn1.running_var', 'bn1.num_batches_tracked', 'layer1.0.conv1.weight', 'layer1.0.bn1.weight', 'layer1.0.bn1.bias', 'layer1.0.bn1.running_mean', 'layer1.0.bn1.running_var', 'layer1.0.bn1.num_batches_tracked', 'layer1.0.conv2.weight', 'layer1.0.bn2.weight', 'layer1.0.bn2.bias', 'layer1.0.bn2.running_mean', 'layer1.0.bn2.running_var', 'layer1.0.bn2.num_batches_tracked', 'layer1.1.conv1.weight', 'layer1.1.bn1.weight', 'layer1.1.bn1.bias', 'layer1.1.bn1.running_mean', 'layer1.1.bn1.running_var', 'layer1.1.bn1.num_batches_tracked', 'layer1.1.conv2.weight', 'layer1.1.bn2.weight', 'layer1.1.bn2.bias', 'layer1.1.bn2.running_mean', 'layer1.1.bn2.running_var', 'layer1.1.bn2.num_batches_tracked', 'layer2.0.conv1.weight', 'layer2.0.bn1.weight', 'layer2.0.bn1.bias', 'layer2.0.bn1.running_mean', 'layer2.0.bn1.running_var', 'layer2.0.bn1.num_batches_tracked', 'layer2.0.conv2.weight', 'layer2.0.bn2.weight', 'layer2.0.bn2.bias', 'layer2.0.bn2.running_mean', 'layer2.0.bn2.running_var', 'layer2.0.bn2.num_batches_tracked', 'layer2.0.shortcut.0.weight', 'layer2.0.shortcut.1.weight', 'layer2.0.shortcut.1.bias', 'layer2.0.shortcut.1.running_mean', 'layer2.0.shortcut.1.running_var', 'layer2.0.shortcut.1.num_batches_tracked', 'layer2.1.conv1.weight', 'layer2.1.bn1.weight', 'layer2.1.bn1.bias', 'layer2.1.bn1.running_mean', 'layer2.1.bn1.running_var', 'layer2.1.bn1.num_batches_tracked', 'layer2.1.conv2.weight', 'layer2.1.bn2.weight', 'layer2.1.bn2.bias', 'layer2.1.bn2.running_mean', 'layer2.1.bn2.running_var', 'layer2.1.bn2.num_batches_tracked', 'layer3.0.conv1.weight', 'layer3.0.bn1.weight', 'layer3.0.bn1.bias', 'layer3.0.bn1.running_mean', 'layer3.0.bn1.running_var', 'layer3.0.bn1.num_batches_tracked', 'layer3.0.conv2.weight', 'layer3.0.bn2.weight', 'layer3.0.bn2.bias', 'layer3.0.bn2.running_mean', 'layer3.0.bn2.running_var', 'layer3.0.bn2.num_batches_tracked', 'layer3.0.shortcut.0.weight', 'layer3.0.shortcut.1.weight', 'layer3.0.shortcut.1.bias', 'layer3.0.shortcut.1.running_mean', 'layer3.0.shortcut.1.running_var', 'layer3.0.shortcut.1.num_batches_tracked', 'layer3.1.conv1.weight', 'layer3.1.bn1.weight', 'layer3.1.bn1.bias', 'layer3.1.bn1.running_mean', 'layer3.1.bn1.running_var', 'layer3.1.bn1.num_batches_tracked', 'layer3.1.conv2.weight', 'layer3.1.bn2.weight', 'layer3.1.bn2.bias', 'layer3.1.bn2.running_mean', 'layer3.1.bn2.running_var', 'layer3.1.bn2.num_batches_tracked', 'layer4.0.conv1.weight', 'layer4.0.bn1.weight', 'layer4.0.bn1.bias', 'layer4.0.bn1.running_mean', 'layer4.0.bn1.running_var', 'layer4.0.bn1.num_batches_tracked', 'layer4.0.conv2.weight', 'layer4.0.bn2.weight', 'layer4.0.bn2.bias', 'layer4.0.bn2.running_mean', 'layer4.0.bn2.running_var', 'layer4.0.bn2.num_batches_tracked', 'layer4.0.shortcut.0.weight', 'layer4.0.shortcut.1.weight', 'layer4.0.shortcut.1.bias', 'layer4.0.shortcut.1.running_mean', 'layer4.0.shortcut.1.running_var', 'layer4.0.shortcut.1.num_batches_tracked', 'layer4.1.conv1.weight', 'layer4.1.bn1.weight', 'layer4.1.bn1.bias', 'layer4.1.bn1.running_mean', 'layer4.1.bn1.running_var', 'layer4.1.bn1.num_batches_tracked', 'layer4.1.conv2.weight', 'layer4.1.bn2.weight', 'layer4.1.bn2.bias', 'layer4.1.bn2.running_mean', 'layer4.1.bn2.running_var', 'layer4.1.bn2.num_batches_tracked']
+['conv1.weight', 'bn1.weight', 'bn1.bias', 'bn1.running_mean', 'bn1.running_var', 'bn1.num_batches_tracked', 'layer1.0.conv1.weight', 'layer1.0.bn1.weight', 'layer1.0.bn1.bias', 'layer1.0.bn1.running_mean', 'layer1.0.bn1.running_var', 'layer1.0.bn1.num_batches_tracked', 'layer1.0.conv2.weight', 'layer1.0.bn2.weight', 'layer1.0.bn2.bias', 'layer1.0.bn2.running_mean', 'layer1.0.bn2.running_var', 'layer1.0.bn2.num_batches_tracked', 'layer1.1.conv1.weight', 'layer1.1.bn1.weight', 'layer1.1.bn1.bias', 'layer1.1.bn1.running_mean', 'layer1.1.bn1.running_var', 'layer1.1.bn1.num_batches_tracked', 'layer1.1.conv2.weight', 'layer1.1.bn2.weight', 'layer1.1.bn2.bias', 'layer1.1.bn2.running_mean', 'layer1.1.bn2.running_var', 'layer1.1.bn2.num_batches_tracked', 'layer2.0.conv1.weight', 'layer2.0.bn1.weight', 'layer2.0.bn1.bias', 'layer2.0.bn1.running_mean', 'layer2.0.bn1.running_var', 'layer2.0.bn1.num_batches_tracked', 'layer2.0.conv2.weight', 'layer2.0.bn2.weight', 'layer2.0.bn2.bias', 'layer2.0.bn2.running_mean', 'layer2.0.bn2.running_var', 'layer2.0.bn2.num_batches_tracked', 'layer2.0.shortcut.0.weight', 'layer2.0.shortcut.1.weight', 'layer2.0.shortcut.1.bias', 'layer2.0.shortcut.1.running_mean', 'layer2.0.shortcut.1.running_var', 'layer2.0.shortcut.1.num_batches_tracked', 'layer2.1.conv1.weight', 'layer2.1.bn1.weight', 'layer2.1.bn1.bias', 'layer2.1.bn1.running_mean', 'layer2.1.bn1.running_var', 'layer2.1.bn1.num_batches_tracked', 'layer2.1.conv2.weight', 'layer2.1.bn2.weight', 'layer2.1.bn2.bias', 'layer2.1.bn2.running_mean', 'layer2.1.bn2.running_var', 'layer2.1.bn2.num_batches_tracked', 'layer3.0.conv1.weight', 'layer3.0.bn1.weight', 'layer3.0.bn1.bias', 'layer3.0.bn1.running_mean', 'layer3.0.bn1.running_var', 'layer3.0.bn1.num_batches_tracked', 'layer3.0.conv2.weight', 'layer3.0.bn2.weight', 'layer3.0.bn2.bias', 'layer3.0.bn2.running_mean', 'layer3.0.bn2.running_var', 'layer3.0.bn2.num_batches_tracked', 'layer3.0.shortcut.0.weight', 'layer3.0.shortcut.1.weight', 'layer3.0.shortcut.1.bias', 'layer3.0.shortcut.1.running_mean', 'layer3.0.shortcut.1.running_var', 'layer3.0.shortcut.1.num_batches_tracked', 'layer3.1.conv1.weight', 'layer3.1.bn1.weight', 'layer3.1.bn1.bias', 'layer3.1.bn1.running_mean', 'layer3.1.bn1.running_var', 'layer3.1.bn1.num_batches_tracked', 'layer3.1.conv2.weight', 'layer3.1.bn2.weight', 'layer3.1.bn2.bias', 'layer3.1.bn2.running_mean', 'layer3.1.bn2.running_var', 'layer3.1.bn2.num_batches_tracked', 'layer4.0.conv1.weight', 'layer4.0.bn1.weight', 'layer4.0.bn1.bias', 'layer4.0.bn1.running_mean', 'layer4.0.bn1.running_var', 'layer4.0.bn1.num_batches_tracked', 'layer4.0.conv2.weight', 'layer4.0.bn2.weight', 'layer4.0.bn2.bias', 'layer4.0.bn2.running_mean', 'layer4.0.bn2.running_var', 'layer4.0.bn2.num_batches_tracked', 'layer4.0.shortcut.0.weight', 'layer4.0.shortcut.1.weight', 'layer4.0.shortcut.1.bias', 'layer4.0.shortcut.1.running_mean', 'layer4.0.shortcut.1.running_var', 'layer4.0.shortcut.1.num_batches_tracked', 'layer4.1.conv1.weight', 'layer4.1.bn1.weight', 'layer4.1.bn1.bias', 'layer4.1.bn1.running_mean', 'layer4.1.bn1.running_var', 'layer4.1.bn1.num_batches_tracked', 'layer4.1.conv2.weight', 'layer4.1.bn2.weight', 'layer4.1.bn2.bias', 'layer4.1.bn2.running_mean', 'layer4.1.bn2.running_var', 'layer4.1.bn2.num_batches_tracked', 'linear.weight', 'linear.bias']
+1728
+1792
+1856
+1920
+1984
+1985
+38849
+38913
+38977
+39041
+39105
+39106
+75970
+76034
+76098
+76162
+76226
+76227
+113091
+113155
+113219
+113283
+113347
+113348
+150212
+150276
+150340
+150404
+150468
+150469
+224197
+224325
+224453
+224581
+224709
+224710
+372166
+372294
+372422
+372550
+372678
+372679
+380871
+380999
+381127
+381255
+381383
+381384
+528840
+528968
+529096
+529224
+529352
+529353
+676809
+676937
+677065
+677193
+677321
+677322
+972234
+972490
+972746
+973002
+973258
+973259
+1563083
+1563339
+1563595
+1563851
+1564107
+1564108
+1596876
+1597132
+1597388
+1597644
+1597900
+1597901
+2187725
+2187981
+2188237
+2188493
+2188749
+2188750
+2778574
+2778830
+2779086
+2779342
+2779598
+2779599
+3959247
+3959759
+3960271
+3960783
+3961295
+3961296
+6320592
+6321104
+6321616
+6322128
+6322640
+6322641
+6453713
+6454225
+6454737
+6455249
+6455761
+6455762
+8815058
+8815570
+8816082
+8816594
+8817106
+8817107
+11176403
+11176915
+11177427
+11177939
+11178451
+11178452
+11183572
+11183582
+# Params: 11183582 (local), 11178452 (global); Percentage 99.95 (11178452/11183582 
+)
+learning rate, batch size: 0.01, 10 
+
+Round   0, Train loss: 1.555, Test loss: 1.718, Test accuracy: 23.76 
+
+Round   1, Train loss: 1.390, Test loss: 1.617, Test accuracy: 34.36 
+
+Round   2, Train loss: 1.278, Test loss: 1.394, Test accuracy: 44.20 
+
+Round   3, Train loss: 1.170, Test loss: 1.314, Test accuracy: 46.48 
+
+Round   4, Train loss: 1.081, Test loss: 1.102, Test accuracy: 55.08 
+
+Round   5, Train loss: 1.032, Test loss: 1.064, Test accuracy: 56.52 
+
+Round   6, Train loss: 0.966, Test loss: 1.134, Test accuracy: 55.84 
+
+Round   7, Train loss: 0.927, Test loss: 1.038, Test accuracy: 61.28 
+
+Round   8, Train loss: 0.877, Test loss: 1.012, Test accuracy: 61.04 
+
+Round   9, Train loss: 0.840, Test loss: 0.951, Test accuracy: 63.48 
+
+Round  10, Train loss: 0.791, Test loss: 0.993, Test accuracy: 62.64 
+
+Round  11, Train loss: 0.762, Test loss: 0.923, Test accuracy: 66.28 
+
+Round  12, Train loss: 0.706, Test loss: 0.928, Test accuracy: 64.72 
+
+Round  13, Train loss: 0.671, Test loss: 0.843, Test accuracy: 69.04 
+
+Round  14, Train loss: 0.632, Test loss: 0.848, Test accuracy: 69.80 
+
+Round  15, Train loss: 0.596, Test loss: 0.847, Test accuracy: 69.68 
+
+Round  16, Train loss: 0.579, Test loss: 0.869, Test accuracy: 69.68 
+
+Round  17, Train loss: 0.556, Test loss: 0.824, Test accuracy: 70.64 
+
+Round  18, Train loss: 0.531, Test loss: 0.829, Test accuracy: 71.12 
+
+Round  19, Train loss: 0.495, Test loss: 0.802, Test accuracy: 72.36 
+
+Round  20, Train loss: 0.464, Test loss: 0.846, Test accuracy: 70.44 
+
+Round  21, Train loss: 0.437, Test loss: 0.800, Test accuracy: 72.88 
+
+Round  22, Train loss: 0.418, Test loss: 0.790, Test accuracy: 72.84 
+
+Round  23, Train loss: 0.399, Test loss: 0.828, Test accuracy: 72.76 
+
+Round  24, Train loss: 0.383, Test loss: 0.768, Test accuracy: 73.96 
+
+Round  25, Train loss: 0.364, Test loss: 0.800, Test accuracy: 73.68 
+
+Round  26, Train loss: 0.339, Test loss: 0.855, Test accuracy: 72.36 
+
+Round  27, Train loss: 0.327, Test loss: 0.775, Test accuracy: 74.64 
+
+Round  28, Train loss: 0.291, Test loss: 0.787, Test accuracy: 74.28 
+
+Round  29, Train loss: 0.273, Test loss: 0.805, Test accuracy: 74.44 
+
+Final Round, Train loss: 0.205, Test loss: 0.809, Test accuracy: 74.44 
+
+Average accuracy final 10 rounds: 73.228 
+
+726.429769039154
+[6.303824424743652, 10.703630685806274, 15.147233724594116, 19.592113494873047, 24.57484745979309, 28.93709659576416, 33.25924611091614, 37.565335750579834, 41.88143754005432, 46.3581018447876, 50.814332246780396, 55.27508234977722, 59.793967485427856, 64.25451231002808, 68.66792321205139, 73.06509828567505, 77.5615828037262, 82.05358028411865, 86.4719808101654, 90.98615837097168, 95.44408535957336, 99.71376180648804, 104.10078024864197, 108.73106145858765, 113.18132138252258, 117.7228274345398, 122.12914609909058, 126.78204226493835, 131.25019216537476, 135.6693639755249, 140.5500054359436]
+[23.76, 34.36, 44.2, 46.48, 55.08, 56.52, 55.84, 61.28, 61.04, 63.48, 62.64, 66.28, 64.72, 69.04, 69.8, 69.68, 69.68, 70.64, 71.12, 72.36, 70.44, 72.88, 72.84, 72.76, 73.96, 73.68, 72.36, 74.64, 74.28, 74.44, 74.44]
