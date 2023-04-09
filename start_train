@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for((c = 1; c < 4; c ++))
+for((c = 1; c < 3; c ++))
 do
 	#fedvag local only
 		python main_fedrep.py --alg fedavg --epochs 35 --num_users 5 --shard_per_user 5 --limit_local_output 0 --local_rep_ep 3 --local_only 1 --is_reset_dataset 1 --is_concept_shift 0 --frac 1 --dataset cifar10 --model resnet18 --moment 0.5 --is_reset_model 1
@@ -15,7 +15,7 @@ do
 
 done
 
-for((c = 1; c < 4; c ++))
+for((c = 1; c < 3; c ++))
 do
 	#fedvag local only
 		python main_fedrep.py --alg fedavg --epochs 35 --num_users 5 --shard_per_user 2 --limit_local_output 1 --local_rep_ep 3 --local_only 1 --is_reset_dataset 1 --is_concept_shift 0 --frac 1 --dataset cifar10 --model resnet18 --moment 0.5 --is_reset_model 1 --gpu 0
@@ -30,7 +30,7 @@ do
 
 done
 
-for((c = 1; c < 4; c ++))
+for((c = 1; c < 3; c ++))
 do
 	#fedvag local onlycgit gc
 		python main_fedrep.py --alg fedavg --epochs 35 --num_users 2 --shard_per_user 5 --limit_local_output 1 --local_rep_ep 3 --local_only 1 --is_reset_dataset 1 --is_concept_shift 0 --frac 1 --dataset cifar10 --model resnet18 --moment 0.5 --is_reset_model 1 --gpu 0
