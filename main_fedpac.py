@@ -146,7 +146,6 @@ if __name__ == '__main__':
         num_param_local = 0
         for key in net_glob.state_dict().keys():
             num_param_local += net_glob.state_dict()[key].numel()
-            print(num_param_local)
             if key in w_glob_keys:
                 num_param_glob += net_glob.state_dict()[key].numel()
         percentage_param = 100 * float(num_param_glob) / num_param_local
