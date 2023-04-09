@@ -1,32 +1,17 @@
 #!/bin/bash
 
-for((c = 2; c < 6; c ++))
+for((c = 1; c < 4; c ++))
 do
 	#fedvag local only
-	for i in {1..5};
-	do 
-		nohup python main_fedrep.py --alg fedavg --epochs 10 --shard_per_user $c --limit_local_output 1 --local_rep_ep 4 --local_only 1 --is_concept_shift 0 --dataset cifar10 --model cnn --gpu 0 >./log/log1_$i.log 2>&1 &
-	done
+		python main_fedrep.py --alg fedavg --epochs 35 --num_users 5 --shard_per_user 2 --limit_local_output 1 --local_rep_ep 3 --local_only 1 --is_reset_dataset 1 --is_concept_shift 0 --frac 1 --dataset cifar10 --model resnet18 --moment 0.5 --is_reset_model 1 --gpu 1
 
-	for i in {1..5};
-	do 
-		nohup python main_fedrep.py --alg fedavg --epochs 10 --shard_per_user $c --limit_local_output 1 --local_rep_ep 4 --local_only 0 --is_concept_shift 0 --dataset cifar10 --model cnn --gpu 0 >./log/log2_$i.log 2>&1 &
-	done
+		python main_fedrep.py --alg fedavg --epochs 35 --num_users 5 --shard_per_user 2 --limit_local_output 1 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 1 --dataset cifar10 --model resnet18 --moment 0.5 --is_reset_model 0 --gpu 1
 
-	for i in {1..5};
-	do 
-		nohup python main_fedrep.py --alg fedrep --epochs 10 --shard_per_user $c --limit_local_output 1 --local_rep_ep 4 --local_only 0 --is_concept_shift 0 --dataset cifar10 --model cnn --gpu 1 >./log/log3_$i.log 2>&1 &
-	done
+		python main_fedrep.py --alg fedrep --epochs 50 --num_users 5 --shard_per_user 2 --limit_local_output 1 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 1 --dataset cifar10 --model resnet18 --moment 0.5 --is_reset_model 0 --gpu 1
 
-	for i in {1..5};
-	do 
-		nohup python main_fedpac.py --alg fedrep --epochs 10 --shard_per_user $c --limit_local_output 1 --local_rep_ep 4 --local_only 0 --is_concept_shift 0 --dataset cifar10 --model cnn --gpu 1 >./log/log4_$i.log 2>&1 &
-	done
+		python main_fedpac.py --alg fedrep --epochs 50 --num_users 5 --shard_per_user 2 --limit_local_output 1 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 1 --dataset cifar10 --model resnet18 --moment 0.5 --is_reset_model 0 --gpu 1
 
-	for i in {1..5};
-	do 
-		nohup python main_fedpac_k_means.py --alg fedrep --epochs 10 --shard_per_user $c --limit_local_output 1 --local_rep_ep 4 --local_only 0 --is_concept_shift 0 --dataset cifar10 --model cnn --gpu2 >./log/log5_$i.log 2>&1 &
-	done
+		python main_fedrep_increment2.py --alg fedrep --epochs 20 --num_users 5 --shard_per_user 2 --limit_local_output 1 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 1 --dataset cifar10 --model resnet18 --moment 0.5 --is_reset_model 0 --gpu 1
+
 done
-
 
