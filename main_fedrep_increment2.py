@@ -20,7 +20,7 @@ from torch import nn
 from utils.options import args_parser
 from utils.train_utils import get_data_v2, get_model, read_data, get_data
 from models.Update import LocalUpdate, LocalUpdateIncrement
-from models.test import test_img_local_all, test_img_local_all_increment
+from models.test import test_img_local_all, test_img_local_all_increment, test_img_local
 
 import time
 
@@ -199,9 +199,9 @@ if __name__ == '__main__':
                                     idxs=dict_users_train, indd=indd)
         else:
             if args.epochs == iter:
-                local = LocalUpdateIncrement(args=args, dataset=dataset_train, idxs=dict_users_train[c][:args.m_ft])
+                local = LocalUpdateIncrement(args=args, dataset=dataset_train, idxs=dict_users_train[c][:args.m_ft], dataset_test=dataset_test, dict_users_test=dict_users_test[c][:args.m_ft], client_num=c)
             else:
-                local = LocalUpdateIncrement(args=args, dataset=dataset_train, idxs=dict_users_train[c][:args.m_tr])
+                local = LocalUpdateIncrement(args=args, dataset=dataset_train, idxs=dict_users_train[c][:args.m_tr], dataset_test=dataset_test, dict_users_test=dict_users_test[c][:args.m_tr], client_num=c)
 
         local_clients.append(local)
         idxs_users.append(c)
@@ -223,6 +223,11 @@ if __name__ == '__main__':
             w_local, loss, indd = local.train(net=net_local.to(args.device), w_glob_keys=w_glob_keys, lr=args.lr,concept_matrix_local=concept_matrix[c], first=False, isNew=True, local_eps=20)
         for k, key in enumerate(net_glob.state_dict().keys()):
             w_locals[c][key] = w_local[key]
+
+        # test_accuracy, test_loss = test_img_local(w_local, self.dataset_test, self.args, user_idx=idx,
+        #                                           idxs=self.dict_users_test[self.client_num])
+        # print('        init train local model(freezing embeding) {:3d}, train 20 epoch, Train loss: {:.3f}, Test loss: {:.3f}, Test accuracy: {:.2f} \n'.format(
+        #     c, loss, loss_test, acc_test))
 
         #训练前c个客户端
         for iter in range(args.epochs+1):
