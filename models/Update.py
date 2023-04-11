@@ -17,7 +17,7 @@ import numpy as np
 import time
 import copy
 import FedProx
-from models.test import test_img_local
+from models.test import test_img_local, test_img_local_all
 from models.language_utils import get_word_emb_arr, repackage_hidden, process_x, process_y 
 
 class DatasetSplit(Dataset):
@@ -557,12 +557,13 @@ class LocalUpdate(object):
             else:
                 weight_p += [p]
         optimizer = torch.optim.SGD(
-        [     
+        [
             {'params': weight_p, 'weight_decay':0.0001},
             {'params': bias_p, 'weight_decay':0}
         ],
         lr=lr, momentum=0.5
         )
+
         if self.args.alg == 'prox':
             optimizer = FedProx.FedProx(net.parameters(),
                              lr=lr,
@@ -659,7 +660,7 @@ class LocalUpdate(object):
 
 
 class LocalUpdateIncrement(object):
-    def __init__(self, args, dataset=None, idxs=None, indd=None):
+    def __init__(self, args, dataset=None, idxs=None, indd=None, dataset_test=None, dict_users_test=None, client_num = 0):
         self.args = args
         self.loss_func = nn.CrossEntropyLoss()
         if 'femnist' in args.dataset or 'sent140' in args.dataset:
@@ -679,6 +680,9 @@ class LocalUpdateIncrement(object):
 
         self.dataset = dataset
         self.idxs = idxs
+        self.dataset_test = dataset_test
+        self.dict_users_test = dict_users_test
+        self.client_num = client_num
 
     def train(self, net, w_glob_keys, first=False,isNew=False, dataset_test=None, ind=-1, idx=-1, lr=0.1, concept_matrix_local=None, local_eps=10, head_eps=2):
         bias_p = []
@@ -691,10 +695,11 @@ class LocalUpdateIncrement(object):
         optimizer = torch.optim.SGD(
             [
                 {'params': weight_p, 'weight_decay': 0.0001},
-                {'params': bias_p, 'weight_decay': 0}
+                {'params': bias_p, 'weight_decay': 0.005}
             ],
             lr=lr, momentum=0.5
         )
+        # optimizer = torch.optim.Adam(lr=lr, parameters=net.parameters(), weight_decay=0.005, moment=0.5)
         if self.args.alg == 'prox':
             optimizer = FedProx.FedProx(net.parameters(),
                                         lr=lr,
@@ -747,7 +752,7 @@ class LocalUpdateIncrement(object):
                     if name in w_glob_keys:
                         param.requires_grad = True
                     else:
-                        param.requires_grad = False
+                        param.requires_grad = True
 
             # all other methods update all parameters simultaneously
             elif self.args.alg != 'fedrep':
@@ -757,9 +762,9 @@ class LocalUpdateIncrement(object):
             batch_loss = []
             for batch_idx, (images, labels) in enumerate(self.ldr_train):
 
-                if self.args.is_concept_shift == 1 or self.args.limit_local_output == 1:
-                    # 通过概念偏移矩阵进行标签概念偏移
-                    labels = torch.tensor(concept_matrix_local[labels.numpy()])
+                # if self.args.is_concept_shift == 1 or self.args.limit_local_output == 1:
+                #     # 通过概念偏移矩阵进行标签概念偏移
+                #     labels = torch.tensor(concept_matrix_local[labels.numpy()])
 
                 if 'sent140' in self.args.dataset:
                     input_data, target_data = process_x(images, self.indd), process_y(labels, self.indd)
@@ -791,6 +796,27 @@ class LocalUpdateIncrement(object):
                 break
 
             epoch_loss.append(sum(batch_loss) / len(batch_loss))
+
+            if isNew == False and iter == head_eps - 1:
+                test_accuracy, test_loss = test_img_local(net, self.dataset_test, self.args, idxs=self.dict_users_test)
+                train_accuracy, train_loss = test_img_local(net, self.dataset, self.args, idxs=self.idxs)
+                print('        train local model (freeze embeding):client {:3d},  Train loss: {:.3f}, Train accuracy: {:.3f}, Test loss: {:.3f}, Test accuracy: {:.2f} \n'.format(
+                        self.client_num, train_loss, train_accuracy, test_loss, test_accuracy))
+
+            if isNew == False and iter == local_eps - 1:
+                test_accuracy, test_loss = test_img_local(net, self.dataset_test, self.args, idxs=self.dict_users_test)
+                train_accuracy, train_loss = test_img_local(net, self.dataset, self.args, idxs=self.idxs)
+                print(
+                    '        train local model (unfreeze embeding):client {:3d},  Train loss: {:.3f}, Train accuracy: {:.3f}, Test loss: {:.3f}, Test accuracy: {:.2f} \n'.format(
+                        self.client_num, train_loss, train_accuracy, test_loss, test_accuracy))
+
+            if isNew == True and iter == local_eps - 1:
+                test_accuracy, test_loss = test_img_local(net, self.dataset_test, self.args, idxs=self.dict_users_test)
+                train_accuracy, train_loss = test_img_local(net, self.dataset, self.args, idxs=self.idxs)
+                print(
+                    '        init --> train local model(freeze embeding):client {:3d},  Train loss: {:.3f}, Train accuracy: {:.3f}, Test loss: {:.3f}, Test accuracy: {:.2f} \n'.format(
+                        self.client_num, train_loss, train_accuracy, test_loss, test_accuracy))
+
         return net.state_dict(), sum(epoch_loss) / len(epoch_loss), self.indd
 
 class LocalUpdateIncrementResnet18(object):
