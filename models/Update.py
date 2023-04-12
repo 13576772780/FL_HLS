@@ -692,14 +692,14 @@ class LocalUpdateIncrement(object):
                 bias_p += [p]
             else:
                 weight_p += [p]
-        # optimizer = torch.optim.SGD(
-        #     [
-        #         {'params': weight_p, 'weight_decay': 0.0001},
-        #         {'params': bias_p, 'weight_decay': 0.00001}
-        #     ],
-        #     lr=lr, momentum=0.5
-        # )
-        optimizer = torch.optim.SGD(net.parameters(), lr=lr, momentum=0.9, weight_decay=5e-4)
+        optimizer = torch.optim.SGD(
+            [
+                {'params': weight_p, 'weight_decay':0.0001},
+                {'params': bias_p, 'weight_decay':0}
+            ],
+            lr=lr, momentum=0.5
+        )
+        # optimizer = torch.optim.SGD(net.parameters(), lr=lr, momentum=0.9, weight_decay=5e-4)
         # optimizer = torch.optim.Adam(lr=lr, parameters=net.parameters(), weight_decay=0.005, moment=0.5)
         if self.args.alg == 'prox':
             optimizer = FedProx.FedProx(net.parameters(),
@@ -798,25 +798,25 @@ class LocalUpdateIncrement(object):
 
             epoch_loss.append(sum(batch_loss) / len(batch_loss))
 
-            if isNew == False and iter == head_eps - 1:
-                test_accuracy, test_loss = test_img_local(net, self.dataset_test, self.args, idxs=self.dict_users_test)
-                train_accuracy, train_loss = test_img_local(net, self.dataset, self.args, idxs=self.idxs)
-                print('        train local model (freeze embeding):client {:3d},  Train loss: {:.3f}, Train accuracy: {:.3f}, Test loss: {:.3f}, Test accuracy: {:.2f} \n'.format(
-                        self.client_num, train_loss, train_accuracy, test_loss, test_accuracy))
-
-            if isNew == False and iter == local_eps - 1:
-                test_accuracy, test_loss = test_img_local(net, self.dataset_test, self.args, idxs=self.dict_users_test)
-                train_accuracy, train_loss = test_img_local(net, self.dataset, self.args, idxs=self.idxs)
-                print(
-                    '        train local model (unfreeze embeding):client {:3d},  Train loss: {:.3f}, Train accuracy: {:.3f}, Test loss: {:.3f}, Test accuracy: {:.2f} \n'.format(
-                        self.client_num, train_loss, train_accuracy, test_loss, test_accuracy))
-
-            if isNew == True and iter == local_eps - 1:
-                test_accuracy, test_loss = test_img_local(net, self.dataset_test, self.args, idxs=self.dict_users_test)
-                train_accuracy, train_loss = test_img_local(net, self.dataset, self.args, idxs=self.idxs)
-                print(
-                    '        init --> train local model(freeze embeding):client {:3d},  Train loss: {:.3f}, Train accuracy: {:.3f}, Test loss: {:.3f}, Test accuracy: {:.2f} \n'.format(
-                        self.client_num, train_loss, train_accuracy, test_loss, test_accuracy))
+            # if isNew == False and iter == head_eps - 1:
+            #     test_accuracy, test_loss = test_img_local(net, self.dataset_test, self.args, idxs=self.dict_users_test)
+            #     train_accuracy, train_loss = test_img_local(net, self.dataset, self.args, idxs=self.idxs)
+            #     print('        train local model (freeze embeding):client {:3d},  Train loss: {:.3f}, Train accuracy: {:.3f}, Test loss: {:.3f}, Test accuracy: {:.2f} \n'.format(
+            #             self.client_num, train_loss, train_accuracy, test_loss, test_accuracy))
+            #
+            # if isNew == False and iter == local_eps - 1:
+            #     test_accuracy, test_loss = test_img_local(net, self.dataset_test, self.args, idxs=self.dict_users_test)
+            #     train_accuracy, train_loss = test_img_local(net, self.dataset, self.args, idxs=self.idxs)
+            #     print(
+            #         '        train local model (unfreeze embeding):client {:3d},  Train loss: {:.3f}, Train accuracy: {:.3f}, Test loss: {:.3f}, Test accuracy: {:.2f} \n'.format(
+            #             self.client_num, train_loss, train_accuracy, test_loss, test_accuracy))
+            #
+            # if isNew == True and iter == local_eps - 1:
+            #     test_accuracy, test_loss = test_img_local(net, self.dataset_test, self.args, idxs=self.dict_users_test)
+            #     train_accuracy, train_loss = test_img_local(net, self.dataset, self.args, idxs=self.idxs)
+            #     print(
+            #         '        init --> train local model(freeze embeding):client {:3d},  Train loss: {:.3f}, Train accuracy: {:.3f}, Test loss: {:.3f}, Test accuracy: {:.2f} \n'.format(
+            #             self.client_num, train_loss, train_accuracy, test_loss, test_accuracy))
 
         return net.state_dict(), sum(epoch_loss) / len(epoch_loss), self.indd
 
