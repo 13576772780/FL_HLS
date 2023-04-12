@@ -684,7 +684,7 @@ class LocalUpdateIncrement(object):
         self.dict_users_test = dict_users_test
         self.client_num = client_num
 
-    def train(self, net, w_glob_keys, first=False,isNew=False, dataset_test=None, ind=-1, idx=-1, lr=0.1, concept_matrix_local=None, local_eps=10, head_eps=2):
+    def train(self, net, w_glob_keys, first=False,isNew=False, dataset_test=None, ind=-1, idx=-1, lr=0.1, concept_matrix_local=None, local_eps=10, head_eps=5):
         bias_p = []
         weight_p = []
         for name, p in net.named_parameters():
@@ -692,13 +692,14 @@ class LocalUpdateIncrement(object):
                 bias_p += [p]
             else:
                 weight_p += [p]
-        optimizer = torch.optim.SGD(
-            [
-                {'params': weight_p, 'weight_decay': 0.0001},
-                {'params': bias_p, 'weight_decay': 0.005}
-            ],
-            lr=lr, momentum=0.5
-        )
+        # optimizer = torch.optim.SGD(
+        #     [
+        #         {'params': weight_p, 'weight_decay': 0.0001},
+        #         {'params': bias_p, 'weight_decay': 0.00001}
+        #     ],
+        #     lr=lr, momentum=0.5
+        # )
+        optimizer = torch.optim.SGD(net.parameters(), lr=lr, momentum=0.9, weight_decay=5e-4)
         # optimizer = torch.optim.Adam(lr=lr, parameters=net.parameters(), weight_decay=0.005, moment=0.5)
         if self.args.alg == 'prox':
             optimizer = FedProx.FedProx(net.parameters(),
