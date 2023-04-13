@@ -801,23 +801,23 @@ class LocalUpdateIncrement(object):
 
             if isNew == False and iter == head_eps - 1:
                 net_local = copy.deepcopy(net)
-                test_accuracy, test_loss = test_img_local(net_local, self.dataset_test, self.args, idxs=self.dict_users_test)
-                train_accuracy, train_loss = test_img_local(net_local, self.dataset, self.args, idxs=self.idxs)
+                test_accuracy, test_loss = test_img_local(net_local, self.dataset_test, self.args, idxs=self.dict_users_test, concept_matrix_local= concept_matrix_local)
+                train_accuracy, train_loss = test_img_local(net_local, self.dataset, self.args, idxs=self.idxs, concept_matrix_local= concept_matrix_local)
                 print('        train local model (freeze embeding):client {:3d},  Train loss: {:.3f}, Train accuracy: {:.3f}, Test loss: {:.3f}, Test accuracy: {:.2f} \n'.format(
                         self.client_num, train_loss, train_accuracy, test_loss, test_accuracy))
 
             if isNew == False and iter == local_eps - 1:
                 net_local = copy.deepcopy(net)
-                test_accuracy, test_loss = test_img_local(net_local, self.dataset_test, self.args, idxs=self.dict_users_test)
-                train_accuracy, train_loss = test_img_local(net_local, self.dataset, self.args, idxs=self.idxs)
+                test_accuracy, test_loss = test_img_local(net_local, self.dataset_test, self.args, idxs=self.dict_users_test, concept_matrix_local= concept_matrix_local)
+                train_accuracy, train_loss = test_img_local(net_local, self.dataset, self.args, idxs=self.idxs, concept_matrix_local= concept_matrix_local)
                 print(
                     '        train local model (unfreeze embeding):client {:3d},  Train loss: {:.3f}, Train accuracy: {:.3f}, Test loss: {:.3f}, Test accuracy: {:.2f} \n'.format(
                         self.client_num, train_loss, train_accuracy, test_loss, test_accuracy))
 
             if isNew == True and iter == local_eps - 1:
                 net_local = copy.deepcopy(net)
-                test_accuracy, test_loss = test_img_local(net_local, self.dataset_test, self.args, idxs=self.dict_users_test)
-                train_accuracy, train_loss = test_img_local(net_local, self.dataset, self.args, idxs=self.idxs)
+                test_accuracy, test_loss = test_img_local(net_local, self.dataset_test, self.args, idxs=self.dict_users_test, concept_matrix_local= concept_matrix_local)
+                train_accuracy, train_loss = test_img_local(net_local, self.dataset, self.args, idxs=self.idxs, concept_matrix_local= concept_matrix_local)
                 print(
                     '        init --> train local model(freeze embeding):client {:3d},  Train loss: {:.3f}, Train accuracy: {:.3f}, Test loss: {:.3f}, Test accuracy: {:.2f} \n'.format(
                         self.client_num, train_loss, train_accuracy, test_loss, test_accuracy))
