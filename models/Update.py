@@ -684,7 +684,7 @@ class LocalUpdateIncrement(object):
         self.dict_users_test = dict_users_test
         self.client_num = client_num
 
-    def train(self, net, w_glob_keys, first=False,isNew=False, dataset_test=None, ind=-1, idx=-1, lr=0.1, concept_matrix_local=None, local_eps=10, head_eps=5):
+    def train(self, net, w_glob_keys, first=False,isNew=False, dataset_test=None, ind=-1, idx=-1, lr=0.1, concept_matrix_local=None, local_eps=10, head_eps=5, last=False):
         bias_p = []
         weight_p = []
         for name, p in net.named_parameters():
@@ -697,7 +697,7 @@ class LocalUpdateIncrement(object):
                 {'params': weight_p, 'weight_decay':0.0001},
                 {'params': bias_p, 'weight_decay':0}
             ],
-            lr=lr, momentum=0.9
+            lr=lr, momentum=0.5
         )
         # optimizer = torch.optim.SGD(net.parameters(), lr=lr, momentum=0.9, weight_decay=5e-4)
         # optimizer = torch.optim.Adam(lr=lr, parameters=net.parameters(), weight_decay=0.005, moment=0.5)
@@ -740,7 +740,7 @@ class LocalUpdateIncrement(object):
                 for name, param in net.named_parameters():
                     param.requires_grad = True
             # for FedRep, first do local epochs for the head
-            elif (iter < head_eps and self.args.alg == 'fedrep') or isNew:
+            elif (iter < head_eps and self.args.alg == 'fedrep') or isNew or last:
                 for name, param in net.named_parameters():
                     if name in w_glob_keys:
                         param.requires_grad = False
@@ -753,7 +753,7 @@ class LocalUpdateIncrement(object):
                     if name in w_glob_keys:
                         param.requires_grad = True
                     else:
-                        param.requires_grad = False
+                        param.requires_grad = True
 
             # all other methods update all parameters simultaneously
             elif self.args.alg != 'fedrep':
