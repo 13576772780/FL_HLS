@@ -763,9 +763,9 @@ class LocalUpdateIncrement(object):
             batch_loss = []
             for batch_idx, (images, labels) in enumerate(self.ldr_train):
 
-                # if self.args.is_concept_shift == 1 or self.args.limit_local_output == 1:
-                #     # 通过概念偏移矩阵进行标签概念偏移
-                #     labels = torch.tensor(concept_matrix_local[labels.numpy()])
+                if self.args.is_concept_shift == 1 or self.args.limit_local_output == 1:
+                    # 通过概念偏移矩阵进行标签概念偏移
+                    labels = torch.tensor(concept_matrix_local[labels.numpy()])
 
                 if 'sent140' in self.args.dataset:
                     input_data, target_data = process_x(images, self.indd), process_y(labels, self.indd)
