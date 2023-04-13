@@ -753,7 +753,7 @@ class LocalUpdateIncrement(object):
                     if name in w_glob_keys:
                         param.requires_grad = True
                     else:
-                        param.requires_grad = True
+                        param.requires_grad = False
 
             # all other methods update all parameters simultaneously
             elif self.args.alg != 'fedrep':

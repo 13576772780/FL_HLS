@@ -270,7 +270,7 @@ if __name__ == '__main__':
                 if 'femnist' in args.dataset or 'sent140' in args.dataset:
                     w_local, loss, indd = local.train(net=net_local.to(args.device),ind=idx, idx=clients[idx], w_glob_keys=w_glob_keys, lr=args.lr, concept_matrix_local=concept_matrix[idx], first=False, isNew=False, local_eps=10, head_eps=5)
                 else:
-                    w_local, loss, indd = local.train(net=net_local.to(args.device), idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, concept_matrix_local=concept_matrix[idx], first=False, isNew=False, local_eps=10, head_eps=5)
+                    w_local, loss, indd = local.train(net=net_local.to(args.device), idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, concept_matrix_local=concept_matrix[idx], first=False, isNew=False, local_eps=15, head_eps=5)
                 loss_locals.append(copy.deepcopy(loss))
                 total_len += lens[idx]
                 #保存本地层和全局层
