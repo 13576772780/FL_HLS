@@ -58,5 +58,9 @@ class test_model(nn.Module):
 # x_np[0][0] = 6
 # print(x_np)
 # print(x)
-weight_keys = [['linear.weight', 'linear.bias']]
-print('linear.weight' in weight_keys)
+# weight_keys = [['linear.weight', 'linear.bias']]
+# print('linear.weight' in weight_keys)
+# local_eps = 5
+# for iter in range(local_eps):
+#     if iter == 4:
+#         local_eps = local_eps + 5
