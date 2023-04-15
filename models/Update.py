@@ -697,7 +697,7 @@ class LocalUpdateIncrement(object):
                 {'params': weight_p, 'weight_decay':0.0001},
                 {'params': bias_p, 'weight_decay':0}
             ],
-            lr=lr, momentum=0.9
+            lr=lr, momentum=0.1
         )
         # optimizer = torch.optim.SGD(net.parameters(), lr=lr, momentum=0.9, weight_decay=5e-4)
         # optimizer = torch.optim.Adam(lr=lr, parameters=net.parameters(), weight_decay=0.005, moment=0.5)

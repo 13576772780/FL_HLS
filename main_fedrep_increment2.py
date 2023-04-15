@@ -216,11 +216,11 @@ if __name__ == '__main__':
                     w_local[k] = w_locals[c][k]
         net_local.load_state_dict(w_local)
         if c == 0:
-            w_local, loss, indd = local.train(net=net_local.to(args.device), w_glob_keys=w_glob_keys, lr=args.lr, concept_matrix_local=concept_matrix[c], first=True,isNew=True, local_eps=20)
+            w_local, loss, indd = local.train(net=net_local.to(args.device), w_glob_keys=w_glob_keys, lr=args.lr, concept_matrix_local=concept_matrix[c], first=True,isNew=True, local_eps=30)
             w_glob_temp = copy.deepcopy(w_local)
             net_glob.load_state_dict(w_glob_temp)
         else:
-            w_local, loss, indd = local.train(net=net_local.to(args.device), w_glob_keys=w_glob_keys, lr=args.lr,concept_matrix_local=concept_matrix[c], first=False, isNew=True, local_eps=20)
+            w_local, loss, indd = local.train(net=net_local.to(args.device), w_glob_keys=w_glob_keys, lr=args.lr,concept_matrix_local=concept_matrix[c], first=False, isNew=True, local_eps=30)
         for k, key in enumerate(net_glob.state_dict().keys()):
             w_locals[c][key] = w_local[key]
 
