@@ -219,6 +219,10 @@ if __name__ == '__main__':
             w_local, loss, indd = local.train(net=net_local.to(args.device), w_glob_keys=w_glob_keys, lr=args.lr, concept_matrix_local=concept_matrix[c], first=True,isNew=True, local_eps=30)
             w_glob_temp = copy.deepcopy(w_local)
             net_glob.load_state_dict(w_glob_temp)
+            # net_glob_stat = net_glob.state_dict()
+            # for k in net_glob_stat.keys():
+            #     net_glob_stat[k] = torch.div(w_local[k] + net_glob_stat[k], 2)
+            # net_glob.load_state_dict(net_glob_stat)
         else:
             w_local, loss, indd = local.train(net=net_local.to(args.device), w_glob_keys=w_glob_keys, lr=args.lr,concept_matrix_local=concept_matrix[c], first=False, isNew=True, local_eps=30)
             net_glob_stat = net_glob.state_dict()
