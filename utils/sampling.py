@@ -114,7 +114,6 @@ def noniid_v2(dataset, num_users, shard_per_user, num_classes, rand_set_all=[], 
 
 
     #根据类序号给每个客户端每个类选定量的样本
-
     for label in idxs_dict.keys():
         x = idxs_dict[label]
         num_leftover = len(x) % nums_per_class
@@ -126,7 +125,6 @@ def noniid_v2(dataset, num_users, shard_per_user, num_classes, rand_set_all=[], 
 
 
     for i in range(num_users):
-
         rand_set_label = rand_set_all[i]
         rand_set = []
         for label in rand_set_label:
