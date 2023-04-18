@@ -209,12 +209,12 @@ if __name__ == '__main__':
 
         #初始化第c个client
         net_local = copy.deepcopy(net_glob)
-        # w_local = net_local.state_dict()
-        # if args.alg != 'fedavg' and args.alg != 'prox':
-        #     for k in w_locals[c].keys():
-        #         if k not in w_glob_keys:
-        #             w_local[k] = w_locals[c][k]
-        # net_local.load_state_dict(w_local)
+        w_local = net_local.state_dict()
+        if args.alg != 'fedavg' and args.alg != 'prox':
+            for k in w_locals[c].keys():
+                if k not in w_glob_keys:
+                    w_local[k] = w_locals[c][k]
+        net_local.load_state_dict(w_local)
         if c == 0:
             w_local, loss, indd = local.train(net=net_local.to(args.device), w_glob_keys=w_glob_keys, lr=args.lr, concept_matrix_local=concept_matrix[c], first=True,isNew=True, local_eps=30)
             w_glob_temp = copy.deepcopy(w_local)
