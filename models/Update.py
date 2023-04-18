@@ -736,11 +736,11 @@ class LocalUpdateIncrement(object):
         for iter in range(local_eps):
             done = False
             #如果是第1个客户端，训练全部层
-            if first or isNew:
+            if first:
                 for name, param in net.named_parameters():
                     param.requires_grad = True
             # for FedRep, first do local epochs for the head
-            elif (iter < head_eps and self.args.alg == 'fedrep') or last:
+            elif (iter < head_eps and self.args.alg == 'fedrep') or last or isNew:
                 for name, param in net.named_parameters():
                     if name in w_glob_keys:
                         param.requires_grad = False
