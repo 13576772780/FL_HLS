@@ -209,33 +209,24 @@ if __name__ == '__main__':
 
         #初始化第c个client
         net_local = copy.deepcopy(net_glob)
-        w_local = net_local.state_dict()
-        if args.alg != 'fedavg' and args.alg != 'prox':
-            for k in w_locals[c].keys():
-                if k not in w_glob_keys:
-                    w_local[k] = w_locals[c][k]
-        net_local.load_state_dict(w_local)
+        # w_local = net_local.state_dict()
+        # if args.alg != 'fedavg' and args.alg != 'prox':
+        #     for k in w_locals[c].keys():
+        #         if k not in w_glob_keys:
+        #             w_local[k] = w_locals[c][k]
+        # net_local.load_state_dict(w_local)
         if c == 0:
             w_local, loss, indd = local.train(net=net_local.to(args.device), w_glob_keys=w_glob_keys, lr=args.lr, concept_matrix_local=concept_matrix[c], first=True,isNew=True, local_eps=30)
             w_glob_temp = copy.deepcopy(w_local)
             net_glob.load_state_dict(w_glob_temp)
+        else:
+            w_local, loss, indd = local.train(net=net_local.to(args.device), w_glob_keys=w_glob_keys, lr=args.lr,concept_matrix_local=concept_matrix[c], first=False, isNew=True, local_eps=30)
             # net_glob_stat = net_glob.state_dict()
             # for k in net_glob_stat.keys():
             #     net_glob_stat[k] = torch.div(w_local[k] + net_glob_stat[k], 2)
             # net_glob.load_state_dict(net_glob_stat)
-        else:
-            w_local, loss, indd = local.train(net=net_local.to(args.device), w_glob_keys=w_glob_keys, lr=args.lr,concept_matrix_local=concept_matrix[c], first=False, isNew=True, local_eps=30)
-            net_glob_stat = net_glob.state_dict()
-            for k in net_glob_stat.keys():
-                net_glob_stat[k] = torch.div(w_local[k] + net_glob_stat[k], 2)
-            net_glob.load_state_dict(net_glob_stat)
         for k, key in enumerate(net_glob.state_dict().keys()):
             w_locals[c][key] = w_local[key]
-
-        # test_accuracy, test_loss = test_img_local(w_local, self.dataset_test, self.args, user_idx=idx,
-        #                                           idxs=self.dict_users_test[self.client_num])
-        # print('        init train local model(freezing embeding) {:3d}, train 20 epoch, Train loss: {:.3f}, Test loss: {:.3f}, Test accuracy: {:.2f} \n'.format(
-        #     c, loss, loss_test, acc_test))
 
         #训练前c个客户端
         for iter in range(args.epochs+1):
