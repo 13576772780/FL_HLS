@@ -71,6 +71,10 @@ def args_parser():
     parser.add_argument('--is_reset_model', type=int, default=1, help='reset train init model')
     # parser.add_argument('--output_of_classify_header', type=int, default=10, help='output of classify header')
     # parser.add_argument('--is_class_overlapping', type=int, default=1, help='is client class  overlapping')
+    parser.add_argument("--personal_learning_rate", type=float, default=0.01,
+                        help="Persionalized learning rate to caculate theta aproximately using K steps")
+    parser.add_argument("--lamda", type=int, default=15, help="Regularization term")
+    parser.add_argument("--learning_rate", type=float, default=0.005, help="Local learning rate for pfedme")
 
     args = parser.parse_args()
     return args

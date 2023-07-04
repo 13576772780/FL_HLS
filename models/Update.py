@@ -11,6 +11,7 @@ import random
 
 import torch
 from torch import nn
+from torch.optim import Optimizer
 from torch.utils.data import DataLoader, Dataset
 import math
 import numpy as np
@@ -205,7 +206,7 @@ class LocalUpdateScaffold(object):
         else:
             self.indd=None
 
-    def train(self, net, c_list={}, idx=-1, lr=0.1, c=False):
+    def train(self, net, c_list={}, idx=-1, lr=0.1, c=False, w_glob_keys=[], concept_matrix_local=None):
         net.train()
         # train and update
         bias_p=[]
@@ -234,6 +235,10 @@ class LocalUpdateScaffold(object):
             if num_updates == self.args.local_updates:
                 break
             for batch_idx, (images, labels) in enumerate(self.ldr_train):
+                if self.args.is_concept_shift == 1 or self.args.limit_local_output == 1:
+                    #通过概念偏移矩阵进行标签概念偏移
+                    labels = torch.tensor(concept_matrix_local[labels.numpy()])
+
                 if 'sent140' in self.args.dataset:
                     input_data, target_data = process_x(images, self.indd), process_y(labels, self.indd)
                     if self.args.local_bs != 1 and input_data.shape[0] != self.args.local_bs:
@@ -318,7 +323,7 @@ class LocalUpdateAPFL(object):
         else:
             self.indd=None
 
-    def train(self, net,ind=None,w_local=None, idx=-1, lr=0.1):
+    def train(self, net,ind=None,w_local=None, idx=-1, lr=0.1, w_glob_keys=[], concept_matrix_local=None):
         net.train()
         bias_p=[]
         weight_p=[]
@@ -347,6 +352,10 @@ class LocalUpdateAPFL(object):
             if num_updates >= self.args.local_updates:
                 break
             for batch_idx, (images, labels) in enumerate(self.ldr_train):
+                if self.args.is_concept_shift == 1 or self.args.limit_local_output == 1:
+                    #通过概念偏移矩阵进行标签概念偏移
+                    labels = torch.tensor(concept_matrix_local[labels.numpy()])
+
                 if  'sent140' in self.args.dataset:
                     input_data, target_data = process_x(images, self.indd), process_y(labels, self.indd)
                     if self.args.local_bs != 1 and input_data.shape[0] != self.args.local_bs:
@@ -449,7 +458,7 @@ class LocalUpdateDitto(object):
         else:
             self.indd=None
 
-    def train(self, net,ind=None, w_ditto=None, lam=0, idx=-1, lr=0.1, last=False):
+    def train(self, net,ind=None, w_ditto=None, lam=0, idx=-1, lr=0.1, last=False, w_glob_keys=[], concept_matrix_local=None):
         net.train()
         # train and update
         bias_p=[]
@@ -477,6 +486,11 @@ class LocalUpdateDitto(object):
             done=False
             batch_loss = []
             for batch_idx, (images, labels) in enumerate(self.ldr_train):
+
+                if self.args.is_concept_shift == 1 or self.args.limit_local_output == 1:
+                    #通过概念偏移矩阵进行标签概念偏移
+                    labels = torch.tensor(concept_matrix_local[labels.numpy()])
+
                 if 'sent140' in self.args.dataset:
                     w_0 = copy.deepcopy(net.state_dict())
                     input_data, target_data = process_x(images, self.indd), process_y(labels, self.indd)
@@ -501,6 +515,7 @@ class LocalUpdateDitto(object):
                         net.load_state_dict(w_net)
                         optimizer.zero_grad()
                 else:
+
                     w_0 = copy.deepcopy(net.state_dict())
                     images, labels = images.to(self.args.device), labels.to(self.args.device)
                     log_probs = net(images)
@@ -658,6 +673,185 @@ class LocalUpdate(object):
             epoch_loss.append(sum(batch_loss) / len(batch_loss))
         return net.state_dict(), sum(epoch_loss) / len(epoch_loss), self.indd
 
+
+class pFedMeOptimizer(Optimizer):
+    def __init__(self, params, lr=0.01, lamda=0.1, mu=0.001):
+        # self.local_weight_updated = local_weight # w_i,K
+        if lr < 0.0:
+            raise ValueError("Invalid learning rate: {}".format(lr))
+        defaults = dict(lr=lr, lamda=lamda, mu=mu)
+        super(pFedMeOptimizer, self).__init__(params, defaults)
+
+    def step(self, local_weight_updated, closure=None):
+        loss = None
+        if closure is not None:
+            loss = closure
+        weight_update = local_weight_updated.copy()
+        for group in self.param_groups:
+            for p, localweight in zip(group['params'], weight_update):
+                p.data = p.data - group['lr'] * (
+                            p.grad.data + group['lamda'] * (p.data - localweight.data) + group['mu'] * p.data)
+        return group['params'], loss
+
+    def update_param(self, local_weight_updated, closure=None):
+        loss = None
+        if closure is not None:
+            loss = closure
+        weight_update = local_weight_updated.copy()
+        for group in self.param_groups:
+            for p, localweight in zip(group['params'], weight_update):
+                p.data = localweight.data
+        # return  p.data
+        return group['params']
+class LocalUpdatePFedMe(object):
+    def __init__(self, args, dataset=None, idxs=None, indd=None):
+        self.args = args
+        self.loss_func = nn.CrossEntropyLoss()
+        if 'femnist' in args.dataset or 'sent140' in args.dataset:
+            self.ldr_train = DataLoader(DatasetSplit(dataset, np.ones(len(dataset['x'])), name=self.args.dataset),
+                                        batch_size=self.args.local_bs, shuffle=True)
+        else:
+            self.ldr_train = DataLoader(DatasetSplit(dataset, idxs), batch_size=self.args.local_bs, shuffle=True)
+
+        if 'sent140' in self.args.dataset and indd == None:
+            VOCAB_DIR = 'models/embs.json'
+            _, self.indd, vocab = get_word_emb_arr(VOCAB_DIR)
+            self.vocab_size = len(vocab)
+        elif indd is not None:
+            self.indd = indd
+        else:
+            self.indd = None
+
+        self.dataset = dataset
+        self.idxs = idxs
+
+    def train(self, net, w_glob_keys, last=False, dataset_test=None, ind=-1, idx=-1, lr=0.1, concept_matrix_local=None, w_locals = None):
+        bias_p = []
+        weight_p = []
+        optimizer = pFedMeOptimizer(net.parameters(), lr=self.args.personal_learning_rate, lamda=self.args.lamda)
+        local_model = copy.deepcopy(net)
+        w_local = local_model.state_dict()
+        for k in w_locals[idx].keys():
+            if k not in w_glob_keys:
+                w_local[k] = w_locals[idx][k]
+        local_param = copy.deepcopy(list(local_model.parameters()))
+        for name, p in net.named_parameters():
+            if 'bias' in name:
+                bias_p += [p]
+            else:
+                weight_p += [p]
+        # optimizer = torch.optim.SGD(
+        #     [
+        #         {'params': weight_p, 'weight_decay': 0.0001},
+        #         {'params': bias_p, 'weight_decay': 0}
+        #     ],
+        #     lr=lr, momentum=0.5
+        # )
+
+        if self.args.alg == 'prox':
+            optimizer = FedProx.FedProx(net.parameters(),
+                                        lr=lr,
+                                        gmf=self.args.gmf,
+                                        mu=self.args.mu,
+                                        ratio=1 / self.args.num_users,
+                                        momentum=0.5,
+                                        nesterov=False,
+                                        weight_decay=1e-4)
+
+        local_eps = self.args.local_ep
+        if last:
+            if self.args.alg == 'fedavg' or self.args.alg == 'prox':
+                local_eps = 10
+                # net_keys = [*net.state_dict().keys()]
+                # if 'cifar' in self.args.dataset:
+                #     w_glob_keys = [net.weight_keys[i] for i in [0,1,3,4]]
+                # elif 'sent140' in self.args.dataset:
+                #     w_glob_keys = [net_keys[i] for i in [0,1,2,3,4,5]]
+                # elif 'mnist' in self.args.dataset:
+                #     w_glob_keys = [net.weight_keys[i] for i in [0,1,2]]
+            elif 'maml' in self.args.alg:
+                local_eps = 10
+                w_glob_keys = []
+            else:
+                local_eps = max(10, local_eps - self.args.local_rep_ep)
+
+        head_eps = local_eps - self.args.local_rep_ep
+        epoch_loss = []
+        num_updates = 0
+        if 'sent140' in self.args.dataset:
+            hidden_train = net.init_hidden(self.args.local_bs)
+        for iter in range(local_eps):
+            done = False
+
+            # # for FedRep, first do local epochs for the head
+            # if (iter < head_eps and self.args.alg == 'fedrep') or last:
+            #     for name, param in net.named_parameters():
+            #         if name in w_glob_keys:
+            #             param.requires_grad = False
+            #         else:
+            #             param.requires_grad = True
+            #
+            # # then do local epochs for the representation
+            # elif iter >= head_eps and self.args.alg == 'fedrep' and not last:
+            #     for name, param in net.named_parameters():
+            #         if name in w_glob_keys:
+            #             param.requires_grad = True
+            #         else:
+            #             param.requires_grad = False
+            #
+            # # all other methods update all parameters simultaneously
+            # elif self.args.alg != 'fedrep':
+            #     for name, param in net.named_parameters():
+            #         param.requires_grad = True
+
+            batch_loss = []
+            for batch_idx, (images, labels) in enumerate(self.ldr_train):
+
+                if self.args.is_concept_shift == 1 or self.args.limit_local_output == 1:
+                    # 通过概念偏移矩阵进行标签概念偏移
+                    labels = torch.tensor(concept_matrix_local[labels.numpy()])
+
+                if 'sent140' in self.args.dataset:
+                    input_data, target_data = process_x(images, self.indd), process_y(labels, self.indd)
+                    if self.args.local_bs != 1 and input_data.shape[0] != self.args.local_bs:
+                        break
+                    net.train()
+                    data, targets = torch.from_numpy(input_data).to(self.args.device), torch.from_numpy(target_data).to(
+                        self.args.device)
+                    net.zero_grad()
+                    hidden_train = repackage_hidden(hidden_train)
+                    output, hidden_train = net(data, hidden_train)
+                    loss = self.loss_func(output.t(), torch.max(targets, 1)[1])
+                    loss.backward()
+                    optimizer.step()
+                else:
+                    images, labels = images.to(self.args.device), labels.to(self.args.device)
+                    net.zero_grad()
+                    log_probs = net(images)
+                    loss = self.loss_func(log_probs, labels)
+                    loss.backward()
+                    # optimizer.step()
+                    persionalized_model_bar, _ = optimizer.step(local_param)
+
+                num_updates += 1
+                batch_loss.append(loss.item())
+                if num_updates == self.args.local_updates:
+                    done = True
+                    break
+            for new_param, localweight in zip(persionalized_model_bar, local_param):
+                localweight.data = localweight.data - self.args.lamda* self.args.learning_rate * (localweight.data - new_param.data)
+
+
+            epoch_loss.append(sum(batch_loss) / len(batch_loss))
+            if done:
+                break
+
+            epoch_loss.append(sum(batch_loss) / len(batch_loss))
+
+        for param, new_param in zip(net.parameters(), local_param):
+            param.data = new_param.data.clone()
+        # w_locals[idx] = local_model
+        return net.state_dict(), sum(epoch_loss) / len(epoch_loss), self.indd
 
 class LocalUpdateIncrement(object):
     def __init__(self, args, dataset=None, idxs=None, indd=None, dataset_test=None, dict_users_test=None, client_num = 0):

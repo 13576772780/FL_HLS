@@ -99,7 +99,34 @@ if __name__ == '__main__':
 
     lens = np.ones(args.num_users)
     if 'cifar' in args.dataset or args.dataset == 'mnist':
-        dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix = get_data_v2(args)
+        # dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix = get_data_v2(args)
+        # for idx in dict_users_train.keys():
+        #     np.random.shuffle(dict_users_train[idx])
+
+        if args.is_reset_dataset == 1:
+            dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix = get_data_v2(args)
+
+            dutrain = []
+            dutest = []
+            for k, v in dict_users_train.items():
+                dutrain.append(v)
+            for k, v in dict_users_test.items():
+                dutest.append(v)
+            np.save('data/sample/dict_users_train.npy', np.array(dutrain))
+            np.save('data/sample/dict_users_test.npy', np.array(dutest))
+            np.save('data/sample/concept_matrix.npy', np.array(concept_matrix))
+        elif args.is_reset_dataset == 0:
+            dataset_train, dataset_test, _, _, _ = get_data_v2(args)
+            dutr = np.load('data/sample/dict_users_train.npy', allow_pickle=True)
+            dute = np.load('data/sample/dict_users_test.npy', allow_pickle=True)
+            concept_matrix = np.load('data/sample/concept_matrix.npy', allow_pickle=True)
+            dict_users_train = dict_users = {i: np.array([], dtype='int64') for i in range(args.num_users)}
+            dict_users_test = dict_users = {i: np.array([], dtype='int64') for i in range(args.num_users)}
+            for i, v in enumerate(dutr):
+                dict_users_train[i] = v
+            for i, v in enumerate(dute):
+                dict_users_test[i] = v
+
         for idx in dict_users_train.keys():
             np.random.shuffle(dict_users_train[idx])
     else:

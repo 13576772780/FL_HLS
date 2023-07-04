@@ -129,7 +129,8 @@ def noniid_v2(dataset, num_users, shard_per_user, num_classes, rand_set_all=[], 
         rand_set = []
         for label in rand_set_label:
             idx = np.random.choice(len(idxs_dict[label]), replace=False)
-            rand_set.append(idxs_dict[label].pop(idx))
+            # rand_set.append(idxs_dict[label].pop(idx))
+            rand_set.append(idxs_dict[label][idx])
         dict_users[i] = np.concatenate(rand_set)
 
 

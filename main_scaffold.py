@@ -7,12 +7,14 @@
 
 import copy
 import pickle
+import random
+
 import numpy as np
 import pandas as pd
 import torch
 
 from utils.options import args_parser
-from utils.train_utils import get_data, get_model, read_data
+from utils.train_utils import get_data, get_model, read_data, get_data_v2
 from models.Update import LocalUpdate, LocalUpdateScaffold
 from models.test import test_img_local_all
 
@@ -25,7 +27,34 @@ if __name__ == '__main__':
 
     lens = np.ones(args.num_users)
     if 'cifar' in args.dataset or args.dataset == 'mnist':
-        dataset_train, dataset_test, dict_users_train, dict_users_test = get_data(args)
+        # dataset_train, dataset_test, dict_users_train, dict_users_test = get_data(args)
+        # for idx in dict_users_train.keys():
+        #     np.random.shuffle(dict_users_train[idx])
+        if args.is_reset_dataset == 1:
+            dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix = get_data_v2(args)
+
+            dutrain = []
+            dutest = []
+            for k, v in dict_users_train.items():
+                dutrain.append(v)
+            for k, v in dict_users_test.items():
+                dutest.append(v)
+            np.save('data/sample/dict_users_train.npy', np.array(dutrain))
+            np.save('data/sample/dict_users_test.npy', np.array(dutest))
+            np.save('data/sample/concept_matrix.npy', np.array(concept_matrix))
+        elif args.is_reset_dataset == 0:
+            dataset_train, dataset_test, _, _, _ = get_data_v2(args)
+            dutr = np.load('data/sample/dict_users_train.npy', allow_pickle=True)
+            dute = np.load('data/sample/dict_users_test.npy', allow_pickle=True)
+            concept_matrix = np.load('data/sample/concept_matrix.npy', allow_pickle=True)
+            dict_users_train = dict_users = {i: np.array([], dtype='int64') for i in range(args.num_users)}
+            dict_users_test = dict_users = {i: np.array([], dtype='int64') for i in range(args.num_users)}
+            for i, v in enumerate(dutr):
+                dict_users_train[i] = v
+            for i, v in enumerate(dute):
+                dict_users_test[i] = v
+
+
         for idx in dict_users_train.keys():
             np.random.shuffle(dict_users_train[idx])
     else:
@@ -52,6 +81,13 @@ if __name__ == '__main__':
     if args.load_fed != 'n':
         fed_model_path = './save/' + args.load_fed + '.pt'
         net_glob.load_state_dict(torch.load(fed_model_path))
+
+    w_locals = {}
+    for user in range(args.num_users):
+        w_local_dict = {}
+        for key in net_glob.state_dict().keys():
+            w_local_dict[key] =net_glob.state_dict()[key]
+        w_locals[user] = w_local_dict
     
     lr = args.lr
     indd = None
@@ -67,7 +103,19 @@ if __name__ == '__main__':
     accs = []
     accs10 = 0
     accs10_glob = 0
-    start = time.time() 
+    start = time.time()
+    w_glob_keys = []
+    times = []
+    loss_train = []
+
+    #为每一个客户端计算一个概念偏移矩阵
+    if args.limit_local_output == 0:
+        concept_matrix = []
+        for id in range(args.num_users):
+            concept_matrix_local = np.array([i for i in range(args.num_classes)], dtype=np.int64)
+            if args.is_concept_shift == 1:
+                random.shuffle(concept_matrix_local)
+            concept_matrix.append(concept_matrix_local)
 
     w_glob = net_glob.state_dict()
     for iter in range(args.epochs+1):
@@ -75,7 +123,7 @@ if __name__ == '__main__':
         m = max(int(args.frac * args.num_users), 1)
         if iter == args.epochs:
             m = args.num_users
-            w_locals = {}
+            # w_locals = {}
         idxs_users = np.random.choice(range(args.num_users), m, replace=False)
 
         delta_c = {}
@@ -85,25 +133,25 @@ if __name__ == '__main__':
             delta_y[k] = torch.zeros(w_glob[k].size()).to(args.device)
         for ind,idx in enumerate(idxs_users):
             if iter != args.epochs and ('femnist' in args.dataset or 'sent140' in args.dataset):
-                local = LocalUpdateScaffold(args=args,indd=indd, dataset=dataset_train[list(dataset_train.keys())[idx]], idxs=dict_users_train, optim= optim)
+                local = LocalUpdateScaffold(args=args,indd=indd, dataset=dataset_train[list(dataset_train.keys())[idx]], idxs=dict_users_train)
             elif iter != args.epochs:
-                local = LocalUpdateScaffold(args=args, dataset=dataset_train, idxs=dict_users_train[idx], optim=optim)
+                local = LocalUpdateScaffold(args=args, dataset=dataset_train, idxs=dict_users_train[idx])
             elif 'femnist' in args.dataset or 'sent140' in args.dataset:
-                local = LocalUpdate(args=args,indd=indd, dataset=dataset_train[list(dataset_train.keys())[idx]], idxs=dict_users_train, optim= optim) 
+                local = LocalUpdate(args=args,indd=indd, dataset=dataset_train[list(dataset_train.keys())[idx]], idxs=dict_users_train)
             else:
-                local = LocalUpdate(args=args, dataset=dataset_train, idxs=dict_users_train[idx], optim=optim)
+                local = LocalUpdate(args=args, dataset=dataset_train, idxs=dict_users_train[idx])
 
             net_local = copy.deepcopy(net_glob)
             w_glob_here = copy.deepcopy(w_glob)
 
             if args.epochs != iter:
-                w_local, loss, indd, count = local.train(net=net_local.to(args.device), idx=idx, lr=lr, c_list=c_list)
+                w_local, loss, indd, count = local.train(net=net_local.to(args.device), idx=idx, lr=lr, c_list=c_list, concept_matrix_local=concept_matrix[idx])
             else:
-                w_local, loss, indd = local.train(net=net_local.to(args.device), idx=idx, lr=lr, last=True)
+                w_local, loss, indd = local.train(net=net_local.to(args.device), idx=idx, lr=lr, last=True, concept_matrix_local=concept_matrix[idx], w_glob_keys=[])
 
             loss_locals.append(copy.deepcopy(loss))
-            if iter == args.epochs:
-                w_locals[idx] = copy.deepcopy(w_local)
+            # if iter == args.epochs:
+            w_locals[idx] = copy.deepcopy(w_local)
             
             if args.alg == 'scaf':
                 ci_new = {}
@@ -137,7 +185,7 @@ if __name__ == '__main__':
 
         if iter % args.test_freq==args.test_freq-1 or iter>=args.epochs-10:
             acc_test, loss_test = test_img_local_all(net_glob, args, dataset_test, dict_users_test,
-                                                        w_glob_keys=w_glob_keys, w_locals=w_locals, indd=indd,dataset_train=dataset_train, dict_users_train=dict_users_train, return_all=False)
+                                                        w_glob_keys=w_glob_keys, w_locals=w_locals, indd=indd,dataset_train=dataset_train, dict_users_train=dict_users_train, return_all=False, concept_matrix=concept_matrix)
             accs.append(acc_test)
 
             # for algs which learn a single global model, these are the local accuracies (computed using the locally updated versions of the global model at the end of each round)
@@ -153,7 +201,7 @@ if __name__ == '__main__':
 
             # below prints the global accuracy of the single global model for the relevant algs
             acc_test, loss_test = test_img_local_all(net_glob, args, dataset_test, dict_users_test,
-                                                        w_locals=None, indd=indd,dataset_train=dataset_train, dict_users_train=dict_users_train, return_all=False)
+                                                        w_locals=None, indd=indd,dataset_train=dataset_train, dict_users_train=dict_users_train, return_all=False, concept_matrix=concept_matrix)
             if iter != args.epochs:
                 print('Round {:3d}: Global train loss: {:.3f}, Global test loss: {:.3f}, Global test accuracy: {:.2f}'.format(
                         iter, loss_avg, loss_test, acc_test))

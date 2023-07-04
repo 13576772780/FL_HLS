@@ -182,6 +182,7 @@ if __name__ == '__main__':
         w_keys_epoch = w_glob_keys
         times_in = []
         total_len=0
+
         for ind, idx in enumerate(idxs_users):
             start_in = time.time()
             if 'femnist' in args.dataset or 'sent140' in args.dataset:
