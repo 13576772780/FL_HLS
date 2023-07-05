@@ -25,6 +25,8 @@ share/python-wheels/
 *.egg-info/
 data/*
 models/*
+log/*
+save/*
 save/init/*
 .installed.cfg
 *.egg

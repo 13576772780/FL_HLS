@@ -26,6 +26,8 @@ if __name__ == '__main__':
     args = args_parser()
     args.device = torch.device('cuda:{}'.format(args.gpu) if torch.cuda.is_available() and args.gpu != -1 else 'cpu')
 
+    print('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n')
+    print('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Fed_apfl%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n')
     lens = np.ones(args.num_users)
     if 'cifar' in args.dataset or args.dataset == 'mnist':
         # dataset_train, dataset_test, dict_users_train, dict_users_test = get_data(args)
