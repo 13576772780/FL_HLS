@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# start_train_all 20230611_2
+#nohup ./start_train_synthetic >> ./result/${1}_synthetic.log 2>&1 &
+nohup ./start_train_mnist >> ./result/${1}_mnist.log 2>&1 &
+nohup ./start_train_cifar10 >> ./result/${1}_cifar10.log 2>&1 &

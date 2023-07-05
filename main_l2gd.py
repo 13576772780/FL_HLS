@@ -7,6 +7,8 @@
 
 import copy
 import itertools
+import random
+
 import pandas as pd
 import numpy as np
 import torch
@@ -63,18 +65,34 @@ if __name__ == '__main__':
         w_locals[user] = w_local_dict
     net_local = copy.deepcopy(net_glob)
 
+    if args.alg == 'fedavg' or args.alg == 'prox' or args.alg == 'maml':
+        w_glob_keys = []
+    if 'sent140' not in args.dataset:
+        w_glob_keys = list(itertools.chain.from_iterable(w_glob_keys))
+
     loss_train = []
     test_freq = args.test_freq
     indd = None
     accs = []
-
+    times = []
     p = 0.9
     alpha = args.alpha_l2gd
     lr = alpha/(args.num_users*(1-p))
     lam = args.lambda_l2gd
     print("alpha, lambda: {}, {}".format(alpha, lam))
     accs10 = 0
+    loss_avg=0
     start = time.time()
+
+    #为每一个客户端计算一个概念偏移矩阵
+    if args.limit_local_output == 0:
+        concept_matrix = []
+        for id in range(args.num_users):
+            concept_matrix_local = np.array([i for i in range(args.num_classes)], dtype=np.int64)
+            if args.is_concept_shift == 1:
+                random.shuffle(concept_matrix_local)
+            concept_matrix.append(concept_matrix_local)
+
     for iter in range(args.epochs+1):
         w_glob = {}
         loss_locals = []
@@ -101,9 +119,9 @@ if __name__ == '__main__':
                     w_local[k] = w_locals[idx][k]
                 net_local.load_state_dict(w_local)
                 if 'femnist' in args.dataset or 'sent140' in args.dataset:
-                    w_local, loss, indd = local.train(net=net_local.to(args.device),ind=idx,mask=mask, idx=clients[idx], w_glob_keys=w_glob_keys, lr=lr)
+                    w_local, loss, indd = local.train(net=net_local.to(args.device),ind=idx, idx=clients[idx], w_glob_keys=w_glob_keys, lr=lr)
                 else:
-                    w_local, loss, indd = local.train(net=net_local.to(args.device), idx=idx,mask=mask, w_glob_keys=w_glob_keys, lr=lr)
+                    w_local, loss, indd = local.train(net=net_local.to(args.device), idx=idx, w_glob_keys=w_glob_keys, lr=lr)
                 loss_locals.append(copy.deepcopy(loss))
                 for k,key in enumerate(net_glob.state_dict().keys()):
                     w_locals[idx][key] = w_local[key]
@@ -127,7 +145,7 @@ if __name__ == '__main__':
        
         if iter % args.test_freq==args.test_freq-1 or iter>=args.epochs-10:
             acc_test, loss_test = test_img_local_all(net_glob, args, dataset_test, dict_users_test,
-                                                     w_locals=w_locals,fedavg=False,indd=indd,dataset_train=dataset_train, dict_users_train=dict_users_train, return_all=False)
+                                                     w_locals=w_locals,indd=indd,dataset_train=dataset_train, dict_users_train=dict_users_train, return_all=False, concept_matrix=concept_matrix)
             accs.append(acc_test)
             if iter != args.epochs:
                 print('Round {:3d}, Train loss: {:.3f}, Test loss: {:.3f}, Test accuracy: {:.2f}'.format(

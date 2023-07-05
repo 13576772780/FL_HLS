@@ -67,9 +67,20 @@ def get_data_v2(args):
         dataset_train = datasets.MNIST('data/mnist/', train=True, download=True, transform=trans_mnist)
         dataset_test = datasets.MNIST('data/mnist/', train=False, download=True, transform=trans_mnist)
         # sample users
-        dict_users_train, rand_set_all = noniid(dataset_train, args.num_users, args.shard_per_user, args.num_classes)
-        dict_users_test, rand_set_all = noniid(dataset_test, args.num_users, args.shard_per_user, args.num_classes,
-                                               rand_set_all=rand_set_all, testb=True)
+        dict_users_train, rand_set_all = noniid_v2(dataset_train, args.num_users, args.shard_per_user, args.num_classes,
+                                                   nums_per_class=args.nums_per_class)
+        dict_users_test, rand_set_all = noniid_v2(dataset_test, args.num_users, args.shard_per_user, args.num_classes,
+                                                  rand_set_all=rand_set_all, nums_per_class=args.nums_per_class)
+
+        # 为了让没个客户端模型只有限定类数量的输出，比如只有3类输出，将每个客户端的类映射到0，1，2.。。。
+        concept_matrix = np.array([[-1 for i in range(10)] for j in range(args.num_users)], dtype=np.int64)
+        for idx, cls in enumerate(rand_set_all):
+            start = 0
+            for val in cls:
+                if concept_matrix[idx][val] == -1:
+                    concept_matrix[idx][val] = start
+                    start += 1
+
     elif args.dataset == 'cifar10':
         dataset_train = datasets.CIFAR10('data/cifar10', train=True, download=True, transform=trans_cifar10_train)
         dataset_test = datasets.CIFAR10('data/cifar10', train=False, download=True, transform=trans_cifar10_val)

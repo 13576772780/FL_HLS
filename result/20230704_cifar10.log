@@ -1,0 +1,640 @@
+Traceback (most recent call last):
+  File "main_fedrep.py", line 17, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_fedrep.py", line 17, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_fedrep.py", line 17, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_fedpac.py", line 17, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_ditto.py", line 12, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_apfl.py", line 14, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_scaffold.py", line 14, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_pfedme.py", line 17, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_fedrep.py", line 17, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_fedrep.py", line 17, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_fedrep.py", line 17, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_fedpac.py", line 17, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_ditto.py", line 12, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_apfl.py", line 14, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_scaffold.py", line 14, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_pfedme.py", line 17, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_fedrep.py", line 17, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_fedrep.py", line 17, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_fedrep.py", line 17, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_fedpac.py", line 17, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_ditto.py", line 12, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_apfl.py", line 14, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_scaffold.py", line 14, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_pfedme.py", line 17, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_fedrep.py", line 17, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_fedrep.py", line 17, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_fedrep.py", line 17, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_fedpac.py", line 17, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_ditto.py", line 12, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_apfl.py", line 14, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_scaffold.py", line 14, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_pfedme.py", line 17, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_fedrep.py", line 17, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_fedrep.py", line 17, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_fedrep.py", line 17, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_fedpac_k_means.py", line 17, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_ditto.py", line 12, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_apfl.py", line 14, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_scaffold.py", line 14, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_pfedme.py", line 17, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_fedrep.py", line 17, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_fedrep.py", line 17, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_fedrep.py", line 17, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_fedpac_k_means.py", line 17, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_ditto.py", line 12, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_apfl.py", line 14, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_scaffold.py", line 14, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_pfedme.py", line 17, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_fedrep.py", line 17, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_fedrep.py", line 17, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_fedrep.py", line 17, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_fedpac_k_means.py", line 17, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_ditto.py", line 12, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_apfl.py", line 14, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_scaffold.py", line 14, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_pfedme.py", line 17, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_fedrep.py", line 17, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_fedrep.py", line 17, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_fedrep.py", line 17, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_fedpac_k_means.py", line 17, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_ditto.py", line 12, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_apfl.py", line 14, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_scaffold.py", line 14, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference
+Traceback (most recent call last):
+  File "main_pfedme.py", line 17, in <module>
+    import torch
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 191, in <module>
+    _load_global_deps()
+  File "/data/jij/install/anaconda/lib/python3.7/site-packages/torch/__init__.py", line 153, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/data/jij/install/anaconda/lib/python3.7/ctypes/__init__.py", line 356, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /data/jij/install/anaconda/lib/python3.7/site-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.11: symbol cublasLtHSHMatmulAlgoInit, version libcublasLt.so.11 not defined in file libcublasLt.so.11 with link time reference

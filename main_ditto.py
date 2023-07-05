@@ -11,9 +11,9 @@ import numpy as np
 import pandas as pd
 import torch
 from torch import nn
-
+import random
 from utils.options import args_parser
-from utils.train_utils import get_data, get_model, read_data
+from utils.train_utils import get_data, get_model, read_data, get_data_v2
 from models.Update import LocalUpdate, LocalUpdateDitto
 from models.test import test_img_local_all
 
@@ -27,7 +27,34 @@ if __name__ == '__main__':
 
     lens = np.ones(args.num_users)
     if 'cifar' in args.dataset or args.dataset == 'mnist':
-        dataset_train, dataset_test, dict_users_train, dict_users_test = get_data(args)
+        # dataset_train, dataset_test, dict_users_train, dict_users_test = get_data(args)
+        # for idx in dict_users_train.keys():
+        #     np.random.shuffle(dict_users_train[idx])
+        if args.is_reset_dataset == 1:
+            dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix = get_data_v2(args)
+
+            dutrain = []
+            dutest = []
+            for k, v in dict_users_train.items():
+                dutrain.append(v)
+            for k, v in dict_users_test.items():
+                dutest.append(v)
+            np.save('data/sample/dict_users_train.npy', np.array(dutrain))
+            np.save('data/sample/dict_users_test.npy', np.array(dutest))
+            np.save('data/sample/concept_matrix.npy', np.array(concept_matrix))
+        elif args.is_reset_dataset == 0:
+            dataset_train, dataset_test, _, _, _ = get_data_v2(args)
+            dutr = np.load('data/sample/dict_users_train.npy', allow_pickle=True)
+            dute = np.load('data/sample/dict_users_test.npy', allow_pickle=True)
+            concept_matrix = np.load('data/sample/concept_matrix.npy', allow_pickle=True)
+            dict_users_train = dict_users = {i: np.array([], dtype='int64') for i in range(args.num_users)}
+            dict_users_test = dict_users = {i: np.array([], dtype='int64') for i in range(args.num_users)}
+            for i, v in enumerate(dutr):
+                dict_users_train[i] = v
+            for i, v in enumerate(dute):
+                dict_users_test[i] = v
+
+
         for idx in dict_users_train.keys():
             np.random.shuffle(dict_users_train[idx])
     else:
@@ -55,6 +82,45 @@ if __name__ == '__main__':
         fed_model_path = './save/' + args.load_fed + '.pt'
         net_glob.load_state_dict(torch.load(fed_model_path))
 
+    total_num_layers = len(net_glob.state_dict().keys())
+    print(net_glob.state_dict().keys())
+    net_keys = [*net_glob.state_dict().keys()]
+
+    # specify the representation parameters (in w_glob_keys) and head parameters (all others)
+    # 选择公共层
+    if args.alg == 'fedrep' or args.alg == 'fedper':
+        if 'cifar' in args.dataset:
+            if args.model != 'resnet18':
+                w_glob_keys = [net_glob.weight_keys[i] for i in [0, 1, 3, 4]]
+            else:
+                keys = [key for key in net_glob.state_dict().keys()]
+                w_glob_keys = [keys[0:-2]]
+        elif 'mnist' in args.dataset:
+            w_glob_keys = [net_glob.weight_keys[i] for i in [0, 1, 2]]
+        elif 'sent140' in args.dataset:
+            w_glob_keys = [net_keys[i] for i in [0, 1, 2, 3, 4, 5]]
+        else:
+            w_glob_keys = net_keys[:-2]
+    elif args.alg == 'lg':
+        if 'cifar' in args.dataset:
+            w_glob_keys = [net_glob.weight_keys[i] for i in [1, 2]]
+        elif 'mnist' in args.dataset:
+            w_glob_keys = [net_glob.weight_keys[i] for i in [2, 3]]
+        elif 'sent140' in args.dataset:
+            w_glob_keys = [net_keys[i] for i in [0, 6, 7]]
+        else:
+            w_glob_keys = net_keys[total_num_layers - 2:]
+
+    if args.alg == 'fedavg' or args.alg == 'prox' or args.alg == 'maml':
+        w_glob_keys = []
+    if 'sent140' not in args.dataset:
+        w_glob_keys = list(itertools.chain.from_iterable(w_glob_keys))
+
+    print(total_num_layers)
+    print(w_glob_keys)
+    print(net_keys)
+
+
     # generate list of local models for each user
     w_locals = {}
     for user in range(args.num_users):
@@ -65,6 +131,7 @@ if __name__ == '__main__':
     net_local = copy.deepcopy(net_glob)
     
     # training
+    # concept_matrix = []
     loss_train = []
     test_freq = args.test_freq
     indd = None
@@ -73,10 +140,21 @@ if __name__ == '__main__':
     times = []
     lam = args.lam_ditto
     start = time.time()
+
+    #为每一个客户端计算一个概念偏移矩阵
+    if args.limit_local_output == 0:
+        concept_matrix = []
+        for id in range(args.num_users):
+            concept_matrix_local = np.array([i for i in range(args.num_classes)], dtype=np.int64)
+            if args.is_concept_shift == 1:
+                random.shuffle(concept_matrix_local)
+            concept_matrix.append(concept_matrix_local)
+
     for iter in range(args.epochs+1):
         w_glob = {}
         loss_locals = []
         m = max(int(args.frac * args.num_users), 1)
+        times_in = []
         if iter == args.epochs:
             m = args.num_users
         idxs_users = np.random.choice(range(args.num_users), m, replace=False)
@@ -85,28 +163,28 @@ if __name__ == '__main__':
             start_in = time.time()
             if 'femnist' in args.dataset or 'sent140' in args.dataset:
                 if iter == args.epochs:
-                    local = LocalUpdate(args=args, dataset=dataset_train[list(dataset_train.keys())[idx][:args.m_ft]], idxs=dict_users_train, indd=indd)
+                    local = LocalUpdateDitto(args=args, dataset=dataset_train[list(dataset_train.keys())[idx][:args.m_ft]], idxs=dict_users_train, indd=indd)
                 else:
                     local = LocalUpdateDitto(args=args, dataset=dataset_train[list(dataset_train.keys())[idx][:args.m_tr]], idxs=dict_users_train, indd=indd)
             else:
                 if iter == args.epochs:
-                    local = LocalUpdate(args=args, dataset=dataset_train, idxs=dict_users_train[idx][:args.m_ft])
+                    local = LocalUpdateDitto(args=args, dataset=dataset_train, idxs=dict_users_train[idx][:args.m_ft])
                 else:
                     local = LocalUpdateDitto(args=args, dataset=dataset_train, idxs=dict_users_train[idx][:args.m_tr])
 
             net_global = copy.deepcopy(net_glob)
             w_glob_k = copy.deepcopy(net_global.state_dict())
             if 'femnist' in args.dataset or 'sent140' in args.dataset:
-                w_k, loss, indd = local.train(net=net_global.to(args.device), ind=idx, idx=clients[idx], lr=args.lr)
+                w_k, loss, indd = local.train(net=net_global.to(args.device), ind=idx, idx=clients[idx], lr=args.lr, concept_matrix_local=concept_matrix[idx])
             else:
-                w_k, loss, indd = local.train(net=net_global.to(args.device), idx=idx, lr=args.lr)
+                w_k, loss, indd = local.train(net=net_global.to(args.device), idx=idx, lr=args.lr, concept_matrix_local=concept_matrix[idx])
             net_local = copy.deepcopy(net_glob)
             w_local = copy.deepcopy(w_locals[idx])
             net_local.load_state_dict(w_local)
             if 'femnist' in args.dataset or 'sent140' in args.dataset:
-                w_local, loss, indd = local.train(net=net_local.to(args.device), ind=idx, idx=clients[idx], lr=args.lr, w_ditto=w_glob_k, lam=lam)
+                w_local, loss, indd = local.train(net=net_local.to(args.device), ind=idx, idx=clients[idx], lr=args.lr, w_ditto=w_glob_k, lam=lam, concept_matrix_local=concept_matrix[idx])
             else:
-                w_local, loss, indd = local.train(net=net_local.to(args.device), idx=idx, lr=args.lr, w_ditto=w_glob_k, lam=lam)
+                w_local, loss, indd = local.train(net=net_local.to(args.device),  idx=idx, lr=args.lr, w_ditto=w_glob_k, lam=lam, concept_matrix_local=concept_matrix[idx])
 
             loss_locals.append(copy.deepcopy(loss))
 
@@ -129,7 +207,7 @@ if __name__ == '__main__':
             else:
                 times.append(times[-1] + max(times_in))
             acc_test, loss_test = test_img_local_all(net_glob, args, dataset_test, dict_users_test,
-                                                     w_locals=w_locals,fedavg=False,indd=indd,dataset_train=dataset_train, dict_users_train=dict_users_train, return_all=False)
+                                                        w_locals=None,indd=indd,dataset_train=dataset_train, dict_users_train=dict_users_train, return_all=False, concept_matrix=concept_matrix)
             accs.append(acc_test)
             if iter != args.epochs:
                 print('Round {:3d}, Train loss: {:.3f}, Test loss: {:.3f}, Test accuracy: {:.2f}'.format(
