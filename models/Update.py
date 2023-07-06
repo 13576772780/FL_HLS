@@ -477,6 +477,22 @@ class LocalUpdateDitto(object):
         )
 
         local_eps = self.args.local_ep
+        if last:
+            if self.args.alg =='fedavg' or self.args.alg == 'prox':
+                local_eps= 10
+                # net_keys = [*net.state_dict().keys()]
+                # if 'cifar' in self.args.dataset:
+                #     w_glob_keys = [net.weight_keys[i] for i in [0,1,3,4]]
+                # elif 'sent140' in self.args.dataset:
+                #     w_glob_keys = [net_keys[i] for i in [0,1,2,3,4,5]]
+                # elif 'mnist' in self.args.dataset:
+                #     w_glob_keys = [net.weight_keys[i] for i in [0,1,2]]
+            elif 'maml' in self.args.alg:
+                local_eps = 10
+                w_glob_keys = []
+            else:
+                local_eps =  max(10,local_eps-self.args.local_rep_ep)
+
         args = self.args 
         epoch_loss=[]
         num_updates = 0
@@ -518,9 +534,10 @@ class LocalUpdateDitto(object):
 
                     w_0 = copy.deepcopy(net.state_dict())
                     images, labels = images.to(self.args.device), labels.to(self.args.device)
+                    net.zero_grad()
                     log_probs = net(images)
                     loss = self.loss_func(log_probs, labels)
-                    optimizer.zero_grad()
+                    # optimizer.zero_grad()
                     loss.backward()
                     optimizer.step()
                     
@@ -1322,7 +1339,7 @@ class LocalUpdatePAC(object):
             if 'sent140' in self.args.dataset:
                 pass
             else:
-                images = images.to(self.args.device)
+                images, labels = images.to(self.args.device), labels.to(self.args.device)
                 net.zero_grad()
                 # 获取特征值
                 if self.args.model == "mlp":
@@ -1518,7 +1535,7 @@ class LocalUpdatePACKMEANS(object):
             if 'sent140' in self.args.dataset:
                 pass
             else:
-                images = images.to(self.args.device)
+                images, labels = images.to(self.args.device), labels.to(self.args.device)
                 net.zero_grad()
                 # 获取特征值
                 if self.args.model == "mlp":
