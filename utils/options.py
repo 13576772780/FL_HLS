@@ -55,7 +55,7 @@ def args_parser():
     parser.add_argument('--num_classes', type=int, default=10, help="number of classes")
     parser.add_argument('--num_channels', type=int, default=3, help="number of channels of imges")
     parser.add_argument('--gpu', type=int, default=0, help="GPU ID, -1 for CPU")
-    parser.add_argument('--seed', type=int, default=1, help='random seed (default: 1)')
+    parser.add_argument('--seed', type=int, default=13, help='random seed (default: 1)')
     parser.add_argument('--test_freq', type=int, default=1, help='how often to test on val set')
     parser.add_argument('--load_fed', type=str, default='n', help='define pretrained federated model path')
     parser.add_argument('--results_save', type=str, default='runA', help='define fed results save folder')
@@ -75,6 +75,11 @@ def args_parser():
                         help="Persionalized learning rate to caculate theta aproximately using K steps")
     parser.add_argument("--lamda", type=int, default=15, help="Regularization term")
     parser.add_argument("--learning_rate", type=float, default=0.005, help="Local learning rate for pfedme")
+
+    #噪声生成
+    parser.add_argument('--level_n_system', type=float, default=0.0, help="fraction of noisy clients")
+    parser.add_argument('--level_n_lowerb', type=float, default=0.5, help="lower bound of noise level")
+    # parser.add_argument('--seed', type=int, default=13, help="random seed, default: 1")
 
     args = parser.parse_args()
     return args

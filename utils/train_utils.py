@@ -1,7 +1,9 @@
 # Modified from: https://github.com/pliang279/LG-FedAvg/blob/master/utils/train_utils.py
 # credit goes to: Paul Pu Liang
+import copy
 import random
 
+from numpy import long
 from torchvision import datasets, transforms
 from models.Nets import CNNCifar, CNNCifar100, RNNSent, MLP, CNN_FEMNIST, Resnet_18, ResNet, ResNet18
 from utils.sampling import noniid, noniid_v2
@@ -106,10 +108,39 @@ def get_data_v2(args):
     else:
         exit('Error: unrecognized dataset')
 
+    if args.level_n_system != 0:
+        y_train = np.array(dataset_train.targets)
+        y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+        dataset_train.targets = np.array(y_train_noisy, dtype='int64')
+
     return dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix
 
 
+def add_noise(args, y_train, dict_users, rand_set_all):
+    np.random.seed(args.seed)
 
+    gamma_s = np.random.binomial(1, args.level_n_system, args.num_users)
+    gamma_c_initial = np.random.rand(args.num_users)
+    gamma_c_initial = (1 - args.level_n_lowerb) * gamma_c_initial + args.level_n_lowerb
+    gamma_c = gamma_s * gamma_c_initial
+
+    y_train_noisy = copy.deepcopy(y_train)
+
+    real_noise_level = np.zeros(args.num_users)
+    for i in np.where(gamma_c > 0)[0]:
+        sample_idx = np.array(list(dict_users[i]))
+        prob = np.random.rand(len(sample_idx))
+        noisy_idx = np.where(prob <= gamma_c[i])[0]
+        #TODO:看懂，然后让客户端在只有特定类标签时，不会出现新的标签
+        if args.limit_local_output == 1 or args.shard_per_user < 10:
+            y_train_noisy[sample_idx[noisy_idx]] = rand_set_all[i][np.random.randint(0, args.shard_per_user, len(noisy_idx))]
+        else:
+            y_train_noisy[sample_idx[noisy_idx]] = np.random.randint(0, 10, len(noisy_idx))
+        noise_ratio = np.mean(y_train[sample_idx] != y_train_noisy[sample_idx])
+        print("Client %d, noise level: %.4f (%.4f), real noise ratio: %.4f" % (
+            i, gamma_c[i], gamma_c[i] * 0.9, noise_ratio))
+        real_noise_level[i] = noise_ratio
+    return (y_train_noisy, gamma_s, real_noise_level)
 
 def read_data(train_data_dir, test_data_dir):
     '''parses data in given train and test data directories
