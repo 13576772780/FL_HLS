@@ -205,14 +205,14 @@ if __name__ == '__main__':
             start_in = time.time()
             if 'femnist' in args.dataset or 'sent140' in args.dataset:
                 if args.epochs == iter:
-                    local = LocalUpdatePAC(args=args, dataset=dataset_train[list(dataset_train.keys())[idx][:args.m_ft]], idxs=dict_users_train, indd=indd)
+                    local = LocalUpdatePACPSL(args=args, dataset=dataset_train[list(dataset_train.keys())[idx][:args.m_ft]], idxs=dict_users_train, indd=indd)
                 else:
-                    local = LocalUpdatePAC(args=args, dataset=dataset_train[list(dataset_train.keys())[idx][:args.m_tr]], idxs=dict_users_train, indd=indd)
+                    local = LocalUpdatePACPSL(args=args, dataset=dataset_train[list(dataset_train.keys())[idx][:args.m_tr]], idxs=dict_users_train, indd=indd)
             else:
                 if args.epochs == iter:
-                    local = LocalUpdatePAC(args=args, dataset=dataset_train, idxs=dict_users_train[idx][:args.m_ft])
+                    local = LocalUpdatePACPSL(args=args, dataset=dataset_train, idxs=dict_users_train[idx][:args.m_ft])
                 else:
-                    local = LocalUpdatePAC(args=args, dataset=dataset_train, idxs=dict_users_train[idx][:args.m_tr])
+                    local = LocalUpdatePACPSL(args=args, dataset=dataset_train, idxs=dict_users_train[idx][:args.m_tr])
 
 
             net_local = copy.deepcopy(net_glob)
