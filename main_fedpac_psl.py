@@ -31,10 +31,10 @@ if __name__ == '__main__':
 
     # with open('output.txt', 'a') as f:
     print('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n')
-    print('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n')
-    print('# alg: {} , epochs: {}, shard_per_user: {}, limit_local_output: {}, local_rep_ep: {} , local_only: {}, is_concept_shift: {}, dataset: {}  \n'.format(
+    print('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC_PSL%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n')
+    print('# alg: {} , epochs: {}, shard_per_user: {}, limit_local_output: {}, local_rep_ep: {} , local_only: {}, is_concept_shift: {}, dataset: {},  filter_alg: {}, level_n_system: {} , level_n_lowerb:{}  \n'.format(
             args.alg, args.epochs, args.shard_per_user, args.limit_local_output, args.local_rep_ep, args.local_only,
-            args.is_concept_shift, args.dataset))
+            args.is_concept_shift, args.dataset,args.filter_alg, args.level_n_system, args.level_n_lowerb))
 
     lens = np.ones(args.num_users)
     if 'cifar' in args.dataset or args.dataset == 'mnist':
