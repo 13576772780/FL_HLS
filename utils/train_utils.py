@@ -102,9 +102,22 @@ def get_data_v2(args):
     elif args.dataset == 'cifar100':
         dataset_train = datasets.CIFAR100('data/cifar100', train=True, download=True, transform=trans_cifar100_train)
         dataset_test = datasets.CIFAR100('data/cifar100', train=False, download=True, transform=trans_cifar100_val)
-        dict_users_train, rand_set_all = noniid(dataset_train, args.num_users, args.shard_per_user, args.num_classes)
-        dict_users_test, rand_set_all = noniid(dataset_test, args.num_users, args.shard_per_user, args.num_classes,
-                                               rand_set_all=rand_set_all)
+        # dict_users_train, rand_set_all = noniid(dataset_train, args.num_users, args.shard_per_user, args.num_classes)
+        # dict_users_test, rand_set_all = noniid(dataset_test, args.num_users, args.shard_per_user, args.num_classes,
+        #                                        rand_set_all=rand_set_all)
+        dict_users_train, rand_set_all = noniid_v2(dataset_train, args.num_users, args.shard_per_user, args.num_classes,
+                                                   nums_per_class=args.nums_per_class)
+        dict_users_test, rand_set_all = noniid_v2(dataset_test, args.num_users, args.shard_per_user, args.num_classes,
+                                                  rand_set_all=rand_set_all, nums_per_class=args.nums_per_class)
+
+        # 为了让没个客户端模型只有限定类数量的输出，比如只有3类输出，将每个客户端的类映射到0，1，2.。。。
+        concept_matrix = np.array([[-1 for i in range(10)] for j in range(args.num_users)], dtype=np.int64)
+        for idx, cls in enumerate(rand_set_all):
+            start = 0
+            for val in cls:
+                if concept_matrix[idx][val] == -1:
+                    concept_matrix[idx][val] = start
+                    start += 1
     else:
         exit('Error: unrecognized dataset')
 
@@ -210,6 +223,7 @@ def get_model(args):
 def init_class_center(args):
     if args.model == 'cnn' and 'cifar100' in args.dataset:
         net_glob = CNNCifar100(args=args).to(args.device)
+        class_center = np.array([[random.random() for j in range(net_glob.fc3.in_features)] for i in range(10)])
     elif args.model == 'cnn' and 'cifar10' in args.dataset:
         net_glob = CNNCifar(args=args).to(args.device)
         class_center = np.array([[random.random() for j in range(net_glob.fc3.in_features)] for i in range(10)])
