@@ -78,7 +78,7 @@ def args_parser():
 
     #噪声生成
     parser.add_argument('--level_n_system', type=float, default=0.0, help="fraction of noisy clients")
-    parser.add_argument('--level_n_lowerb', type=float, default=0.5, help="lower bound of noise level")
+    parser.add_argument('--level_n_lowerb', type=float, default=0.2, help="lower bound of noise level")
     # parser.add_argument('--seed', type=int, default=13, help="random seed, default: 1")
 
     args = parser.parse_args()

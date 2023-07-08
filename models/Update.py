@@ -1757,7 +1757,8 @@ class LocalUpdatePACKMEANS(object):
 
                         # 计算正则项
                         class_center_batch = np.array([class_center_glob[i] for i in labels])
-                        sub_clc = self.features - torch.from_numpy(class_center_batch)
+                        sub_clc = self.features.to(self.args.device) - torch.from_numpy(class_center_batch).to(
+                            self.args.device)
                         reg_loss = torch.mean(torch.square(sub_clc)) * self.args.pac_param
                         loss = self.loss_func(log_probs, labels) + reg_loss
                     else:

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for((c = 1; c < 5; c ++))
+for((c = 1; c < 3; c ++))
 do
 	#fedvag local only
 		python main_fedrep.py --alg fedavg --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 0 --local_rep_ep 3 --local_only 1 --is_reset_dataset 1 --is_concept_shift 0 --frac 0.3 --dataset cifar10 --model cnn --moment 0.5 --is_reset_model 1
@@ -17,11 +17,11 @@ do
 
     python main_scaffold.py --alg scaf --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset cifar10 --model cnn --moment 0.5 --is_reset_model 1
 
-    python main_pfedme.py --alg fedavg --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset cifar10 --model cnn --moment 0.5 --is_reset_model 1
+    python main_pfedme.py --alg fedavg --epochs 300 --num_users 20 --shard_per_user 3 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset cifar10 --model cnn --moment 0.5 --is_reset_model 1
 
 done
 
-for((c = 1; c < 5; c ++))
+for((c = 1; c < 3; c ++))
 do
 		python main_fedrep.py --alg fedavg --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 1 --local_rep_ep 3 --local_only 1 --is_reset_dataset 1 --is_concept_shift 1 --frac 0.3 --dataset cifar10 --model cnn --moment 0.5 --is_reset_model 1
 
@@ -37,7 +37,7 @@ do
 
     python main_scaffold.py --alg scaf --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 1 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 1 --frac 0.3 --dataset cifar10 --model cnn --moment 0.5 --is_reset_model 1
 
-    python main_pfedme.py --alg fedavg --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 1 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 1 --frac 0.3 --dataset cifar10 --model cnn --moment 0.5 --is_reset_model 1
+    python main_pfedme.py --alg fedavg --epochs 300 --num_users 20 --shard_per_user 3 --limit_local_output 1 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 1 --frac 0.3 --dataset cifar10 --model cnn --moment 0.5 --is_reset_model 1
 
 done
 
