@@ -1,0 +1,2278 @@
+nohup: ignoring input
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:1   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 1, is_concept_shift: 0, dataset: cifar10  
+
+Files already downloaded and verified
+Files already downloaded and verified
+fedavg
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=10, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+[]
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 216, in <module>
+    net_local = copy.deepcopy(net_glob)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/parameter.py", line 55, in __deepcopy__
+    result = type(self)(self.data.clone(memory_format=torch.preserve_format), self.requires_grad)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.59 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar10  
+
+Files already downloaded and verified
+Files already downloaded and verified
+fedavg
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=10, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+[]
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 216, in <module>
+    net_local = copy.deepcopy(net_glob)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/parameter.py", line 55, in __deepcopy__
+    result = type(self)(self.data.clone(memory_format=torch.preserve_format), self.requires_grad)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.59 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedrep  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar10  
+
+Files already downloaded and verified
+Files already downloaded and verified
+fedrep
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=10, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+['fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'conv2.weight', 'conv2.bias', 'conv1.weight', 'conv1.bias']
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+# Params: 307842 (local), 307192 (global); Percentage 99.79 (307192/307842 
+)
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 216, in <module>
+    net_local = copy.deepcopy(net_glob)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/parameter.py", line 55, in __deepcopy__
+    result = type(self)(self.data.clone(memory_format=torch.preserve_format), self.requires_grad)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.59 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar10  
+
+Files already downloaded and verified
+Files already downloaded and verified
+fedrep
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=10, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+['fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'conv2.weight', 'conv2.bias', 'conv1.weight', 'conv1.bias']
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+# Params: 307842 (local), 307192 (global); Percentage 99.79 (307192/307842)
+learning rate, batch size: 0.01, 10
+Traceback (most recent call last):
+  File "main_fedpac.py", line 177, in <module>
+    class_center_glob = init_class_center(args)
+  File "/data/jij/csm/code/FL_HLS/utils/train_utils.py", line 214, in init_class_center
+    net_glob = CNNCifar(args=args).to(args.device)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 989, in to
+    return self._apply(convert)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 641, in _apply
+    module._apply(fn)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 664, in _apply
+    param_applied = fn(param)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 987, in convert
+    return t.to(device, dtype if t.is_floating_point() or t.is_complex() else None, non_blocking)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.59 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Fed_ditto%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+Files already downloaded and verified
+Files already downloaded and verified
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=10, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+[]
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+Traceback (most recent call last):
+  File "main_ditto.py", line 133, in <module>
+    net_local = copy.deepcopy(net_glob)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/parameter.py", line 55, in __deepcopy__
+    result = type(self)(self.data.clone(memory_format=torch.preserve_format), self.requires_grad)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.59 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Fed_apfl%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+Files already downloaded and verified
+Files already downloaded and verified
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=10, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+Traceback (most recent call last):
+  File "main_apfl.py", line 147, in <module>
+    w_global, w_local, loss, indd = local.train(net=net_local.to(args.device),w_local=w_local, idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, concept_matrix_local=concept_matrix[idx])
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 404, in train
+    w_glob = copy.deepcopy(net.state_dict())
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/_tensor.py", line 135, in __deepcopy__
+    new_storage = self.storage().__deepcopy__(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/storage.py", line 597, in __deepcopy__
+    return self._new_wrapped_storage(copy.deepcopy(self._storage, memo))
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/storage.py", line 97, in __deepcopy__
+    new_storage = self.clone()
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/storage.py", line 111, in clone
+    return type(self)(self.nbytes(), device=self.device).copy_(self)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 3.55 MiB already allocated; 5.56 MiB free; 4.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Fed_scaffold %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+Files already downloaded and verified
+Files already downloaded and verified
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=10, bias=True)
+)
+Traceback (most recent call last):
+  File "main_scaffold.py", line 102, in <module>
+    ci[k] = torch.zeros(net_glob.state_dict()[k].size()).to(args.device)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.59 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+nohup: ignoring input
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:1   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 1, is_concept_shift: 0, dataset: cifar10  
+
+Files already downloaded and verified
+Files already downloaded and verified
+fedavg
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=10, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+[]
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 216, in <module>
+    net_local = copy.deepcopy(net_glob)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/parameter.py", line 55, in __deepcopy__
+    result = type(self)(self.data.clone(memory_format=torch.preserve_format), self.requires_grad)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.59 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar10  
+
+Files already downloaded and verified
+Files already downloaded and verified
+fedavg
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=10, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+[]
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 216, in <module>
+    net_local = copy.deepcopy(net_glob)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/parameter.py", line 55, in __deepcopy__
+    result = type(self)(self.data.clone(memory_format=torch.preserve_format), self.requires_grad)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.59 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedrep  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar10  
+
+Files already downloaded and verified
+Files already downloaded and verified
+fedrep
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=10, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+['fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'conv2.weight', 'conv2.bias', 'conv1.weight', 'conv1.bias']
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+# Params: 307842 (local), 307192 (global); Percentage 99.79 (307192/307842 
+)
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 216, in <module>
+    net_local = copy.deepcopy(net_glob)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/parameter.py", line 55, in __deepcopy__
+    result = type(self)(self.data.clone(memory_format=torch.preserve_format), self.requires_grad)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.59 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedper  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedper , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar10  
+
+Files already downloaded and verified
+Files already downloaded and verified
+fedper
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=10, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+['fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'conv2.weight', 'conv2.bias', 'conv1.weight', 'conv1.bias']
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+# Params: 307842 (local), 307192 (global); Percentage 99.79 (307192/307842 
+)
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 216, in <module>
+    net_local = copy.deepcopy(net_glob)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/parameter.py", line 55, in __deepcopy__
+    result = type(self)(self.data.clone(memory_format=torch.preserve_format), self.requires_grad)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.59 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  lg  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: lg , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar10  
+
+Files already downloaded and verified
+Files already downloaded and verified
+lg
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=10, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+['fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+# Params: 307842 (local), 8394 (global); Percentage 2.73 (8394/307842 
+)
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 216, in <module>
+    net_local = copy.deepcopy(net_glob)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/parameter.py", line 55, in __deepcopy__
+    result = type(self)(self.data.clone(memory_format=torch.preserve_format), self.requires_grad)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.59 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar10  
+
+Files already downloaded and verified
+Files already downloaded and verified
+fedrep
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=10, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+['fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'conv2.weight', 'conv2.bias', 'conv1.weight', 'conv1.bias']
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+# Params: 307842 (local), 307192 (global); Percentage 99.79 (307192/307842)
+learning rate, batch size: 0.01, 10
+Traceback (most recent call last):
+  File "main_fedpac.py", line 177, in <module>
+    class_center_glob = init_class_center(args)
+  File "/data/jij/csm/code/FL_HLS/utils/train_utils.py", line 214, in init_class_center
+    net_glob = CNNCifar(args=args).to(args.device)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 989, in to
+    return self._apply(convert)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 641, in _apply
+    module._apply(fn)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 664, in _apply
+    param_applied = fn(param)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 987, in convert
+    return t.to(device, dtype if t.is_floating_point() or t.is_complex() else None, non_blocking)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.59 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Fed_ditto%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+Files already downloaded and verified
+Files already downloaded and verified
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=10, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+[]
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+Traceback (most recent call last):
+  File "main_ditto.py", line 133, in <module>
+    net_local = copy.deepcopy(net_glob)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/parameter.py", line 55, in __deepcopy__
+    result = type(self)(self.data.clone(memory_format=torch.preserve_format), self.requires_grad)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.59 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Fed_apfl%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+Files already downloaded and verified
+Files already downloaded and verified
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=10, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+Traceback (most recent call last):
+  File "main_apfl.py", line 142, in <module>
+    net_local = copy.deepcopy(net_glob)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/parameter.py", line 55, in __deepcopy__
+    result = type(self)(self.data.clone(memory_format=torch.preserve_format), self.requires_grad)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.59 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Fed_scaffold %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+Files already downloaded and verified
+Files already downloaded and verified
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=10, bias=True)
+)
+Traceback (most recent call last):
+  File "main_scaffold.py", line 102, in <module>
+    ci[k] = torch.zeros(net_glob.state_dict()[k].size()).to(args.device)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.59 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  pFedMe   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 300, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar10  
+
+Files already downloaded and verified
+Files already downloaded and verified
+fedavg
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=10, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+[]
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_pfedme.py", line 216, in <module>
+    net_local = copy.deepcopy(net_glob)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/parameter.py", line 55, in __deepcopy__
+    result = type(self)(self.data.clone(memory_format=torch.preserve_format), self.requires_grad)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.59 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:1   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 1, is_concept_shift: 0, dataset: cifar10  
+
+Files already downloaded and verified
+Files already downloaded and verified
+fedavg
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=10, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+[]
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 216, in <module>
+    net_local = copy.deepcopy(net_glob)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/parameter.py", line 55, in __deepcopy__
+    result = type(self)(self.data.clone(memory_format=torch.preserve_format), self.requires_grad)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.59 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar10  
+
+Files already downloaded and verified
+Files already downloaded and verified
+fedavg
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=10, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+[]
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 216, in <module>
+    net_local = copy.deepcopy(net_glob)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/parameter.py", line 55, in __deepcopy__
+    result = type(self)(self.data.clone(memory_format=torch.preserve_format), self.requires_grad)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.59 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedrep  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar10  
+
+Files already downloaded and verified
+Files already downloaded and verified
+fedrep
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=10, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+['fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'conv2.weight', 'conv2.bias', 'conv1.weight', 'conv1.bias']
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+# Params: 307842 (local), 307192 (global); Percentage 99.79 (307192/307842 
+)
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 216, in <module>
+    net_local = copy.deepcopy(net_glob)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/parameter.py", line 55, in __deepcopy__
+    result = type(self)(self.data.clone(memory_format=torch.preserve_format), self.requires_grad)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.59 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedper  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedper , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar10  
+
+Files already downloaded and verified
+Files already downloaded and verified
+fedper
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=10, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+['fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'conv2.weight', 'conv2.bias', 'conv1.weight', 'conv1.bias']
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+# Params: 307842 (local), 307192 (global); Percentage 99.79 (307192/307842 
+)
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 216, in <module>
+    net_local = copy.deepcopy(net_glob)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/parameter.py", line 55, in __deepcopy__
+    result = type(self)(self.data.clone(memory_format=torch.preserve_format), self.requires_grad)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.59 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  lg  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: lg , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar10  
+
+Files already downloaded and verified
+Files already downloaded and verified
+lg
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=10, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+['fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+# Params: 307842 (local), 8394 (global); Percentage 2.73 (8394/307842 
+)
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 216, in <module>
+    net_local = copy.deepcopy(net_glob)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/parameter.py", line 55, in __deepcopy__
+    result = type(self)(self.data.clone(memory_format=torch.preserve_format), self.requires_grad)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.59 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar10  
+
+Files already downloaded and verified
+Files already downloaded and verified
+fedrep
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=10, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+['fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'conv2.weight', 'conv2.bias', 'conv1.weight', 'conv1.bias']
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+# Params: 307842 (local), 307192 (global); Percentage 99.79 (307192/307842)
+learning rate, batch size: 0.01, 10
+Traceback (most recent call last):
+  File "main_fedpac.py", line 177, in <module>
+    class_center_glob = init_class_center(args)
+  File "/data/jij/csm/code/FL_HLS/utils/train_utils.py", line 214, in init_class_center
+    net_glob = CNNCifar(args=args).to(args.device)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 989, in to
+    return self._apply(convert)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 641, in _apply
+    module._apply(fn)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 664, in _apply
+    param_applied = fn(param)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 987, in convert
+    return t.to(device, dtype if t.is_floating_point() or t.is_complex() else None, non_blocking)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.59 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Fed_ditto%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+Files already downloaded and verified
+Files already downloaded and verified
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=10, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+[]
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+Traceback (most recent call last):
+  File "main_ditto.py", line 133, in <module>
+    net_local = copy.deepcopy(net_glob)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/parameter.py", line 55, in __deepcopy__
+    result = type(self)(self.data.clone(memory_format=torch.preserve_format), self.requires_grad)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.59 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Fed_apfl%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+Files already downloaded and verified
+Files already downloaded and verified
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=10, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+Traceback (most recent call last):
+  File "main_apfl.py", line 147, in <module>
+    w_global, w_local, loss, indd = local.train(net=net_local.to(args.device),w_local=w_local, idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, concept_matrix_local=concept_matrix[idx])
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 404, in train
+    w_glob = copy.deepcopy(net.state_dict())
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/_tensor.py", line 135, in __deepcopy__
+    new_storage = self.storage().__deepcopy__(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/storage.py", line 597, in __deepcopy__
+    return self._new_wrapped_storage(copy.deepcopy(self._storage, memo))
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/storage.py", line 97, in __deepcopy__
+    new_storage = self.clone()
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/storage.py", line 111, in clone
+    return type(self)(self.nbytes(), device=self.device).copy_(self)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 3.55 MiB already allocated; 5.56 MiB free; 4.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Fed_scaffold %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+Files already downloaded and verified
+Files already downloaded and verified
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=10, bias=True)
+)
+Traceback (most recent call last):
+  File "main_scaffold.py", line 102, in <module>
+    ci[k] = torch.zeros(net_glob.state_dict()[k].size()).to(args.device)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.59 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  pFedMe   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 300, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar10  
+
+Files already downloaded and verified
+Files already downloaded and verified
+fedavg
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=10, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+[]
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_pfedme.py", line 216, in <module>
+    net_local = copy.deepcopy(net_glob)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/parameter.py", line 55, in __deepcopy__
+    result = type(self)(self.data.clone(memory_format=torch.preserve_format), self.requires_grad)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.59 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:1   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 3, limit_local_output: 1, local_rep_ep: 3 , local_only: 1, is_concept_shift: 1, dataset: cifar10  
+
+Files already downloaded and verified
+Files already downloaded and verified
+fedavg
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=3, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+[]
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 216, in <module>
+    net_local = copy.deepcopy(net_glob)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/parameter.py", line 55, in __deepcopy__
+    result = type(self)(self.data.clone(memory_format=torch.preserve_format), self.requires_grad)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.58 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 3, limit_local_output: 1, local_rep_ep: 3 , local_only: 0, is_concept_shift: 1, dataset: cifar10  
+
+Files already downloaded and verified
+Files already downloaded and verified
+fedavg
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=3, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+[]
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 216, in <module>
+    net_local = copy.deepcopy(net_glob)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/parameter.py", line 55, in __deepcopy__
+    result = type(self)(self.data.clone(memory_format=torch.preserve_format), self.requires_grad)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.58 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedrep  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 3, limit_local_output: 1, local_rep_ep: 3 , local_only: 0, is_concept_shift: 1, dataset: cifar10  
+
+Files already downloaded and verified
+Files already downloaded and verified
+fedrep
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=3, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+['fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'conv2.weight', 'conv2.bias', 'conv1.weight', 'conv1.bias']
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+# Params: 307387 (local), 307192 (global); Percentage 99.94 (307192/307387 
+)
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 216, in <module>
+    net_local = copy.deepcopy(net_glob)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/parameter.py", line 55, in __deepcopy__
+    result = type(self)(self.data.clone(memory_format=torch.preserve_format), self.requires_grad)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.58 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedper  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedper , epochs: 100, shard_per_user: 3, limit_local_output: 1, local_rep_ep: 3 , local_only: 0, is_concept_shift: 1, dataset: cifar10  
+
+Files already downloaded and verified
+Files already downloaded and verified
+fedper
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=3, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+['fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'conv2.weight', 'conv2.bias', 'conv1.weight', 'conv1.bias']
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+# Params: 307387 (local), 307192 (global); Percentage 99.94 (307192/307387 
+)
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 216, in <module>
+    net_local = copy.deepcopy(net_glob)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/parameter.py", line 55, in __deepcopy__
+    result = type(self)(self.data.clone(memory_format=torch.preserve_format), self.requires_grad)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.58 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  lg  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: lg , epochs: 100, shard_per_user: 3, limit_local_output: 1, local_rep_ep: 3 , local_only: 0, is_concept_shift: 1, dataset: cifar10  
+
+Files already downloaded and verified
+Files already downloaded and verified
+lg
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=3, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+['fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+# Params: 307387 (local), 7939 (global); Percentage 2.58 (7939/307387 
+)
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 216, in <module>
+    net_local = copy.deepcopy(net_glob)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/parameter.py", line 55, in __deepcopy__
+    result = type(self)(self.data.clone(memory_format=torch.preserve_format), self.requires_grad)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.58 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC-K-Means%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 3, limit_local_output: 1, local_rep_ep: 3 , local_only: 0, is_concept_shift: 1, dataset: cifar10  
+
+Files already downloaded and verified
+Files already downloaded and verified
+fedrep
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=3, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+['fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'conv2.weight', 'conv2.bias', 'conv1.weight', 'conv1.bias']
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+4800
+4864
+107264
+107328
+299328
+299448
+307128
+307192
+307384
+307387
+# Params: 307387 (local), 307192 (global); Percentage 99.94 (307192/307387)
+learning rate, batch size: 0.01, 10
+Traceback (most recent call last):
+  File "main_fedpac_k_means.py", line 227, in <module>
+    class_center_glob = init_class_center(args)
+  File "/data/jij/csm/code/FL_HLS/utils/train_utils.py", line 214, in init_class_center
+    net_glob = CNNCifar(args=args).to(args.device)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 989, in to
+    return self._apply(convert)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 641, in _apply
+    module._apply(fn)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 664, in _apply
+    param_applied = fn(param)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 987, in convert
+    return t.to(device, dtype if t.is_floating_point() or t.is_complex() else None, non_blocking)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.58 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Fed_ditto%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+Files already downloaded and verified
+Files already downloaded and verified
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=3, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+[]
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+Traceback (most recent call last):
+  File "main_ditto.py", line 133, in <module>
+    net_local = copy.deepcopy(net_glob)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/parameter.py", line 55, in __deepcopy__
+    result = type(self)(self.data.clone(memory_format=torch.preserve_format), self.requires_grad)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.58 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Fed_apfl%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+Files already downloaded and verified
+Files already downloaded and verified
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=3, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+Traceback (most recent call last):
+  File "main_apfl.py", line 142, in <module>
+    net_local = copy.deepcopy(net_glob)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/parameter.py", line 55, in __deepcopy__
+    result = type(self)(self.data.clone(memory_format=torch.preserve_format), self.requires_grad)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.58 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Fed_scaffold %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+Files already downloaded and verified
+Files already downloaded and verified
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=3, bias=True)
+)
+Traceback (most recent call last):
+  File "main_scaffold.py", line 102, in <module>
+    ci[k] = torch.zeros(net_glob.state_dict()[k].size()).to(args.device)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.58 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  pFedMe   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 300, shard_per_user: 3, limit_local_output: 1, local_rep_ep: 3 , local_only: 0, is_concept_shift: 1, dataset: cifar10  
+
+Files already downloaded and verified
+Files already downloaded and verified
+fedavg
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=3, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+[]
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_pfedme.py", line 216, in <module>
+    net_local = copy.deepcopy(net_glob)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/parameter.py", line 55, in __deepcopy__
+    result = type(self)(self.data.clone(memory_format=torch.preserve_format), self.requires_grad)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.58 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:1   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 3, limit_local_output: 1, local_rep_ep: 3 , local_only: 1, is_concept_shift: 1, dataset: cifar10  
+
+Files already downloaded and verified
+Files already downloaded and verified
+fedavg
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=3, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+[]
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 216, in <module>
+    net_local = copy.deepcopy(net_glob)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/parameter.py", line 55, in __deepcopy__
+    result = type(self)(self.data.clone(memory_format=torch.preserve_format), self.requires_grad)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.58 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 3, limit_local_output: 1, local_rep_ep: 3 , local_only: 0, is_concept_shift: 1, dataset: cifar10  
+
+Files already downloaded and verified
+Files already downloaded and verified
+fedavg
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=3, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+[]
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 216, in <module>
+    net_local = copy.deepcopy(net_glob)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/parameter.py", line 55, in __deepcopy__
+    result = type(self)(self.data.clone(memory_format=torch.preserve_format), self.requires_grad)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.58 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedrep  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 3, limit_local_output: 1, local_rep_ep: 3 , local_only: 0, is_concept_shift: 1, dataset: cifar10  
+
+Files already downloaded and verified
+Files already downloaded and verified
+fedrep
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=3, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+['fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'conv2.weight', 'conv2.bias', 'conv1.weight', 'conv1.bias']
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+# Params: 307387 (local), 307192 (global); Percentage 99.94 (307192/307387 
+)
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 216, in <module>
+    net_local = copy.deepcopy(net_glob)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/parameter.py", line 55, in __deepcopy__
+    result = type(self)(self.data.clone(memory_format=torch.preserve_format), self.requires_grad)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.58 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedper  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedper , epochs: 100, shard_per_user: 3, limit_local_output: 1, local_rep_ep: 3 , local_only: 0, is_concept_shift: 1, dataset: cifar10  
+
+Files already downloaded and verified
+Files already downloaded and verified
+fedper
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=3, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+['fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'conv2.weight', 'conv2.bias', 'conv1.weight', 'conv1.bias']
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+# Params: 307387 (local), 307192 (global); Percentage 99.94 (307192/307387 
+)
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 216, in <module>
+    net_local = copy.deepcopy(net_glob)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/parameter.py", line 55, in __deepcopy__
+    result = type(self)(self.data.clone(memory_format=torch.preserve_format), self.requires_grad)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.58 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  lg  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: lg , epochs: 100, shard_per_user: 3, limit_local_output: 1, local_rep_ep: 3 , local_only: 0, is_concept_shift: 1, dataset: cifar10  
+
+Files already downloaded and verified
+Files already downloaded and verified
+lg
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=3, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+['fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+# Params: 307387 (local), 7939 (global); Percentage 2.58 (7939/307387 
+)
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 216, in <module>
+    net_local = copy.deepcopy(net_glob)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/parameter.py", line 55, in __deepcopy__
+    result = type(self)(self.data.clone(memory_format=torch.preserve_format), self.requires_grad)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.58 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC-K-Means%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 3, limit_local_output: 1, local_rep_ep: 3 , local_only: 0, is_concept_shift: 1, dataset: cifar10  
+
+Files already downloaded and verified
+Files already downloaded and verified
+fedrep
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=3, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+['fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'conv2.weight', 'conv2.bias', 'conv1.weight', 'conv1.bias']
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+4800
+4864
+107264
+107328
+299328
+299448
+307128
+307192
+307384
+307387
+# Params: 307387 (local), 307192 (global); Percentage 99.94 (307192/307387)
+learning rate, batch size: 0.01, 10
+Traceback (most recent call last):
+  File "main_fedpac_k_means.py", line 227, in <module>
+    class_center_glob = init_class_center(args)
+  File "/data/jij/csm/code/FL_HLS/utils/train_utils.py", line 214, in init_class_center
+    net_glob = CNNCifar(args=args).to(args.device)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 989, in to
+    return self._apply(convert)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 641, in _apply
+    module._apply(fn)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 664, in _apply
+    param_applied = fn(param)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 987, in convert
+    return t.to(device, dtype if t.is_floating_point() or t.is_complex() else None, non_blocking)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.58 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Fed_ditto%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+Files already downloaded and verified
+Files already downloaded and verified
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=3, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+[]
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+Traceback (most recent call last):
+  File "main_ditto.py", line 133, in <module>
+    net_local = copy.deepcopy(net_glob)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/parameter.py", line 55, in __deepcopy__
+    result = type(self)(self.data.clone(memory_format=torch.preserve_format), self.requires_grad)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.58 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Fed_apfl%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+Files already downloaded and verified
+Files already downloaded and verified
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=3, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+Traceback (most recent call last):
+  File "main_apfl.py", line 142, in <module>
+    net_local = copy.deepcopy(net_glob)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/parameter.py", line 55, in __deepcopy__
+    result = type(self)(self.data.clone(memory_format=torch.preserve_format), self.requires_grad)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.58 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Fed_scaffold %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+Files already downloaded and verified
+Files already downloaded and verified
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=3, bias=True)
+)
+Traceback (most recent call last):
+  File "main_scaffold.py", line 102, in <module>
+    ci[k] = torch.zeros(net_glob.state_dict()[k].size()).to(args.device)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.58 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  pFedMe   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 300, shard_per_user: 3, limit_local_output: 1, local_rep_ep: 3 , local_only: 0, is_concept_shift: 1, dataset: cifar10  
+
+Files already downloaded and verified
+Files already downloaded and verified
+fedavg
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=3, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+[]
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_pfedme.py", line 216, in <module>
+    net_local = copy.deepcopy(net_glob)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 281, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 241, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 180, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 307, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/parameter.py", line 55, in __deepcopy__
+    result = type(self)(self.data.clone(memory_format=torch.preserve_format), self.requires_grad)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.70 GiB total capacity; 1.58 MiB already allocated; 5.56 MiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

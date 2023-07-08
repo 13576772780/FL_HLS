@@ -1,0 +1,1513 @@
+nohup: ignoring input
+/data/jij/csm/code/FL_HLS/utils/sampling.py:91: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  label = torch.tensor(dataset.targets[i]).item()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:1   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 1, is_concept_shift: 0, dataset: mnist  
+
+fedavg
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+odict_keys(['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias'])
+8
+[]
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias']
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 235, in <module>
+    w_local, loss, indd = local.train(net=net_local.to(args.device), idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, last=last, concept_matrix_local=concept_matrix[idx])
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 677, in train
+    log_probs = net(images)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/csm/code/FL_HLS/models/Nets.py", line 34, in forward
+    x = self.layer_input(x)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+/data/jij/csm/code/FL_HLS/utils/sampling.py:91: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  label = torch.tensor(dataset.targets[i]).item()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: mnist  
+
+fedavg
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+odict_keys(['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias'])
+8
+[]
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias']
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 235, in <module>
+    w_local, loss, indd = local.train(net=net_local.to(args.device), idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, last=last, concept_matrix_local=concept_matrix[idx])
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 677, in train
+    log_probs = net(images)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/csm/code/FL_HLS/models/Nets.py", line 34, in forward
+    x = self.layer_input(x)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+/data/jij/csm/code/FL_HLS/utils/sampling.py:91: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  label = torch.tensor(dataset.targets[i]).item()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedrep  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: mnist  
+
+fedrep
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+odict_keys(['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias'])
+8
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias']
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias']
+# Params: 550346 (local), 549696 (global); Percentage 99.88 (549696/550346 
+)
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 235, in <module>
+    w_local, loss, indd = local.train(net=net_local.to(args.device), idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, last=last, concept_matrix_local=concept_matrix[idx])
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 677, in train
+    log_probs = net(images)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/csm/code/FL_HLS/models/Nets.py", line 34, in forward
+    x = self.layer_input(x)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+/data/jij/csm/code/FL_HLS/utils/sampling.py:91: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  label = torch.tensor(dataset.targets[i]).item()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedper  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedper , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: mnist  
+
+fedper
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+odict_keys(['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias'])
+8
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias']
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias']
+# Params: 550346 (local), 549696 (global); Percentage 99.88 (549696/550346 
+)
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 235, in <module>
+    w_local, loss, indd = local.train(net=net_local.to(args.device), idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, last=last, concept_matrix_local=concept_matrix[idx])
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 677, in train
+    log_probs = net(images)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/csm/code/FL_HLS/models/Nets.py", line 34, in forward
+    x = self.layer_input(x)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+/data/jij/csm/code/FL_HLS/utils/sampling.py:91: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  label = torch.tensor(dataset.targets[i]).item()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  lg  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: lg , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: mnist  
+
+lg
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+odict_keys(['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias'])
+8
+['layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias']
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias']
+# Params: 550346 (local), 17098 (global); Percentage 3.11 (17098/550346 
+)
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 235, in <module>
+    w_local, loss, indd = local.train(net=net_local.to(args.device), idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, last=last, concept_matrix_local=concept_matrix[idx])
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 677, in train
+    log_probs = net(images)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/csm/code/FL_HLS/models/Nets.py", line 34, in forward
+    x = self.layer_input(x)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+/data/jij/csm/code/FL_HLS/utils/sampling.py:91: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  label = torch.tensor(dataset.targets[i]).item()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: mnist  
+
+fedrep
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+odict_keys(['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias'])
+8
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias']
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias']
+# Params: 550346 (local), 549696 (global); Percentage 99.88 (549696/550346)
+learning rate, batch size: 0.01, 10
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+Traceback (most recent call last):
+  File "main_fedpac.py", line 229, in <module>
+    w_local, loss, indd, class_center_local, class_num = local.train(net=net_local.to(args.device), class_center_glob=class_center_glob, idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, last=last, concept_matrix_local=concept_matrix[idx])
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 1316, in train
+    log_probs = net(images)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/csm/code/FL_HLS/models/Nets.py", line 34, in forward
+    x = self.layer_input(x)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+/data/jij/csm/code/FL_HLS/utils/sampling.py:91: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  label = torch.tensor(dataset.targets[i]).item()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Fed_ditto%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+odict_keys(['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias'])
+8
+[]
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias']
+Traceback (most recent call last):
+  File "main_ditto.py", line 182, in <module>
+    w_k, loss, indd = local.train(net=net_global.to(args.device), idx=idx, lr=args.lr, concept_matrix_local=concept_matrix[idx])
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 538, in train
+    log_probs = net(images)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/csm/code/FL_HLS/models/Nets.py", line 34, in forward
+    x = self.layer_input(x)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+/data/jij/csm/code/FL_HLS/utils/sampling.py:91: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  label = torch.tensor(dataset.targets[i]).item()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Fed_apfl%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+odict_keys(['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias'])
+8
+Traceback (most recent call last):
+  File "main_apfl.py", line 147, in <module>
+    w_global, w_local, loss, indd = local.train(net=net_local.to(args.device),w_local=w_local, idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, concept_matrix_local=concept_matrix[idx])
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 409, in train
+    log_probs = net(images)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/csm/code/FL_HLS/models/Nets.py", line 34, in forward
+    x = self.layer_input(x)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+/data/jij/csm/code/FL_HLS/utils/sampling.py:91: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  label = torch.tensor(dataset.targets[i]).item()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Fed_scaffold %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+Traceback (most recent call last):
+  File "main_scaffold.py", line 150, in <module>
+    w_local, loss, indd, count = local.train(net=net_local.to(args.device), idx=idx, lr=lr, c_list=c_list, concept_matrix_local=concept_matrix[idx])
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 276, in train
+    log_probs = net(images)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/csm/code/FL_HLS/models/Nets.py", line 34, in forward
+    x = self.layer_input(x)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+/data/jij/csm/code/FL_HLS/utils/sampling.py:91: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  label = torch.tensor(dataset.targets[i]).item()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  pFedMe   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: mnist  
+
+fedavg
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+odict_keys(['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias'])
+8
+[]
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias']
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_pfedme.py", line 236, in <module>
+    w_local, loss, indd = local.train(net=net_local.to(args.device), idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, last=last, concept_matrix_local=concept_matrix[idx],w_locals = w_locals)
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 847, in train
+    log_probs = net(images)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/csm/code/FL_HLS/models/Nets.py", line 34, in forward
+    x = self.layer_input(x)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+/data/jij/csm/code/FL_HLS/utils/sampling.py:91: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  label = torch.tensor(dataset.targets[i]).item()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:1   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 1, is_concept_shift: 0, dataset: mnist  
+
+fedavg
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+odict_keys(['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias'])
+8
+[]
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias']
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 235, in <module>
+    w_local, loss, indd = local.train(net=net_local.to(args.device), idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, last=last, concept_matrix_local=concept_matrix[idx])
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 677, in train
+    log_probs = net(images)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/csm/code/FL_HLS/models/Nets.py", line 34, in forward
+    x = self.layer_input(x)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+/data/jij/csm/code/FL_HLS/utils/sampling.py:91: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  label = torch.tensor(dataset.targets[i]).item()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: mnist  
+
+fedavg
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+odict_keys(['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias'])
+8
+[]
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias']
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 235, in <module>
+    w_local, loss, indd = local.train(net=net_local.to(args.device), idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, last=last, concept_matrix_local=concept_matrix[idx])
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 677, in train
+    log_probs = net(images)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/csm/code/FL_HLS/models/Nets.py", line 34, in forward
+    x = self.layer_input(x)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+/data/jij/csm/code/FL_HLS/utils/sampling.py:91: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  label = torch.tensor(dataset.targets[i]).item()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedrep  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: mnist  
+
+fedrep
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+odict_keys(['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias'])
+8
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias']
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias']
+# Params: 550346 (local), 549696 (global); Percentage 99.88 (549696/550346 
+)
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 235, in <module>
+    w_local, loss, indd = local.train(net=net_local.to(args.device), idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, last=last, concept_matrix_local=concept_matrix[idx])
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 677, in train
+    log_probs = net(images)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/csm/code/FL_HLS/models/Nets.py", line 34, in forward
+    x = self.layer_input(x)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+/data/jij/csm/code/FL_HLS/utils/sampling.py:91: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  label = torch.tensor(dataset.targets[i]).item()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedper  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedper , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: mnist  
+
+fedper
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+odict_keys(['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias'])
+8
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias']
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias']
+# Params: 550346 (local), 549696 (global); Percentage 99.88 (549696/550346 
+)
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 235, in <module>
+    w_local, loss, indd = local.train(net=net_local.to(args.device), idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, last=last, concept_matrix_local=concept_matrix[idx])
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 677, in train
+    log_probs = net(images)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/csm/code/FL_HLS/models/Nets.py", line 34, in forward
+    x = self.layer_input(x)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+/data/jij/csm/code/FL_HLS/utils/sampling.py:91: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  label = torch.tensor(dataset.targets[i]).item()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  lg  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: lg , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: mnist  
+
+lg
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+odict_keys(['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias'])
+8
+['layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias']
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias']
+# Params: 550346 (local), 17098 (global); Percentage 3.11 (17098/550346 
+)
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 235, in <module>
+    w_local, loss, indd = local.train(net=net_local.to(args.device), idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, last=last, concept_matrix_local=concept_matrix[idx])
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 677, in train
+    log_probs = net(images)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/csm/code/FL_HLS/models/Nets.py", line 34, in forward
+    x = self.layer_input(x)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+/data/jij/csm/code/FL_HLS/utils/sampling.py:91: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  label = torch.tensor(dataset.targets[i]).item()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: mnist  
+
+fedrep
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+odict_keys(['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias'])
+8
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias']
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias']
+# Params: 550346 (local), 549696 (global); Percentage 99.88 (549696/550346)
+learning rate, batch size: 0.01, 10
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+Traceback (most recent call last):
+  File "main_fedpac.py", line 229, in <module>
+    w_local, loss, indd, class_center_local, class_num = local.train(net=net_local.to(args.device), class_center_glob=class_center_glob, idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, last=last, concept_matrix_local=concept_matrix[idx])
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 1316, in train
+    log_probs = net(images)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/csm/code/FL_HLS/models/Nets.py", line 34, in forward
+    x = self.layer_input(x)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+/data/jij/csm/code/FL_HLS/utils/sampling.py:91: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  label = torch.tensor(dataset.targets[i]).item()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Fed_ditto%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+odict_keys(['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias'])
+8
+[]
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias']
+Traceback (most recent call last):
+  File "main_ditto.py", line 182, in <module>
+    w_k, loss, indd = local.train(net=net_global.to(args.device), idx=idx, lr=args.lr, concept_matrix_local=concept_matrix[idx])
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 538, in train
+    log_probs = net(images)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/csm/code/FL_HLS/models/Nets.py", line 34, in forward
+    x = self.layer_input(x)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+/data/jij/csm/code/FL_HLS/utils/sampling.py:91: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  label = torch.tensor(dataset.targets[i]).item()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Fed_apfl%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+odict_keys(['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias'])
+8
+Traceback (most recent call last):
+  File "main_apfl.py", line 147, in <module>
+    w_global, w_local, loss, indd = local.train(net=net_local.to(args.device),w_local=w_local, idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, concept_matrix_local=concept_matrix[idx])
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 409, in train
+    log_probs = net(images)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/csm/code/FL_HLS/models/Nets.py", line 34, in forward
+    x = self.layer_input(x)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+/data/jij/csm/code/FL_HLS/utils/sampling.py:91: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  label = torch.tensor(dataset.targets[i]).item()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Fed_scaffold %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+Traceback (most recent call last):
+  File "main_scaffold.py", line 150, in <module>
+    w_local, loss, indd, count = local.train(net=net_local.to(args.device), idx=idx, lr=lr, c_list=c_list, concept_matrix_local=concept_matrix[idx])
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 276, in train
+    log_probs = net(images)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/csm/code/FL_HLS/models/Nets.py", line 34, in forward
+    x = self.layer_input(x)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+/data/jij/csm/code/FL_HLS/utils/sampling.py:91: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  label = torch.tensor(dataset.targets[i]).item()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  pFedMe   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: mnist  
+
+fedavg
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+odict_keys(['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias'])
+8
+[]
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias']
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_pfedme.py", line 236, in <module>
+    w_local, loss, indd = local.train(net=net_local.to(args.device), idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, last=last, concept_matrix_local=concept_matrix[idx],w_locals = w_locals)
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 847, in train
+    log_probs = net(images)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/csm/code/FL_HLS/models/Nets.py", line 34, in forward
+    x = self.layer_input(x)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+/data/jij/csm/code/FL_HLS/utils/sampling.py:91: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  label = torch.tensor(dataset.targets[i]).item()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:1   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 3, limit_local_output: 1, local_rep_ep: 3 , local_only: 1, is_concept_shift: 1, dataset: mnist  
+
+fedavg
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+odict_keys(['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias'])
+8
+[]
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias']
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 235, in <module>
+    w_local, loss, indd = local.train(net=net_local.to(args.device), idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, last=last, concept_matrix_local=concept_matrix[idx])
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 677, in train
+    log_probs = net(images)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/csm/code/FL_HLS/models/Nets.py", line 34, in forward
+    x = self.layer_input(x)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+/data/jij/csm/code/FL_HLS/utils/sampling.py:91: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  label = torch.tensor(dataset.targets[i]).item()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 3, limit_local_output: 1, local_rep_ep: 3 , local_only: 0, is_concept_shift: 1, dataset: mnist  
+
+fedavg
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+odict_keys(['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias'])
+8
+[]
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias']
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 235, in <module>
+    w_local, loss, indd = local.train(net=net_local.to(args.device), idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, last=last, concept_matrix_local=concept_matrix[idx])
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 677, in train
+    log_probs = net(images)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/csm/code/FL_HLS/models/Nets.py", line 34, in forward
+    x = self.layer_input(x)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+/data/jij/csm/code/FL_HLS/utils/sampling.py:91: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  label = torch.tensor(dataset.targets[i]).item()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedrep  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 3, limit_local_output: 1, local_rep_ep: 3 , local_only: 0, is_concept_shift: 1, dataset: mnist  
+
+fedrep
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+odict_keys(['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias'])
+8
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias']
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias']
+# Params: 550346 (local), 549696 (global); Percentage 99.88 (549696/550346 
+)
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 235, in <module>
+    w_local, loss, indd = local.train(net=net_local.to(args.device), idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, last=last, concept_matrix_local=concept_matrix[idx])
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 677, in train
+    log_probs = net(images)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/csm/code/FL_HLS/models/Nets.py", line 34, in forward
+    x = self.layer_input(x)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+/data/jij/csm/code/FL_HLS/utils/sampling.py:91: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  label = torch.tensor(dataset.targets[i]).item()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedper  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedper , epochs: 100, shard_per_user: 3, limit_local_output: 1, local_rep_ep: 3 , local_only: 0, is_concept_shift: 1, dataset: mnist  
+
+fedper
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+odict_keys(['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias'])
+8
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias']
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias']
+# Params: 550346 (local), 549696 (global); Percentage 99.88 (549696/550346 
+)
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 235, in <module>
+    w_local, loss, indd = local.train(net=net_local.to(args.device), idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, last=last, concept_matrix_local=concept_matrix[idx])
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 677, in train
+    log_probs = net(images)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/csm/code/FL_HLS/models/Nets.py", line 34, in forward
+    x = self.layer_input(x)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+/data/jij/csm/code/FL_HLS/utils/sampling.py:91: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  label = torch.tensor(dataset.targets[i]).item()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  lg  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: lg , epochs: 100, shard_per_user: 3, limit_local_output: 1, local_rep_ep: 3 , local_only: 0, is_concept_shift: 1, dataset: mnist  
+
+lg
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+odict_keys(['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias'])
+8
+['layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias']
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias']
+# Params: 550346 (local), 17098 (global); Percentage 3.11 (17098/550346 
+)
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 235, in <module>
+    w_local, loss, indd = local.train(net=net_local.to(args.device), idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, last=last, concept_matrix_local=concept_matrix[idx])
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 677, in train
+    log_probs = net(images)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/csm/code/FL_HLS/models/Nets.py", line 34, in forward
+    x = self.layer_input(x)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+/data/jij/csm/code/FL_HLS/utils/sampling.py:91: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  label = torch.tensor(dataset.targets[i]).item()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC-K-Means%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 3, limit_local_output: 1, local_rep_ep: 3 , local_only: 0, is_concept_shift: 1, dataset: mnist  
+
+fedrep
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+odict_keys(['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias'])
+8
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias']
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias']
+401408
+401920
+532992
+533248
+549632
+549696
+550336
+550346
+# Params: 550346 (local), 549696 (global); Percentage 99.88 (549696/550346)
+learning rate, batch size: 0.01, 10
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+Traceback (most recent call last):
+  File "main_fedpac_k_means.py", line 291, in <module>
+    w_local, loss, indd, class_center_local, class_num = local.train(net=net_local.to(args.device), class_center_glob=class_center_grob_local, idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, last=last, concept_matrix_local=concept_matrix[idx])
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 1765, in train
+    log_probs = net(images)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/csm/code/FL_HLS/models/Nets.py", line 34, in forward
+    x = self.layer_input(x)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+/data/jij/csm/code/FL_HLS/utils/sampling.py:91: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  label = torch.tensor(dataset.targets[i]).item()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Fed_ditto%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+odict_keys(['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias'])
+8
+[]
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias']
+Traceback (most recent call last):
+  File "main_ditto.py", line 182, in <module>
+    w_k, loss, indd = local.train(net=net_global.to(args.device), idx=idx, lr=args.lr, concept_matrix_local=concept_matrix[idx])
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 538, in train
+    log_probs = net(images)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/csm/code/FL_HLS/models/Nets.py", line 34, in forward
+    x = self.layer_input(x)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+/data/jij/csm/code/FL_HLS/utils/sampling.py:91: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  label = torch.tensor(dataset.targets[i]).item()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Fed_apfl%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+odict_keys(['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias'])
+8
+Traceback (most recent call last):
+  File "main_apfl.py", line 147, in <module>
+    w_global, w_local, loss, indd = local.train(net=net_local.to(args.device),w_local=w_local, idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, concept_matrix_local=concept_matrix[idx])
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 409, in train
+    log_probs = net(images)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/csm/code/FL_HLS/models/Nets.py", line 34, in forward
+    x = self.layer_input(x)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+/data/jij/csm/code/FL_HLS/utils/sampling.py:91: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  label = torch.tensor(dataset.targets[i]).item()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Fed_scaffold %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+Traceback (most recent call last):
+  File "main_scaffold.py", line 150, in <module>
+    w_local, loss, indd, count = local.train(net=net_local.to(args.device), idx=idx, lr=lr, c_list=c_list, concept_matrix_local=concept_matrix[idx])
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 276, in train
+    log_probs = net(images)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/csm/code/FL_HLS/models/Nets.py", line 34, in forward
+    x = self.layer_input(x)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+/data/jij/csm/code/FL_HLS/utils/sampling.py:91: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  label = torch.tensor(dataset.targets[i]).item()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  pFedMe   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 3, limit_local_output: 1, local_rep_ep: 3 , local_only: 0, is_concept_shift: 1, dataset: mnist  
+
+fedavg
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+odict_keys(['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias'])
+8
+[]
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias']
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_pfedme.py", line 236, in <module>
+    w_local, loss, indd = local.train(net=net_local.to(args.device), idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, last=last, concept_matrix_local=concept_matrix[idx],w_locals = w_locals)
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 847, in train
+    log_probs = net(images)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/csm/code/FL_HLS/models/Nets.py", line 34, in forward
+    x = self.layer_input(x)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+/data/jij/csm/code/FL_HLS/utils/sampling.py:91: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  label = torch.tensor(dataset.targets[i]).item()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:1   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 3, limit_local_output: 1, local_rep_ep: 3 , local_only: 1, is_concept_shift: 1, dataset: mnist  
+
+fedavg
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+odict_keys(['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias'])
+8
+[]
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias']
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 235, in <module>
+    w_local, loss, indd = local.train(net=net_local.to(args.device), idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, last=last, concept_matrix_local=concept_matrix[idx])
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 677, in train
+    log_probs = net(images)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/csm/code/FL_HLS/models/Nets.py", line 34, in forward
+    x = self.layer_input(x)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+/data/jij/csm/code/FL_HLS/utils/sampling.py:91: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  label = torch.tensor(dataset.targets[i]).item()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 3, limit_local_output: 1, local_rep_ep: 3 , local_only: 0, is_concept_shift: 1, dataset: mnist  
+
+fedavg
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+odict_keys(['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias'])
+8
+[]
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias']
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 235, in <module>
+    w_local, loss, indd = local.train(net=net_local.to(args.device), idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, last=last, concept_matrix_local=concept_matrix[idx])
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 677, in train
+    log_probs = net(images)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/csm/code/FL_HLS/models/Nets.py", line 34, in forward
+    x = self.layer_input(x)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+/data/jij/csm/code/FL_HLS/utils/sampling.py:91: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  label = torch.tensor(dataset.targets[i]).item()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedrep  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 3, limit_local_output: 1, local_rep_ep: 3 , local_only: 0, is_concept_shift: 1, dataset: mnist  
+
+fedrep
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+odict_keys(['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias'])
+8
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias']
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias']
+# Params: 550346 (local), 549696 (global); Percentage 99.88 (549696/550346 
+)
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 235, in <module>
+    w_local, loss, indd = local.train(net=net_local.to(args.device), idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, last=last, concept_matrix_local=concept_matrix[idx])
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 677, in train
+    log_probs = net(images)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/csm/code/FL_HLS/models/Nets.py", line 34, in forward
+    x = self.layer_input(x)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+/data/jij/csm/code/FL_HLS/utils/sampling.py:91: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  label = torch.tensor(dataset.targets[i]).item()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedper  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedper , epochs: 100, shard_per_user: 3, limit_local_output: 1, local_rep_ep: 3 , local_only: 0, is_concept_shift: 1, dataset: mnist  
+
+fedper
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+odict_keys(['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias'])
+8
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias']
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias']
+# Params: 550346 (local), 549696 (global); Percentage 99.88 (549696/550346 
+)
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 235, in <module>
+    w_local, loss, indd = local.train(net=net_local.to(args.device), idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, last=last, concept_matrix_local=concept_matrix[idx])
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 677, in train
+    log_probs = net(images)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/csm/code/FL_HLS/models/Nets.py", line 34, in forward
+    x = self.layer_input(x)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+/data/jij/csm/code/FL_HLS/utils/sampling.py:91: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  label = torch.tensor(dataset.targets[i]).item()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  lg  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: lg , epochs: 100, shard_per_user: 3, limit_local_output: 1, local_rep_ep: 3 , local_only: 0, is_concept_shift: 1, dataset: mnist  
+
+lg
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+odict_keys(['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias'])
+8
+['layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias']
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias']
+# Params: 550346 (local), 17098 (global); Percentage 3.11 (17098/550346 
+)
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 235, in <module>
+    w_local, loss, indd = local.train(net=net_local.to(args.device), idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, last=last, concept_matrix_local=concept_matrix[idx])
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 677, in train
+    log_probs = net(images)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/csm/code/FL_HLS/models/Nets.py", line 34, in forward
+    x = self.layer_input(x)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+/data/jij/csm/code/FL_HLS/utils/sampling.py:91: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  label = torch.tensor(dataset.targets[i]).item()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC-K-Means%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 3, limit_local_output: 1, local_rep_ep: 3 , local_only: 0, is_concept_shift: 1, dataset: mnist  
+
+fedrep
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+odict_keys(['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias'])
+8
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias']
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias']
+401408
+401920
+532992
+533248
+549632
+549696
+550336
+550346
+# Params: 550346 (local), 549696 (global); Percentage 99.88 (549696/550346)
+learning rate, batch size: 0.01, 10
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+Traceback (most recent call last):
+  File "main_fedpac_k_means.py", line 291, in <module>
+    w_local, loss, indd, class_center_local, class_num = local.train(net=net_local.to(args.device), class_center_glob=class_center_grob_local, idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, last=last, concept_matrix_local=concept_matrix[idx])
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 1765, in train
+    log_probs = net(images)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/csm/code/FL_HLS/models/Nets.py", line 34, in forward
+    x = self.layer_input(x)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+/data/jij/csm/code/FL_HLS/utils/sampling.py:91: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  label = torch.tensor(dataset.targets[i]).item()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Fed_ditto%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+odict_keys(['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias'])
+8
+[]
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias']
+Traceback (most recent call last):
+  File "main_ditto.py", line 182, in <module>
+    w_k, loss, indd = local.train(net=net_global.to(args.device), idx=idx, lr=args.lr, concept_matrix_local=concept_matrix[idx])
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 538, in train
+    log_probs = net(images)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/csm/code/FL_HLS/models/Nets.py", line 34, in forward
+    x = self.layer_input(x)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+/data/jij/csm/code/FL_HLS/utils/sampling.py:91: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  label = torch.tensor(dataset.targets[i]).item()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Fed_apfl%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+odict_keys(['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias'])
+8
+Traceback (most recent call last):
+  File "main_apfl.py", line 147, in <module>
+    w_global, w_local, loss, indd = local.train(net=net_local.to(args.device),w_local=w_local, idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, concept_matrix_local=concept_matrix[idx])
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 409, in train
+    log_probs = net(images)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/csm/code/FL_HLS/models/Nets.py", line 34, in forward
+    x = self.layer_input(x)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+/data/jij/csm/code/FL_HLS/utils/sampling.py:91: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  label = torch.tensor(dataset.targets[i]).item()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Fed_scaffold %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+Traceback (most recent call last):
+  File "main_scaffold.py", line 150, in <module>
+    w_local, loss, indd, count = local.train(net=net_local.to(args.device), idx=idx, lr=lr, c_list=c_list, concept_matrix_local=concept_matrix[idx])
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 276, in train
+    log_probs = net(images)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/csm/code/FL_HLS/models/Nets.py", line 34, in forward
+    x = self.layer_input(x)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+/data/jij/csm/code/FL_HLS/utils/sampling.py:91: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  label = torch.tensor(dataset.targets[i]).item()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  pFedMe   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 3, limit_local_output: 1, local_rep_ep: 3 , local_only: 0, is_concept_shift: 1, dataset: mnist  
+
+fedavg
+MLP(
+  (layer_input): Linear(in_features=784, out_features=512, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0, inplace=False)
+  (layer_hidden1): Linear(in_features=512, out_features=256, bias=True)
+  (layer_hidden2): Linear(in_features=256, out_features=64, bias=True)
+  (layer_out): Linear(in_features=64, out_features=10, bias=True)
+  (softmax): Softmax(dim=1)
+)
+odict_keys(['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias'])
+8
+[]
+['layer_input.weight', 'layer_input.bias', 'layer_hidden1.weight', 'layer_hidden1.bias', 'layer_hidden2.weight', 'layer_hidden2.bias', 'layer_out.weight', 'layer_out.bias']
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_pfedme.py", line 236, in <module>
+    w_local, loss, indd = local.train(net=net_local.to(args.device), idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, last=last, concept_matrix_local=concept_matrix[idx],w_locals = w_locals)
+  File "/data/jij/csm/code/FL_HLS/models/Update.py", line 847, in train
+    log_probs = net(images)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/csm/code/FL_HLS/models/Nets.py", line 34, in forward
+    x = self.layer_input(x)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/jij/install/anaconda/envs/gflownets/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
