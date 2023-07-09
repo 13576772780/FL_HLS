@@ -2124,8 +2124,8 @@ class LocalUpdatePACKMEANS(object):
                 elif self.args.model == "cnn":
                     net.fc2.register_forward_hook(self.hook)
                 net(images)
-                featrue = self.features.detach().numpy()
-                labels = labels.detach().numpy()
+                featrue = self.features.detach().cpu().numpy()
+                labels = labels.detach().cpu().numpy()
                 for idx, cls in enumerate(labels):
                     class_center_local[cls] += featrue[idx]
                     class_num[cls] += 1
