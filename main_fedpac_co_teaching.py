@@ -52,11 +52,13 @@ if __name__ == '__main__':
                 dutest.append(v)
             np.save('data/sample/dict_users_train.npy', np.array(dutrain))
             np.save('data/sample/dict_users_test.npy', np.array(dutest))
+            np.save('data/sample/dataset_train_target.npy', np.array(dataset_train.targets))
             np.save('data/sample/concept_matrix.npy', np.array(concept_matrix))
         elif args.is_reset_dataset == 0:
             dataset_train, dataset_test, _, _, _ = get_data_v2(args)
             dutr = np.load('data/sample/dict_users_train.npy', allow_pickle=True)
             dute = np.load('data/sample/dict_users_test.npy', allow_pickle=True)
+            dataset_train.targets = np.load('data/sample/dataset_train_target.npy', allow_pickle=True)
             concept_matrix = np.load('data/sample/concept_matrix.npy', allow_pickle=True)
             dict_users_train = dict_users = {i: np.array([], dtype='int64') for i in range(args.num_users)}
             dict_users_test = dict_users = {i: np.array([], dtype='int64') for i in range(args.num_users)}
