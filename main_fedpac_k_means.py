@@ -234,8 +234,10 @@ if __name__ == '__main__':
         for id in range(args.num_users):
             concept_matrix_local = np.array([i for i in range(args.num_classes)], dtype=np.int64)
             if args.is_concept_shift == 1:
-                random.shuffle(concept_matrix_local)
+                random.shuffle(concept_matrix_local[0:int(args.concept_shift_rate*args.num_classes)])
             concept_matrix.append(concept_matrix_local)
+
+
 
 
     for iter in range(args.epochs+1):
