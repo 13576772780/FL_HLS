@@ -42,6 +42,7 @@ if __name__ == '__main__':
 
         if args.is_reset_dataset == 1:
             dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix = get_data_v2(args)
+            # dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix = get_data(args)
 
             dutrain = []
             dutest = []

@@ -18,7 +18,7 @@ import torch
 from torch import nn
 
 from utils.options import args_parser
-from utils.train_utils import get_data, get_model, read_data, init_class_center, get_data_v2, get_data_v3
+from utils.train_utils import get_data, get_model, read_data, init_class_center, get_data_v2
 from models.Update import LocalUpdate, LocalUpdatePAC, LocalUpdatePACPSL
 from models.test import test_img_local_all
 
@@ -31,17 +31,17 @@ if __name__ == '__main__':
 
     # with open('output.txt', 'a') as f:
     print('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n')
-    print('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC_PSL%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n')
-    print('# alg: {} , epochs: {}, shard_per_user: {}, limit_local_output: {}, local_rep_ep: {} , local_only: {}, is_concept_shift: {}, dataset: {},  filter_alg: {}, level_n_system: {} , level_n_lowerb:{}  \n'.format(
+    print('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n')
+    print('# alg: {} , epochs: {}, shard_per_user: {}, limit_local_output: {}, local_rep_ep: {} , local_only: {}, is_concept_shift: {}, dataset: {}  \n'.format(
             args.alg, args.epochs, args.shard_per_user, args.limit_local_output, args.local_rep_ep, args.local_only,
-            args.is_concept_shift, args.dataset,args.filter_alg, args.level_n_system, args.level_n_lowerb))
+            args.is_concept_shift, args.dataset))
 
     lens = np.ones(args.num_users)
     if 'cifar' in args.dataset or args.dataset == 'mnist':
         # dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix = get_data_v2(args)
 
         if args.is_reset_dataset == 1:
-            dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_v3(args)
+            dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix = get_data_v2(args)
 
             dutrain = []
             dutest = []
@@ -53,14 +53,12 @@ if __name__ == '__main__':
             np.save('data/sample/dict_users_test.npy', np.array(dutest))
             np.save('data/sample/dataset_train_target.npy', np.array(dataset_train.targets))
             np.save('data/sample/concept_matrix.npy', np.array(concept_matrix))
-            np.save('data/sample/rand_set_all.npy', np.array(rand_set_all))
         elif args.is_reset_dataset == 0:
             dataset_train, dataset_test, _, _, _ = get_data_v2(args)
             dutr = np.load('data/sample/dict_users_train.npy', allow_pickle=True)
             dute = np.load('data/sample/dict_users_test.npy', allow_pickle=True)
             dataset_train.targets = np.load('data/sample/dataset_train_target.npy', allow_pickle=True)
             concept_matrix = np.load('data/sample/concept_matrix.npy', allow_pickle=True)
-            rand_set_all = np.load('data/sample/rand_set_all.npy', allow_pickle=True)
             dict_users_train = dict_users = {i: np.array([], dtype='int64') for i in range(args.num_users)}
             dict_users_test = dict_users = {i: np.array([], dtype='int64') for i in range(args.num_users)}
             for i, v in enumerate(dutr):
@@ -189,10 +187,8 @@ if __name__ == '__main__':
                 random.shuffle(concept_matrix_local)
             concept_matrix.append(concept_matrix_local)
 
-    a=0
+
     for iter in range(args.epochs+1):
-        if iter == 10:
-            a = a + 1
         w_glob = {}
         loss_locals = []
         class_center_locals = np.zeros(class_center_glob.shape)
@@ -211,14 +207,14 @@ if __name__ == '__main__':
             start_in = time.time()
             if 'femnist' in args.dataset or 'sent140' in args.dataset:
                 if args.epochs == iter:
-                    local = LocalUpdatePACPSL(args=args, dataset=dataset_train[list(dataset_train.keys())[idx][:args.m_ft]], idxs=dict_users_train, indd=indd)
+                    local = LocalUpdatePAC(args=args, dataset=dataset_train[list(dataset_train.keys())[idx][:args.m_ft]], idxs=dict_users_train, indd=indd)
                 else:
-                    local = LocalUpdatePACPSL(args=args, dataset=dataset_train[list(dataset_train.keys())[idx][:args.m_tr]], idxs=dict_users_train, indd=indd)
+                    local = LocalUpdatePAC(args=args, dataset=dataset_train[list(dataset_train.keys())[idx][:args.m_tr]], idxs=dict_users_train, indd=indd)
             else:
                 if args.epochs == iter:
-                    local = LocalUpdatePACPSL(args=args, dataset=dataset_train, idxs=dict_users_train[idx][:args.m_ft], rand_set_all=rand_set_all)
+                    local = LocalUpdatePAC(args=args, dataset=dataset_train, idxs=dict_users_train[idx][:args.m_ft])
                 else:
-                    local = LocalUpdatePACPSL(args=args, dataset=dataset_train, idxs=dict_users_train[idx][:args.m_tr], rand_set_all=rand_set_all)
+                    local = LocalUpdatePAC(args=args, dataset=dataset_train, idxs=dict_users_train[idx][:args.m_tr])
 
 
             net_local = copy.deepcopy(net_glob)
@@ -230,9 +226,9 @@ if __name__ == '__main__':
             net_local.load_state_dict(w_local)
             last = iter == args.epochs
             if 'femnist' in args.dataset or 'sent140' in args.dataset:
-                w_local, loss, indd, class_center_local, class_num = local.train(net=net_local.to(args.device), ind=idx, idx=clients[idx], w_glob_keys=w_glob_keys, lr=args.lr,last=last, concept_matrix_local=concept_matrix[idx], train_iter=iter)
+                w_local, loss, indd, class_center_local, class_num = local.train(net=net_local.to(args.device), ind=idx, idx=clients[idx], w_glob_keys=w_glob_keys, lr=args.lr,last=last, concept_matrix_local=concept_matrix[idx])
             else:
-                w_local, loss, indd, class_center_local, class_num = local.train(net=net_local.to(args.device), class_center_glob=class_center_glob, idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, last=last, concept_matrix_local=concept_matrix[idx], iter_num_now = iter, train_iter=iter)
+                w_local, loss, indd, class_center_local, class_num = local.train(net=net_local.to(args.device), class_center_glob=class_center_glob, idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, last=last, concept_matrix_local=concept_matrix[idx])
             loss_locals.append(copy.deepcopy(loss))
             total_len += lens[idx]
             class_center_locals += class_center_local
