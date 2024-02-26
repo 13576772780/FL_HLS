@@ -71,7 +71,7 @@ def args_parser():
     parser.add_argument('--is_reset_dataset', type=int, default=1, help='reset train/test dataset or read from file')
     parser.add_argument('--is_reset_model', type=int, default=1, help='reset train init model')
     # parser.add_argument('--output_of_classify_header', type=int, default=10, help='output of classify header')
-    # parser.add_argument('--is_class_overlapping', type=int, default=1, help='is client class  overlapping')
+    # parser.add_argument('--is_class_overlapping', type=int, default=1, help='is client class  overlapping'
     parser.add_argument("--personal_learning_rate", type=float, default=0.09,
                         help="Persionalized learning rate to caculate theta aproximately using K steps")
     parser.add_argument("--lamda", type=int, default=15, help="Regularization term")
@@ -83,5 +83,22 @@ def args_parser():
     parser.add_argument('--filter_alg', type=str, default='center_psl', help='filter type center_psl / loss_psl')
     # parser.add_argument('--seed', type=int, default=13, help="random seed, default: 1")
 
+    #RFL
+    parser.add_argument('--frac2', type=float, default=0.1,
+                        help="fration of selected clients in fine-tuning and usual training stage")
+    parser.add_argument('--rounds2', type=int, default=300, help="rounds of training in usual training stage")
+    parser.add_argument('--T_pl', type=int, help='T_pl: When to start using global guided pseudo labeling', default=80)
+    parser.add_argument('--lambda_cen', type=float, help='lambda_cen', default=1.0)
+    parser.add_argument('--lambda_e', type=float, help='lambda_e', default=0.8)
+    parser.add_argument('--num_gradual', type=int, default=10, help='T_k')
+    parser.add_argument('--forget_rate', type=float, default=0.2, help="forget rate")
+    # parser.add_argument('--lr_decay', type=float, default=0.1, help="learning rate decay size")
+    parser.add_argument('--schedule', nargs='+', default=[], help='decrease learning rate at these epochs.')
+    # parser.add_argument('--momentum', type=float, default=0.5, help="SGD momentum (default: 0.5)")
+    parser.add_argument('--weight_decay', type=float, default=0.0001, help="sgd weight decay")
+    parser.add_argument('--feature_dim', type=int, help='feature dimension', default=128)
+
     args = parser.parse_args()
     return args
+
+

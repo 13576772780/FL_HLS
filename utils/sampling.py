@@ -7,6 +7,7 @@ import random
 import numpy as np
 import torch
 
+
 def noniid(dataset, num_users, shard_per_user, num_classes, rand_set_all=[], testb=False ):
     """
     Sample non-I.I.D client data from MNIST dataset
@@ -118,7 +119,7 @@ def noniid_v2(dataset, num_users, shard_per_user, num_classes, rand_set_all=[], 
         x = idxs_dict[label]
         num_leftover = len(x) % nums_per_class
         leftover = x[-num_leftover:] if num_leftover > 0 else []
-        x = np.array(x[:-num_leftover]) if num_leftover > 0 else np.array(x)
+        x = np.array(x[:-num_leftover],dtype='int64') if num_leftover > 0 else np.array(x)
         x = x.reshape((-1, nums_per_class))
         x = list(x)
         idxs_dict[label] = x

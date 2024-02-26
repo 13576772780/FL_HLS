@@ -51,6 +51,7 @@ if __name__ == '__main__':
                 dutest.append(v)
             np.save('data/sample/dict_users_train.npy', np.array(dutrain))
             np.save('data/sample/dict_users_test.npy', np.array(dutest))
+            np.save('data/sample/dataset_train_target.npy', np.array(dataset_train.targets))
             np.save('data/sample/concept_matrix.npy', np.array(concept_matrix))
         elif args.is_reset_dataset == 0:
             dataset_train, dataset_test, _, _, _ = get_data_v2(args)
