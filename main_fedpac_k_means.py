@@ -41,7 +41,7 @@ def get_class_center_k_means(class_center_locals, args, class_nums, class_center
                 class_centers_without_zero.append(class_center_locals[idx][child_idx])
                 class_centers_nums.append(num)
 
-    class_centers_nums = np.array(class_centers_nums)
+    class_centers_nums = np.array(class_centers_nums, n_init=10)
     class_centers_without_zero = np.array(class_centers_without_zero)
 
     model = KMeans(n_clusters=args.num_classes)

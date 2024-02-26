@@ -67,7 +67,7 @@ def args_parser():
     parser.add_argument('--concept_shift_rate', type=float, default=1, help='control concept-shift rate')
     parser.add_argument('--local_only', type=int, default=0, help='Only train locally')
     parser.add_argument('--limit_local_output', type=int, default=0, help='limit local output numbers')
-    parser.add_argument('--nums_per_class', type=int, default=300, help='smaples number of class')
+    parser.add_argument('--nums_per_class', type=int, default=200, help='smaples number of class')
     parser.add_argument('--is_reset_dataset', type=int, default=1, help='reset train/test dataset or read from file')
     parser.add_argument('--is_reset_model', type=int, default=1, help='reset train init model')
     # parser.add_argument('--output_of_classify_header', type=int, default=10, help='output of classify header')
