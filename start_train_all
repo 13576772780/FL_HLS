@@ -13,15 +13,17 @@ do
 
     python main_fedrep.py --alg lg --epochs 100 --num_users 20 --shard_per_user 10 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset cifar10 --model cnn --moment 0.5 --is_reset_model 1
 
-		python main_fedpac.py --alg fedrep --epochs 100 --num_users 20 --shard_per_user 10 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset cifar10 --model cnn --moment 0.5 --is_reset_model 1
-
-		python main_ditto.py --alg fedavg --epochs 100 --num_users 20 --shard_per_user 10 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset cifar10 --model cnn --moment 0.5 --is_reset_model 1
-
 		python main_apfl.py --alg fedavg --epochs 100 --num_users 20 --shard_per_user 10 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset cifar10 --model cnn --moment 0.5 --is_reset_model 1
 
     python main_scaffold.py --alg scaf --epochs 100 --num_users 20 --shard_per_user 10 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset cifar10 --model cnn --moment 0.5 --is_reset_model 1
 
+    python main_ditto.py --alg fedavg --epochs 100 --num_users 20 --shard_per_user 10 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset cifar10 --model cnn --moment 0.5 --is_reset_model 1
+
     python main_pfedme.py --alg fedavg --epochs 300 --num_users 20 --shard_per_user 10 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset cifar10 --model cnn --moment 0.5 --is_reset_model 1
+
+    python main_fedpac.py --alg fedrep --epochs 100 --num_users 20 --shard_per_user 10 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset cifar10 --model cnn --moment 0.5 --is_reset_model 1
+
+    python main_fedpac_k_means.py --alg fedrep --epochs 100 --num_users 20 --shard_per_user 10 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset cifar10 --model cnn --moment 0.5 --is_reset_model 1
 
 done
 
@@ -39,15 +41,17 @@ do
 
     python main_fedrep.py --alg lg --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset cifar10 --model cnn --moment 0.5 --is_reset_model 1
 
-		python main_fedpac.py --alg fedrep --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset cifar10 --model cnn --moment 0.5 --is_reset_model 1
-
-		python main_ditto.py --alg fedavg --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset cifar10 --model cnn --moment 0.5 --is_reset_model 1
-
 		python main_apfl.py --alg fedavg --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset cifar10 --model cnn --moment 0.5 --is_reset_model 1
 
     python main_scaffold.py --alg scaf --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset cifar10 --model cnn --moment 0.5 --is_reset_model 1
 
     python main_pfedme.py --alg fedavg --epochs 300 --num_users 20 --shard_per_user 3 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset cifar10 --model cnn --moment 0.5 --is_reset_model 1
+
+    python main_ditto.py --alg fedavg --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset cifar10 --model cnn --moment 0.5 --is_reset_model 1
+
+    python main_fedpac.py --alg fedrep --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset cifar10 --model cnn --moment 0.5 --is_reset_model 1
+
+    python main_fedpac_k_means.py --alg fedrep --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset cifar10 --model cnn --moment 0.5 --is_reset_model 1
 
 done
 
@@ -63,15 +67,18 @@ do
 
     python main_fedrep.py --alg lg --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 1 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 1 --frac 0.3 --dataset cifar10 --model cnn --moment 0.5 --is_reset_model 1
 
-		python main_fedpac_k_means.py --alg fedrep --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 1 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 1 --frac 0.3 --dataset cifar10 --model cnn --moment 0.5 --is_reset_model 1
-
-		python main_ditto.py --alg fedavg --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 1 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 1 --frac 0.3 --dataset cifar10 --model cnn --moment 0.5 --is_reset_model 1
-
 		python main_apfl.py --alg fedavg --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 1 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 1 --frac 0.3 --dataset cifar10 --model cnn --moment 0.5 --is_reset_model 1
 
     python main_scaffold.py --alg scaf --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 1 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 1 --frac 0.3 --dataset cifar10 --model cnn --moment 0.5 --is_reset_model 1
 
     python main_pfedme.py --alg fedavg --epochs 300 --num_users 20 --shard_per_user 3 --limit_local_output 1 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 1 --frac 0.3 --dataset cifar10 --model cnn --moment 0.5 --is_reset_model 1
+
+    python main_ditto.py --alg fedavg --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 1 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 1 --frac 0.3 --dataset cifar10 --model cnn --moment 0.5 --is_reset_model 1
+
+    python main_fedpac_k.py --alg fedrep --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 1 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 1 --frac 0.3 --dataset cifar10 --model cnn --moment 0.5 --is_reset_model 1
+
+    python main_fedpac_k_means.py --alg fedrep --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 1 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 1 --frac 0.3 --dataset cifar10 --model cnn --moment 0.5 --is_reset_model 1
+
 
 done
 
@@ -94,15 +101,17 @@ do
 
     python main_fedrep.py --alg lg --epochs 100 --num_users 20 --shard_per_user 10 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset mnist --model mlp --moment 0.5 --is_reset_model 1
 
-		python main_fedpac.py --alg fedrep --epochs 100 --num_users 20 --shard_per_user 10 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset mnist --model mlp --moment 0.5 --is_reset_model 1
-
-		python main_ditto.py --alg fedavg --epochs 100 --num_users 20 --shard_per_user 10 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset mnist --model mlp --moment 0.5 --is_reset_model 1
-
 		python main_apfl.py --alg fedavg --epochs 100 --num_users 20 --shard_per_user 10 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset mnist --model mlp --moment 0.5 --is_reset_model 1
 
     python main_scaffold.py --alg scaf --epochs 100 --num_users 20 --shard_per_user 10 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset mnist --model mlp --moment 0.5 --is_reset_model 1
 
     python main_pfedme.py --alg fedavg --epochs 100 --num_users 20 --shard_per_user 10 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset mnist --model mlp --moment 0.5 --is_reset_model 1
+
+    python main_ditto.py --alg fedavg --epochs 100 --num_users 20 --shard_per_user 10 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset mnist --model mlp --moment 0.5 --is_reset_model 1
+
+    python main_fedpac.py --alg fedrep --epochs 100 --num_users 20 --shard_per_user 10 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset mnist --model mlp --moment 0.5 --is_reset_model 1
+
+    python main_fedpac_k_means.py --alg fedrep --epochs 100 --num_users 20 --shard_per_user 10 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset mnist --model mlp --moment 0.5 --is_reset_model 1
 
 done
 
@@ -119,15 +128,17 @@ do
 
     python main_fedrep.py --alg lg --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset mnist --model mlp --moment 0.5 --is_reset_model 1
 
-		python main_fedpac.py --alg fedrep --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset mnist --model mlp --moment 0.5 --is_reset_model 1
-
-		python main_ditto.py --alg fedavg --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset mnist --model mlp --moment 0.5 --is_reset_model 1
-
 		python main_apfl.py --alg fedavg --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset mnist --model mlp --moment 0.5 --is_reset_model 1
 
     python main_scaffold.py --alg scaf --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset mnist --model mlp --moment 0.5 --is_reset_model 1
 
     python main_pfedme.py --alg fedavg --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset mnist --model mlp --moment 0.5 --is_reset_model 1
+
+    python main_ditto.py --alg fedavg --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset mnist --model mlp --moment 0.5 --is_reset_model 1
+
+    python main_fedpac.py --alg fedrep --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset mnist --model mlp --moment 0.5 --is_reset_model 1
+
+    python main_fedpac_k_means.py --alg fedrep --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset mnist --model mlp --moment 0.5 --is_reset_model 1
 
 done
 
@@ -143,15 +154,17 @@ do
 
     python main_fedrep.py --alg lg --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 1 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 1 --frac 0.3 --dataset mnist --model mlp --moment 0.5 --is_reset_model 1
 
-		python main_fedpac_k_means.py --alg fedrep --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 1 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 1 --frac 0.3 --dataset mnist --model mlp --moment 0.5 --is_reset_model 1
-
-		python main_ditto.py --alg fedavg --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 1 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 1 --frac 0.3 --dataset mnist --model mlp --moment 0.5 --is_reset_model 1
-
 		python main_apfl.py --alg fedavg --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 1 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 1 --frac 0.3 --dataset mnist --model mlp --moment 0.5 --is_reset_model 1
 
     python main_scaffold.py --alg scaf --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 1 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 1 --frac 0.3 --dataset mnist --model mlp --moment 0.5 --is_reset_model 1
 
     python main_pfedme.py --alg fedavg --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 1 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 1 --frac 0.3 --dataset mnist --model mlp --moment 0.5 --is_reset_model 1
+
+    python main_ditto.py --alg fedavg --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 1 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 1 --frac 0.3 --dataset mnist --model mlp --moment 0.5 --is_reset_model 1
+
+    python main_fedpac.py --alg fedrep --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 1 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 1 --frac 0.3 --dataset mnist --model mlp --moment 0.5 --is_reset_model 1
+
+    python main_fedpac_k_means.py --alg fedrep --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 1 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 1 --frac 0.3 --dataset mnist --model mlp --moment 0.5 --is_reset_model 1
 
 done
 
@@ -177,15 +190,18 @@ do
 
     python main_fedrep.py --alg lg --epochs 100 --num_users 20 --shard_per_user 10 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset cifar100 --model cnn --moment 0.5 --is_reset_model 1
 
-		python main_fedpac.py --alg fedrep --epochs 100 --num_users 20 --shard_per_user 10 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset cifar100 --model cnn --moment 0.5 --is_reset_model 1
-
-		python main_ditto.py --alg fedavg --epochs 100 --num_users 20 --shard_per_user 10 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset cifar100 --model cnn --moment 0.5 --is_reset_model 1
 
 		python main_apfl.py --alg fedavg --epochs 100 --num_users 20 --shard_per_user 10 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset cifar100 --model cnn --moment 0.5 --is_reset_model 1
 
     python main_scaffold.py --alg scaf --epochs 100 --num_users 20 --shard_per_user 10 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset cifar100 --model cnn --moment 0.5 --is_reset_model 1
 
     python main_pfedme.py --alg fedavg --epochs 300 --num_users 20 --shard_per_user 10 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset cifar100 --model cnn --moment 0.5 --is_reset_model 1
+
+		python main_ditto.py --alg fedavg --epochs 100 --num_users 20 --shard_per_user 10 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset cifar100 --model cnn --moment 0.5 --is_reset_model 1
+
+    python main_fedpac.py --alg fedrep --epochs 100 --num_users 20 --shard_per_user 10 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset cifar100 --model cnn --moment 0.5 --is_reset_model 1
+
+    python main_fedpac_k_means.py --alg fedrep --epochs 100 --num_users 20 --shard_per_user 10 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset cifar100 --model cnn --moment 0.5 --is_reset_model 1
 
 done
 
@@ -202,15 +218,17 @@ do
 
     python main_fedrep.py --alg lg --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset cifar100 --model cnn --moment 0.5 --is_reset_model 1
 
-		python main_fedpac.py --alg fedrep --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset cifar100 --model cnn --moment 0.5 --is_reset_model 1
-
-		python main_ditto.py --alg fedavg --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset cifar100 --model cnn --moment 0.5 --is_reset_model 1
-
 		python main_apfl.py --alg fedavg --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset cifar100 --model cnn --moment 0.5 --is_reset_model 1
 
     python main_scaffold.py --alg scaf --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset cifar100 --model cnn --moment 0.5 --is_reset_model 1
 
     python main_pfedme.py --alg fedavg --epochs 300 --num_users 20 --shard_per_user 3 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset cifar100 --model cnn --moment 0.5 --is_reset_model 1
+
+    python main_ditto.py --alg fedavg --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset cifar100 --model cnn --moment 0.5 --is_reset_model 1
+
+    python main_fedpac.py --alg fedrep --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset cifar100 --model cnn --moment 0.5 --is_reset_model 1
+
+		python main_fedpac_k_means.py --alg fedrep --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 0 --frac 0.3 --dataset cifar100 --model cnn --moment 0.5 --is_reset_model 1
 
 done
 
@@ -226,15 +244,18 @@ do
 
     python main_fedrep.py --alg lg --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 1 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 1 --frac 0.3 --dataset cifar100 --model cnn --moment 0.5 --is_reset_model 1
 
-		python main_fedpac_k_means.py --alg fedrep --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 1 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 1 --frac 0.3 --dataset cifar100 --model cnn --moment 0.5 --is_reset_model 1
-
-		python main_ditto.py --alg fedavg --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 1 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 1 --frac 0.3 --dataset cifar100 --model cnn --moment 0.5 --is_reset_model 1
 
 		python main_apfl.py --alg fedavg --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 1 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 1 --frac 0.3 --dataset cifar100 --model cnn --moment 0.5 --is_reset_model 1
 
     python main_scaffold.py --alg scaf --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 1 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 1 --frac 0.3 --dataset cifar100 --model cnn --moment 0.5 --is_reset_model 1
 
     python main_pfedme.py --alg fedavg --epochs 300 --num_users 20 --shard_per_user 3 --limit_local_output 1 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 1 --frac 0.3 --dataset cifar100 --model cnn --moment 0.5 --is_reset_model 1
+
+    python main_ditto.py --alg fedavg --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 1 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 1 --frac 0.3 --dataset cifar100 --model cnn --moment 0.5 --is_reset_model 1
+
+    python main_fedpac.py --alg fedrep --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 1 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 1 --frac 0.3 --dataset cifar100 --model cnn --moment 0.5 --is_reset_model 1
+
+    python main_fedpac_k_means.py --alg fedrep --epochs 100 --num_users 20 --shard_per_user 3 --limit_local_output 1 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 1 --frac 0.3 --dataset cifar100 --model cnn --moment 0.5 --is_reset_model 1
 
 done
 
@@ -245,7 +266,7 @@ for((c = 1; c < 2; c ++))
 do
 
 
-  python main_fedrep.py --alg fedavg --epochs 100 --num_users 20 --shard_per_user 10 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 1 --is_concept_shift 1 --concept_shift_rate 0 --frac 0.3 --dataset cifar10 --model cnn --moment 0.5 --is_reset_model 1
+   python main_fedrep.py --alg fedavg --epochs 100 --num_users 20 --shard_per_user 10 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 1 --is_concept_shift 1 --concept_shift_rate 0 --frac 0.3 --dataset cifar10 --model cnn --moment 0.5 --is_reset_model 1
 
 		python main_fedrep.py --alg fedrep --epochs 100 --num_users 20 --shard_per_user 10 --limit_local_output 0 --local_rep_ep 3 --local_only 0 --is_reset_dataset 0 --is_concept_shift 1  --concept_shift_rate 0 --frac 0.3 --dataset cifar10 --model cnn --moment 0.5 --is_reset_model 1
 
