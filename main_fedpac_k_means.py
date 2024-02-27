@@ -346,32 +346,47 @@ if __name__ == '__main__':
                                                         w_glob_keys=w_glob_keys, w_locals=w_locals,indd=indd,dataset_train=dataset_train, dict_users_train=dict_users_train, return_all=False, concept_matrix=concept_matrix)
             accs.append(acc_test)
             # for algs which learn a single global model, these are the local accuracies (computed using the locally updated versions of the global model at the end of each round)
-            if iter != args.epochs:
-                #with open('output.txt', 'a') as f:
-                print('Round {:3d}, Train loss: {:.3f}, Test loss: {:.3f}, Test accuracy: {:.2f}'.format(
-                        iter, loss_avg, loss_test, acc_test))
-            else:
-                # in the final round, we sample all users, and for the algs which learn a single global model, we fine-tune the head for 10 local epochs for fair comparison #with FedRep
-                #with open('output.txt', 'a') as f:
-                print('Final Round, Train loss: {:.3f}, Test loss: {:.3f}, Test accuracy: {:.2f}'.format(
-                        loss_avg, loss_test, acc_test))
-            if iter >= args.epochs-10 and iter != args.epochs:
-                accs10 += acc_test/10
-
-            # below prints the global accuracy of the single global model for the relevant algs
-            if args.alg == 'fedavg' or args.alg == 'prox':
-                acc_test, loss_test = test_img_local_all(net_glob, args, dataset_test, dict_users_test,
-                                                        w_locals=None,indd=indd,dataset_train=dataset_train, dict_users_train=dict_users_train, return_all=False, concept_matrix=concept_matrix)
-                if iter != args.epochs:
-                    #with open('output.txt', 'a') as f:
-                    print('Round {:3d}, Global train loss: {:.3f}, Global test loss: {:.3f}, Global test accuracy: {:.2f}'.format(
-                        iter, loss_avg, loss_test, acc_test))
+            if iter % args.test_freq == args.test_freq - 1 or iter >= args.epochs - 10:
+                if times == []:
+                    times.append(max(times_in))
                 else:
-                    #with open('output.txt', 'a') as f:
-                    print('Final Round, Global train loss: {:.3f}, Global test loss: {:.3f}, Global test accuracy: {:.2f}'.format(
+                    times.append(times[-1] + max(times_in))
+                acc_test, loss_test = test_img_local_all(net_glob, args, dataset_test, dict_users_test,
+                                                         w_glob_keys=w_glob_keys, w_locals=w_locals, indd=indd,
+                                                         dataset_train=dataset_train, dict_users_train=dict_users_train,
+                                                         return_all=False, concept_matrix=concept_matrix)
+                accs.append(acc_test)
+                # for algs which learn a single global model, these are the local accuracies (computed using the locally updated versions of the global model at the end of each round)
+                if iter != args.epochs and args.print_all == 1:
+                    # with open('output.txt', 'a') as f:
+                    print('Round {:3d}, Train loss: {:.3f}, Test loss: {:.3f}, Test accuracy: {:.2f}'.format(
+                        iter, loss_avg, loss_test, acc_test))
+                elif iter == args.epochs:
+                    # in the final round, we sample all users, and for the algs which learn a single global model, we fine-tune the head for 10 local epochs for fair comparison with FedRep
+                    # with open('output.txt', 'a') as f:
+                    print('Final Round, Train loss: {:.3f}, Test loss: {:.3f}, Test accuracy: {:.2f}'.format(
                         loss_avg, loss_test, acc_test))
-            if iter >= args.epochs-10 and iter != args.epochs:
-                accs10_glob += acc_test/10
+                if iter >= args.epochs - 10 and iter != args.epochs:
+                    accs10 += acc_test / 10
+
+                # below prints the global accuracy of the single global model for the relevant algs
+                if args.alg == 'fedavg' or args.alg == 'prox':
+                    acc_test, loss_test = test_img_local_all(net_glob, args, dataset_test, dict_users_test,
+                                                             w_locals=None, indd=indd, dataset_train=dataset_train,
+                                                             dict_users_train=dict_users_train, return_all=False,
+                                                             concept_matrix=concept_matrix)
+                    if iter != args.epochs and args.print_all == 1:
+                        # with open('output.txt', 'a') as f:
+                        print(
+                            'Round {:3d}, Global train loss: {:.3f}, Global test loss: {:.3f}, Global test accuracy: {:.2f}'.format(
+                                iter, loss_avg, loss_test, acc_test))
+                    elif iter == args.epochs:
+                        # with open('output.txt', 'a') as f:
+                        print(
+                            'Final Round, Global train loss: {:.3f}, Global test loss: {:.3f}, Global test accuracy: {:.2f}'.format(
+                                loss_avg, loss_test, acc_test))
+                if iter >= args.epochs - 10 and iter != args.epochs:
+                    accs10_glob += acc_test / 10
 
         if iter % args.save_every==args.save_every-1:
             model_save_path = './save/accs_'+ args.alg + '_' + args.dataset + '_' + str(args.num_users) +'_'+ str(args.shard_per_user) +'_iter' + str(iter)+ '.pt'

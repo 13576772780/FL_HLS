@@ -276,11 +276,11 @@ if __name__ == '__main__':
                                                         w_glob_keys=w_glob_keys, w_locals=w_locals,indd=indd,dataset_train=dataset_train, dict_users_train=dict_users_train, return_all=False, concept_matrix=concept_matrix)
             accs.append(acc_test)
             # for algs which learn a single global model, these are the local accuracies (computed using the locally updated versions of the global model at the end of each round)
-            if iter != args.epochs:
+            if iter != args.epochs and args.print_all == 1:
                 # with open('output.txt', 'a') as f:
                 print('Round {:3d}, Train loss: {:.3f}, Test loss: {:.3f}, Test accuracy: {:.2f}'.format(
                     iter, loss_avg, loss_test, acc_test))
-            else:
+            elif iter == args.epochs:
                 # in the final round, we sample all users, and for the algs which learn a single global model, we fine-tune the head for 10 local epochs for fair comparison with FedRep
                 # with open('output.txt', 'a') as f:
                 print('Final Round, Train loss: {:.3f}, Test loss: {:.3f}, Test accuracy: {:.2f}'.format(
@@ -292,11 +292,11 @@ if __name__ == '__main__':
             if args.alg == 'fedavg' or args.alg == 'prox':
                 acc_test, loss_test = test_img_local_all(net_glob, args, dataset_test, dict_users_test,
                                                         w_locals=None,indd=indd,dataset_train=dataset_train, dict_users_train=dict_users_train, return_all=False, concept_matrix=concept_matrix)
-                if iter != args.epochs:
+                if iter != args.epochs and args.print_all == 1:
                     # with open('output.txt', 'a') as f:
                     print('Round {:3d}, Global train loss: {:.3f}, Global test loss: {:.3f}, Global test accuracy: {:.2f}'.format(
                         iter, loss_avg, loss_test, acc_test))
-                else:
+                elif iter == args.epochs:
                     # with open('output.txt', 'a') as f:
                     print('Final Round, Global train loss: {:.3f}, Global test loss: {:.3f}, Global test accuracy: {:.2f}'.format(
                         loss_avg, loss_test, acc_test))
