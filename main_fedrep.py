@@ -18,7 +18,7 @@ import torch
 from torch import nn
 
 from utils.options import args_parser
-from utils.train_utils import get_data_v2, get_model, read_data, get_data
+from utils.train_utils import get_data_v3, get_model, read_data, get_data
 from models.Update import LocalUpdate
 from models.test import test_img_local_all
 
@@ -41,7 +41,9 @@ if __name__ == '__main__':
     lens = np.ones(args.num_users)
     if 'cifar' in args.dataset or args.dataset == 'mnist':
         if args.is_reset_dataset == 1:
-            dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix = get_data_v2(args)
+            # dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix = get_data_v2(args)
+            dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_v3(
+                args)
 
             dutrain = []
             dutest = []
@@ -53,11 +55,13 @@ if __name__ == '__main__':
             np.save('data/sample/dict_users_test.npy', np.array(dutest))
             np.save('data/sample/dataset_train_target.npy', np.array(dataset_train.targets))
             np.save('data/sample/concept_matrix.npy', np.array(concept_matrix))
+            np.save('data/sample/rand_set_all.npy', np.array(rand_set_all))
         elif args.is_reset_dataset == 0:
-            dataset_train, dataset_test, _, _, _ = get_data_v2(args)
+            dataset_train, dataset_test, _, _, _,_ = get_data_v3(args)
             dutr = np.load('data/sample/dict_users_train.npy', allow_pickle=True)
             dute = np.load('data/sample/dict_users_test.npy', allow_pickle=True)
             concept_matrix = np.load('data/sample/concept_matrix.npy', allow_pickle=True)
+            rand_set_all = np.load('data/sample/rand_set_all.npy', allow_pickle=True)
             dict_users_train = dict_users = {i: np.array([], dtype='int64') for i in range(args.num_users)}
             dict_users_test = dict_users = {i: np.array([], dtype='int64') for i in range(args.num_users)}
             for i, v in enumerate(dutr):
