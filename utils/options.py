@@ -20,7 +20,7 @@ def args_parser():
     parser.add_argument('--grad_norm', action='store_true', help='use_gradnorm_avging')
     parser.add_argument('--lr_decay', type=float, default=1.0, help="learning rate decay per round")
     parser.add_argument('--local_updates', type=int, default=1000000, help="maximum number of local updates")
-    parser.add_argument('--m_tr', type=int, default=500, help="maximum number of samples/user to use for training")
+    parser.add_argument('--m_tr', type=int, default=-1, help="maximum number of samples/user to use for training")
     parser.add_argument('--m_ft', type=int, default=500, help="maximum number of samples/user to use for fine-tuning")
 
     # model arguments
@@ -80,7 +80,7 @@ def args_parser():
 
     #噪声生成
     parser.add_argument('--level_n_system', type=float, default=0.0, help="fraction of noisy clients")
-    parser.add_argument('--level_n_lowerb', type=float, default=0.2, help="lower bound of noise level")
+    parser.add_argument('--level_n_lowerb', type=float, default=0.0, help="lower bound of noise level")
     parser.add_argument('--filter_alg', type=str, default='center_psl', help='filter type center_psl / loss_psl')
     # parser.add_argument('--seed', type=int, default=13, help="random seed, default: 1")
 

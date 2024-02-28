@@ -88,6 +88,7 @@ def noniid_v2(dataset, num_users, shard_per_user, num_classes, rand_set_all=[], 
 
     idxs_dict = {}
     count = 0
+    num = len(dataset)
     for i in range(len(dataset)):
         label = torch.tensor(dataset.targets[i]).item()
         if label < num_classes and label not in idxs_dict.keys():
@@ -118,6 +119,7 @@ def noniid_v2(dataset, num_users, shard_per_user, num_classes, rand_set_all=[], 
     for label in idxs_dict.keys():
         x = idxs_dict[label]
         num_leftover = len(x) % nums_per_class
+        # num_leftover = np.shape(x)[0] % nums_per_class
         leftover = x[-num_leftover:] if num_leftover > 0 else []
         x = np.array(x[:-num_leftover],dtype='int64') if num_leftover > 0 else np.array(x)
         x = x.reshape((-1, nums_per_class))

@@ -169,10 +169,10 @@ if __name__ == '__main__':
             acc_test, loss_test = test_img_local_all(net_glob, args, dataset_test, dict_users_test,
                                                      w_locals=w_locals_test, indd=indd, dataset_train=dataset_train, dict_users_train=dict_users_train, return_all=False, concept_matrix=concept_matrix)
             accs.append(acc_test)
-            if iter != args.epochs:
+            if iter != args.epochs and args.print_all == 1:
                 print('Round {:3d}, Train loss: {:.3f}, Test loss: {:.3f}, Test accuracy: {:.2f}'.format(
                     iter, loss_avg, loss_test, acc_test))
-            else:
+            elif iter == args.epochs:
                 print('Final Round, Train loss: {:.3f}, Test loss: {:.3f}, Test accuracy: {:.2f}'.format(
                     loss_avg, loss_test, acc_test))
             if iter >= args.epochs-10 and iter != args.epochs:
