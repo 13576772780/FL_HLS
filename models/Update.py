@@ -1956,7 +1956,7 @@ class LocalUpdatePACPSL(object):
                         else:
                             param.requires_grad = False
                     #开始训练先不过滤数据
-                    if train_iter > 1:
+                    if train_iter > 20:
                         if self.args.filter_alg == 'center_psl':  # and iter_num_now > 15
                             self.filter_by_center(net=net, concept_matrix_local=concept_matrix_local,
                                                   local_class_center=local_class_center, iter_num=iter2, local_eps=local_eps)
