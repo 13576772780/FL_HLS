@@ -1802,7 +1802,7 @@ class LocalUpdatePACPSL(object):
                 lable_tmp = concept_matrix_local[self.dataset.targets[data_idx]]
             else:
                 lable_tmp = self.dataset.targets[data_idx]
-            lable_tmp = torch.from_numpy(np.array([lable_tmp])).to(torch.int64)
+            lable_tmp = torch.from_numpy(np.array([lable_tmp])).to(torch.int64).to(self.args.device)
             data_tmp = data_tmp.to(self.args.device)
             log_probs = net(data_tmp)
 
@@ -1956,7 +1956,7 @@ class LocalUpdatePACPSL(object):
                         else:
                             param.requires_grad = False
                     #开始训练先不过滤数据
-                    if train_iter > 20:
+                    if train_iter > 1:
                         if self.args.filter_alg == 'center_psl':  # and iter_num_now > 15
                             self.filter_by_center(net=net, concept_matrix_local=concept_matrix_local,
                                                   local_class_center=local_class_center, iter_num=iter2, local_eps=local_eps)
