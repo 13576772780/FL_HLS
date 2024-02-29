@@ -64,7 +64,7 @@ def args_parser():
     #后面加的---FedPAC独有参数 和概念偏移参数
     parser.add_argument('--pac_param', type=float, default=0.1, help=' balance supervised loss and regularization loss')
     parser.add_argument('--is_concept_shift', type=int, default=0, help='control whether the local client is concept-shift')
-    parser.add_argument('--concept_shift_rate', type=float, default=1, help='control concept-shift rate')
+    parser.add_argument('--concept_shift_rate', type=float, default=-1, help='control concept-shift rate')
     parser.add_argument('--local_only', type=int, default=0, help='Only train locally')
     parser.add_argument('--limit_local_output', type=int, default=0, help='limit local output numbers')
     parser.add_argument('--nums_per_class', type=int, default=200, help='smaples number of class')
