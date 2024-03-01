@@ -192,7 +192,7 @@ def get_data_v3(args):
 
     return dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all
 
-def add_noise(args, y_train, dict_users, rand_set_all):
+def add_noise2(args, y_train, dict_users, rand_set_all):
     np.random.seed(args.seed)
 
     gamma_s = np.random.binomial(1, args.level_n_system, args.num_users)
@@ -217,6 +217,31 @@ def add_noise(args, y_train, dict_users, rand_set_all):
             i, gamma_c[i], gamma_c[i] * 0.9, noise_ratio))
         real_noise_level[i] = noise_ratio
     return (y_train_noisy, gamma_s, real_noise_level)
+
+def add_noise(args, y_train, dict_users, rand_set_all):
+    np.random.seed(args.seed)
+    y_train_noisy = copy.deepcopy(y_train)
+    users_arr = [i for i in range(0, args.num_users)]
+    ##采样客户端
+    rand_users_arr = random.sample(users_arr, int(args.num_users*args.level_n_system))
+
+    for i in rand_users_arr:
+        sample_idx = list(dict_users[i])
+        #采样具体客户端上的样本
+        rand_sample_idx = np.array(random.sample(sample_idx, int(len(sample_idx)*args.level_n_lowerb)))
+
+        #随机修改采样样本的标签
+        if args.limit_local_output == 1 or args.shard_per_user < 10:
+            nosiy_sample_labels = rand_set_all[i][np.random.randint(0, args.shard_per_user, len(rand_sample_idx))]
+            y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+        else:
+            nosiy_sample_labels = np.random.randint(0, 10, len(rand_sample_idx))
+            y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+
+
+        print("   Client %d, noise    level: %.4f " % (i, args.level_n_lowerb))
+
+    return y_train_noisy, None, None
 
 def read_data(train_data_dir, test_data_dir):
     '''parses data in given train and test data directories
