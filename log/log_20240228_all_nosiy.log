@@ -11651,3 +11651,307 @@ Round 96 global test acc  17.2100
 Round 97 global test acc  17.1600
 Round 98 global test acc  17.2000
 Round 99 global test acc  17.2200
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar10  
+
+Files already downloaded and verified
+Files already downloaded and verified
+   Client 15, noise    level: 0.5000 
+   Client 3, noise    level: 0.5000 
+   Client 0, noise    level: 0.5000 
+   Client 9, noise    level: 0.5000 
+   Client 12, noise    level: 0.5000 
+   Client 1, noise    level: 0.5000 
+   Client 2, noise    level: 0.5000 
+   Client 14, noise    level: 0.5000 
+   Client 8, noise    level: 0.5000 
+   Client 5, noise    level: 0.5000 
+   Client 19, noise    level: 0.5000 
+   Client 7, noise    level: 0.5000 
+   Client 4, noise    level: 0.5000 
+   Client 10, noise    level: 0.5000 
+   Client 6, noise    level: 0.5000 
+   Client 11, noise    level: 0.5000 
+fedrep
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=10, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+['fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'conv2.weight', 'conv2.bias', 'conv1.weight', 'conv1.bias']
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+# Params: 307842 (local), 307192 (global); Percentage 99.79 (307192/307842)
+learning rate, batch size: 0.01, 10
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=10, bias=True)
+)
+Round   0, Train loss: 2.213, Test loss: 1.981, Test accuracy: 29.99
+Round   1, Train loss: 1.928, Test loss: 1.694, Test accuracy: 38.94
+Round   2, Train loss: 1.743, Test loss: 1.560, Test accuracy: 44.40
+Round   3, Train loss: 1.684, Test loss: 1.508, Test accuracy: 47.25
+Round   4, Train loss: 1.625, Test loss: 1.439, Test accuracy: 49.95
+Round   5, Train loss: 1.563, Test loss: 1.409, Test accuracy: 51.90
+Round   6, Train loss: 1.521, Test loss: 1.356, Test accuracy: 54.38
+Round   7, Train loss: 1.472, Test loss: 1.308, Test accuracy: 56.95
+Round   8, Train loss: 1.457, Test loss: 1.240, Test accuracy: 58.78
+Round   9, Train loss: 1.327, Test loss: 1.252, Test accuracy: 58.65
+Round  10, Train loss: 1.314, Test loss: 1.191, Test accuracy: 60.40
+Round  11, Train loss: 1.329, Test loss: 1.170, Test accuracy: 60.69
+Round  12, Train loss: 1.296, Test loss: 1.123, Test accuracy: 62.08
+Round  13, Train loss: 1.219, Test loss: 1.091, Test accuracy: 63.73
+Round  14, Train loss: 1.219, Test loss: 1.067, Test accuracy: 64.34
+Round  15, Train loss: 1.195, Test loss: 1.050, Test accuracy: 65.10
+Round  16, Train loss: 1.194, Test loss: 1.056, Test accuracy: 65.59
+Round  17, Train loss: 1.142, Test loss: 1.030, Test accuracy: 66.47
+Round  18, Train loss: 1.175, Test loss: 1.023, Test accuracy: 66.75
+Round  19, Train loss: 1.095, Test loss: 1.019, Test accuracy: 67.07
+Round  20, Train loss: 1.124, Test loss: 0.986, Test accuracy: 67.92
+Round  21, Train loss: 1.089, Test loss: 0.982, Test accuracy: 68.31
+Round  22, Train loss: 1.093, Test loss: 0.974, Test accuracy: 68.11
+Round  23, Train loss: 1.070, Test loss: 0.965, Test accuracy: 68.70
+Round  24, Train loss: 0.999, Test loss: 0.968, Test accuracy: 68.48
+Round  25, Train loss: 0.999, Test loss: 0.969, Test accuracy: 68.79
+Round  26, Train loss: 0.936, Test loss: 0.951, Test accuracy: 68.78
+Round  27, Train loss: 0.936, Test loss: 0.933, Test accuracy: 69.44
+Round  28, Train loss: 0.988, Test loss: 0.915, Test accuracy: 70.33
+Round  29, Train loss: 0.977, Test loss: 0.916, Test accuracy: 70.38
+Round  30, Train loss: 0.986, Test loss: 0.911, Test accuracy: 70.67
+Round  31, Train loss: 0.902, Test loss: 0.902, Test accuracy: 70.84
+Round  32, Train loss: 0.957, Test loss: 0.896, Test accuracy: 71.19
+Round  33, Train loss: 0.862, Test loss: 0.902, Test accuracy: 70.96
+Round  34, Train loss: 0.867, Test loss: 0.862, Test accuracy: 71.92
+Round  35, Train loss: 0.904, Test loss: 0.859, Test accuracy: 71.92
+Round  36, Train loss: 0.951, Test loss: 0.854, Test accuracy: 72.19
+Round  37, Train loss: 0.965, Test loss: 0.862, Test accuracy: 72.00
+Round  38, Train loss: 0.851, Test loss: 0.846, Test accuracy: 72.40
+Round  39, Train loss: 0.847, Test loss: 0.852, Test accuracy: 72.37
+Round  40, Train loss: 0.865, Test loss: 0.836, Test accuracy: 72.72
+Round  41, Train loss: 0.817, Test loss: 0.827, Test accuracy: 73.12
+Round  42, Train loss: 0.884, Test loss: 0.829, Test accuracy: 72.85
+Round  43, Train loss: 0.843, Test loss: 0.832, Test accuracy: 72.95
+Round  44, Train loss: 0.806, Test loss: 0.831, Test accuracy: 73.03
+Round  45, Train loss: 0.831, Test loss: 0.831, Test accuracy: 73.02
+Round  46, Train loss: 0.771, Test loss: 0.839, Test accuracy: 72.74
+Round  47, Train loss: 0.861, Test loss: 0.830, Test accuracy: 72.92
+Round  48, Train loss: 0.797, Test loss: 0.834, Test accuracy: 73.02
+Round  49, Train loss: 0.837, Test loss: 0.817, Test accuracy: 73.24
+Round  50, Train loss: 0.795, Test loss: 0.818, Test accuracy: 73.41
+Round  51, Train loss: 0.786, Test loss: 0.816, Test accuracy: 73.42
+Round  52, Train loss: 0.704, Test loss: 0.811, Test accuracy: 73.71
+Round  53, Train loss: 0.803, Test loss: 0.831, Test accuracy: 72.88
+Round  54, Train loss: 0.776, Test loss: 0.815, Test accuracy: 73.52
+Round  55, Train loss: 0.791, Test loss: 0.825, Test accuracy: 73.14
+Round  56, Train loss: 0.732, Test loss: 0.826, Test accuracy: 73.02
+Round  57, Train loss: 0.699, Test loss: 0.825, Test accuracy: 73.28
+Round  58, Train loss: 0.802, Test loss: 0.829, Test accuracy: 73.35
+Round  59, Train loss: 0.667, Test loss: 0.836, Test accuracy: 72.83
+Round  60, Train loss: 0.724, Test loss: 0.848, Test accuracy: 72.48
+Round  61, Train loss: 0.770, Test loss: 0.834, Test accuracy: 73.10
+Round  62, Train loss: 0.767, Test loss: 0.831, Test accuracy: 73.26
+Round  63, Train loss: 0.786, Test loss: 0.825, Test accuracy: 73.75
+Round  64, Train loss: 0.759, Test loss: 0.824, Test accuracy: 73.73
+Round  65, Train loss: 0.793, Test loss: 0.832, Test accuracy: 73.32
+Round  66, Train loss: 0.680, Test loss: 0.809, Test accuracy: 74.00
+Round  67, Train loss: 0.704, Test loss: 0.808, Test accuracy: 74.32
+Round  68, Train loss: 0.713, Test loss: 0.795, Test accuracy: 74.13
+Round  69, Train loss: 0.728, Test loss: 0.801, Test accuracy: 74.29
+Round  70, Train loss: 0.674, Test loss: 0.800, Test accuracy: 74.43
+Round  71, Train loss: 0.707, Test loss: 0.793, Test accuracy: 74.54
+Round  72, Train loss: 0.693, Test loss: 0.798, Test accuracy: 74.51
+Round  73, Train loss: 0.684, Test loss: 0.804, Test accuracy: 74.39
+Round  74, Train loss: 0.704, Test loss: 0.795, Test accuracy: 74.47
+Round  75, Train loss: 0.733, Test loss: 0.802, Test accuracy: 74.42
+Round  76, Train loss: 0.688, Test loss: 0.805, Test accuracy: 74.09
+Round  77, Train loss: 0.661, Test loss: 0.794, Test accuracy: 74.49
+Round  78, Train loss: 0.800, Test loss: 0.795, Test accuracy: 74.45
+Round  79, Train loss: 0.707, Test loss: 0.796, Test accuracy: 74.44
+Round  80, Train loss: 0.706, Test loss: 0.796, Test accuracy: 74.44
+Round  81, Train loss: 0.630, Test loss: 0.803, Test accuracy: 74.70
+Round  82, Train loss: 0.654, Test loss: 0.788, Test accuracy: 74.89
+Round  83, Train loss: 0.610, Test loss: 0.783, Test accuracy: 75.28
+Round  84, Train loss: 0.661, Test loss: 0.787, Test accuracy: 75.15
+Round  85, Train loss: 0.664, Test loss: 0.792, Test accuracy: 75.33
+Round  86, Train loss: 0.630, Test loss: 0.799, Test accuracy: 74.62
+Round  87, Train loss: 0.681, Test loss: 0.803, Test accuracy: 74.45
+Round  88, Train loss: 0.713, Test loss: 0.810, Test accuracy: 74.39
+Round  89, Train loss: 0.658, Test loss: 0.799, Test accuracy: 74.56
+Round  90, Train loss: 0.713, Test loss: 0.801, Test accuracy: 74.77
+Round  91, Train loss: 0.632, Test loss: 0.799, Test accuracy: 74.55
+Round  92, Train loss: 0.683, Test loss: 0.804, Test accuracy: 74.14
+Round  93, Train loss: 0.677, Test loss: 0.806, Test accuracy: 74.39
+Round  94, Train loss: 0.661, Test loss: 0.808, Test accuracy: 74.67
+Round  95, Train loss: 0.612, Test loss: 0.795, Test accuracy: 74.99
+Round  96, Train loss: 0.667, Test loss: 0.793, Test accuracy: 75.16
+Round  97, Train loss: 0.648, Test loss: 0.794, Test accuracy: 74.84
+Round  98, Train loss: 0.626, Test loss: 0.791, Test accuracy: 74.80
+Round  99, Train loss: 0.606, Test loss: 0.805, Test accuracy: 74.44
+Final Round, Train loss: 0.548, Test loss: 0.797, Test accuracy: 74.86
+Average accuracy final 10 rounds: 74.6745
+4100.325627326965
+[5.92807674407959, 11.2169668674469, 16.560766458511353, 22.11328125, 27.151444673538208, 32.21328377723694, 37.22758197784424, 42.228214263916016, 47.28364610671997, 52.34634327888489, 57.39316248893738, 62.43369698524475, 67.4814453125, 72.49961924552917, 77.50173306465149, 82.51317691802979, 87.59591507911682, 92.61633038520813, 97.68634676933289, 102.70343446731567, 107.76876902580261, 112.81235766410828, 117.86460423469543, 122.9088408946991, 127.99651980400085, 133.03895163536072, 138.08246779441833, 143.1845076084137, 148.21860074996948, 153.2681565284729, 158.2970380783081, 163.33193635940552, 168.33121919631958, 173.34836864471436, 178.4430069923401, 183.44818091392517, 188.46480250358582, 193.49165153503418, 198.53018832206726, 203.55763459205627, 208.61384677886963, 213.62450885772705, 218.67451119422913, 223.71573281288147, 228.74713397026062, 233.81202173233032, 238.8391296863556, 243.81309008598328, 248.8267307281494, 253.88644170761108, 258.9346570968628, 264.0414333343506, 269.08264803886414, 274.1520917415619, 279.1319863796234, 284.1989514827728, 289.24270582199097, 294.2885820865631, 299.3154091835022, 304.3544316291809, 309.4228584766388, 314.449006319046, 319.44621682167053, 324.48177337646484, 329.50418877601624, 334.5088336467743, 339.5299310684204, 344.55519127845764, 349.57920265197754, 354.5853021144867, 359.6113495826721, 364.65037512779236, 369.6284701824188, 374.6609990596771, 379.70880651474, 384.77145648002625, 389.72382044792175, 394.6964738368988, 399.6772713661194, 404.69370007514954, 409.67184829711914, 414.62772488594055, 419.58296823501587, 424.5902705192566, 429.5920236110687, 434.5383605957031, 439.5055229663849, 444.47557520866394, 449.4897162914276, 454.51584792137146, 459.6010551452637, 464.7475838661194, 469.8720266819, 474.9818229675293, 480.1622796058655, 485.26547932624817, 490.37254190444946, 495.50664591789246, 500.70927262306213, 505.84507846832275, 507.89645528793335]
+[29.99, 38.935, 44.3975, 47.25, 49.945, 51.8975, 54.38, 56.945, 58.785, 58.6475, 60.4, 60.69, 62.08, 63.7325, 64.345, 65.1025, 65.595, 66.4725, 66.745, 67.0725, 67.9175, 68.3075, 68.11, 68.7025, 68.4825, 68.79, 68.7825, 69.4425, 70.3275, 70.38, 70.6675, 70.845, 71.185, 70.9575, 71.9175, 71.925, 72.1925, 72.005, 72.4025, 72.37, 72.7225, 73.1175, 72.8475, 72.95, 73.0275, 73.015, 72.74, 72.925, 73.02, 73.24, 73.4125, 73.42, 73.7125, 72.88, 73.515, 73.145, 73.0225, 73.2775, 73.35, 72.83, 72.4775, 73.0975, 73.26, 73.75, 73.735, 73.3225, 74.005, 74.3225, 74.1275, 74.2875, 74.4275, 74.5425, 74.5125, 74.395, 74.475, 74.425, 74.095, 74.4925, 74.455, 74.435, 74.4425, 74.7025, 74.885, 75.28, 75.1475, 75.3325, 74.625, 74.45, 74.3925, 74.565, 74.765, 74.5525, 74.1375, 74.3925, 74.675, 74.99, 75.1625, 74.8375, 74.795, 74.4375, 74.855]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC_PSL%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar10,  filter_alg: loss_psl, level_n_system: 0.8 , level_n_lowerb:0.5  
+
+Files already downloaded and verified
+Files already downloaded and verified
+   Client 18, noise    level: 0.5000 
+   Client 5, noise    level: 0.5000 
+   Client 7, noise    level: 0.5000 
+   Client 13, noise    level: 0.5000 
+   Client 19, noise    level: 0.5000 
+   Client 11, noise    level: 0.5000 
+   Client 17, noise    level: 0.5000 
+   Client 1, noise    level: 0.5000 
+   Client 9, noise    level: 0.5000 
+   Client 14, noise    level: 0.5000 
+   Client 15, noise    level: 0.5000 
+   Client 8, noise    level: 0.5000 
+   Client 6, noise    level: 0.5000 
+   Client 0, noise    level: 0.5000 
+   Client 4, noise    level: 0.5000 
+   Client 10, noise    level: 0.5000 
+fedrep
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=10, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+['fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'conv2.weight', 'conv2.bias', 'conv1.weight', 'conv1.bias']
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+# Params: 307842 (local), 307192 (global); Percentage 99.79 (307192/307842)
+learning rate, batch size: 0.01, 10
+CNNCifar(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=1600, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=10, bias=True)
+)
+Round   0, Train loss: 2.238, Test loss: 1.985, Test accuracy: 31.35
+Round   1, Train loss: 1.890, Test loss: 1.669, Test accuracy: 40.41
+Round   2, Train loss: 1.689, Test loss: 1.521, Test accuracy: 45.58
+Round   3, Train loss: 1.576, Test loss: 1.457, Test accuracy: 49.77
+Round   4, Train loss: 1.495, Test loss: 1.381, Test accuracy: 52.53
+Round   5, Train loss: 1.426, Test loss: 1.334, Test accuracy: 55.69
+Round   6, Train loss: 1.364, Test loss: 1.285, Test accuracy: 56.49
+Round   7, Train loss: 1.324, Test loss: 1.214, Test accuracy: 58.58
+Round   8, Train loss: 1.272, Test loss: 1.181, Test accuracy: 59.38
+Round   9, Train loss: 1.216, Test loss: 1.155, Test accuracy: 60.65
+Round  10, Train loss: 1.192, Test loss: 1.104, Test accuracy: 62.22
+Round  11, Train loss: 1.151, Test loss: 1.085, Test accuracy: 63.44
+Round  12, Train loss: 1.146, Test loss: 1.059, Test accuracy: 63.74
+Round  13, Train loss: 1.095, Test loss: 1.036, Test accuracy: 64.89
+Round  14, Train loss: 1.072, Test loss: 0.994, Test accuracy: 65.70
+Round  15, Train loss: 1.034, Test loss: 0.977, Test accuracy: 66.86
+Round  16, Train loss: 1.017, Test loss: 0.964, Test accuracy: 67.28
+Round  17, Train loss: 0.993, Test loss: 0.951, Test accuracy: 67.53
+Round  18, Train loss: 0.963, Test loss: 0.937, Test accuracy: 67.89
+Round  19, Train loss: 0.943, Test loss: 0.923, Test accuracy: 68.29
+Round  20, Train loss: 0.943, Test loss: 0.911, Test accuracy: 69.05
+Round  21, Train loss: 0.917, Test loss: 0.901, Test accuracy: 69.25
+Round  22, Train loss: 0.886, Test loss: 0.892, Test accuracy: 69.93
+Round  23, Train loss: 0.879, Test loss: 0.882, Test accuracy: 70.54
+Round  24, Train loss: 0.859, Test loss: 0.885, Test accuracy: 70.08
+Round  25, Train loss: 0.841, Test loss: 0.886, Test accuracy: 69.94
+Round  26, Train loss: 0.855, Test loss: 0.864, Test accuracy: 70.47
+Round  27, Train loss: 0.838, Test loss: 0.844, Test accuracy: 71.54
+Round  28, Train loss: 0.819, Test loss: 0.844, Test accuracy: 71.37
+Round  29, Train loss: 0.811, Test loss: 0.839, Test accuracy: 71.20
+Round  30, Train loss: 0.811, Test loss: 0.824, Test accuracy: 71.89
+Round  31, Train loss: 0.787, Test loss: 0.826, Test accuracy: 71.67
+Round  32, Train loss: 0.767, Test loss: 0.840, Test accuracy: 71.11
+Round  33, Train loss: 0.759, Test loss: 0.818, Test accuracy: 71.98
+Round  34, Train loss: 0.780, Test loss: 0.792, Test accuracy: 73.33
+Round  35, Train loss: 0.736, Test loss: 0.796, Test accuracy: 73.01
+Round  36, Train loss: 0.758, Test loss: 0.792, Test accuracy: 73.13
+Round  37, Train loss: 0.772, Test loss: 0.765, Test accuracy: 74.09
+Round  38, Train loss: 0.739, Test loss: 0.762, Test accuracy: 74.23
+Round  39, Train loss: 0.715, Test loss: 0.763, Test accuracy: 74.21
+Round  40, Train loss: 0.723, Test loss: 0.757, Test accuracy: 74.33
+Round  41, Train loss: 0.707, Test loss: 0.753, Test accuracy: 74.57
+Round  42, Train loss: 0.686, Test loss: 0.758, Test accuracy: 74.34
+Round  43, Train loss: 0.696, Test loss: 0.748, Test accuracy: 74.46
+Round  44, Train loss: 0.688, Test loss: 0.732, Test accuracy: 75.15
+Round  45, Train loss: 0.670, Test loss: 0.744, Test accuracy: 74.71
+Round  46, Train loss: 0.643, Test loss: 0.739, Test accuracy: 75.08
+Round  47, Train loss: 0.684, Test loss: 0.737, Test accuracy: 75.11
+Round  48, Train loss: 0.649, Test loss: 0.734, Test accuracy: 75.23
+Round  49, Train loss: 0.653, Test loss: 0.736, Test accuracy: 75.04
+Round  50, Train loss: 0.653, Test loss: 0.732, Test accuracy: 75.00
+Round  51, Train loss: 0.624, Test loss: 0.731, Test accuracy: 75.00
+Round  52, Train loss: 0.616, Test loss: 0.734, Test accuracy: 74.88
+Round  53, Train loss: 0.622, Test loss: 0.734, Test accuracy: 75.15
+Round  54, Train loss: 0.624, Test loss: 0.732, Test accuracy: 75.14
+Round  55, Train loss: 0.635, Test loss: 0.726, Test accuracy: 75.86
+Round  56, Train loss: 0.591, Test loss: 0.732, Test accuracy: 75.53
+Round  57, Train loss: 0.592, Test loss: 0.735, Test accuracy: 75.11
+Round  58, Train loss: 0.623, Test loss: 0.733, Test accuracy: 75.38
+Round  59, Train loss: 0.569, Test loss: 0.743, Test accuracy: 75.19
+Round  60, Train loss: 0.592, Test loss: 0.738, Test accuracy: 75.47
+Round  61, Train loss: 0.565, Test loss: 0.730, Test accuracy: 75.67
+Round  62, Train loss: 0.606, Test loss: 0.731, Test accuracy: 75.76
+Round  63, Train loss: 0.610, Test loss: 0.736, Test accuracy: 75.38
+Round  64, Train loss: 0.617, Test loss: 0.726, Test accuracy: 75.65
+Round  65, Train loss: 0.556, Test loss: 0.737, Test accuracy: 75.38
+Round  66, Train loss: 0.595, Test loss: 0.723, Test accuracy: 75.97
+Round  67, Train loss: 0.599, Test loss: 0.716, Test accuracy: 76.23
+Round  68, Train loss: 0.564, Test loss: 0.723, Test accuracy: 76.05
+Round  69, Train loss: 0.585, Test loss: 0.714, Test accuracy: 76.06
+Round  70, Train loss: 0.588, Test loss: 0.714, Test accuracy: 76.44
+Round  71, Train loss: 0.561, Test loss: 0.711, Test accuracy: 76.70
+Round  72, Train loss: 0.570, Test loss: 0.711, Test accuracy: 76.64
+Round  73, Train loss: 0.561, Test loss: 0.717, Test accuracy: 76.30
+Round  74, Train loss: 0.573, Test loss: 0.715, Test accuracy: 76.35
+Round  75, Train loss: 0.579, Test loss: 0.703, Test accuracy: 76.48
+Round  76, Train loss: 0.554, Test loss: 0.702, Test accuracy: 76.71
+Round  77, Train loss: 0.561, Test loss: 0.701, Test accuracy: 76.79
+Round  78, Train loss: 0.554, Test loss: 0.708, Test accuracy: 76.80
+Round  79, Train loss: 0.542, Test loss: 0.707, Test accuracy: 76.67
+Round  80, Train loss: 0.524, Test loss: 0.705, Test accuracy: 76.72
+Round  81, Train loss: 0.504, Test loss: 0.716, Test accuracy: 76.44
+Round  82, Train loss: 0.551, Test loss: 0.707, Test accuracy: 76.62
+Round  83, Train loss: 0.538, Test loss: 0.709, Test accuracy: 76.76
+Round  84, Train loss: 0.542, Test loss: 0.709, Test accuracy: 76.73
+Round  85, Train loss: 0.507, Test loss: 0.707, Test accuracy: 76.75
+Round  86, Train loss: 0.509, Test loss: 0.710, Test accuracy: 77.01
+Round  87, Train loss: 0.530, Test loss: 0.709, Test accuracy: 76.84
+Round  88, Train loss: 0.527, Test loss: 0.713, Test accuracy: 76.59
+Round  89, Train loss: 0.492, Test loss: 0.704, Test accuracy: 77.14
+Round  90, Train loss: 0.509, Test loss: 0.708, Test accuracy: 77.03
+Round  91, Train loss: 0.483, Test loss: 0.712, Test accuracy: 76.81
+Round  92, Train loss: 0.523, Test loss: 0.717, Test accuracy: 76.78
+Round  93, Train loss: 0.501, Test loss: 0.716, Test accuracy: 76.69
+Round  94, Train loss: 0.476, Test loss: 0.708, Test accuracy: 77.04
+Round  95, Train loss: 0.502, Test loss: 0.703, Test accuracy: 77.17
+Round  96, Train loss: 0.501, Test loss: 0.709, Test accuracy: 77.19
+Round  97, Train loss: 0.504, Test loss: 0.713, Test accuracy: 76.95
+Round  98, Train loss: 0.518, Test loss: 0.700, Test accuracy: 77.20
+Round  99, Train loss: 0.526, Test loss: 0.697, Test accuracy: 77.44
+Final Round, Train loss: 0.420, Test loss: 0.698, Test accuracy: 77.44
+Average accuracy final 10 rounds: 77.03049999999999
+6633.5286412239075
+[5.404226541519165, 10.541722297668457, 15.673627138137817, 20.826518535614014, 25.98941135406494, 31.14240312576294, 36.26924920082092, 41.370243310928345, 46.46606659889221, 51.55475187301636, 56.64826464653015, 61.736878871917725, 66.82254934310913, 71.90921998023987, 77.01926302909851, 82.20976233482361, 87.44244360923767, 92.66343784332275, 97.85315203666687, 103.07466793060303, 108.29158782958984, 117.63615584373474, 126.96973657608032, 136.283864736557, 145.54170489311218, 154.88855695724487, 164.2186450958252, 173.6022982597351, 182.91006016731262, 192.18927121162415, 201.49505186080933, 210.68375444412231, 220.00223398208618, 229.5700364112854, 239.41603016853333, 249.37417769432068, 259.22979187965393, 269.0879895687103, 279.00096464157104, 288.9183306694031, 298.8075406551361, 308.7132122516632, 318.6176567077637, 328.5594618320465, 338.46529603004456, 348.3569586277008, 358.2432818412781, 368.21340322494507, 378.0479521751404, 387.3769164085388, 396.74295377731323, 406.0437240600586, 415.3443932533264, 424.6336669921875, 433.9285490512848, 444.85634446144104, 455.0152280330658, 465.02809143066406, 475.5308458805084, 486.72584438323975, 497.9911000728607, 509.0204586982727, 520.1455328464508, 531.3716270923615, 542.4081802368164, 553.5037477016449, 564.6230981349945, 575.6809332370758, 586.7980020046234, 597.9998910427094, 609.6955871582031, 621.3285207748413, 633.0552606582642, 644.899026632309, 656.8881735801697, 668.6576602458954, 680.5353012084961, 692.245326757431, 703.7107882499695, 715.46808552742, 727.334379196167, 739.0391182899475, 750.8747670650482, 762.7604324817657, 774.6476104259491, 786.1433804035187, 797.942666053772, 810.0013871192932, 821.9506945610046, 833.7729735374451, 845.2537024021149, 857.335645198822, 869.3980872631073, 881.3082799911499, 893.0806579589844, 905.3520534038544, 917.3968713283539, 929.6700525283813, 941.4832625389099, 953.6327209472656, 955.8091435432434]
+[31.3525, 40.4125, 45.5775, 49.7675, 52.5275, 55.685, 56.4925, 58.5825, 59.385, 60.645, 62.2225, 63.4375, 63.7375, 64.8875, 65.6975, 66.8625, 67.285, 67.535, 67.8875, 68.2925, 69.05, 69.255, 69.93, 70.54, 70.075, 69.9425, 70.4725, 71.54, 71.3675, 71.2, 71.8925, 71.67, 71.11, 71.9825, 73.325, 73.0075, 73.1325, 74.0925, 74.2325, 74.21, 74.3275, 74.5725, 74.345, 74.46, 75.15, 74.7075, 75.085, 75.11, 75.23, 75.04, 75.005, 75.0025, 74.8825, 75.1525, 75.145, 75.855, 75.535, 75.115, 75.3825, 75.1925, 75.4725, 75.665, 75.7625, 75.3775, 75.6525, 75.3775, 75.965, 76.235, 76.0525, 76.0575, 76.4425, 76.7025, 76.6375, 76.3, 76.3525, 76.4825, 76.7075, 76.7875, 76.795, 76.67, 76.725, 76.435, 76.625, 76.7625, 76.735, 76.755, 77.0075, 76.845, 76.5925, 77.145, 77.0275, 76.8075, 76.78, 76.685, 77.0375, 77.17, 77.195, 76.955, 77.205, 77.4425, 77.445]
