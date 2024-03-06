@@ -18,7 +18,7 @@ import torch
 from torch import nn
 
 from utils.options import args_parser
-from utils.train_utils import get_data, get_model, read_data, init_class_center, get_data_v2
+from utils.train_utils import get_data, get_model, read_data, init_class_center, get_data_v2, get_data_from_file
 from models.Update import LocalUpdate, LocalUpdatePAC, LocalUpdatePACPSL
 from models.test import test_img_local_all
 
@@ -37,58 +37,61 @@ if __name__ == '__main__':
             args.is_concept_shift, args.dataset))
 
     lens = np.ones(args.num_users)
-    if 'cifar' in args.dataset or args.dataset == 'mnist':
-        # dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix = get_data_v2(args)
+    # if 'cifar' in args.dataset or args.dataset == 'mnist':
+    #     # dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix = get_data_v2(args)
+    #
+    #     if args.is_reset_dataset == 1:
+    #         dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix = get_data_v2(args)
+    #         # dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix = get_data(args)
+    #
+    #         dutrain = []
+    #         dutest = []
+    #         for k, v in dict_users_train.items():
+    #             dutrain.append(v)
+    #         for k, v in dict_users_test.items():
+    #             dutest.append(v)
+    #         np.save('data/sample/dict_users_train.npy', np.array(dutrain))
+    #         np.save('data/sample/dict_users_test.npy', np.array(dutest))
+    #         # np.save('data/sample/dataset_train_target.npy', np.array(dataset_train.targets))
+    #         np.save('data/sample/concept_matrix.npy', np.array(concept_matrix))
+    #     elif args.is_reset_dataset == 0:
+    #         dataset_train, dataset_test, _, _, _ = get_data_v2(args)
+    #         dutr = np.load('data/sample/dict_users_train.npy', allow_pickle=True)
+    #         dute = np.load('data/sample/dict_users_test.npy', allow_pickle=True)
+    #         # dataset_train.targets = np.load('data/sample/dataset_train_target.npy', allow_pickle=True)
+    #         concept_matrix = np.load('data/sample/concept_matrix.npy', allow_pickle=True)
+    #         dict_users_train = dict_users = {i: np.array([], dtype='int64') for i in range(args.num_users)}
+    #         dict_users_test = dict_users = {i: np.array([], dtype='int64') for i in range(args.num_users)}
+    #         for i, v in enumerate(dutr):
+    #             dict_users_train[i] = v
+    #         for i, v in enumerate(dute):
+    #             dict_users_test[i] = v
+    #
+    #     for idx in dict_users_train.keys():
+    #         np.random.shuffle(dict_users_train[idx])
+    # else:
+    #     if 'femnist' in args.dataset:
+    #         train_path = './leaf-master/data/' + args.dataset + '/data/mytrain'
+    #         test_path = './leaf-master/data/' + args.dataset + '/data/mytest'
+    #     else:
+    #         train_path = './leaf-master/data/' + args.dataset + '/data/train'
+    #         test_path = './leaf-master/data/' + args.dataset + '/data/test'
+    #     clients, groups, dataset_train, dataset_test = read_data(train_path, test_path)
+    #     lens = []
+    #     for iii, c in enumerate(clients):
+    #         lens.append(len(dataset_train[c]['x']))
+    #     dict_users_train = list(dataset_train.keys())
+    #     dict_users_test = list(dataset_test.keys())
+    #     print(lens)
+    #     print(clients)
+    #     for c in dataset_train.keys():
+    #         dataset_train[c]['y'] = list(np.asarray(dataset_train[c]['y']).astype('int64'))
+    #         dataset_test[c]['y'] = list(np.asarray(dataset_test[c]['y']).astype('int64'))
+    #
+    # print(args.alg)
 
-        if args.is_reset_dataset == 1:
-            dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix = get_data_v2(args)
-            # dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix = get_data(args)
-
-            dutrain = []
-            dutest = []
-            for k, v in dict_users_train.items():
-                dutrain.append(v)
-            for k, v in dict_users_test.items():
-                dutest.append(v)
-            np.save('data/sample/dict_users_train.npy', np.array(dutrain))
-            np.save('data/sample/dict_users_test.npy', np.array(dutest))
-            # np.save('data/sample/dataset_train_target.npy', np.array(dataset_train.targets))
-            np.save('data/sample/concept_matrix.npy', np.array(concept_matrix))
-        elif args.is_reset_dataset == 0:
-            dataset_train, dataset_test, _, _, _ = get_data_v2(args)
-            dutr = np.load('data/sample/dict_users_train.npy', allow_pickle=True)
-            dute = np.load('data/sample/dict_users_test.npy', allow_pickle=True)
-            # dataset_train.targets = np.load('data/sample/dataset_train_target.npy', allow_pickle=True)
-            concept_matrix = np.load('data/sample/concept_matrix.npy', allow_pickle=True)
-            dict_users_train = dict_users = {i: np.array([], dtype='int64') for i in range(args.num_users)}
-            dict_users_test = dict_users = {i: np.array([], dtype='int64') for i in range(args.num_users)}
-            for i, v in enumerate(dutr):
-                dict_users_train[i] = v
-            for i, v in enumerate(dute):
-                dict_users_test[i] = v
-
-        for idx in dict_users_train.keys():
-            np.random.shuffle(dict_users_train[idx])
-    else:
-        if 'femnist' in args.dataset:
-            train_path = './leaf-master/data/' + args.dataset + '/data/mytrain'
-            test_path = './leaf-master/data/' + args.dataset + '/data/mytest'
-        else:
-            train_path = './leaf-master/data/' + args.dataset + '/data/train'
-            test_path = './leaf-master/data/' + args.dataset + '/data/test'
-        clients, groups, dataset_train, dataset_test = read_data(train_path, test_path)
-        lens = []
-        for iii, c in enumerate(clients):
-            lens.append(len(dataset_train[c]['x']))
-        dict_users_train = list(dataset_train.keys()) 
-        dict_users_test = list(dataset_test.keys())
-        print(lens)
-        print(clients)
-        for c in dataset_train.keys():
-            dataset_train[c]['y'] = list(np.asarray(dataset_train[c]['y']).astype('int64'))
-            dataset_test[c]['y'] = list(np.asarray(dataset_test[c]['y']).astype('int64'))
-
-    print(args.alg)
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+        args)
 
     # build model
     net_glob = get_model(args)

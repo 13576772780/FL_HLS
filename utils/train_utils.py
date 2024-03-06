@@ -192,6 +192,62 @@ def get_data_v3(args):
 
     return dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all
 
+
+def get_data_from_file(args):
+
+    if 'cifar' in args.dataset or args.dataset == 'mnist':
+        if args.is_reset_dataset == 1:
+            # dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix = get_data_v2(args)
+            dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_v3(
+                args)
+
+            dutrain = []
+            dutest = []
+            for k, v in dict_users_train.items():
+                dutrain.append(v)
+            for k, v in dict_users_test.items():
+                dutest.append(v)
+            np.save('data/sample/' + args.data_store_file + '_train.npy', np.array(dutrain))
+            np.save('data/sample/' + args.data_store_file + '_test.npy', np.array(dutest))
+            np.save('data/sample/' + args.data_store_file + 'dataset_train_target.npy', np.array(dataset_train.targets))
+            np.save('data/sample/' + args.data_store_file + 'concept_matrix.npy', np.array(concept_matrix))
+            np.save('data/sample/' + args.data_store_file + 'rand_set_all.npy', np.array(rand_set_all))
+        elif args.is_reset_dataset == 0:
+            dataset_train, dataset_test, _, _, _, _ = get_data_v3(args)
+            dutr = np.load('data/sample/' + args.data_store_file + '_train.npy', allow_pickle=True)
+            dute = np.load('data/sample/' + args.data_store_file + '_test.npy', allow_pickle=True)
+            concept_matrix = np.load('data/sample/' + args.data_store_file + 'concept_matrix.npy', allow_pickle=True)
+            rand_set_all = np.load('data/sample/' + args.data_store_file + 'rand_set_all.npy', allow_pickle=True)
+            dict_users_train = dict_users = {i: np.array([], dtype='int64') for i in range(args.num_users)}
+            dict_users_test = dict_users = {i: np.array([], dtype='int64') for i in range(args.num_users)}
+            for i, v in enumerate(dutr):
+                dict_users_train[i] = v
+            for i, v in enumerate(dute):
+                dict_users_test[i] = v
+        for idx in dict_users_train.keys():
+            np.random.shuffle(dict_users_train[idx])
+    else:
+        if 'femnist' in args.dataset:
+            train_path = './leaf-master/data/' + args.dataset + '/data/mytrain'
+            test_path = './leaf-master/data/' + args.dataset + '/data/mytest'
+        else:
+            train_path = './leaf-master/data/' + args.dataset + '/data/train'
+            test_path = './leaf-master/data/' + args.dataset + '/data/test'
+        clients, groups, dataset_train, dataset_test = read_data(train_path, test_path)
+        lens = []
+        for iii, c in enumerate(clients):
+            lens.append(len(dataset_train[c]['x']))
+        dict_users_train = list(dataset_train.keys())
+        dict_users_test = list(dataset_test.keys())
+        print(lens)
+        print(clients)
+        for c in dataset_train.keys():
+            dataset_train[c]['y'] = list(np.asarray(dataset_train[c]['y']).astype('int64'))
+            dataset_test[c]['y'] = list(np.asarray(dataset_test[c]['y']).astype('int64'))
+
+    return dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all
+
+
 def add_noise2(args, y_train, dict_users, rand_set_all):
     np.random.seed(args.seed)
 

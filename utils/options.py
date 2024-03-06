@@ -77,6 +77,7 @@ def args_parser():
     parser.add_argument("--lamda", type=int, default=15, help="Regularization term")
     parser.add_argument("--learning_rate", type=float, default=0.005, help="Local learning rate for pfedme")
     parser.add_argument("--print_all", type=int, default=1, help="whether print all process")
+    parser.add_argument('--data_store_file', type=str, default='dict_user', help='model name')
 
     #噪声生成
     parser.add_argument('--level_n_system', type=float, default=0.0, help="fraction of noisy clients")
