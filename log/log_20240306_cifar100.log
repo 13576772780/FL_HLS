@@ -1,0 +1,610 @@
+nohup: ignoring input
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:1   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 10, limit_local_output: 0, local_rep_ep: 3 , local_only: 1, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.0 , level_n_lowerb:0.0  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedrep.py", line 94, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 201, in get_data_from_file
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_v3(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 174, in get_data_v3
+    dict_users_test, rand_set_all = noniid_v2(dataset_test, args.num_users, args.shard_per_user, args.num_classes,
+  File "/home/ChenSM/code/FL_HLS/utils/sampling.py", line 134, in noniid_v2
+    idx = np.random.choice(len(idxs_dict[label]), replace=False)
+  File "mtrand.pyx", line 909, in numpy.random.mtrand.RandomState.choice
+ValueError: a must be greater than 0 unless no samples are taken
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 10, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.0 , level_n_lowerb:0.0  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedrep.py", line 94, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 216, in get_data_from_file
+    dataset_train, dataset_test, _, _, _, _ = get_data_v3(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 174, in get_data_v3
+    dict_users_test, rand_set_all = noniid_v2(dataset_test, args.num_users, args.shard_per_user, args.num_classes,
+  File "/home/ChenSM/code/FL_HLS/utils/sampling.py", line 134, in noniid_v2
+    idx = np.random.choice(len(idxs_dict[label]), replace=False)
+  File "mtrand.pyx", line 909, in numpy.random.mtrand.RandomState.choice
+ValueError: a must be greater than 0 unless no samples are taken
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedrep  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 10, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.0 , level_n_lowerb:0.0  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedrep.py", line 94, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 216, in get_data_from_file
+    dataset_train, dataset_test, _, _, _, _ = get_data_v3(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 174, in get_data_v3
+    dict_users_test, rand_set_all = noniid_v2(dataset_test, args.num_users, args.shard_per_user, args.num_classes,
+  File "/home/ChenSM/code/FL_HLS/utils/sampling.py", line 134, in noniid_v2
+    idx = np.random.choice(len(idxs_dict[label]), replace=False)
+  File "mtrand.pyx", line 909, in numpy.random.mtrand.RandomState.choice
+ValueError: a must be greater than 0 unless no samples are taken
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedper  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedper , epochs: 100, shard_per_user: 10, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.0 , level_n_lowerb:0.0  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedrep.py", line 94, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 216, in get_data_from_file
+    dataset_train, dataset_test, _, _, _, _ = get_data_v3(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 174, in get_data_v3
+    dict_users_test, rand_set_all = noniid_v2(dataset_test, args.num_users, args.shard_per_user, args.num_classes,
+  File "/home/ChenSM/code/FL_HLS/utils/sampling.py", line 134, in noniid_v2
+    idx = np.random.choice(len(idxs_dict[label]), replace=False)
+  File "mtrand.pyx", line 909, in numpy.random.mtrand.RandomState.choice
+ValueError: a must be greater than 0 unless no samples are taken
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  lg  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: lg , epochs: 100, shard_per_user: 10, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.0 , level_n_lowerb:0.0  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedrep.py", line 94, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 216, in get_data_from_file
+    dataset_train, dataset_test, _, _, _, _ = get_data_v3(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 174, in get_data_v3
+    dict_users_test, rand_set_all = noniid_v2(dataset_test, args.num_users, args.shard_per_user, args.num_classes,
+  File "/home/ChenSM/code/FL_HLS/utils/sampling.py", line 134, in noniid_v2
+    idx = np.random.choice(len(idxs_dict[label]), replace=False)
+  File "mtrand.pyx", line 909, in numpy.random.mtrand.RandomState.choice
+ValueError: a must be greater than 0 unless no samples are taken
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Fed_apfl%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_apfl.py", line 83, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 216, in get_data_from_file
+    dataset_train, dataset_test, _, _, _, _ = get_data_v3(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 174, in get_data_v3
+    dict_users_test, rand_set_all = noniid_v2(dataset_test, args.num_users, args.shard_per_user, args.num_classes,
+  File "/home/ChenSM/code/FL_HLS/utils/sampling.py", line 134, in noniid_v2
+    idx = np.random.choice(len(idxs_dict[label]), replace=False)
+  File "mtrand.pyx", line 909, in numpy.random.mtrand.RandomState.choice
+ValueError: a must be greater than 0 unless no samples are taken
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Fed_scaffold %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_scaffold.py", line 81, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 216, in get_data_from_file
+    dataset_train, dataset_test, _, _, _, _ = get_data_v3(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 174, in get_data_v3
+    dict_users_test, rand_set_all = noniid_v2(dataset_test, args.num_users, args.shard_per_user, args.num_classes,
+  File "/home/ChenSM/code/FL_HLS/utils/sampling.py", line 134, in noniid_v2
+    idx = np.random.choice(len(idxs_dict[label]), replace=False)
+  File "mtrand.pyx", line 909, in numpy.random.mtrand.RandomState.choice
+ValueError: a must be greater than 0 unless no samples are taken
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  pFedMe   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 10, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_pfedme.py", line 89, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 216, in get_data_from_file
+    dataset_train, dataset_test, _, _, _, _ = get_data_v3(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 174, in get_data_v3
+    dict_users_test, rand_set_all = noniid_v2(dataset_test, args.num_users, args.shard_per_user, args.num_classes,
+  File "/home/ChenSM/code/FL_HLS/utils/sampling.py", line 134, in noniid_v2
+    idx = np.random.choice(len(idxs_dict[label]), replace=False)
+  File "mtrand.pyx", line 909, in numpy.random.mtrand.RandomState.choice
+ValueError: a must be greater than 0 unless no samples are taken
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Fed_ditto%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_ditto.py", line 81, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 216, in get_data_from_file
+    dataset_train, dataset_test, _, _, _, _ = get_data_v3(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 174, in get_data_v3
+    dict_users_test, rand_set_all = noniid_v2(dataset_test, args.num_users, args.shard_per_user, args.num_classes,
+  File "/home/ChenSM/code/FL_HLS/utils/sampling.py", line 134, in noniid_v2
+    idx = np.random.choice(len(idxs_dict[label]), replace=False)
+  File "mtrand.pyx", line 909, in numpy.random.mtrand.RandomState.choice
+ValueError: a must be greater than 0 unless no samples are taken
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 10, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedpac.py", line 93, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 216, in get_data_from_file
+    dataset_train, dataset_test, _, _, _, _ = get_data_v3(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 174, in get_data_v3
+    dict_users_test, rand_set_all = noniid_v2(dataset_test, args.num_users, args.shard_per_user, args.num_classes,
+  File "/home/ChenSM/code/FL_HLS/utils/sampling.py", line 134, in noniid_v2
+    idx = np.random.choice(len(idxs_dict[label]), replace=False)
+  File "mtrand.pyx", line 909, in numpy.random.mtrand.RandomState.choice
+ValueError: a must be greater than 0 unless no samples are taken
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC-K-Means%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 10, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedpac_k_means.py", line 153, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 216, in get_data_from_file
+    dataset_train, dataset_test, _, _, _, _ = get_data_v3(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 174, in get_data_v3
+    dict_users_test, rand_set_all = noniid_v2(dataset_test, args.num_users, args.shard_per_user, args.num_classes,
+  File "/home/ChenSM/code/FL_HLS/utils/sampling.py", line 134, in noniid_v2
+    idx = np.random.choice(len(idxs_dict[label]), replace=False)
+  File "mtrand.pyx", line 909, in numpy.random.mtrand.RandomState.choice
+ValueError: a must be greater than 0 unless no samples are taken
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:1   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 1, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.0 , level_n_lowerb:0.0  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedrep.py", line 94, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 201, in get_data_from_file
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_v3(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 174, in get_data_v3
+    dict_users_test, rand_set_all = noniid_v2(dataset_test, args.num_users, args.shard_per_user, args.num_classes,
+  File "/home/ChenSM/code/FL_HLS/utils/sampling.py", line 134, in noniid_v2
+    idx = np.random.choice(len(idxs_dict[label]), replace=False)
+  File "mtrand.pyx", line 909, in numpy.random.mtrand.RandomState.choice
+ValueError: a must be greater than 0 unless no samples are taken
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.0 , level_n_lowerb:0.0  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedrep.py", line 94, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 216, in get_data_from_file
+    dataset_train, dataset_test, _, _, _, _ = get_data_v3(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 174, in get_data_v3
+    dict_users_test, rand_set_all = noniid_v2(dataset_test, args.num_users, args.shard_per_user, args.num_classes,
+  File "/home/ChenSM/code/FL_HLS/utils/sampling.py", line 134, in noniid_v2
+    idx = np.random.choice(len(idxs_dict[label]), replace=False)
+  File "mtrand.pyx", line 909, in numpy.random.mtrand.RandomState.choice
+ValueError: a must be greater than 0 unless no samples are taken
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedrep  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.0 , level_n_lowerb:0.0  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedrep.py", line 94, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 216, in get_data_from_file
+    dataset_train, dataset_test, _, _, _, _ = get_data_v3(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 174, in get_data_v3
+    dict_users_test, rand_set_all = noniid_v2(dataset_test, args.num_users, args.shard_per_user, args.num_classes,
+  File "/home/ChenSM/code/FL_HLS/utils/sampling.py", line 134, in noniid_v2
+    idx = np.random.choice(len(idxs_dict[label]), replace=False)
+  File "mtrand.pyx", line 909, in numpy.random.mtrand.RandomState.choice
+ValueError: a must be greater than 0 unless no samples are taken
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedper  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedper , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.0 , level_n_lowerb:0.0  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedrep.py", line 94, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 216, in get_data_from_file
+    dataset_train, dataset_test, _, _, _, _ = get_data_v3(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 174, in get_data_v3
+    dict_users_test, rand_set_all = noniid_v2(dataset_test, args.num_users, args.shard_per_user, args.num_classes,
+  File "/home/ChenSM/code/FL_HLS/utils/sampling.py", line 134, in noniid_v2
+    idx = np.random.choice(len(idxs_dict[label]), replace=False)
+  File "mtrand.pyx", line 909, in numpy.random.mtrand.RandomState.choice
+ValueError: a must be greater than 0 unless no samples are taken
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  lg  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: lg , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.0 , level_n_lowerb:0.0  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedrep.py", line 94, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 216, in get_data_from_file
+    dataset_train, dataset_test, _, _, _, _ = get_data_v3(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 174, in get_data_v3
+    dict_users_test, rand_set_all = noniid_v2(dataset_test, args.num_users, args.shard_per_user, args.num_classes,
+  File "/home/ChenSM/code/FL_HLS/utils/sampling.py", line 134, in noniid_v2
+    idx = np.random.choice(len(idxs_dict[label]), replace=False)
+  File "mtrand.pyx", line 909, in numpy.random.mtrand.RandomState.choice
+ValueError: a must be greater than 0 unless no samples are taken
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Fed_apfl%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_apfl.py", line 83, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 216, in get_data_from_file
+    dataset_train, dataset_test, _, _, _, _ = get_data_v3(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 174, in get_data_v3
+    dict_users_test, rand_set_all = noniid_v2(dataset_test, args.num_users, args.shard_per_user, args.num_classes,
+  File "/home/ChenSM/code/FL_HLS/utils/sampling.py", line 134, in noniid_v2
+    idx = np.random.choice(len(idxs_dict[label]), replace=False)
+  File "mtrand.pyx", line 909, in numpy.random.mtrand.RandomState.choice
+ValueError: a must be greater than 0 unless no samples are taken
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Fed_scaffold %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_scaffold.py", line 81, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 216, in get_data_from_file
+    dataset_train, dataset_test, _, _, _, _ = get_data_v3(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 174, in get_data_v3
+    dict_users_test, rand_set_all = noniid_v2(dataset_test, args.num_users, args.shard_per_user, args.num_classes,
+  File "/home/ChenSM/code/FL_HLS/utils/sampling.py", line 134, in noniid_v2
+    idx = np.random.choice(len(idxs_dict[label]), replace=False)
+  File "mtrand.pyx", line 909, in numpy.random.mtrand.RandomState.choice
+ValueError: a must be greater than 0 unless no samples are taken
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  pFedMe   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_pfedme.py", line 89, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 216, in get_data_from_file
+    dataset_train, dataset_test, _, _, _, _ = get_data_v3(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 174, in get_data_v3
+    dict_users_test, rand_set_all = noniid_v2(dataset_test, args.num_users, args.shard_per_user, args.num_classes,
+  File "/home/ChenSM/code/FL_HLS/utils/sampling.py", line 134, in noniid_v2
+    idx = np.random.choice(len(idxs_dict[label]), replace=False)
+  File "mtrand.pyx", line 909, in numpy.random.mtrand.RandomState.choice
+ValueError: a must be greater than 0 unless no samples are taken
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Fed_ditto%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_ditto.py", line 81, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 216, in get_data_from_file
+    dataset_train, dataset_test, _, _, _, _ = get_data_v3(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 174, in get_data_v3
+    dict_users_test, rand_set_all = noniid_v2(dataset_test, args.num_users, args.shard_per_user, args.num_classes,
+  File "/home/ChenSM/code/FL_HLS/utils/sampling.py", line 134, in noniid_v2
+    idx = np.random.choice(len(idxs_dict[label]), replace=False)
+  File "mtrand.pyx", line 909, in numpy.random.mtrand.RandomState.choice
+ValueError: a must be greater than 0 unless no samples are taken
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedpac.py", line 93, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 216, in get_data_from_file
+    dataset_train, dataset_test, _, _, _, _ = get_data_v3(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 174, in get_data_v3
+    dict_users_test, rand_set_all = noniid_v2(dataset_test, args.num_users, args.shard_per_user, args.num_classes,
+  File "/home/ChenSM/code/FL_HLS/utils/sampling.py", line 134, in noniid_v2
+    idx = np.random.choice(len(idxs_dict[label]), replace=False)
+  File "mtrand.pyx", line 909, in numpy.random.mtrand.RandomState.choice
+ValueError: a must be greater than 0 unless no samples are taken
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC-K-Means%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedpac_k_means.py", line 153, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 216, in get_data_from_file
+    dataset_train, dataset_test, _, _, _, _ = get_data_v3(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 174, in get_data_v3
+    dict_users_test, rand_set_all = noniid_v2(dataset_test, args.num_users, args.shard_per_user, args.num_classes,
+  File "/home/ChenSM/code/FL_HLS/utils/sampling.py", line 134, in noniid_v2
+    idx = np.random.choice(len(idxs_dict[label]), replace=False)
+  File "mtrand.pyx", line 909, in numpy.random.mtrand.RandomState.choice
+ValueError: a must be greater than 0 unless no samples are taken
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:1   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 1, is_concept_shift: 1, dataset: cifar100, level_n_system: 0.0 , level_n_lowerb:0.0  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedrep.py", line 94, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 201, in get_data_from_file
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_v3(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 174, in get_data_v3
+    dict_users_test, rand_set_all = noniid_v2(dataset_test, args.num_users, args.shard_per_user, args.num_classes,
+  File "/home/ChenSM/code/FL_HLS/utils/sampling.py", line 134, in noniid_v2
+    idx = np.random.choice(len(idxs_dict[label]), replace=False)
+  File "mtrand.pyx", line 909, in numpy.random.mtrand.RandomState.choice
+ValueError: a must be greater than 0 unless no samples are taken
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 1, dataset: cifar100, level_n_system: 0.0 , level_n_lowerb:0.0  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedrep.py", line 94, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 216, in get_data_from_file
+    dataset_train, dataset_test, _, _, _, _ = get_data_v3(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 174, in get_data_v3
+    dict_users_test, rand_set_all = noniid_v2(dataset_test, args.num_users, args.shard_per_user, args.num_classes,
+  File "/home/ChenSM/code/FL_HLS/utils/sampling.py", line 134, in noniid_v2
+    idx = np.random.choice(len(idxs_dict[label]), replace=False)
+  File "mtrand.pyx", line 909, in numpy.random.mtrand.RandomState.choice
+ValueError: a must be greater than 0 unless no samples are taken
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedrep  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 1, dataset: cifar100, level_n_system: 0.0 , level_n_lowerb:0.0  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedrep.py", line 94, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 216, in get_data_from_file
+    dataset_train, dataset_test, _, _, _, _ = get_data_v3(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 174, in get_data_v3
+    dict_users_test, rand_set_all = noniid_v2(dataset_test, args.num_users, args.shard_per_user, args.num_classes,
+  File "/home/ChenSM/code/FL_HLS/utils/sampling.py", line 134, in noniid_v2
+    idx = np.random.choice(len(idxs_dict[label]), replace=False)
+  File "mtrand.pyx", line 909, in numpy.random.mtrand.RandomState.choice
+ValueError: a must be greater than 0 unless no samples are taken
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedper  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedper , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 1, dataset: cifar100, level_n_system: 0.0 , level_n_lowerb:0.0  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedrep.py", line 94, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 216, in get_data_from_file
+    dataset_train, dataset_test, _, _, _, _ = get_data_v3(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 174, in get_data_v3
+    dict_users_test, rand_set_all = noniid_v2(dataset_test, args.num_users, args.shard_per_user, args.num_classes,
+  File "/home/ChenSM/code/FL_HLS/utils/sampling.py", line 134, in noniid_v2
+    idx = np.random.choice(len(idxs_dict[label]), replace=False)
+  File "mtrand.pyx", line 909, in numpy.random.mtrand.RandomState.choice
+ValueError: a must be greater than 0 unless no samples are taken
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  lg  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: lg , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 1, dataset: cifar100, level_n_system: 0.0 , level_n_lowerb:0.0  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedrep.py", line 94, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 216, in get_data_from_file
+    dataset_train, dataset_test, _, _, _, _ = get_data_v3(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 174, in get_data_v3
+    dict_users_test, rand_set_all = noniid_v2(dataset_test, args.num_users, args.shard_per_user, args.num_classes,
+  File "/home/ChenSM/code/FL_HLS/utils/sampling.py", line 134, in noniid_v2
+    idx = np.random.choice(len(idxs_dict[label]), replace=False)
+  File "mtrand.pyx", line 909, in numpy.random.mtrand.RandomState.choice
+ValueError: a must be greater than 0 unless no samples are taken
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Fed_apfl%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_apfl.py", line 83, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 216, in get_data_from_file
+    dataset_train, dataset_test, _, _, _, _ = get_data_v3(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 174, in get_data_v3
+    dict_users_test, rand_set_all = noniid_v2(dataset_test, args.num_users, args.shard_per_user, args.num_classes,
+  File "/home/ChenSM/code/FL_HLS/utils/sampling.py", line 134, in noniid_v2
+    idx = np.random.choice(len(idxs_dict[label]), replace=False)
+  File "mtrand.pyx", line 909, in numpy.random.mtrand.RandomState.choice
+ValueError: a must be greater than 0 unless no samples are taken
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Fed_scaffold %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_scaffold.py", line 81, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 216, in get_data_from_file
+    dataset_train, dataset_test, _, _, _, _ = get_data_v3(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 174, in get_data_v3
+    dict_users_test, rand_set_all = noniid_v2(dataset_test, args.num_users, args.shard_per_user, args.num_classes,
+  File "/home/ChenSM/code/FL_HLS/utils/sampling.py", line 134, in noniid_v2
+    idx = np.random.choice(len(idxs_dict[label]), replace=False)
+  File "mtrand.pyx", line 909, in numpy.random.mtrand.RandomState.choice
+ValueError: a must be greater than 0 unless no samples are taken
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  pFedMe   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 1, dataset: cifar100  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_pfedme.py", line 89, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 216, in get_data_from_file
+    dataset_train, dataset_test, _, _, _, _ = get_data_v3(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 174, in get_data_v3
+    dict_users_test, rand_set_all = noniid_v2(dataset_test, args.num_users, args.shard_per_user, args.num_classes,
+  File "/home/ChenSM/code/FL_HLS/utils/sampling.py", line 134, in noniid_v2
+    idx = np.random.choice(len(idxs_dict[label]), replace=False)
+  File "mtrand.pyx", line 909, in numpy.random.mtrand.RandomState.choice
+ValueError: a must be greater than 0 unless no samples are taken
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Fed_ditto%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_ditto.py", line 81, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 216, in get_data_from_file
+    dataset_train, dataset_test, _, _, _, _ = get_data_v3(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 174, in get_data_v3
+    dict_users_test, rand_set_all = noniid_v2(dataset_test, args.num_users, args.shard_per_user, args.num_classes,
+  File "/home/ChenSM/code/FL_HLS/utils/sampling.py", line 134, in noniid_v2
+    idx = np.random.choice(len(idxs_dict[label]), replace=False)
+  File "mtrand.pyx", line 909, in numpy.random.mtrand.RandomState.choice
+ValueError: a must be greater than 0 unless no samples are taken
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 1, dataset: cifar100  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedpac.py", line 93, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 216, in get_data_from_file
+    dataset_train, dataset_test, _, _, _, _ = get_data_v3(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 174, in get_data_v3
+    dict_users_test, rand_set_all = noniid_v2(dataset_test, args.num_users, args.shard_per_user, args.num_classes,
+  File "/home/ChenSM/code/FL_HLS/utils/sampling.py", line 134, in noniid_v2
+    idx = np.random.choice(len(idxs_dict[label]), replace=False)
+  File "mtrand.pyx", line 909, in numpy.random.mtrand.RandomState.choice
+ValueError: a must be greater than 0 unless no samples are taken
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC-K-Means%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 3, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 1, dataset: cifar100  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedpac_k_means.py", line 153, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 216, in get_data_from_file
+    dataset_train, dataset_test, _, _, _, _ = get_data_v3(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 174, in get_data_v3
+    dict_users_test, rand_set_all = noniid_v2(dataset_test, args.num_users, args.shard_per_user, args.num_classes,
+  File "/home/ChenSM/code/FL_HLS/utils/sampling.py", line 134, in noniid_v2
+    idx = np.random.choice(len(idxs_dict[label]), replace=False)
+  File "mtrand.pyx", line 909, in numpy.random.mtrand.RandomState.choice
+ValueError: a must be greater than 0 unless no samples are taken
