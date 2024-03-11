@@ -30,6 +30,8 @@ def args_parser():
     parser.add_argument('--non_iid_prob_class', type=float, default=0.7, help="non iid sampling prob for class")
     parser.add_argument('--dataset', type=str, default='mnist', help="name of dataset")
     parser.add_argument('--iid', action='store_true', help="i.i.d. or non-i.i.d.")
+    parser.add_argument('--init_steps', type=int, default=0, help="number of classes")
+    parser.add_argument('--prov_steps', type=int, default=100, help="number of classes")
 
     ###### FedCorr ####################
     parser.add_argument('--LID_k', type=int, default=20, help="lid")
@@ -40,7 +42,7 @@ def args_parser():
     parser.add_argument('--mixup', action='store_true')
     parser.add_argument('--alpha', type=float, default=1, help="0.1,1,5")
     # momentum same with RFL
-    parser.add_argument('--beta', type=float, default=5,
+    parser.add_argument('--beta', type=float, default=1,
                         help="coefficient for local proximal，0 for fedavg, 1 for fedprox, 5 for noise fl")
     ## correction
     parser.add_argument('--relabel_ratio', type=float, default=0.5,
@@ -64,9 +66,10 @@ def args_parser():
     parser.add_argument('--momentum', type=float, default=0.5, help="SGD momentum (default: 0.5)")
     parser.add_argument('--weight_decay', type=float, default=0.0001, help="sgd weight decay")
     parser.add_argument('--feature_dim', type=int, help='feature dimension', default=128)
+    parser.add_argument('--personal_learning_rate', help="--personal_learning_rate", type=str, default=0.01)
 
     ###### FedTwin ####################
-    parser.add_argument('--plr', help="--personal_learning_rate", type=str, default=0.1)
+    parser.add_argument('--plr', help="--personal_learning_rate", type=str, default=0.01)
     parser.add_argument("--lamda", type=int, default=15, help="regularization term")
     parser.add_argument("--K", type=int, default=5, help="personalized computation steps")
     parser.add_argument('--gamma', type=float, default=1, help="personalized aggregation")

@@ -924,6 +924,7 @@ class LocalUpdatePFedMe(object):
         bias_p = []
         weight_p = []
         optimizer = pFedMeOptimizer(net.parameters(), lr=self.args.personal_learning_rate, lamda=self.args.lamda)
+        optimizer.zero_grad()
         local_model = copy.deepcopy(net)
         w_local = local_model.state_dict()
         for k in w_locals[idx].keys():
