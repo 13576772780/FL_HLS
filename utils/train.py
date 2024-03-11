@@ -81,8 +81,8 @@ class LocalUpdateRFL:
              
     def get_small_loss_samples(self, y_pred, y_true, forget_rate):
         loss = self.loss_func(y_pred, y_true)
-        # ind_sorted = np.argsort(loss.data.cpu()).cuda()
-        ind_sorted = np.argsort(loss.data).cuda()
+        ind_sorted = np.argsort(loss.data.cpu()).to(self.args.device)
+        # ind_sorted = np.argsort(loss.data).cuda()
         loss_sorted = loss[ind_sorted]
 
         remember_rate = 1 - forget_rate
@@ -107,7 +107,7 @@ class LocalUpdateRFL:
             for batch_idx, (images, labels, idxs) in enumerate(self.ldr_train_tmp):
                 images, labels = images.to(self.args.device), labels.to(self.args.device)
                 logit, feature = net(images)
-                self.pseudo_labels[idxs] = torch.argmax(logit)    
+                self.pseudo_labels[idxs] = torch.argmax(logit)
                 if self.args.g_epoch == 0:
                     f_k[labels] += feature
                     n_labels[labels] += 1
