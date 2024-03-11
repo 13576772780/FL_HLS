@@ -148,7 +148,8 @@ class LocalUpdateRFL:
                         self.pseudo_labels[idx[i]] = labels[i]
                 
                 # For loss calculating
-                new_labels = mask[small_loss_idxs]*labels[small_loss_idxs] + (1-mask[small_loss_idxs])*self.pseudo_labels[idx[small_loss_idxs]]
+                new_labels = mask[small_loss_idxs] * labels[small_loss_idxs] + (1 - mask[small_loss_idxs]) * \
+                             self.pseudo_labels[idx.to(self.args.device)[small_loss_idxs.to(self.args.device)]]
                 new_labels = new_labels.type(torch.LongTensor).to(self.args.device)
                 
                 loss = self.RFLloss(logit, labels, feature, f_k, mask, small_loss_idxs, new_labels)
