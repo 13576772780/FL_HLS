@@ -99,6 +99,7 @@ def args_parser():
     # parser.add_argument('--momentum', type=float, default=0.5, help="SGD momentum (default: 0.5)")
     parser.add_argument('--weight_decay', type=float, default=0.0001, help="sgd weight decay")
     parser.add_argument('--feature_dim', type=int, help='feature dimension', default=128)
+    parser.add_argument('--save_dir', type=str, default=None, help="name of save directory")
 
     args = parser.parse_args()
     return args
