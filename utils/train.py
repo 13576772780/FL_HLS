@@ -81,7 +81,8 @@ class LocalUpdateRFL:
              
     def get_small_loss_samples(self, y_pred, y_true, forget_rate):
         loss = self.loss_func(y_pred, y_true)
-        ind_sorted = np.argsort(loss.data.cpu()).cuda()
+        # ind_sorted = np.argsort(loss.data.cpu()).cuda()
+        ind_sorted = np.argsort(loss.data).cuda()
         loss_sorted = loss[ind_sorted]
 
         remember_rate = 1 - forget_rate
