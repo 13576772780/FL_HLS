@@ -62,8 +62,6 @@ if __name__ == '__main__':
     dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
         args)
 
-    for idx in dict_users_train.keys():
-        np.random.shuffle(dict_users_train[idx])
 
     #替换代码的数据获取部分，后面的代码为原代码逻辑
     dict_users = dict_users_train
