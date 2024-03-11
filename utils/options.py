@@ -74,7 +74,7 @@ def args_parser():
     # parser.add_argument('--is_class_overlapping', type=int, default=1, help='is client class  overlapping'
     parser.add_argument("--personal_learning_rate", type=float, default=0.01,
                         help="Persionalized learning rate to caculate theta aproximately using K steps")
-    parser.add_argument("--lamda", type=int, default=5, help="Regularization term")
+    parser.add_argument("--lamda", type=int, default=30, help="Regularization term")
     parser.add_argument("--learning_rate", type=float, default=0.005, help="Local learning rate for pfedme")
     parser.add_argument("--print_all", type=int, default=1, help="whether print all process")
     parser.add_argument('--data_store_file', type=str, default='dict_user', help='model name')
