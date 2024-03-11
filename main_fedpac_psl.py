@@ -25,6 +25,8 @@ from models.test import test_img_local_all
 
 import time
 
+
+
 if __name__ == '__main__':
     # parse args
     args = args_parser()
@@ -194,6 +196,7 @@ if __name__ == '__main__':
             concept_matrix.append(concept_matrix_local)
 
     a=0
+    user_loss_arr = {}
     for iter in range(args.epochs+1):
         if iter == 10:
             a = a + 1
@@ -202,12 +205,25 @@ if __name__ == '__main__':
         class_center_locals = np.zeros(class_center_glob.shape)
         class_nums=np.zeros(class_center_glob.shape[0])
         #每轮选取的客户端数
-        m = max(int(args.frac * args.num_users), 1)
+        # m = max(int(args.frac * args.num_users), 1)
         #最后一轮选取所有客户端
-        if iter == args.epochs:
-            m = args.num_users
+        # if iter == args.epochs:
+        #     m = args.num_users
 
-        idxs_users = np.random.choice(range(args.num_users), m, replace=False)
+        #初始选择全部客户端
+        if iter < args.init_steps:
+            m = args.num_users
+            idxs_users = np.random.choice(range(args.num_users), m, replace=False)
+        #提升阶段随机选取部分客户端
+        elif iter >= args.init_steps and iter < args.prov_steps:
+            m = max(int(args.frac * args.num_users), 1)
+            idxs_users = np.random.choice(range(args.num_users), m, replace=False)
+        #选取一些客户端微调
+        else:
+            p = sorted(user_loss_arr.items(), key=lambda x: x[1])
+            idxs_users = [k for k, v in p ][0:args.prov_users]
+
+
         w_keys_epoch = w_glob_keys
         times_in = []
         total_len=0
@@ -237,6 +253,7 @@ if __name__ == '__main__':
                 w_local, loss, indd, class_center_local, class_num = local.train(net=net_local.to(args.device), ind=idx, idx=clients[idx], w_glob_keys=w_glob_keys, lr=args.lr,last=last, concept_matrix_local=concept_matrix[idx], train_iter=iter)
             else:
                 w_local, loss, indd, class_center_local, class_num = local.train(net=net_local.to(args.device), class_center_glob=class_center_glob, idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, last=last, concept_matrix_local=concept_matrix[idx], iter_num_now = iter, train_iter=iter)
+            user_loss_arr[idx] = loss
             loss_locals.append(copy.deepcopy(loss))
             total_len += lens[idx]
             class_center_locals += class_center_local

@@ -72,10 +72,10 @@ def args_parser():
     parser.add_argument('--is_reset_model', type=int, default=1, help='reset train init model')
     # parser.add_argument('--output_of_classify_header', type=int, default=10, help='output of classify header')
     # parser.add_argument('--is_class_overlapping', type=int, default=1, help='is client class  overlapping'
-    parser.add_argument("--personal_learning_rate", type=float, default=0.09,
+    parser.add_argument("--personal_learning_rate", type=float, default=0.1,
                         help="Persionalized learning rate to caculate theta aproximately using K steps")
-    parser.add_argument("--lamda", type=int, default=15, help="Regularization term")
-    parser.add_argument("--learning_rate", type=float, default=0.005, help="Local learning rate for pfedme")
+    parser.add_argument("--lamda", type=int, default=5, help="Regularization term")
+    parser.add_argument("--learning_rate", type=float, default=0.01, help="Local learning rate for pfedme")
     parser.add_argument("--print_all", type=int, default=1, help="whether print all process")
     parser.add_argument('--data_store_file', type=str, default='dict_user', help='model name')
 
@@ -84,6 +84,10 @@ def args_parser():
     parser.add_argument('--level_n_lowerb', type=float, default=0.0, help="lower bound of noise level")
     parser.add_argument('--filter_alg', type=str, default='center_psl', help='filter type center_psl / loss_psl')
     # parser.add_argument('--seed', type=int, default=13, help="random seed, default: 1")
+    parser.add_argument('--init_steps', type=int, default=0, help="init_steps")
+    parser.add_argument('--prov_steps', type=int, default=100, help="prov_steps")
+    parser.add_argument('--prov_users', type=int, default=10, help="prov_users")
+
 
     #RFL
     parser.add_argument('--frac2', type=float, default=0.1,
