@@ -211,7 +211,7 @@ if __name__ == '__main__':
         #     m = args.num_users
 
         #初始选择全部客户端
-        if iter < args.init_steps or iter == args.epochs:
+        if iter < args.init_steps:
             m = args.num_users
             idxs_users = np.random.choice(range(args.num_users), m, replace=False)
         #提升阶段随机选取部分客户端
@@ -219,10 +219,12 @@ if __name__ == '__main__':
             m = max(int(args.frac * args.num_users), 1)
             idxs_users = np.random.choice(range(args.num_users), m, replace=False)
         #选取一些客户端微调
-        elif iter != args.epochs:
+        elif  iter < args.prov_steps - 10:
             p = sorted(user_loss_arr.items(), key=lambda x: x[1])
             idxs_users = [k for k, v in p ][0:args.prov_users]
-
+        else:
+            m = args.num_users
+            idxs_users = np.random.choice(range(args.num_users), m, replace=False)
 
         w_keys_epoch = w_glob_keys
         times_in = []

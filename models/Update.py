@@ -2063,7 +2063,7 @@ class LocalUpdatePACPSL(object):
             hidden_train = net.init_hidden(self.args.local_bs)
 
         data_train_frag = local_eps
-        for iter in range(1):
+        for iter in range(5):
             done = False
 
             #在每轮训练前，先根据类心筛选数据
