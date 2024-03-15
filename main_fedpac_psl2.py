@@ -20,7 +20,7 @@ from torch import nn
 from utils.options import args_parser
 from utils.train_utils import get_data, get_model, read_data, init_class_center, get_data_v2, get_data_v3, \
     get_data_from_file
-from models.Update import LocalUpdate, LocalUpdatePAC, LocalUpdatePACPSL
+from models.Update import LocalUpdate, LocalUpdatePAC, LocalUpdatePACPSL, LocalUpdatePACPSL2
 from models.test import test_img_local_all
 
 import time
@@ -233,14 +233,14 @@ if __name__ == '__main__':
             start_in = time.time()
             if 'femnist' in args.dataset or 'sent140' in args.dataset:
                 if args.epochs == iter:
-                    local = LocalUpdatePACPSL(args=args, dataset=dataset_train[list(dataset_train.keys())[idx][:args.m_ft]], idxs=dict_users_train, indd=indd)
+                    local = LocalUpdatePACPSL2(args=args, dataset=dataset_train[list(dataset_train.keys())[idx][:args.m_ft]], idxs=dict_users_train, indd=indd)
                 else:
-                    local = LocalUpdatePACPSL(args=args, dataset=dataset_train[list(dataset_train.keys())[idx][:args.m_tr]], idxs=dict_users_train, indd=indd)
+                    local = LocalUpdatePACPSL2(args=args, dataset=dataset_train[list(dataset_train.keys())[idx][:args.m_tr]], idxs=dict_users_train, indd=indd)
             else:
                 if args.epochs == iter:
-                    local = LocalUpdatePACPSL(args=args, dataset=dataset_train, idxs=dict_users_train[idx][:args.m_ft], rand_set_all=rand_set_all)
+                    local = LocalUpdatePACPSL2(args=args, dataset=dataset_train, idxs=dict_users_train[idx][:args.m_ft], rand_set_all=rand_set_all)
                 else:
-                    local = LocalUpdatePACPSL(args=args, dataset=dataset_train, idxs=dict_users_train[idx][:args.m_tr], rand_set_all=rand_set_all)
+                    local = LocalUpdatePACPSL2(args=args, dataset=dataset_train, idxs=dict_users_train[idx][:args.m_tr], rand_set_all=rand_set_all)
 
 
             net_local = copy.deepcopy(net_glob)
