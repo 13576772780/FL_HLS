@@ -28,7 +28,7 @@ plt.plot(x, fedavg_medal, marker='o', label="Fedavg-FT")
 plt.plot(x, fedaprox_medal, marker='o', label="FedPorx")
 plt.plot(x, co_teaching, marker='o', label="Co-teaching")
 plt.plot(x, rfl_medal, marker='o', label="RFL")
-plt.plot(x, fedcspl_medal, marker='o', label="FedCSPL")
+plt.plot(x, fedcspl_medal, marker='o', label="FedPLSN")
 # 设置标题和坐标轴标签
 
 plt.title('CIFAR-10')
