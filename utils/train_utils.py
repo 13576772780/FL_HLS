@@ -185,10 +185,10 @@ def get_data_v3(args):
     else:
         exit('Error: unrecognized dataset')
 
-    if args.level_n_system != 0:
-        y_train = np.array(dataset_train.targets)
-        y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
-        dataset_train.targets = np.array(y_train_noisy, dtype='int64')
+    # if args.level_n_system != 0:
+    #     y_train = np.array(dataset_train.targets)
+    #     y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+    #     dataset_train.targets = np.array(y_train_noisy, dtype='int64')
 
     return dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all
 
@@ -226,6 +226,11 @@ def get_data_from_file(args):
                 dict_users_test[i] = v
         for idx in dict_users_train.keys():
             np.random.shuffle(dict_users_train[idx])
+
+        if args.level_n_system != 0:
+            y_train = np.array(dataset_train.targets)
+            y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+            dataset_train.targets = np.array(y_train_noisy, dtype='int64')
     else:
         if 'femnist' in args.dataset:
             train_path = './leaf-master/data/' + args.dataset + '/data/mytrain'
@@ -244,6 +249,8 @@ def get_data_from_file(args):
         for c in dataset_train.keys():
             dataset_train[c]['y'] = list(np.asarray(dataset_train[c]['y']).astype('int64'))
             dataset_test[c]['y'] = list(np.asarray(dataset_test[c]['y']).astype('int64'))
+
+
 
     return dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all
 
