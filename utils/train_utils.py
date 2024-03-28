@@ -139,7 +139,7 @@ def get_data_v3(args):
                                                   rand_set_all=rand_set_all, nums_per_class=args.nums_per_class)
 
         # 为了让没个客户端模型只有限定类数量的输出，比如只有3类输出，将每个客户端的类映射到0，1，2.。。。
-        concept_matrix = np.array([[-1 for i in range(10)] for j in range(args.num_users)], dtype=np.int64)
+        concept_matrix = np.array([[-1 for i in range(args.num_classes)] for j in range(args.num_users)], dtype=np.int64)
         for idx, cls in enumerate(rand_set_all):
             start = 0
             for val in cls:
@@ -155,7 +155,7 @@ def get_data_v3(args):
                                                rand_set_all=rand_set_all, nums_per_class=args.nums_per_class)
 
         # 为了让没个客户端模型只有限定类数量的输出，比如只有3类输出，将每个客户端的类映射到0，1，2.。。。
-        concept_matrix = np.array([[-1 for i in range(10)] for j in range(args.num_users)], dtype=np.int64)
+        concept_matrix = np.array([[-1 for i in range(args.num_classes)] for j in range(args.num_users)], dtype=np.int64)
         for idx, cls in enumerate(rand_set_all):
             start = 0
             for val in cls:

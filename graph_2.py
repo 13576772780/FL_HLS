@@ -33,7 +33,7 @@ plt.plot(x, fedcspl_medal, marker='o', label="FedPLSN")
 
 plt.title('CIFAR-10')
 plt.ylabel('Test Accuracy(%)', fontsize=12)
-plt.xlabel('Local Date Size', fontsize=12)
+plt.xlabel('Noise level', fontsize=12)
 # 显示图表
 plt.grid(True, color='gray', linestyle='--')
 plt.legend(loc="upper right")
