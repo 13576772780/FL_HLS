@@ -294,13 +294,20 @@ def add_noise(args, y_train, dict_users, rand_set_all):
         rand_sample_idx = np.array(random.sample(sample_idx, int(len(sample_idx)*args.level_n_lowerb)))
 
         #随机修改采样样本的标签
-        if args.limit_local_output == 1 or args.shard_per_user < 10:
-            nosiy_sample_labels = rand_set_all[i][np.random.randint(0, args.shard_per_user, len(rand_sample_idx))]
-            y_train_noisy[rand_sample_idx] = nosiy_sample_labels
-        else:
-            nosiy_sample_labels = np.random.randint(0, 10, len(rand_sample_idx))
-            y_train_noisy[rand_sample_idx] = nosiy_sample_labels
-
+        #每类噪声的改了一样
+        if args.noisy_type == "Symmetric":
+            if args.limit_local_output == 1 or args.shard_per_user < 10:
+                nosiy_sample_labels = rand_set_all[i][np.random.randint(0, args.shard_per_user, len(rand_sample_idx))]
+                y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+            else:
+                nosiy_sample_labels = np.random.randint(0, args.num_classes, len(rand_sample_idx))
+                y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+        ##每类只会标错为对应的一类标签
+        elif args.noisy_type == "Pair":
+            #偏移矩阵
+            nosiy_metrix = np.array([i for i in range(args.num_classes)], dtype=np.int64)
+            random.shuffle(nosiy_metrix)
+            y_train_noisy[rand_sample_idx] = nosiy_metrix[y_train_noisy[rand_sample_idx]]
 
         print("   Client %d, noise    level: %.4f " % (i, args.level_n_lowerb))
 
