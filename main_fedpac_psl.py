@@ -205,26 +205,27 @@ if __name__ == '__main__':
         class_center_locals = np.zeros(class_center_glob.shape)
         class_nums=np.zeros(class_center_glob.shape[0])
         #每轮选取的客户端数
-        # m = max(int(args.frac * args.num_users), 1)
+        m = max(int(args.frac * args.num_users), 1)
         #最后一轮选取所有客户端
-        # if iter == args.epochs:
-        #     m = args.num_users
+        if iter == args.epochs:
+            m = args.num_users
+        idxs_users = np.random.choice(range(args.num_users), m, replace=False)
 
         #初始选择全部客户端
-        if iter < args.init_steps:
-            m = args.num_users
-            idxs_users = np.random.choice(range(args.num_users), m, replace=False)
-        #提升阶段随机选取部分客户端
-        elif iter >= args.init_steps and iter < args.prov_steps:
-            m = max(int(args.frac * args.num_users), 1)
-            idxs_users = np.random.choice(range(args.num_users), m, replace=False)
-        #选取一些客户端微调
-        elif  iter >= args.prov_steps and iter < args.epochs - 10:
-            p = sorted(user_loss_arr.items(), key=lambda x: x[1])
-            idxs_users = [k for k, v in p ][0:args.prov_users]
-        else:
-            m = args.num_users
-            idxs_users = np.random.choice(range(args.num_users), m, replace=False)
+        # if iter < args.init_steps:
+        #     m = args.num_users
+        #     idxs_users = np.random.choice(range(args.num_users), m, replace=False)
+        # #提升阶段随机选取部分客户端
+        # elif iter >= args.init_steps and iter < args.prov_steps:
+        #     m = max(int(args.frac * args.num_users), 1)
+        #     idxs_users = np.random.choice(range(args.num_users), m, replace=False)
+        # #选取一些客户端微调
+        # elif  iter >= args.prov_steps and iter < args.epochs - 10:
+        #     p = sorted(user_loss_arr.items(), key=lambda x: x[1])
+        #     idxs_users = [k for k, v in p ][0:args.prov_users]
+        # else:
+        #     m = args.num_users
+        #     idxs_users = np.random.choice(range(args.num_users), m, replace=False)
 
         w_keys_epoch = w_glob_keys
         times_in = []
