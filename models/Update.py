@@ -2506,7 +2506,7 @@ class LocalUpdatePACCOPSL(object):
                         elif self.args.filter_alg == 'loss_psl':
                             # self.filter_by_loss2(net=net, concept_matrix_local=concept_matrix_local, iter_num=iter2,
                             #                     local_eps=local_eps)
-                            self.filter_data(net, local_net, iter2-head_eps+1, local_eps-1, concept_matrix_local)
+                            self.filter_data(net, local_net, iter2-head_eps+1, local_eps-head_eps, concept_matrix_local)
                         else:
                             self.ldr_train_local = self.ldr_train
 
