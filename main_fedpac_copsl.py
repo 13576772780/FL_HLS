@@ -220,7 +220,7 @@ if __name__ == '__main__':
         #     m = max(int(args.frac * args.num_users), 1)
         #     idxs_users = np.random.choice(range(args.num_users), m, replace=False)
         # #选取一些客户端微调
-        # elif  iter >= args.prov_steps and iter < args.epochs - 10:
+        # elif  iter >= args.prov_steps and iter < args.epochs - 5:
         #     p = sorted(user_loss_arr.items(), key=lambda x: x[1])
         #     idxs_users = [k for k, v in p ][0:args.prov_users]
         # else:

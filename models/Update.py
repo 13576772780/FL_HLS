@@ -2395,8 +2395,13 @@ class LocalUpdatePACCOPSL(object):
         sort_distance_tmp1 = sorted(distance_net1.items(), key=lambda x: x[1])
         sort_distance_tmp2 = sorted(distance_net2.items(), key=lambda x: x[1])
 
-        filter_idxs1 = [sort_distance_tmp1[i][0] for i in range(math.floor(self.args.shard_per_user * self.args.nums_per_class * iter_num / local_eps))]
-        filter_idxs2 = [sort_distance_tmp2[i][0] for i in range(math.floor(self.args.shard_per_user * self.args.nums_per_class * iter_num / local_eps))]
+        # filter_idxs1 = [sort_distance_tmp1[i][0] for i in range(math.floor(self.args.shard_per_user * self.args.nums_per_class * iter_num / local_eps))]
+        # filter_idxs2 = [sort_distance_tmp2[i][0] for i in range(math.floor(self.args.shard_per_user * self.args.nums_per_class * iter_num / local_eps))]
+
+        filter_idxs1 = [sort_distance_tmp1[i][0] for i in
+                        range(math.floor(len(sort_distance_tmp2) * iter_num / local_eps))]
+        filter_idxs2 = [sort_distance_tmp2[i][0] for i in
+                        range(math.floor(len(sort_distance_tmp2) * iter_num / local_eps))]
 
         random.shuffle(filter_idxs1)
         random.shuffle(filter_idxs2)
@@ -2497,7 +2502,7 @@ class LocalUpdatePACCOPSL(object):
                         else:
                             param.requires_grad = False
                     #开始训练先不过滤数据
-                    if train_iter > self.args.prov_steps:
+                    if train_iter > self.args.init_steps:
                         if self.args.filter_alg == 'center_psl':  # and iter_num_now > 15
                             self.filter_by_center(net=net, concept_matrix_local=concept_matrix_local,
                                                   local_class_center=local_class_center, iter_num=iter2, local_eps=local_eps)
