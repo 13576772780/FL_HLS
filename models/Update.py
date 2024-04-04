@@ -2000,7 +2000,7 @@ class LocalUpdatePACPSL(object):
             for (s_d_key, s_d_val) in sort_center_distance_tmp:
                 filter_idxs.append(s_d_key)
                 d_count += 1
-                if d_count >= (self.args.nums_per_class * (iter_num + 1)/ local_eps):
+                if d_count >= (self.args.nums_per_class * iter_num/ local_eps):
                     break
                 # if d_count >= (self.args.nums_per_class * (iter_num + 1)  / 3):
                 # if d_count >= (self.args.nums_per_class * 0.7):
@@ -2010,12 +2010,31 @@ class LocalUpdatePACPSL(object):
         self.ldr_train_local = DataLoader(DatasetSplit(self.dataset, filter_idxs), batch_size=self.args.local_bs,
                                           shuffle=True)
 
+    def get_noisy_num(self, net, concept_matrix):
+        noisy_num = 0
 
+        for batch_idx, (images, labels) in enumerate(self.ldr_train):
+            if self.args.is_concept_shift == 1 or self.args.limit_local_output == 1:
+                # 通过概念偏移矩阵进行标签概念偏移
+                labels = torch.tensor(concept_matrix[labels.numpy()])
+            if 'sent140' in self.args.dataset:
+                pass
+            else:
+                images, labels = images.to(self.args.device), labels.to(self.args.device)
+                net.zero_grad()
+
+                log_probs = net(images)
+                # 求分类错误的样本数量
+                _, t_labels = torch.max(log_probs, dim=1)
+                noisy_num = noisy_num + (labels != t_labels).sum().item()
+
+        return noisy_num
 
     def train(self, net, w_glob_keys, class_center_glob, last=False, dataset_test=None, ind=-1, idx=-1, lr=0.1, concept_matrix_local=None, iter_num_now = 0, train_iter = 0):
         bias_p = []
         weight_p = []
 
+        noisy_num_global = self.get_noisy_num(net, concept_matrix_local)
         local_class_center = class_center_glob.copy()
         for name, p in net.named_parameters():
             if 'bias' in name:
@@ -2142,8 +2161,8 @@ class LocalUpdatePACPSL(object):
                             # self.modify_label_by_center(net=net, concept_matrix_local=concept_matrix_local,
                             #                       local_class_center=local_class_center, iter_num=iter, local_eps=local_eps, class_set=self.rand_set_all[ind])
                         elif self.args.filter_alg == 'loss_psl':
-                            self.filter_by_loss2(net=net, concept_matrix_local=concept_matrix_local, iter_num=iter2,
-                                                local_eps=local_eps)
+                            self.filter_by_loss2(net=net, concept_matrix_local=concept_matrix_local, iter_num=iter2-head_eps+1,
+                                                local_eps=local_eps-head_eps)
                         else:
                             self.ldr_train_local = self.ldr_train
 
@@ -2214,6 +2233,7 @@ class LocalUpdatePACPSL(object):
                 epoch_loss.append(sum(batch_loss) / len(batch_loss))
 
             #计算本地客户端的类的质心
+            noisy_num = 0
             class_center_local = np.zeros(local_class_center.shape)
             class_num = np.zeros(local_class_center.shape[0])
             for batch_idx, (images, labels) in enumerate(self.ldr_train_local):
@@ -2232,7 +2252,10 @@ class LocalUpdatePACPSL(object):
                         net.fc2.register_forward_hook(self.hook)
                     elif self.args.model == "resnet18":
                         net.linear.register_forward_hook(self.hook_input)
-                    net(images)
+                    log_probs = net(images)
+                    #求分类错误的样本数量
+                    _, t_labels = torch.max(log_probs, dim=1)
+                    noisy_num = noisy_num + (labels != t_labels).sum().item()
                     if self.args.model == "resnet18":
                         self.features = self.features[0]
                     # self.features = self.features.to(self.args.device)
@@ -2251,7 +2274,7 @@ class LocalUpdatePACPSL(object):
         #         class_center_local[idx] = class_center_local[idx] / cln
         ##恢复修改的标签
         self.dataset.targets = self.targets
-        return net.state_dict(), sum(epoch_loss) / len(epoch_loss), self.indd, class_center_local, class_num
+        return net.state_dict(), sum(epoch_loss) / len(epoch_loss), self.indd, class_center_local, class_num, noisy_num_global
 
 
     def hook(self, module, input, output):
@@ -2411,9 +2434,31 @@ class LocalUpdatePACCOPSL(object):
         self.ldr_train2 = DataLoader(DatasetSplit(self.dataset, filter_idxs1), batch_size=self.args.local_bs,
                                     shuffle=True)
 
+    def get_noisy_num(self, net, concept_matrix):
+        noisy_num = 0
+
+        for batch_idx, (images, labels) in enumerate(self.ldr_train):
+            if self.args.is_concept_shift == 1 or self.args.limit_local_output == 1:
+                # 通过概念偏移矩阵进行标签概念偏移
+                labels = torch.tensor(concept_matrix[labels.numpy()])
+            if 'sent140' in self.args.dataset:
+                pass
+            else:
+                images, labels = images.to(self.args.device), labels.to(self.args.device)
+                net.zero_grad()
+
+                log_probs = net(images)
+                # 求分类错误的样本数量
+                _, t_labels = torch.max(log_probs, dim=1)
+                noisy_num = noisy_num + (labels != t_labels).sum().item()
+
+        return noisy_num
+
     def train(self, net, w_glob_keys, class_center_glob, last=False, dataset_test=None, ind=-1, idx=-1, lr=0.1, concept_matrix_local=None, iter_num_now = 0, train_iter = 0, local_net = None):
         bias_p = []
         weight_p = []
+
+        noisy_num_global = self.get_noisy_num(net, concept_matrix_local)
 
         local_class_center = class_center_glob.copy()
         for name, p in net.named_parameters():
@@ -2511,7 +2556,7 @@ class LocalUpdatePACCOPSL(object):
                         elif self.args.filter_alg == 'loss_psl':
                             # self.filter_by_loss2(net=net, concept_matrix_local=concept_matrix_local, iter_num=iter2,
                             #                     local_eps=local_eps)
-                            self.filter_data(net, local_net, iter2-head_eps+1, local_eps-head_eps, concept_matrix_local)
+                            self.filter_data(net, local_net, iter2-head_eps+1, local_eps-head_eps+1, concept_matrix_local)
                         else:
                             self.ldr_train_local = self.ldr_train
 
@@ -2677,9 +2722,176 @@ class LocalUpdatePACCOPSL(object):
         #         class_center_local[idx] = class_center_local[idx] / cln
         ##恢复修改的标签
         self.dataset.targets = self.targets
-        return net.state_dict(), sum(epoch_loss) / len(epoch_loss), self.indd, class_center_local, class_num
+        return net.state_dict(), sum(epoch_loss) / len(epoch_loss), self.indd, class_center_local, class_num, noisy_num_global
+
+    def train_normal(self, net, w_glob_keys, class_center_glob, last=False, dataset_test=None, ind=-1, idx=-1, lr=0.1, concept_matrix_local=None):
+        bias_p = []
+        weight_p = []
+
+        noisy_num_global = self.get_noisy_num(net, concept_matrix_local)
+        for name, p in net.named_parameters():
+            if 'bias' in name:
+                bias_p += [p]
+            else:
+                weight_p += [p]
+        optimizer = torch.optim.SGD(
+            [
+                {'params': weight_p, 'weight_decay': 0.0001},
+                {'params': bias_p, 'weight_decay': 0}
+            ],
+            lr=lr, momentum=0.5
+        )
+        if self.args.alg == 'prox':
+            optimizer = FedProx.FedProx(net.parameters(),
+                                        lr=lr,
+                                        gmf=self.args.gmf,
+                                        mu=self.args.mu,
+                                        ratio=1 / self.args.num_users,
+                                        momentum=0.5,
+                                        nesterov=False,
+                                        weight_decay=1e-4)
+
+        local_eps = self.args.local_ep
+        if last:
+            if self.args.alg == 'fedavg' or self.args.alg == 'prox':
+                local_eps = 10
+                net_keys = [*net.state_dict().keys()]
+                if 'cifar' in self.args.dataset:
+                    w_glob_keys = [net.weight_keys[i] for i in [0, 1, 3, 4]]
+                elif 'sent140' in self.args.dataset:
+                    w_glob_keys = [net_keys[i] for i in [0, 1, 2, 3, 4, 5]]
+                elif 'mnist' in self.args.dataset:
+                    w_glob_keys = [net.weight_keys[i] for i in [0, 1, 2]]
+            elif 'maml' in self.args.alg:
+                local_eps = 5
+                w_glob_keys = []
+            else:
+                local_eps = max(10, local_eps - self.args.local_rep_ep)
+
+        head_eps = local_eps - self.args.local_rep_ep
+        epoch_loss = []
+        num_updates = 0
+        if 'sent140' in self.args.dataset:
+            hidden_train = net.init_hidden(self.args.local_bs)
+        for iter in range(local_eps):
+            done = False
+
+            # for FedRep, first do local epochs for the head
+            if (iter < head_eps and self.args.alg == 'fedrep') or last:
+                for name, param in net.named_parameters():
+                    if name in w_glob_keys:
+                        param.requires_grad = False
+                    else:
+                        param.requires_grad = True
+
+            # then do local epochs for the representation
+            elif iter >= head_eps and self.args.alg == 'fedrep' and not last:
+                for name, param in net.named_parameters():
+                    if name in w_glob_keys:
+                        param.requires_grad = True
+                    else:
+                        param.requires_grad = False
+
+            # all other methods update all parameters simultaneously
+            elif self.args.alg != 'fedrep':
+                for name, param in net.named_parameters():
+                    param.requires_grad = True
+
+            batch_loss = []
+            for batch_idx, (images, labels) in enumerate(self.ldr_train):
+
+                if self.args.is_concept_shift == 1 or self.args.limit_local_output == 1:
+                    #通过概念偏移矩阵进行标签概念偏移
+                    labels = torch.tensor(concept_matrix_local[labels.numpy()])
 
 
+                if 'sent140' in self.args.dataset:
+                    input_data, target_data = process_x(images, self.indd), process_y(labels, self.indd)
+                    if self.args.local_bs != 1 and input_data.shape[0] != self.args.local_bs:
+                        break
+                    net.train()
+                    data, targets = torch.from_numpy(input_data).to(self.args.device), torch.from_numpy(target_data).to(
+                        self.args.device)
+                    net.zero_grad()
+                    hidden_train = repackage_hidden(hidden_train)
+                    output, hidden_train = net(data, hidden_train)
+                    loss = self.loss_func(output.t(), torch.max(targets, 1)[1])
+                    loss.backward()
+                    optimizer.step()
+                else:
+                    images, labels = images.to(self.args.device), labels.to(self.args.device)
+                    net.zero_grad()
+
+                    #如果要更新特征提取层，则需要考虑质心
+                    if iter >= head_eps and self.args.alg == 'fedrep' and not last:
+                        #传入的hook是一个回调函数，每次前向传播会调用该函数，函数内部可以把值存储到数组中，方便后面处理
+                        #获取特征值
+                        if self.args.model == "mlp":
+                            net.layer_hidden2.register_forward_hook(self.hook)
+                        elif self.args.model == "cnn":
+                            net.fc2.register_forward_hook(self.hook)
+                        elif self.args.model == "resnet18":
+                            net.linear.register_forward_hook(self.hook_input)
+                        log_probs = net(images)
+
+                        #计算正则项
+                        class_center_batch = np.array([class_center_glob[i] for i in labels])
+                        if self.args.model == "resnet18":
+                            self.features = self.features[0]
+                        sub_clc = self.features.to(self.args.device) - torch.from_numpy(class_center_batch).to(self.args.device)
+                        reg_loss = torch.mean(torch.square(sub_clc)) * self.args.pac_param
+                        loss = self.loss_func(log_probs, labels) + reg_loss
+                    else:
+                        log_probs = net(images)
+                        loss = self.loss_func(log_probs, labels)
+
+                    loss.backward()
+                    optimizer.step()
+                num_updates += 1
+                batch_loss.append(loss.item())
+                if num_updates == self.args.local_updates:
+                    done = True
+                    break
+            epoch_loss.append(sum(batch_loss) / len(batch_loss))
+            if done:
+                break
+
+            epoch_loss.append(sum(batch_loss) / len(batch_loss))
+
+        #计算本地客户端的类的质心
+        class_center_local = np.zeros(class_center_glob.shape)
+        class_num = np.zeros(class_center_glob.shape[0])
+        for batch_idx, (images, labels) in enumerate(self.ldr_train):
+            if self.args.is_concept_shift == 1 or self.args.limit_local_output == 1:
+                # 通过概念偏移矩阵进行标签概念偏移
+                labels = torch.tensor(concept_matrix_local[labels.numpy()])
+            if 'sent140' in self.args.dataset:
+                pass
+            else:
+                images, labels = images.to(self.args.device), labels.to(self.args.device)
+                net.zero_grad()
+                # 获取特征值
+                if self.args.model == "mlp":
+                    net.layer_hidden2.register_forward_hook(self.hook)
+                elif self.args.model == "cnn":
+                    net.fc2.register_forward_hook(self.hook)
+                elif self.args.model == "resnet18":
+                    net.linear.register_forward_hook(self.hook_input)
+                net(images)
+                if self.args.model == "resnet18":
+                    self.features = self.features[0]
+                # self.features = self.features.to(self.args.device)
+                featrue = self.features.detach().cpu().numpy()
+                labels = labels.detach().cpu().numpy()
+                for idx, cls in enumerate(labels):
+                    class_center_local[cls] += featrue[idx]
+                    class_num[cls] += 1
+
+        # for idx, cln in enumerate(class_num):
+        #     if cln > 0:
+        #         class_center_local[idx] = class_center_local[idx] / cln
+
+        return net.state_dict(), sum(epoch_loss) / len(epoch_loss), self.indd, class_center_local, class_num,noisy_num_global
     def hook(self, module, input, output):
         self.features = output
         return None
