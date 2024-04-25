@@ -16,6 +16,7 @@ import numpy as np
 import pandas as pd
 import torch
 from sklearn.cluster import KMeans
+from sklearn.mixture import GaussianMixture
 from torch import nn
 
 from utils.options import args_parser
@@ -45,6 +46,7 @@ def get_class_center_k_means(class_center_locals, args, class_nums, class_center
     class_centers_without_zero = np.array(class_centers_without_zero)
 
     model = KMeans(n_clusters=args.num_classes, n_init=10)
+    # model = GaussianMixture(n_components=args.num_classes, n_init=10)
     model.fit(class_centers_without_zero)
     class_labels = model.predict(class_centers_without_zero)
 
