@@ -2393,7 +2393,10 @@ class LocalUpdatePACCOPSL(object):
         distance_net1 = {}
         distance_net2 = {}
         for data_idx in self.idxs:
-            data_tmp = torch.from_numpy(np.array([self.dataset.data[data_idx].reshape(3, 32, 32)])).to(torch.float32)
+            if self.args.dataset == "mnist":
+                data_tmp = self.dataset.data[data_idx].reshape(1,1, 28, 28).to(torch.float32)
+            else:
+                data_tmp = torch.from_numpy(np.array([self.dataset.data[data_idx].reshape(3, 32, 32)])).to(torch.float32)
             if self.args.is_concept_shift == 1 or self.args.limit_local_output == 1:
                 # 通过概念偏移矩阵进行标签概念偏移
                 # labels = torch.tensor(concept_matrix_local[labels.numpy()])
