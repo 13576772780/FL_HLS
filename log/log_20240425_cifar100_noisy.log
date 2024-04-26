@@ -1,0 +1,1240 @@
+nohup: ignoring input
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:1   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 1, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.0 , level_n_lowerb:0.4  
+
+Files already downloaded and verified
+Files already downloaded and verified
+fedavg
+CNNCifar100(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (drop): Dropout(p=0.6, inplace=False)
+  (conv2): Conv2d(64, 128, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=3200, out_features=256, bias=True)
+  (fc2): Linear(in_features=256, out_features=128, bias=True)
+  (fc3): Linear(in_features=128, out_features=5, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+[]
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+learning rate, batch size: 0.01, 10 
+
+Round   0, Train loss: 1.387, Test loss: 1.070, Test accuracy: 55.26
+Round   0, Global train loss: 1.387, Global test loss: 1.065, Global test accuracy: 55.80
+Round   1, Train loss: 1.141, Test loss: 0.985, Test accuracy: 58.88
+Round   1, Global train loss: 1.141, Global test loss: 0.977, Global test accuracy: 59.00
+Round   2, Train loss: 1.025, Test loss: 0.886, Test accuracy: 62.00
+Round   2, Global train loss: 1.025, Global test loss: 0.845, Global test accuracy: 63.40
+Round   3, Train loss: 0.913, Test loss: 0.867, Test accuracy: 63.52
+Round   3, Global train loss: 0.913, Global test loss: 0.770, Global test accuracy: 67.80
+Round   4, Train loss: 0.879, Test loss: 0.841, Test accuracy: 65.18
+Round   4, Global train loss: 0.879, Global test loss: 0.749, Global test accuracy: 71.00
+Round   5, Train loss: 0.812, Test loss: 0.840, Test accuracy: 64.74
+Round   5, Global train loss: 0.812, Global test loss: 0.689, Global test accuracy: 71.40
+Round   6, Train loss: 0.778, Test loss: 0.811, Test accuracy: 65.54
+Round   6, Global train loss: 0.778, Global test loss: 0.678, Global test accuracy: 72.00
+Round   7, Train loss: 0.816, Test loss: 0.803, Test accuracy: 66.28
+Round   7, Global train loss: 0.816, Global test loss: 0.671, Global test accuracy: 70.80
+Round   8, Train loss: 0.836, Test loss: 0.806, Test accuracy: 66.52
+Round   8, Global train loss: 0.836, Global test loss: 0.702, Global test accuracy: 73.00
+Round   9, Train loss: 0.827, Test loss: 0.810, Test accuracy: 66.46
+Round   9, Global train loss: 0.827, Global test loss: 0.733, Global test accuracy: 71.00
+Round  10, Train loss: 0.793, Test loss: 0.779, Test accuracy: 68.62
+Round  10, Global train loss: 0.793, Global test loss: 0.689, Global test accuracy: 74.60
+Round  11, Train loss: 0.751, Test loss: 0.789, Test accuracy: 68.76
+Round  11, Global train loss: 0.751, Global test loss: 0.774, Global test accuracy: 69.20
+Round  12, Train loss: 0.697, Test loss: 0.782, Test accuracy: 68.88
+Round  12, Global train loss: 0.697, Global test loss: 0.694, Global test accuracy: 72.60
+Round  13, Train loss: 0.732, Test loss: 0.778, Test accuracy: 68.96
+Round  13, Global train loss: 0.732, Global test loss: 0.671, Global test accuracy: 71.80
+Round  14, Train loss: 0.715, Test loss: 0.788, Test accuracy: 69.10
+Round  14, Global train loss: 0.715, Global test loss: 0.634, Global test accuracy: 74.40
+Round  15, Train loss: 0.669, Test loss: 0.788, Test accuracy: 69.28
+Round  15, Global train loss: 0.669, Global test loss: 0.689, Global test accuracy: 72.60
+Round  16, Train loss: 0.687, Test loss: 0.795, Test accuracy: 69.44
+Round  16, Global train loss: 0.687, Global test loss: 0.668, Global test accuracy: 73.40
+Round  17, Train loss: 0.660, Test loss: 0.750, Test accuracy: 70.42
+Round  17, Global train loss: 0.660, Global test loss: 0.658, Global test accuracy: 74.00
+Round  18, Train loss: 0.597, Test loss: 0.778, Test accuracy: 69.66
+Round  18, Global train loss: 0.597, Global test loss: 0.703, Global test accuracy: 73.60
+Round  19, Train loss: 0.610, Test loss: 0.774, Test accuracy: 70.64
+Round  19, Global train loss: 0.610, Global test loss: 0.678, Global test accuracy: 72.80
+Round  20, Train loss: 0.571, Test loss: 0.759, Test accuracy: 71.22
+Round  20, Global train loss: 0.571, Global test loss: 0.632, Global test accuracy: 74.80
+Round  21, Train loss: 0.646, Test loss: 0.763, Test accuracy: 71.06
+Round  21, Global train loss: 0.646, Global test loss: 0.647, Global test accuracy: 74.80
+Round  22, Train loss: 0.533, Test loss: 0.756, Test accuracy: 71.26
+Round  22, Global train loss: 0.533, Global test loss: 0.657, Global test accuracy: 75.80
+Round  23, Train loss: 0.586, Test loss: 0.769, Test accuracy: 70.94
+Round  23, Global train loss: 0.586, Global test loss: 0.642, Global test accuracy: 76.00
+Round  24, Train loss: 0.532, Test loss: 0.748, Test accuracy: 71.70
+Round  24, Global train loss: 0.532, Global test loss: 0.651, Global test accuracy: 74.00
+Round  25, Train loss: 0.507, Test loss: 0.766, Test accuracy: 71.72
+Round  25, Global train loss: 0.507, Global test loss: 0.682, Global test accuracy: 74.40
+Round  26, Train loss: 0.458, Test loss: 0.789, Test accuracy: 71.66
+Round  26, Global train loss: 0.458, Global test loss: 0.699, Global test accuracy: 75.20
+Round  27, Train loss: 0.535, Test loss: 0.799, Test accuracy: 71.50
+Round  27, Global train loss: 0.535, Global test loss: 0.671, Global test accuracy: 72.60
+Round  28, Train loss: 0.495, Test loss: 0.817, Test accuracy: 71.44
+Round  28, Global train loss: 0.495, Global test loss: 0.658, Global test accuracy: 73.80
+Round  29, Train loss: 0.440, Test loss: 0.816, Test accuracy: 71.40
+Round  29, Global train loss: 0.440, Global test loss: 0.621, Global test accuracy: 74.80
+Round  30, Train loss: 0.515, Test loss: 0.842, Test accuracy: 71.18
+Round  30, Global train loss: 0.515, Global test loss: 0.694, Global test accuracy: 74.20
+Round  31, Train loss: 0.440, Test loss: 0.826, Test accuracy: 71.88
+Round  31, Global train loss: 0.440, Global test loss: 0.643, Global test accuracy: 75.80
+Round  32, Train loss: 0.421, Test loss: 0.830, Test accuracy: 72.16
+Round  32, Global train loss: 0.421, Global test loss: 0.783, Global test accuracy: 75.00
+Round  33, Train loss: 0.354, Test loss: 0.860, Test accuracy: 71.86
+Round  33, Global train loss: 0.354, Global test loss: 0.665, Global test accuracy: 76.00
+Round  34, Train loss: 0.360, Test loss: 0.941, Test accuracy: 70.64
+Round  34, Global train loss: 0.360, Global test loss: 0.774, Global test accuracy: 74.00
+Round  35, Train loss: 0.460, Test loss: 0.896, Test accuracy: 71.74
+Round  35, Global train loss: 0.460, Global test loss: 0.711, Global test accuracy: 74.00
+Round  36, Train loss: 0.391, Test loss: 0.858, Test accuracy: 72.20
+Round  36, Global train loss: 0.391, Global test loss: 0.680, Global test accuracy: 74.60
+Round  37, Train loss: 0.340, Test loss: 0.850, Test accuracy: 72.70
+Round  37, Global train loss: 0.340, Global test loss: 0.669, Global test accuracy: 75.80
+Round  38, Train loss: 0.343, Test loss: 0.838, Test accuracy: 73.42
+Round  38, Global train loss: 0.343, Global test loss: 0.655, Global test accuracy: 75.40
+Round  39, Train loss: 0.321, Test loss: 0.855, Test accuracy: 73.62
+Round  39, Global train loss: 0.321, Global test loss: 0.759, Global test accuracy: 74.00
+Round  40, Train loss: 0.350, Test loss: 0.862, Test accuracy: 72.50
+Round  40, Global train loss: 0.350, Global test loss: 0.648, Global test accuracy: 75.60
+Round  41, Train loss: 0.378, Test loss: 0.870, Test accuracy: 72.00
+Round  41, Global train loss: 0.378, Global test loss: 0.705, Global test accuracy: 74.00
+Round  42, Train loss: 0.270, Test loss: 0.901, Test accuracy: 72.68
+Round  42, Global train loss: 0.270, Global test loss: 0.713, Global test accuracy: 76.60
+Round  43, Train loss: 0.370, Test loss: 0.919, Test accuracy: 72.06
+Round  43, Global train loss: 0.370, Global test loss: 0.665, Global test accuracy: 74.00
+Round  44, Train loss: 0.368, Test loss: 0.917, Test accuracy: 72.24
+Round  44, Global train loss: 0.368, Global test loss: 0.640, Global test accuracy: 75.00
+Round  45, Train loss: 0.308, Test loss: 0.925, Test accuracy: 72.68
+Round  45, Global train loss: 0.308, Global test loss: 0.597, Global test accuracy: 77.40
+Round  46, Train loss: 0.282, Test loss: 0.943, Test accuracy: 72.40
+Round  46, Global train loss: 0.282, Global test loss: 0.744, Global test accuracy: 69.20
+Round  47, Train loss: 0.361, Test loss: 0.935, Test accuracy: 73.14
+Round  47, Global train loss: 0.361, Global test loss: 0.653, Global test accuracy: 75.40
+Round  48, Train loss: 0.219, Test loss: 0.957, Test accuracy: 72.54
+Round  48, Global train loss: 0.219, Global test loss: 0.753, Global test accuracy: 74.60
+Round  49, Train loss: 0.246, Test loss: 0.944, Test accuracy: 73.34
+Round  49, Global train loss: 0.246, Global test loss: 0.755, Global test accuracy: 74.60
+Round  50, Train loss: 0.313, Test loss: 0.955, Test accuracy: 73.52
+Round  50, Global train loss: 0.313, Global test loss: 0.648, Global test accuracy: 77.60
+Round  51, Train loss: 0.263, Test loss: 0.958, Test accuracy: 73.36
+Round  51, Global train loss: 0.263, Global test loss: 0.653, Global test accuracy: 77.60
+Round  52, Train loss: 0.272, Test loss: 0.947, Test accuracy: 73.44
+Round  52, Global train loss: 0.272, Global test loss: 0.691, Global test accuracy: 76.20
+Round  53, Train loss: 0.223, Test loss: 0.959, Test accuracy: 73.30
+Round  53, Global train loss: 0.223, Global test loss: 0.662, Global test accuracy: 75.00
+Round  54, Train loss: 0.188, Test loss: 0.998, Test accuracy: 72.92
+Round  54, Global train loss: 0.188, Global test loss: 0.767, Global test accuracy: 76.00
+Round  55, Train loss: 0.240, Test loss: 1.024, Test accuracy: 72.62
+Round  55, Global train loss: 0.240, Global test loss: 0.666, Global test accuracy: 76.60
+Round  56, Train loss: 0.246, Test loss: 1.037, Test accuracy: 72.78
+Round  56, Global train loss: 0.246, Global test loss: 0.728, Global test accuracy: 74.60
+Round  57, Train loss: 0.197, Test loss: 1.068, Test accuracy: 72.74
+Round  57, Global train loss: 0.197, Global test loss: 0.642, Global test accuracy: 76.60
+Round  58, Train loss: 0.242, Test loss: 1.039, Test accuracy: 73.44
+Round  58, Global train loss: 0.242, Global test loss: 0.675, Global test accuracy: 73.80
+Round  59, Train loss: 0.196, Test loss: 1.078, Test accuracy: 72.94
+Round  59, Global train loss: 0.196, Global test loss: 0.791, Global test accuracy: 74.60
+Round  60, Train loss: 0.206, Test loss: 1.053, Test accuracy: 73.28
+Round  60, Global train loss: 0.206, Global test loss: 0.670, Global test accuracy: 76.60
+Round  61, Train loss: 0.208, Test loss: 1.083, Test accuracy: 73.26
+Round  61, Global train loss: 0.208, Global test loss: 0.707, Global test accuracy: 74.20
+Round  62, Train loss: 0.174, Test loss: 1.071, Test accuracy: 73.78
+Round  62, Global train loss: 0.174, Global test loss: 0.681, Global test accuracy: 76.40
+Round  63, Train loss: 0.202, Test loss: 1.096, Test accuracy: 73.74
+Round  63, Global train loss: 0.202, Global test loss: 0.731, Global test accuracy: 77.80
+Round  64, Train loss: 0.163, Test loss: 1.106, Test accuracy: 73.98
+Round  64, Global train loss: 0.163, Global test loss: 0.665, Global test accuracy: 75.80
+Round  65, Train loss: 0.140, Test loss: 1.116, Test accuracy: 74.36
+Round  65, Global train loss: 0.140, Global test loss: 0.786, Global test accuracy: 75.00
+Round  66, Train loss: 0.220, Test loss: 1.137, Test accuracy: 74.04
+Round  66, Global train loss: 0.220, Global test loss: 0.749, Global test accuracy: 73.60
+Round  67, Train loss: 0.189, Test loss: 1.135, Test accuracy: 73.60
+Round  67, Global train loss: 0.189, Global test loss: 0.775, Global test accuracy: 72.80
+Round  68, Train loss: 0.144, Test loss: 1.143, Test accuracy: 73.20
+Round  68, Global train loss: 0.144, Global test loss: 0.667, Global test accuracy: 76.20
+Round  69, Train loss: 0.135, Test loss: 1.165, Test accuracy: 73.24
+Round  69, Global train loss: 0.135, Global test loss: 0.716, Global test accuracy: 76.80
+Round  70, Train loss: 0.186, Test loss: 1.216, Test accuracy: 72.44
+Round  70, Global train loss: 0.186, Global test loss: 0.714, Global test accuracy: 76.20
+Round  71, Train loss: 0.195, Test loss: 1.137, Test accuracy: 73.02
+Round  71, Global train loss: 0.195, Global test loss: 0.729, Global test accuracy: 77.20
+Round  72, Train loss: 0.150, Test loss: 1.139, Test accuracy: 73.44
+Round  72, Global train loss: 0.150, Global test loss: 0.758, Global test accuracy: 75.60
+Round  73, Train loss: 0.127, Test loss: 1.198, Test accuracy: 72.60
+Round  73, Global train loss: 0.127, Global test loss: 0.888, Global test accuracy: 74.40
+Round  74, Train loss: 0.131, Test loss: 1.199, Test accuracy: 73.20
+Round  74, Global train loss: 0.131, Global test loss: 0.745, Global test accuracy: 75.40
+Round  75, Train loss: 0.146, Test loss: 1.193, Test accuracy: 73.70
+Round  75, Global train loss: 0.146, Global test loss: 0.740, Global test accuracy: 77.80
+Round  76, Train loss: 0.104, Test loss: 1.224, Test accuracy: 73.26
+Round  76, Global train loss: 0.104, Global test loss: 0.862, Global test accuracy: 76.00
+Round  77, Train loss: 0.098, Test loss: 1.267, Test accuracy: 73.30
+Round  77, Global train loss: 0.098, Global test loss: 0.810, Global test accuracy: 76.20
+Round  78, Train loss: 0.203, Test loss: 1.287, Test accuracy: 73.36
+Round  78, Global train loss: 0.203, Global test loss: 0.726, Global test accuracy: 76.60
+Round  79, Train loss: 0.189, Test loss: 1.263, Test accuracy: 73.94
+Round  79, Global train loss: 0.189, Global test loss: 0.704, Global test accuracy: 76.80
+Round  80, Train loss: 0.139, Test loss: 1.291, Test accuracy: 73.66
+Round  80, Global train loss: 0.139, Global test loss: 0.693, Global test accuracy: 75.60
+Round  81, Train loss: 0.114, Test loss: 1.251, Test accuracy: 74.02
+Round  81, Global train loss: 0.114, Global test loss: 0.686, Global test accuracy: 77.20
+Round  82, Train loss: 0.136, Test loss: 1.281, Test accuracy: 73.88
+Round  82, Global train loss: 0.136, Global test loss: 0.743, Global test accuracy: 76.60
+Round  83, Train loss: 0.103, Test loss: 1.274, Test accuracy: 73.78
+Round  83, Global train loss: 0.103, Global test loss: 0.951, Global test accuracy: 74.20
+Round  84, Train loss: 0.120, Test loss: 1.271, Test accuracy: 73.68
+Round  84, Global train loss: 0.120, Global test loss: 0.741, Global test accuracy: 74.60
+Round  85, Train loss: 0.155, Test loss: 1.291, Test accuracy: 73.72
+Round  85, Global train loss: 0.155, Global test loss: 0.807, Global test accuracy: 77.80
+Round  86, Train loss: 0.106, Test loss: 1.274, Test accuracy: 74.22
+Round  86, Global train loss: 0.106, Global test loss: 0.716, Global test accuracy: 77.20
+Round  87, Train loss: 0.099, Test loss: 1.274, Test accuracy: 74.28
+Round  87, Global train loss: 0.099, Global test loss: 0.773, Global test accuracy: 78.40
+Round  88, Train loss: 0.144, Test loss: 1.264, Test accuracy: 74.24
+Round  88, Global train loss: 0.144, Global test loss: 0.734, Global test accuracy: 76.60
+Round  89, Train loss: 0.078, Test loss: 1.284, Test accuracy: 74.14
+Round  89, Global train loss: 0.078, Global test loss: 0.724, Global test accuracy: 76.20
+Round  90, Train loss: 0.126, Test loss: 1.290, Test accuracy: 73.58
+Round  90, Global train loss: 0.126, Global test loss: 0.701, Global test accuracy: 77.40
+Round  91, Train loss: 0.099, Test loss: 1.345, Test accuracy: 73.38
+Round  91, Global train loss: 0.099, Global test loss: 0.757, Global test accuracy: 74.80
+Round  92, Train loss: 0.083, Test loss: 1.344, Test accuracy: 73.90
+Round  92, Global train loss: 0.083, Global test loss: 0.750, Global test accuracy: 75.20
+Round  93, Train loss: 0.130, Test loss: 1.385, Test accuracy: 73.62
+Round  93, Global train loss: 0.130, Global test loss: 0.826, Global test accuracy: 75.40
+Round  94, Train loss: 0.103, Test loss: 1.345, Test accuracy: 73.68
+Round  94, Global train loss: 0.103, Global test loss: 0.697, Global test accuracy: 76.80
+Round  95, Train loss: 0.069, Test loss: 1.417, Test accuracy: 73.68
+Round  95, Global train loss: 0.069, Global test loss: 0.800, Global test accuracy: 76.40
+Round  96, Train loss: 0.101, Test loss: 1.391, Test accuracy: 73.58
+Round  96, Global train loss: 0.101, Global test loss: 0.711, Global test accuracy: 76.40
+Round  97, Train loss: 0.069, Test loss: 1.417, Test accuracy: 73.40
+Round  97, Global train loss: 0.069, Global test loss: 0.923, Global test accuracy: 75.00
+Round  98, Train loss: 0.125, Test loss: 1.411, Test accuracy: 74.20
+Round  98, Global train loss: 0.125, Global test loss: 0.826, Global test accuracy: 78.60
+Round  99, Train loss: 0.085, Test loss: 1.431, Test accuracy: 74.60
+Round  99, Global train loss: 0.085, Global test loss: 0.724, Global test accuracy: 75.20
+Final Round, Train loss: 0.105, Test loss: 1.332, Test accuracy: 74.26
+Final Round, Global train loss: 0.105, Global test loss: 0.724, Global test accuracy: 75.20
+Average accuracy final 10 rounds: 73.762 
+
+Average global accuracy final 10 rounds: 76.11999999999999 
+
+687.8542375564575
+[1.3936808109283447, 2.7873616218566895, 3.9402692317962646, 5.09317684173584, 6.24233865737915, 7.391500473022461, 8.538771629333496, 9.686042785644531, 10.757935523986816, 11.829828262329102, 12.902697086334229, 13.975565910339355, 15.047959804534912, 16.12035369873047, 17.193871021270752, 18.267388343811035, 19.33782720565796, 20.408266067504883, 21.479398727416992, 22.5505313873291, 23.623454093933105, 24.69637680053711, 25.766941785812378, 26.837506771087646, 27.91008710861206, 28.982667446136475, 30.054829835891724, 31.126992225646973, 32.19840955734253, 33.269826889038086, 34.412442207336426, 35.555057525634766, 36.70265221595764, 37.85024690628052, 38.99634027481079, 40.142433643341064, 41.28457975387573, 42.4267258644104, 43.57117676734924, 44.715627670288086, 45.86522197723389, 47.01481628417969, 48.16056537628174, 49.30631446838379, 50.4574191570282, 51.60852384567261, 52.75771880149841, 53.90691375732422, 55.05317497253418, 56.19943618774414, 57.34728384017944, 58.495131492614746, 59.640629053115845, 60.78612661361694, 61.93295478820801, 63.07978296279907, 64.23237133026123, 65.38495969772339, 66.5298523902893, 67.67474508285522, 68.81315064430237, 69.95155620574951, 71.09869575500488, 72.24583530426025, 73.39243960380554, 74.53904390335083, 75.68805241584778, 76.83706092834473, 77.98631119728088, 79.13556146621704, 80.29219269752502, 81.44882392883301, 82.5960807800293, 83.74333763122559, 84.89034056663513, 86.03734350204468, 87.18695592880249, 88.3365683555603, 89.48669028282166, 90.63681221008301, 91.78109550476074, 92.92537879943848, 94.0709023475647, 95.21642589569092, 96.36062550544739, 97.50482511520386, 98.65185236930847, 99.79887962341309, 100.94584941864014, 102.09281921386719, 103.23596930503845, 104.37911939620972, 105.52136421203613, 106.66360902786255, 107.81391429901123, 108.96421957015991, 110.11150288581848, 111.25878620147705, 112.40718626976013, 113.55558633804321, 114.71026253700256, 115.86493873596191, 117.01658368110657, 118.16822862625122, 119.3108172416687, 120.45340585708618, 121.5953722000122, 122.73733854293823, 123.71391654014587, 124.69049453735352, 125.6652102470398, 126.63992595672607, 127.61437964439392, 128.58883333206177, 129.56369304656982, 130.53855276107788, 131.51267433166504, 132.4867959022522, 133.45904564857483, 134.43129539489746, 135.40713095664978, 136.3829665184021, 137.35771346092224, 138.33246040344238, 139.30465579032898, 140.27685117721558, 141.2520411014557, 142.2272310256958, 143.20352983474731, 144.17982864379883, 145.1582703590393, 146.13671207427979, 147.11239957809448, 148.08808708190918, 149.0619249343872, 150.03576278686523, 151.01105618476868, 151.98634958267212, 152.9615170955658, 153.93668460845947, 154.91557383537292, 155.89446306228638, 156.87107229232788, 157.84768152236938, 158.82711386680603, 159.80654621124268, 160.78392219543457, 161.76129817962646, 162.73957991600037, 163.71786165237427, 164.69863772392273, 165.6794137954712, 166.65470814704895, 167.6300024986267, 168.6091911792755, 169.58837985992432, 170.5647051334381, 171.5410304069519, 172.51381134986877, 173.48659229278564, 174.46368288993835, 175.44077348709106, 176.41463708877563, 177.3885006904602, 178.36264657974243, 179.33679246902466, 180.31241035461426, 181.28802824020386, 182.26064085960388, 183.2332534790039, 184.20747780799866, 185.1817021369934, 186.35300540924072, 187.52430868148804, 188.65393447875977, 189.7835602760315, 190.92411494255066, 192.06466960906982, 193.2076280117035, 194.35058641433716, 195.49013137817383, 196.6296763420105, 197.77819395065308, 198.92671155929565, 200.0681927204132, 201.20967388153076, 202.34694695472717, 203.48422002792358, 204.62750625610352, 205.77079248428345, 206.90607690811157, 208.0413613319397, 209.17072439193726, 210.30008745193481, 211.4347825050354, 212.569477558136, 213.70922589302063, 214.84897422790527, 215.98645305633545, 217.12393188476562, 219.39303874969482, 221.66214561462402]
+[55.26, 55.26, 58.88, 58.88, 62.0, 62.0, 63.52, 63.52, 65.18, 65.18, 64.74, 64.74, 65.54, 65.54, 66.28, 66.28, 66.52, 66.52, 66.46, 66.46, 68.62, 68.62, 68.76, 68.76, 68.88, 68.88, 68.96, 68.96, 69.1, 69.1, 69.28, 69.28, 69.44, 69.44, 70.42, 70.42, 69.66, 69.66, 70.64, 70.64, 71.22, 71.22, 71.06, 71.06, 71.26, 71.26, 70.94, 70.94, 71.7, 71.7, 71.72, 71.72, 71.66, 71.66, 71.5, 71.5, 71.44, 71.44, 71.4, 71.4, 71.18, 71.18, 71.88, 71.88, 72.16, 72.16, 71.86, 71.86, 70.64, 70.64, 71.74, 71.74, 72.2, 72.2, 72.7, 72.7, 73.42, 73.42, 73.62, 73.62, 72.5, 72.5, 72.0, 72.0, 72.68, 72.68, 72.06, 72.06, 72.24, 72.24, 72.68, 72.68, 72.4, 72.4, 73.14, 73.14, 72.54, 72.54, 73.34, 73.34, 73.52, 73.52, 73.36, 73.36, 73.44, 73.44, 73.3, 73.3, 72.92, 72.92, 72.62, 72.62, 72.78, 72.78, 72.74, 72.74, 73.44, 73.44, 72.94, 72.94, 73.28, 73.28, 73.26, 73.26, 73.78, 73.78, 73.74, 73.74, 73.98, 73.98, 74.36, 74.36, 74.04, 74.04, 73.6, 73.6, 73.2, 73.2, 73.24, 73.24, 72.44, 72.44, 73.02, 73.02, 73.44, 73.44, 72.6, 72.6, 73.2, 73.2, 73.7, 73.7, 73.26, 73.26, 73.3, 73.3, 73.36, 73.36, 73.94, 73.94, 73.66, 73.66, 74.02, 74.02, 73.88, 73.88, 73.78, 73.78, 73.68, 73.68, 73.72, 73.72, 74.22, 74.22, 74.28, 74.28, 74.24, 74.24, 74.14, 74.14, 73.58, 73.58, 73.38, 73.38, 73.9, 73.9, 73.62, 73.62, 73.68, 73.68, 73.68, 73.68, 73.58, 73.58, 73.4, 73.4, 74.2, 74.2, 74.6, 74.6, 74.26, 74.26]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.0 , level_n_lowerb:0.4  
+
+Files already downloaded and verified
+Files already downloaded and verified
+fedavg
+CNNCifar100(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (drop): Dropout(p=0.6, inplace=False)
+  (conv2): Conv2d(64, 128, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=3200, out_features=256, bias=True)
+  (fc2): Linear(in_features=256, out_features=128, bias=True)
+  (fc3): Linear(in_features=128, out_features=5, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+[]
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 244, in <module>
+    w_local, loss, indd = local.train(net=net_local.to(args.device), idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, last=last, concept_matrix_local=concept_matrix[idx])
+  File "/home/ChenSM/code/FL_HLS/models/Update.py", line 656, in train
+    for batch_idx, (images, labels) in enumerate(self.ldr_train):
+  File "/home/ChenSM/anaconda3/envs/python38/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 631, in __next__
+    data = self._next_data()
+  File "/home/ChenSM/anaconda3/envs/python38/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 675, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/ChenSM/anaconda3/envs/python38/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/ChenSM/anaconda3/envs/python38/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/ChenSM/code/FL_HLS/models/Update.py", line 35, in __getitem__
+    image, label = self.dataset[self.idxs[item]]
+  File "/home/ChenSM/anaconda3/envs/python38/lib/python3.8/site-packages/torchvision/datasets/cifar.py", line 111, in __getitem__
+    img, target = self.data[index], self.targets[index]
+IndexError: index 56533 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  prox  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: prox , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.0 , level_n_lowerb:0.4  
+
+Files already downloaded and verified
+Files already downloaded and verified
+prox
+CNNCifar100(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (drop): Dropout(p=0.6, inplace=False)
+  (conv2): Conv2d(64, 128, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=3200, out_features=256, bias=True)
+  (fc2): Linear(in_features=256, out_features=128, bias=True)
+  (fc3): Linear(in_features=128, out_features=5, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+[]
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+learning rate, batch size: 0.01, 10 
+
+Traceback (most recent call last):
+  File "main_fedrep.py", line 244, in <module>
+    w_local, loss, indd = local.train(net=net_local.to(args.device), idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, last=last, concept_matrix_local=concept_matrix[idx])
+  File "/home/ChenSM/code/FL_HLS/models/Update.py", line 656, in train
+    for batch_idx, (images, labels) in enumerate(self.ldr_train):
+  File "/home/ChenSM/anaconda3/envs/python38/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 631, in __next__
+    data = self._next_data()
+  File "/home/ChenSM/anaconda3/envs/python38/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 675, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/ChenSM/anaconda3/envs/python38/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/ChenSM/anaconda3/envs/python38/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/ChenSM/code/FL_HLS/models/Update.py", line 35, in __getitem__
+    image, label = self.dataset[self.idxs[item]]
+  File "/home/ChenSM/anaconda3/envs/python38/lib/python3.8/site-packages/torchvision/datasets/cifar.py", line 111, in __getitem__
+    img, target = self.data[index], self.targets[index]
+IndexError: index 54650 is out of bounds for axis 0 with size 50000
+../aten/src/ATen/native/cuda/Loss.cu:250: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [0,0,0] Assertion `t >= 0 && t < n_classes` failed.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC_co_teaching%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.0 , level_n_lowerb:0.4  
+
+Files already downloaded and verified
+Files already downloaded and verified
+fedavg
+CNNCifar100(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (drop): Dropout(p=0.6, inplace=False)
+  (conv2): Conv2d(64, 128, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=3200, out_features=256, bias=True)
+  (fc2): Linear(in_features=256, out_features=128, bias=True)
+  (fc3): Linear(in_features=128, out_features=5, bias=True)
+)
+CNNCifar100(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (drop): Dropout(p=0.6, inplace=False)
+  (conv2): Conv2d(64, 128, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=3200, out_features=256, bias=True)
+  (fc2): Linear(in_features=256, out_features=128, bias=True)
+  (fc3): Linear(in_features=128, out_features=5, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+[]
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+learning rate, batch size: 0.01, 10
+CNNCifar100(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (drop): Dropout(p=0.6, inplace=False)
+  (conv2): Conv2d(64, 128, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=3200, out_features=256, bias=True)
+  (fc2): Linear(in_features=256, out_features=128, bias=True)
+  (fc3): Linear(in_features=128, out_features=5, bias=True)
+)
+Traceback (most recent call last):
+  File "main_fedpac_co_teaching.py", line 250, in <module>
+    local.filter_data(net=net_local.to(args.device), net2=net_local2.to(args.device), concept_matrix_local = concept_matrix[idx])
+  File "/home/ChenSM/code/FL_HLS/models/Update.py", line 1600, in filter_data
+    distance_net2[data_idx] = loss2.item()
+RuntimeError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100  
+
+Files already downloaded and verified
+Files already downloaded and verified
+CNNCifar100(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (drop): Dropout(p=0.6, inplace=False)
+  (conv2): Conv2d(64, 128, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=3200, out_features=256, bias=True)
+  (fc2): Linear(in_features=256, out_features=128, bias=True)
+  (fc3): Linear(in_features=128, out_features=5, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+['fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'conv2.weight', 'conv2.bias', 'conv1.weight', 'conv1.bias']
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+# Params: 1062789 (local), 1062144 (global); Percentage 99.94 (1062144/1062789)
+learning rate, batch size: 0.01, 10
+CNNCifar100(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (drop): Dropout(p=0.6, inplace=False)
+  (conv2): Conv2d(64, 128, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=3200, out_features=256, bias=True)
+  (fc2): Linear(in_features=256, out_features=128, bias=True)
+  (fc3): Linear(in_features=128, out_features=5, bias=True)
+)
+Traceback (most recent call last):
+  File "main_fedpac.py", line 235, in <module>
+    w_local, loss, indd, class_center_local, class_num = local.train(net=net_local.to(args.device), class_center_glob=class_center_glob, idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, last=last, concept_matrix_local=concept_matrix[idx])
+  File "/home/ChenSM/code/FL_HLS/models/Update.py", line 1451, in train
+    for batch_idx, (images, labels) in enumerate(self.ldr_train):
+  File "/home/ChenSM/anaconda3/envs/python38/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 631, in __next__
+    data = self._next_data()
+  File "/home/ChenSM/anaconda3/envs/python38/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 675, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/ChenSM/anaconda3/envs/python38/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/ChenSM/anaconda3/envs/python38/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/ChenSM/code/FL_HLS/models/Update.py", line 35, in __getitem__
+    image, label = self.dataset[self.idxs[item]]
+  File "/home/ChenSM/anaconda3/envs/python38/lib/python3.8/site-packages/torchvision/datasets/cifar.py", line 111, in __getitem__
+    img, target = self.data[index], self.targets[index]
+IndexError: index 57946 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Fedpac_copsl%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100,  filter_alg: loss_psl, level_n_system: 0.0 , level_n_lowerb:0.4  
+
+Files already downloaded and verified
+Files already downloaded and verified
+CNNCifar100(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (drop): Dropout(p=0.6, inplace=False)
+  (conv2): Conv2d(64, 128, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=3200, out_features=256, bias=True)
+  (fc2): Linear(in_features=256, out_features=128, bias=True)
+  (fc3): Linear(in_features=128, out_features=5, bias=True)
+)
+odict_keys(['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias'])
+10
+['fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'conv2.weight', 'conv2.bias', 'conv1.weight', 'conv1.bias']
+['conv1.weight', 'conv1.bias', 'conv2.weight', 'conv2.bias', 'fc1.weight', 'fc1.bias', 'fc2.weight', 'fc2.bias', 'fc3.weight', 'fc3.bias']
+# Params: 1062789 (local), 1062144 (global); Percentage 99.94 (1062144/1062789)
+learning rate, batch size: 0.01, 10
+CNNCifar100(
+  (conv1): Conv2d(3, 64, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (drop): Dropout(p=0.6, inplace=False)
+  (conv2): Conv2d(64, 128, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=3200, out_features=256, bias=True)
+  (fc2): Linear(in_features=256, out_features=128, bias=True)
+  (fc3): Linear(in_features=128, out_features=5, bias=True)
+)
+Traceback (most recent call last):
+  File "main_fedpac_copsl.py", line 283, in <module>
+    w_local, loss, indd, class_center_local, class_num, noisy_num = local.train_normal(net=net_local.to(args.device), class_center_glob=class_center_glob, idx=idx, w_glob_keys=w_glob_keys, lr=args.lr, last=last, concept_matrix_local=concept_matrix[idx])
+  File "/home/ChenSM/code/FL_HLS/models/Update.py", line 2731, in train_normal
+    noisy_num_global = self.get_noisy_num(net, concept_matrix_local)
+  File "/home/ChenSM/code/FL_HLS/models/Update.py", line 2440, in get_noisy_num
+    for batch_idx, (images, labels) in enumerate(self.ldr_train):
+  File "/home/ChenSM/anaconda3/envs/python38/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 631, in __next__
+    data = self._next_data()
+  File "/home/ChenSM/anaconda3/envs/python38/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 675, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/ChenSM/anaconda3/envs/python38/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/ChenSM/anaconda3/envs/python38/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/ChenSM/code/FL_HLS/models/Update.py", line 35, in __getitem__
+    image, label = self.dataset[self.idxs[item]]
+  File "/home/ChenSM/anaconda3/envs/python38/lib/python3.8/site-packages/torchvision/datasets/cifar.py", line 111, in __getitem__
+    img, target = self.data[index], self.targets[index]
+IndexError: index 50031 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:1   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 1, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.2 , level_n_lowerb:0.4  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedrep.py", line 94, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 52835 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.2 , level_n_lowerb:0.4  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedrep.py", line 94, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 55222 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  prox  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: prox , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.2 , level_n_lowerb:0.4  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedrep.py", line 94, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 58038 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC_co_teaching%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.2 , level_n_lowerb:0.4  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedpac_co_teaching.py", line 91, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 54921 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedpac.py", line 93, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 54074 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Fedpac_copsl%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100,  filter_alg: loss_psl, level_n_system: 0.2 , level_n_lowerb:0.4  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedpac_copsl.py", line 98, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 54697 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:1   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 1, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.2 , level_n_lowerb:0.8  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedrep.py", line 94, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 59696 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.2 , level_n_lowerb:0.8  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedrep.py", line 94, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 57843 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  prox  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: prox , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.2 , level_n_lowerb:0.8  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedrep.py", line 94, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 54672 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC_co_teaching%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.2 , level_n_lowerb:0.8  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedpac_co_teaching.py", line 91, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 54588 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedpac.py", line 93, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 52934 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Fedpac_copsl%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100,  filter_alg: loss_psl, level_n_system: 0.2 , level_n_lowerb:0.8  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedpac_copsl.py", line 98, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 53738 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:1   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 1, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.4 , level_n_lowerb:0.4  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedrep.py", line 94, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 54294 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.4 , level_n_lowerb:0.4  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedrep.py", line 94, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 54722 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  prox  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: prox , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.4 , level_n_lowerb:0.4  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedrep.py", line 94, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 57845 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC_co_teaching%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.4 , level_n_lowerb:0.4  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedpac_co_teaching.py", line 91, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 57861 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedpac.py", line 93, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 54343 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Fedpac_copsl%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100,  filter_alg: loss_psl, level_n_system: 0.4 , level_n_lowerb:0.4  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedpac_copsl.py", line 98, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 54041 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:1   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 1, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.4 , level_n_lowerb:0.8  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedrep.py", line 94, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 59203 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.4 , level_n_lowerb:0.8  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedrep.py", line 94, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 54358 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  prox  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: prox , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.4 , level_n_lowerb:0.8  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedrep.py", line 94, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 57946 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC_co_teaching%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.4 , level_n_lowerb:0.8  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedpac_co_teaching.py", line 91, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 58884 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedpac.py", line 93, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 55502 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Fedpac_copsl%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100,  filter_alg: loss_psl, level_n_system: 0.4 , level_n_lowerb:0.8  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedpac_copsl.py", line 98, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 56662 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:1   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 1, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.6 , level_n_lowerb:0.4  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedrep.py", line 94, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 54126 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.6 , level_n_lowerb:0.4  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedrep.py", line 94, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 54447 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  prox  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: prox , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.6 , level_n_lowerb:0.4  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedrep.py", line 94, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 53350 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC_co_teaching%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.6 , level_n_lowerb:0.4  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedpac_co_teaching.py", line 91, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 53339 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedpac.py", line 93, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 54748 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Fedpac_copsl%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100,  filter_alg: loss_psl, level_n_system: 0.6 , level_n_lowerb:0.4  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedpac_copsl.py", line 98, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 58012 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:1   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 1, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.6 , level_n_lowerb:0.8  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedrep.py", line 94, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 54460 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.6 , level_n_lowerb:0.8  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedrep.py", line 94, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 54524 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  prox  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: prox , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.6 , level_n_lowerb:0.8  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedrep.py", line 94, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 55825 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC_co_teaching%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.6 , level_n_lowerb:0.8  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedpac_co_teaching.py", line 91, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 54836 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedpac.py", line 93, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 55371 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Fedpac_copsl%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100,  filter_alg: loss_psl, level_n_system: 0.6 , level_n_lowerb:0.8  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedpac_copsl.py", line 98, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 55892 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:1   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 1, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.8 , level_n_lowerb:0.4  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedrep.py", line 94, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 55421 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.8 , level_n_lowerb:0.4  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedrep.py", line 94, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 58218 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  prox  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: prox , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.8 , level_n_lowerb:0.4  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedrep.py", line 94, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 58390 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC_co_teaching%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.8 , level_n_lowerb:0.4  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedpac_co_teaching.py", line 91, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 52723 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedpac.py", line 93, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 55262 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Fedpac_copsl%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100,  filter_alg: loss_psl, level_n_system: 0.8 , level_n_lowerb:0.4  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedpac_copsl.py", line 98, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 54968 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:1   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 1, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.8 , level_n_lowerb:0.8  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedrep.py", line 94, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 50203 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  fedavg  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.8 , level_n_lowerb:0.8  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedrep.py", line 94, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 50188 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  prox  local_only:0   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: prox , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.8 , level_n_lowerb:0.8  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedrep.py", line 94, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(args)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 54901 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC_co_teaching%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedavg , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100, level_n_system: 0.8 , level_n_lowerb:0.8  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedpac_co_teaching.py", line 91, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 54534 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FedPAC%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedpac.py", line 93, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 58545 is out of bounds for axis 0 with size 50000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Fedpac_copsl%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+# alg: fedrep , epochs: 100, shard_per_user: 5, limit_local_output: 0, local_rep_ep: 3 , local_only: 0, is_concept_shift: 0, dataset: cifar100,  filter_alg: loss_psl, level_n_system: 0.8 , level_n_lowerb:0.8  
+
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "main_fedpac_copsl.py", line 98, in <module>
+    dataset_train, dataset_test, dict_users_train, dict_users_test, concept_matrix, rand_set_all = get_data_from_file(
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 232, in get_data_from_file
+    y_train_noisy, gamma_s, real_noise_level = add_noise(args, y_train, dict_users_train, rand_set_all)
+  File "/home/ChenSM/code/FL_HLS/utils/train_utils.py", line 301, in add_noise
+    y_train_noisy[rand_sample_idx] = nosiy_sample_labels
+IndexError: index 54767 is out of bounds for axis 0 with size 50000
