@@ -1,0 +1,2 @@
+nohup: ignoring input
+./start_train_mnist_noisy: line 4: ((: c = 1 --noisy_type Pair: syntax error in expression (error token is "--noisy_type Pair")
